@@ -120,9 +120,16 @@
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>385, 17</value>
-  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="IblTitle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAMVJREFUOE/F
+        kbsNwkAQRKcQyECUAG0g+gB5+fSEhURCBWCvLQpwCgUA4hM6AN3Hye6B7YiRXrI7c3u3B4RExy4o24D4
+        6dlilgykLSwb5iuI34Kb7dXKTZbhiljatdyVZbDiIe1avw+4S7uWWZgOOua8lnYts227MBW+YJV3pD0s
+        9xOxfbPBTG4c/q+WeR+UThHxDsQFiF+ewtVsrydjACUjUHpQi/vOHots6MPpBMRlwFRHiYjH5t/PgWZT
+        TuYAWWyHKrTkA1neNiMFxZTSAAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="colDeptCode.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -158,5 +165,8 @@
   </metadata>
   <metadata name="colMemo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>385, 17</value>
   </metadata>
 </root>

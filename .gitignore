@@ -1,1 +1,37 @@
+# Claude
 .claude/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.pubxml.user
+
+# Build
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# Packages
+packages/
+node_modules/
+
+# Test / Log
+TestResults/
+*.log
+
+# Secrets (중요)
+.env
+.env.*
+secrets.json
+appsettings.Development.json
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
