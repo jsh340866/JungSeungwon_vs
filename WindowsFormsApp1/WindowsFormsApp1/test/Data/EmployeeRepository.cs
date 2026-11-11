@@ -22,7 +22,7 @@ class EmployeeRepository
             using (var cmd = new SqlCommand(@"
                 SELECT e.EmpId, e.DeptId, d.DeptCode, d.DeptName, e.EmpCode, e.EmpName, e.Gender,
                        e.LoginId, e.Password, e.Position, e.EmpType, e.Phone, e.Email, e.MessengerId, e.Memo
-                FROM dbo.Employee e
+                FROM dbo.Employee er
                 JOIN dbo.Department d ON d.DeptId = e.DeptId
                 WHERE (@DeptId IS NULL OR e.DeptId = @DeptId)
                 ORDER BY d.DeptCode, e.EmpCode", conn))

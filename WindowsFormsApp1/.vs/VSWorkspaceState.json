@@ -2,9 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\WindowsFormsApp1",
+    "\\WindowsFormsApp1\\obj",
     "\\WindowsFormsApp1\\test",
-    "\\WindowsFormsApp1\\test\\Data"
+    "\\WindowsFormsApp1\\test\\Data",
+    "\\WindowsFormsApp1\\test\\Dialogs",
+    "\\WindowsFormsApp1\\test\\Forms"
   ],
-  "SelectedNode": "\\WindowsFormsApp1\\test\\Data\\EmployeeRepository.cs",
+  "SelectedNode": "\\WindowsFormsApp1\\test\\Forms\\DepartmentForm.cs",
   "PreviewInSolutionExplorer": false
 }
