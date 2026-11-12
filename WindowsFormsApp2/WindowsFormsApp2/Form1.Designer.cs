@@ -30,8 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnClose = new System.Windows.Forms.ToolStripButton();
             this.btnConvert = new System.Windows.Forms.ToolStripButton();
@@ -44,7 +45,6 @@
             this.IblTitle = new System.Windows.Forms.ToolStripLabel();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.DataGridView = new System.Windows.Forms.DataGridView();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.colDeptCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDeptName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEmpcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +57,7 @@
             this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMessesgerId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
@@ -78,10 +79,10 @@
             this.btnSearch,
             this.btnDept,
             this.IblTitle});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Location = new System.Drawing.Point(1, 1);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(10, 2, 8, 2);
-            this.toolStrip1.Size = new System.Drawing.Size(1090, 35);
+            this.toolStrip1.Size = new System.Drawing.Size(1104, 35);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
@@ -122,6 +123,7 @@
             this.btnLoginInfo.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnLoginInfo.Size = new System.Drawing.Size(101, 28);
             this.btnLoginInfo.Text = "로그인정보";
+            this.btnLoginInfo.Click += new System.EventHandler(this.btnLoginInfo_Click);
             // 
             // btnEdit
             // 
@@ -131,6 +133,7 @@
             this.btnEdit.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnEdit.Size = new System.Drawing.Size(65, 28);
             this.btnEdit.Text = "수정";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnAdd
             // 
@@ -175,10 +178,10 @@
             this.pnlGrid.BackColor = System.Drawing.Color.White;
             this.pnlGrid.Controls.Add(this.DataGridView);
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlGrid.Location = new System.Drawing.Point(0, 35);
+            this.pnlGrid.Location = new System.Drawing.Point(1, 36);
             this.pnlGrid.Name = "pnlGrid";
             this.pnlGrid.Padding = new System.Windows.Forms.Padding(0, 18, 0, 0);
-            this.pnlGrid.Size = new System.Drawing.Size(1090, 295);
+            this.pnlGrid.Size = new System.Drawing.Size(1104, 266);
             this.pnlGrid.TabIndex = 4;
             // 
             // DataGridView
@@ -187,14 +190,16 @@
             this.DataGridView.AllowUserToDeleteRows = false;
             this.DataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.DataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridView.ColumnHeadersHeight = 31;
             this.DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -210,14 +215,14 @@
             this.colEmail,
             this.colMessesgerId,
             this.colMemo});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridView.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataGridView.EnableHeadersVisualStyles = false;
             this.DataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
@@ -225,13 +230,22 @@
             this.DataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DataGridView.Name = "DataGridView";
             this.DataGridView.ReadOnly = true;
+            this.DataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DataGridView.RowHeadersWidth = 20;
             this.DataGridView.RowTemplate.Height = 24;
             this.DataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridView.Size = new System.Drawing.Size(1090, 277);
+            this.DataGridView.Size = new System.Drawing.Size(1104, 248);
             this.DataGridView.TabIndex = 4;
-            this.DataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_CellContentClick_1);
+            this.DataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridView_CellFormatting);
             // 
             // colDeptCode
             // 
@@ -322,15 +336,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1090, 330);
+            this.ClientSize = new System.Drawing.Size(1106, 303);
             this.Controls.Add(this.pnlGrid);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
+            this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "부서사원";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.pnlGrid.ResumeLayout(false);
@@ -353,8 +370,8 @@
         private System.Windows.Forms.ToolStripButton btnClose;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Panel pnlGrid;
-        private System.Windows.Forms.DataGridView DataGridView;
         private System.Windows.Forms.ToolStripLabel IblTitle;
+        internal System.Windows.Forms.DataGridView DataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDeptCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDeptName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEmpcode;

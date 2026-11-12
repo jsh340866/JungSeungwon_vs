@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing.Imaging;
@@ -73,6 +74,77 @@ namespace WindowsFormsApp2
             }
         }
 
+        public void UpdateLoginInfo(string LoginId, string Password, int EmpId)
+        {
+            using (var conn = new SqlConnection(Config.Connstr))
+            {
+                conn.Open();
+                string sql = "UPDATE dbo.Employee SET LoginId = @LoginId, Password = @Password WHERE EmpId = @EmpId";
+                using (var cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@EmpId", EmpId);
+                    cmd.Parameters.AddWithValue("@LoginId", LoginId);
+                    cmd.Parameters.AddWithValue("@Password", Password);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void UpdateEmployee (Employee emp)
+        {
+            using (var conn = new SqlConnection(Config.Connstr))
+            {
+                conn.Open();
+                string sql = @"UPDATE dbo.Employee SET 
+                                DeptId = (SELECT DeptId FROM dbo.Department WHERE DeptCode = @DeptCode),
+                                EmpCode =@EmpCode,
+                                EmpName = @EmpName, 
+                                Gender = @Gender, 
+                                Position = @Position, 
+                                EmpType = @EmpType, 
+                                Memo = @Memo, 
+                                Email = @Email, 
+                                MessengerId = @MessengerId, 
+                                Phone = @Phone
+                                WHERE EmpId = @EmpId";
+                using (var cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@DeptCode", emp.DeptCode);
+                    cmd.Parameters.AddWithValue("@EmpCode", emp.EmpCode);
+                    cmd.Parameters.AddWithValue("@EmpName", emp.EmpName);
+                    cmd.Parameters.AddWithValue("@Gender", emp.Gender ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Position", emp.Position ?? (object)DBNull.Value); 
+                    cmd.Parameters.AddWithValue("@EmpType", emp.EmpType ?? (object)DBNull.Value);   
+                    cmd.Parameters.AddWithValue("@Memo", emp.Memo ?? (object)DBNull.Value); 
+                    cmd.Parameters.AddWithValue("@Email", emp.Email ?? (object)DBNull.Value);   
+                    cmd.Parameters.AddWithValue("@MessengerId", emp.MessengerId ?? (object)DBNull.Value);   
+                    cmd.Parameters.AddWithValue("@Phone", emp.Phone ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@EmpId", emp.EmpId);
+                    cmd.ExecuteNonQuery();  
+                }
+            }
+        }
+
+        public Dictionary<string, string> DeptCodeName()
+        {
+            var dict = new Dictionary<string, string>();
+            using (var conn = new SqlConnection(Config.Connstr))
+            {
+                conn.Open();
+                string Sql = @"SELECT DeptCode, DeptName FROM dbo.Department";
+                using (var cmd = new SqlCommand(Sql, conn))
+                {
+                    using (var c = cmd.ExecuteReader())
+                    {
+                        while (c.Read())
+                        {
+                            dict.Add(c.GetString(0),c.GetString(1));
+                        }
+                    }
+                    return dict;
+                }
+            }
+        }
         // DB가 NULL이면 null, 아니면 문자열을 돌려줌 (NULL을 바로 읽으면 예외가 나기 때문)
         private static string GetStringOrNull(SqlDataReader r, int i)
         {

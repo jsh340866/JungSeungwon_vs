@@ -16,7 +16,6 @@ namespace WindowsFormsApp2
         public DeleteForm(string title, string msg)
         {
             InitializeComponent();
-            this.ClientSize = new Size(332, 163);
             label1.Text = title;
             label2.Text = msg;
 
@@ -28,11 +27,6 @@ namespace WindowsFormsApp2
         }
 
         private void EmployeeDeleteForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
@@ -49,6 +43,27 @@ namespace WindowsFormsApp2
 
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void DeleteForm_Paint(object sender, PaintEventArgs e)
+        {
+            // 폼 테두리
+            using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
+            {
+                e.Graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1); 
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            // 삭제 버튼 클릭 시, form1에서 처리하도록 DialogResult를 OK로 설정
+            this.DialogResult = DialogResult.OK;
 
         }
     }

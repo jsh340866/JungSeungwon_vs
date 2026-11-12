@@ -15,7 +15,6 @@ namespace WindowsFormsApp2
         public Form1()
         {
             InitializeComponent();
-            this.ClientSize = new Size(1106, 303);
 
             // 자동으로 열을 만들지 않고, 디자이너에서 만든 열 12개만 쓴다
             DataGridView.AutoGenerateColumns = false;
@@ -69,32 +68,6 @@ namespace WindowsFormsApp2
             }
         }
 
-
-        //private void btnDelete_Click(object sender, EventArgs e)
-        //{
-        //    if (DataGridView.SelectedRows.Count == 0)
-        //    {
-        //        MessageBox.Show("삭제할 사원을 선택하세요.");
-        //        return;
-        //    }
-        //    var row = DataGridView.SelectedRows[0];
-        //    int empId = (int)row.Cells[0].Value;
-        //    var result = MessageBox.Show("선택한 사원을 삭제하시겠습니까?", "삭제 확인", MessageBoxButtons.YesNo);
-        //    if (result == DialogResult.Yes)
-        //    {
-        //        try
-        //        {
-        //            new EmployeeRepository().Delete(empId);
-        //            MessageBox.Show("사원이 삭제되었습니다.");
-        //            btnSearch_Click(sender, e); // 삭제 후 목록 갱신
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show("삭제 중 오류가 발생했습니다.\n" + ex.Message);
-        //        }
-        //    }
-        //}
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (DataGridView.SelectedRows.Count == 0)
@@ -107,20 +80,115 @@ namespace WindowsFormsApp2
                          "삭제하시겠습니까?";
             DeleteForm deleteForm = new DeleteForm("사원 삭제", msg);
             deleteForm.ShowDialog();
+
+            if (deleteForm.DialogResult == DialogResult.OK)
+            {
+                var emp = DataGridView.SelectedRows[0].DataBoundItem as Employee;
+                int empId = emp.EmpId;
+                try
+                {
+                    new EmployeeRepository().Delete(empId);
+                    MessageBox.Show("삭제되었습니다.");
+                    DataGridView.DataSource = new EmployeeRepository().GetAll();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("삭제 중 오류가 발생했습니다.\n" + ex.Message);
+                }
+            }
+        }
+
+
+        private void btnLoginInfo_Click(object sender, EventArgs e)
+        {
+
+            if (DataGridView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("로그인 정보를 확인할 사원을 선택하세요.");
+                return;
+            }
+            else
+            {
+                var emp = DataGridView.SelectedRows[0].DataBoundItem as Employee;
+                string LoginId = emp.LoginId;
+                string Password = emp.Password;
+                LoginInfoForm logininfoForm = new LoginInfoForm(LoginId, Password, emp.EmpId);
+                logininfoForm.ShowDialog();
+
+                if (logininfoForm.DialogResult == DialogResult.OK)
+                {
+                    try
+                    {
+                        MessageBox.Show("로그인 정보가 저장되었습니다.");
+                        DataGridView.DataSource = new EmployeeRepository().GetAll();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("로그인 정보 저장 중 오류가 발생했습니다.\n" + ex.Message);
+                    }
+                }
+            }
+
         }
 
         private void DataGridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-    }
-    class MyPanel : Panel
-    {
-        protected override void OnPaint(PaintEventArgs e)
+
+
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            base.OnPaint(e);
-            // 패널의 배경색을 변경합니다.
-            this.BackColor = Color.LightBlue;
+            // 폼 테두리 
+            using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
+            {
+                e.Graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1);
+            }
+        }
+
+        private void DataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // 비밀번호 "*******" 처리
+            if (e.ColumnIndex == colPassword.Index && e.Value != null)
+            {
+                e.Value = new string('*', 8);
+                e.FormattingApplied = true;
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (DataGridView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("수정할 사원을 선택하세요.");
+                return;
+            }
+            Employee emp = DataGridView.SelectedRows[0].DataBoundItem as Employee;
+            EmployeeEditForm editForm = new EmployeeEditForm(emp);
+            editForm.ShowDialog();
+
+            if (editForm.DialogResult == DialogResult.OK)
+            {
+                try
+                {
+                    MessageBox.Show("사원 정보가 저장되었습니다.");
+                    DataGridView.DataSource = new EmployeeRepository().GetAll();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("사원 정보 저장 중 오류가 발생했습니다.\n" + ex.Message);
+                }
+            }
+        }
+        class MyPanel : Panel
+        {
+            protected override void OnPaint(PaintEventArgs e)
+            {
+                base.OnPaint(e);
+                // 패널의 배경색을 변경합니다.
+                this.BackColor = Color.LightBlue;
+            }
         }
     }
 }
