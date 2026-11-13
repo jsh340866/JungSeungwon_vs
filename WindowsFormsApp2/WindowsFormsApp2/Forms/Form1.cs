@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp2.Dtos;
+using WindowsFormsApp2.Repository;
 
-namespace WindowsFormsApp2
+namespace WindowsFormsApp2.Forms
 {
     public partial class Form1 : Form
     {
@@ -173,6 +175,12 @@ namespace WindowsFormsApp2
                     MessageBox.Show("사원 정보 추가 중 오류가 발생했습니다.\n" + ex.Message);
                 }
             }
+        }
+
+        private void btnDept_Click(object sender, EventArgs e)
+        {
+            DepartmentForm departmentForm = new DepartmentForm();
+            departmentForm.ShowDialog();
         }
     }
 }

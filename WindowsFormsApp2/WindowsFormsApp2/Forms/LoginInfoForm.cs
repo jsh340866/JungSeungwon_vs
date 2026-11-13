@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp2.Repository;
+using WindowsFormsApp2.Utils;
 
-namespace WindowsFormsApp2
+namespace WindowsFormsApp2.Forms
 {
     public partial class LoginInfoForm : Form
     {
@@ -46,6 +48,7 @@ namespace WindowsFormsApp2
             if (!Rule.isPasswordCheck(PasswordTextbox.Text)) 
             {
                 MessageBox.Show("비밀번호는 영문, 숫자 포함 8자 이상입니다.");
+                return;
             }
 
             try
@@ -53,9 +56,15 @@ namespace WindowsFormsApp2
                 new EmployeeRepository().UpdateLoginInfo(loginid, password, empId);
                 this.DialogResult = DialogResult.OK;
             }
+            catch(SqlException ex) when (ex.Number == 2627)
+            {
+                MessageBox.Show("이미 사용중인 로그인ID 입니다.");
+            }
+
             catch (Exception ex)
             {
                 MessageBox.Show("로그인 정보 업데이트 중 오류가 발생했습니다: " + ex.Message);
+               
             }
         }
     }

@@ -6,8 +6,10 @@ using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WindowsFormsApp2.Dtos;
+using WindowsFormsApp2.Utils;
 
-namespace WindowsFormsApp2
+namespace WindowsFormsApp2.Repository
 {
     // 사원 테이블에서 데이터를 읽어 오는 클래스
     internal class EmployeeRepository
@@ -57,6 +59,12 @@ namespace WindowsFormsApp2
             }
 
             return list;
+        }
+
+        // DB가 NULL이면 null, 아니면 문자열을 돌려줌 (NULL을 바로 읽으면 예외가 나기 때문)
+        private static string GetStringOrNull(SqlDataReader r, int i)
+        {
+            return r.IsDBNull(i) ? null : r.GetString(i);
         }
 
         // 사원 삭제 메서드
@@ -184,10 +192,6 @@ namespace WindowsFormsApp2
        
 
 
-        // DB가 NULL이면 null, 아니면 문자열을 돌려줌 (NULL을 바로 읽으면 예외가 나기 때문)
-        private static string GetStringOrNull(SqlDataReader r, int i)
-        {
-            return r.IsDBNull(i) ? null : r.GetString(i);
-        }
+        
     }
 }

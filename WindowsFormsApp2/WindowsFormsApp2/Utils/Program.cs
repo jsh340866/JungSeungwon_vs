@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp2.Forms;
 
-namespace WindowsFormsApp2
+namespace WindowsFormsApp2.Utils
 {
     internal static class Program
     {

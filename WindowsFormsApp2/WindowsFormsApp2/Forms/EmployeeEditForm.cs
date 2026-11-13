@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -9,8 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
+using WindowsFormsApp2.Dtos;
+using WindowsFormsApp2.Repository;
+using WindowsFormsApp2.Utils;
 
-namespace WindowsFormsApp2
+namespace WindowsFormsApp2.Forms
 {
     public partial class EmployeeEditForm : Form
     {

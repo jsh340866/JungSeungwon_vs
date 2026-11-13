@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp2
+﻿namespace WindowsFormsApp2.Forms
 {
     partial class DeleteForm
     {

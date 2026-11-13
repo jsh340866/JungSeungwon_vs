@@ -47,55 +47,84 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config.cs" />
-    <Compile Include="Employee.cs" />
-    <Compile Include="DeleteForm.cs">
+    <Compile Include="Dtos\Department.cs" />
+    <Compile Include="Forms\DeptAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DeleteForm.Designer.cs">
+    <Compile Include="Forms\DeptAddForm.Designer.cs">
+      <DependentUpon>DeptAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DeptEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DeptEditForm.Designer.cs">
+      <DependentUpon>DeptEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\DepartmentRepository.cs" />
+    <Compile Include="Utils\Config.cs" />
+    <Compile Include="Forms\DepartmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DepartmentForm.Designer.cs">
+      <DependentUpon>DepartmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dtos\Employee.cs" />
+    <Compile Include="Forms\DeleteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DeleteForm.Designer.cs">
       <DependentUpon>DeleteForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeAddForms.cs">
+    <Compile Include="Forms\EmployeeAddForms.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmployeeAddForms.Designer.cs">
+    <Compile Include="Forms\EmployeeAddForms.Designer.cs">
       <DependentUpon>EmployeeAddForms.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeEditForm.cs">
+    <Compile Include="Forms\EmployeeEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmployeeEditForm.Designer.cs">
+    <Compile Include="Forms\EmployeeEditForm.Designer.cs">
       <DependentUpon>EmployeeEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeRepository.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Repository\EmployeeRepository.cs" />
+    <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginInfoForm.cs">
+    <Compile Include="Forms\LoginInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginInfoForm.Designer.cs">
+    <Compile Include="Forms\LoginInfoForm.Designer.cs">
       <DependentUpon>LoginInfoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Utils\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rule.cs" />
-    <EmbeddedResource Include="DeleteForm.resx">
+    <Compile Include="Utils\Rule.cs" />
+    <EmbeddedResource Include="Forms\DeleteForm.resx">
       <DependentUpon>DeleteForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeAddForms.resx">
+    <EmbeddedResource Include="Forms\DepartmentForm.resx">
+      <DependentUpon>DepartmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DeptAddForm.resx">
+      <DependentUpon>DeptAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DeptEditForm.resx">
+      <DependentUpon>DeptEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EmployeeAddForms.resx">
       <DependentUpon>EmployeeAddForms.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeEditForm.resx">
+    <EmbeddedResource Include="Forms\EmployeeEditForm.resx">
       <DependentUpon>EmployeeEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginInfoForm.resx">
+    <EmbeddedResource Include="Forms\LoginInfoForm.resx">
       <DependentUpon>LoginInfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -130,5 +159,6 @@
   <ItemGroup>
     <None Include="Properties\Resources\drop_arrow.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

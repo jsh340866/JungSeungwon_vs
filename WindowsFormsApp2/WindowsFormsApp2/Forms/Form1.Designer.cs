@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp2
+﻿namespace WindowsFormsApp2.Forms
 {
     partial class Form1
     {
@@ -43,12 +43,13 @@
             this.btnSearch = new System.Windows.Forms.ToolStripButton();
             this.btnDept = new System.Windows.Forms.ToolStripButton();
             this.IblTitle = new System.Windows.Forms.ToolStripLabel();
-            this.pnlGrid = new System.Windows.Forms.Panel();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.DataGridView = new System.Windows.Forms.DataGridView();
             this.colDeptCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDeptName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEmpcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEmpName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLoginId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,11 +58,11 @@
             this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMessesgerId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.pnlGrid = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
-            this.pnlGrid.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
+            this.pnlGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -162,6 +163,7 @@
             this.btnDept.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnDept.Size = new System.Drawing.Size(65, 28);
             this.btnDept.Text = "부서";
+            this.btnDept.Click += new System.EventHandler(this.btnDept_Click);
             // 
             // IblTitle
             // 
@@ -172,17 +174,6 @@
             this.IblTitle.Name = "IblTitle";
             this.IblTitle.Size = new System.Drawing.Size(76, 28);
             this.IblTitle.Text = "부서사원";
-            // 
-            // pnlGrid
-            // 
-            this.pnlGrid.BackColor = System.Drawing.Color.White;
-            this.pnlGrid.Controls.Add(this.DataGridView);
-            this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlGrid.Location = new System.Drawing.Point(1, 36);
-            this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Padding = new System.Windows.Forms.Padding(0, 18, 0, 0);
-            this.pnlGrid.Size = new System.Drawing.Size(1104, 266);
-            this.pnlGrid.TabIndex = 4;
             // 
             // DataGridView
             // 
@@ -207,6 +198,7 @@
             this.colDeptName,
             this.colEmpcode,
             this.colEmpName,
+            this.colGender,
             this.colLoginId,
             this.colPassword,
             this.colPosition,
@@ -275,6 +267,13 @@
             this.colEmpName.Name = "colEmpName";
             this.colEmpName.ReadOnly = true;
             // 
+            // colGender
+            // 
+            this.colGender.DataPropertyName = "Gender";
+            this.colGender.HeaderText = "성별";
+            this.colGender.Name = "colGender";
+            this.colGender.ReadOnly = true;
+            // 
             // colLoginId
             // 
             this.colLoginId.DataPropertyName = "LoginId";
@@ -331,6 +330,17 @@
             this.colMemo.Name = "colMemo";
             this.colMemo.ReadOnly = true;
             // 
+            // pnlGrid
+            // 
+            this.pnlGrid.BackColor = System.Drawing.Color.White;
+            this.pnlGrid.Controls.Add(this.DataGridView);
+            this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlGrid.Location = new System.Drawing.Point(1, 36);
+            this.pnlGrid.Name = "pnlGrid";
+            this.pnlGrid.Padding = new System.Windows.Forms.Padding(0, 18, 0, 0);
+            this.pnlGrid.Size = new System.Drawing.Size(1104, 266);
+            this.pnlGrid.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -349,9 +359,9 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.pnlGrid.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
+            this.pnlGrid.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -368,13 +378,13 @@
         private System.Windows.Forms.ToolStripButton btnConvert;
         private System.Windows.Forms.ToolStripButton btnClose;
         private System.Windows.Forms.BindingSource bindingSource1;
-        private System.Windows.Forms.Panel pnlGrid;
         private System.Windows.Forms.ToolStripLabel IblTitle;
         internal System.Windows.Forms.DataGridView DataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDeptCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDeptName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEmpcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEmpName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGender;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLoginId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPassword;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPosition;
@@ -383,6 +393,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMessesgerId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMemo;
+        private System.Windows.Forms.Panel pnlGrid;
     }
 }
 

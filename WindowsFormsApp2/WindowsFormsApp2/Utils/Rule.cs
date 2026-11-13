@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp2
+namespace WindowsFormsApp2.Utils
 {
     internal class Rule
     {
@@ -19,7 +19,7 @@ namespace WindowsFormsApp2
                 return false;
             }
             //숫자1이상, 영문1이상, 특수문자1이상
-            Regex regexPass = new Regex(@"^(?=.*?[a-z])(?=.*?[0-9]).{8,}$", RegexOptions.IgnorePatternWhitespace);
+            Regex regexPass = new Regex(@"^(?=.*?[a-zA-Z])(?=.*?[0-9]).{8,}$", RegexOptions.IgnorePatternWhitespace);
             return regexPass.IsMatch(pass);
         }
 
