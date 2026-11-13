@@ -74,6 +74,7 @@ namespace WindowsFormsApp2
             }
         }
 
+        // 로그인정보 업데이트
         public void UpdateLoginInfo(string LoginId, string Password, int EmpId)
         {
             using (var conn = new SqlConnection(Config.Connstr))
@@ -90,6 +91,7 @@ namespace WindowsFormsApp2
             }
         }
 
+        // 사원 수정 업데이트
         public void UpdateEmployee (Employee emp)
         {
             using (var conn = new SqlConnection(Config.Connstr))
@@ -125,6 +127,39 @@ namespace WindowsFormsApp2
             }
         }
 
+        // 사원 추가 저장 메서드
+        public void EmployeeAddSave(Employee emp)
+        {
+            using (var conn = new SqlConnection(Config.Connstr))
+            {
+                conn.Open();
+                string sql = @"INSERT INTO dbo.Employee(DeptId, EmpCode, EmpName, LoginId, Password, Position, EmpType, Gender,
+                               Phone, Email, MessengerId, Memo) 
+                               VALUES ( (SELECT DeptId FROM dbo.Department WHERE DeptCode = @DeptCode), @EmpCode, @EmpName, @LoginId, 
+                               @Password, @Position, @EmpType, @Gender, @Phone, @Email, @MessengerId, @Memo)";
+
+                using (var cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@DeptCode", emp.DeptCode);
+                    cmd.Parameters.AddWithValue("@EmpCode", emp.EmpCode);
+                    cmd.Parameters.AddWithValue("@EmpName", emp.EmpName);
+                    cmd.Parameters.AddWithValue("@LoginId", emp.LoginId);
+                    cmd.Parameters.AddWithValue("@Password", emp.Password);
+                    cmd.Parameters.AddWithValue("@Gender", emp.Gender ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Position", emp.Position ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@EmpType", emp.EmpType ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Memo", emp.Memo ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Email", emp.Email ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@MessengerId", emp.MessengerId ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Phone", emp.Phone ?? (object)DBNull.Value);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+
+        // 사원 수정 부서코드, 부서명 연동 사전
         public Dictionary<string, string> DeptCodeName()
         {
             var dict = new Dictionary<string, string>();
@@ -145,6 +180,10 @@ namespace WindowsFormsApp2
                 }
             }
         }
+
+       
+
+
         // DB가 NULL이면 null, 아니면 문자열을 돌려줌 (NULL을 바로 읽으면 예외가 나기 때문)
         private static string GetStringOrNull(SqlDataReader r, int i)
         {

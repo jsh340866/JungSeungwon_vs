@@ -22,16 +22,6 @@ namespace WindowsFormsApp2
             this.EmpId = EmpId;
         }
 
-        private void LoginInfoForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -52,6 +42,11 @@ namespace WindowsFormsApp2
             string loginid = LoginTextbox.Text;
             string password = PasswordTextbox.Text;
             int empId = this.EmpId;
+
+            if (!Rule.isPasswordCheck(PasswordTextbox.Text)) 
+            {
+                MessageBox.Show("비밀번호는 영문, 숫자 포함 8자 이상입니다.");
+            }
 
             try
             {

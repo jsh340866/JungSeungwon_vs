@@ -36,6 +36,7 @@
             this.txtMemo = new System.Windows.Forms.TextBox();
             this.memo = new System.Windows.Forms.Label();
             this.pnlDeptCode = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.cboDeptCode = new System.Windows.Forms.ComboBox();
             this.deptCode = new System.Windows.Forms.Label();
             this.pnlDeptName = new System.Windows.Forms.Panel();
@@ -84,7 +85,6 @@
             this.gender = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.pnlMemo.SuspendLayout();
             this.bdrMemo.SuspendLayout();
@@ -138,7 +138,6 @@
             this.label1.Size = new System.Drawing.Size(64, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "사원 수정";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pnlMemo
             // 
@@ -203,6 +202,15 @@
             this.pnlDeptCode.Name = "pnlDeptCode";
             this.pnlDeptCode.Size = new System.Drawing.Size(154, 41);
             this.pnlDeptCode.TabIndex = 20;
+            // 
+            // panel4
+            // 
+            this.panel4.BackgroundImage = global::WindowsFormsApp2.Properties.Resources.drop_arrow;
+            this.panel4.Location = new System.Drawing.Point(136, 18);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(17, 21);
+            this.panel4.TabIndex = 32;
+            this.panel4.Click += new System.EventHandler(this.panel4_Click);
             // 
             // cboDeptCode
             // 
@@ -367,7 +375,6 @@
             this.txtEmpName.Name = "txtEmpName";
             this.txtEmpName.Size = new System.Drawing.Size(149, 18);
             this.txtEmpName.TabIndex = 19;
-            this.txtEmpName.TextChanged += new System.EventHandler(this.txtEmpName_TextChanged);
             // 
             // pnlPosition
             // 
@@ -519,6 +526,7 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(149, 18);
             this.txtPhone.TabIndex = 19;
+            this.txtPhone.Leave += new System.EventHandler(this.txtPhone_Leave);
             // 
             // phone
             // 
@@ -730,14 +738,6 @@
             this.panel3.Padding = new System.Windows.Forms.Padding(3, 3, 0, 0);
             this.panel3.Size = new System.Drawing.Size(152, 21);
             this.panel3.TabIndex = 32;
-            // 
-            // panel4
-            // 
-            this.panel4.BackgroundImage = global::WindowsFormsApp2.Properties.Resources.drop_arrow;
-            this.panel4.Location = new System.Drawing.Point(136, 18);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(17, 21);
-            this.panel4.TabIndex = 32;
             // 
             // EmployeeEditForm
             // 

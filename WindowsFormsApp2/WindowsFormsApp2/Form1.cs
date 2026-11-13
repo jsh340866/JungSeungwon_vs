@@ -21,36 +21,6 @@ namespace WindowsFormsApp2
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void DataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -131,11 +101,6 @@ namespace WindowsFormsApp2
 
         }
 
-        private void DataGridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
 
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -188,6 +153,25 @@ namespace WindowsFormsApp2
                 base.OnPaint(e);
                 // 패널의 배경색을 변경합니다.
                 this.BackColor = Color.LightBlue;
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            EmployeeAddForms addForm = new EmployeeAddForms();
+            addForm.ShowDialog();
+
+            if (addForm.DialogResult == DialogResult.OK)
+            {
+                try
+                {
+                    MessageBox.Show("사원 정보가 추가 되었습니다.");
+                    DataGridView.DataSource = new EmployeeRepository().GetAll();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("사원 정보 추가 중 오류가 발생했습니다.\n" + ex.Message);
+                }
             }
         }
     }

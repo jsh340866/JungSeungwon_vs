@@ -3,36 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\windowsformsapp2\\employeeeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\employeeeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\windowsformsapp2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\windowsformsapp2\\employeeeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\employeeeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|c:\\users\\user\\desktop\\\uC0C8 \uD3F4\uB354\\jungseungwon_vs\\windowsformsapp2\\windowsformsapp2\\logininfoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\logininfoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|c:\\users\\user\\desktop\\\uC0C8 \uD3F4\uB354\\jungseungwon_vs\\windowsformsapp2\\windowsformsapp2\\employeeaddforms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\employeeaddforms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|c:\\users\\user\\desktop\\\uC0C8 \uD3F4\uB354\\jungseungwon_vs\\windowsformsapp2\\windowsformsapp2\\rule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\rule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\windowsformsapp2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\windowsformsapp2\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\windowsformsapp2\\deleteform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\deleteform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\windowsformsapp2\\logininfoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\logininfoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\windowsformsapp2\\deleteform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\deleteform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\windowsformsapp2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8C0A8969-51A7-49E3-94B5-8B8643314F6D}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +38,35 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\Form1.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp2\\Form1.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\Form1.cs",
+              "RelativeToolTip": "WindowsFormsApp2\\Form1.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAowDEAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-11T01:22:57.937Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DeleteForm.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\DeleteForm.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp2\\DeleteForm.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\DeleteForm.cs",
+              "RelativeToolTip": "WindowsFormsApp2\\DeleteForm.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAA7wBcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-11T06:35:29.751Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Form1.cs [\uB514\uC790\uC778]",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\Form1.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp2\\Form1.cs",
@@ -55,81 +75,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-12T04:36:03.92Z",
               "EditorCaption": " [\uB514\uC790\uC778]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "EmployeeEditForm.cs [\uB514\uC790\uC778]",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\EmployeeEditForm.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp2\\EmployeeEditForm.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\EmployeeEditForm.cs [\uB514\uC790\uC778]",
-              "RelativeToolTip": "WindowsFormsApp2\\EmployeeEditForm.cs [\uB514\uC790\uC778]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T04:27:25.735Z",
-              "EditorCaption": " [\uB514\uC790\uC778]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "EmployeeEditForm.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\EmployeeEditForm.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp2\\EmployeeEditForm.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\EmployeeEditForm.cs",
-              "RelativeToolTip": "WindowsFormsApp2\\EmployeeEditForm.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAtwDIAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T04:27:29.449Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EmployeeRepository.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\EmployeeRepository.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp2\\EmployeeRepository.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\EmployeeRepository.cs",
-              "RelativeToolTip": "WindowsFormsApp2\\EmployeeRepository.cs",
-              "ViewState": "AgIAAF4AAAAAAAAAAAAowG8AAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T07:24:20.999Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DeleteForm.cs [\uB514\uC790\uC778]",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\DeleteForm.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp2\\DeleteForm.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\DeleteForm.cs [\uB514\uC790\uC778]",
-              "RelativeToolTip": "WindowsFormsApp2\\DeleteForm.cs [\uB514\uC790\uC778]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T04:29:47.298Z",
-              "EditorCaption": " [\uB514\uC790\uC778]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "LoginInfoForm.cs [\uB514\uC790\uC778]",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\LoginInfoForm.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp2\\LoginInfoForm.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\LoginInfoForm.cs [\uB514\uC790\uC778]",
-              "RelativeToolTip": "WindowsFormsApp2\\LoginInfoForm.cs [\uB514\uC790\uC778]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T04:28:10.902Z",
-              "EditorCaption": " [\uB514\uC790\uC778]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DeleteForm.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\DeleteForm.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp2\\DeleteForm.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\DeleteForm.cs",
-              "RelativeToolTip": "WindowsFormsApp2\\DeleteForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T06:35:29.751Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -145,15 +90,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\Form1.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp2\\Form1.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\Form1.cs",
-              "RelativeToolTip": "WindowsFormsApp2\\Form1.cs",
-              "ViewState": "AgIAAFwAAAAAAAAAAAAUwCYAAAA+AAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "LoginInfoForm.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\LoginInfoForm.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp2\\LoginInfoForm.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\LoginInfoForm.cs",
+              "RelativeToolTip": "WindowsFormsApp2\\LoginInfoForm.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAYwCYAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T01:22:57.937Z",
+              "WhenOpened": "2026-11-13T02:32:25.006Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Rule.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\Rule.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp2\\Rule.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\Rule.cs",
+              "RelativeToolTip": "WindowsFormsApp2\\Rule.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-13T01:39:03.566Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmployeeAddForms.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\EmployeeAddForms.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp2\\EmployeeAddForms.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\uC0C8 \uD3F4\uB354\\JungSeungwon_vs\\WindowsFormsApp2\\WindowsFormsApp2\\EmployeeAddForms.cs",
+              "RelativeToolTip": "WindowsFormsApp2\\EmployeeAddForms.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAwwH8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-13T00:07:31.638Z",
               "EditorCaption": ""
             }
           ]

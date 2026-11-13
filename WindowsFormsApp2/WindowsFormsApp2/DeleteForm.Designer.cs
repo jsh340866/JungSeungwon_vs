@@ -59,7 +59,6 @@
             this.label1.Size = new System.Drawing.Size(64, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "사원 삭제";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -71,7 +70,6 @@
             this.label2.Size = new System.Drawing.Size(43, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "label2";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel1
             // 
@@ -132,7 +130,6 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EmployeeDeleteForm";
-            this.Load += new System.EventHandler(this.EmployeeDeleteForm_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.DeleteForm_Paint);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

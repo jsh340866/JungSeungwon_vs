@@ -208,7 +208,6 @@
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "LoginInfoForm";
-            this.Load += new System.EventHandler(this.LoginInfoForm_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.LoginInfoForm_Paint);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

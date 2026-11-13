@@ -84,7 +84,6 @@
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(10, 2, 8, 2);
             this.toolStrip1.Size = new System.Drawing.Size(1104, 35);
             this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // btnClose
             // 
@@ -143,6 +142,7 @@
             this.btnAdd.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnAdd.Size = new System.Drawing.Size(65, 28);
             this.btnAdd.Text = "추가";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSearch
             // 
@@ -346,7 +346,6 @@
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "부서사원";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
