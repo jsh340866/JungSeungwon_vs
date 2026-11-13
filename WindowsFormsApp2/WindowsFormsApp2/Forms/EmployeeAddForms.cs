@@ -108,6 +108,7 @@ namespace WindowsFormsApp2.Forms
             }
             catch (Exception ex)
             {
+                Logger.Instance.Error("사원 추가 실패 EmpCode=" + txtEmpCode.Text, ex);
                 MessageBox.Show("사원 추가 중 오류가 발생했습니다.\n" + ex.Message);
             }
         }

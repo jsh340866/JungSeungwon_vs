@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Repository;
+using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Forms
 {
@@ -33,6 +34,7 @@ namespace WindowsFormsApp2.Forms
             this.Close();
         }
 
+        // 부서 추가 저장 버튼
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtDeptCode.Text) || string.IsNullOrWhiteSpace(txtDeptName.Text))
@@ -58,6 +60,7 @@ namespace WindowsFormsApp2.Forms
             }
             catch (Exception ex)
             {
+                Logger.Instance.Error("부서 추가 실패 DeptCode=" + dept.DeptCode, ex);
                 MessageBox.Show("부서 추가 중 오류가 발생하였습니다.\n" + ex.Message);
 
             }

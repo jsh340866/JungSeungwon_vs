@@ -10,14 +10,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Repository;
+using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Forms
 {
     public partial class DeptEditForm : Form
     {
         private int deptId;
-
-
 
 
         public DeptEditForm(Department dept)
@@ -44,6 +43,8 @@ namespace WindowsFormsApp2.Forms
             this.Close();
         }
 
+
+        // 부서 수정 저장 
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtDeptCode.Text) || string.IsNullOrWhiteSpace(txtDeptName.Text))
@@ -71,6 +72,7 @@ namespace WindowsFormsApp2.Forms
 
             catch (Exception ex)
             {
+                Logger.Instance.Error("부서 수정 실패 DeptId=" + dept.DeptId, ex);
                 MessageBox.Show("수정 중 오류가 발생했습니다.\n" + ex.Message);
             }
 

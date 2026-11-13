@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Repository;
+using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Forms
 {
@@ -19,10 +20,14 @@ namespace WindowsFormsApp2.Forms
         {
             InitializeComponent();
 
+            // 컬럼 자동 증가 끄기
             DataGridView.AutoGenerateColumns = false;
+
+            // DataGridView 데이터 조회
             DataGridView.DataSource = new DepartmentRepository().GetAll();
         }
 
+        // 테두리
         private void DepartmentForm_Paint(object sender, PaintEventArgs e)
         {
             using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
@@ -31,11 +36,13 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
+        
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // 부서 삭제
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (DataGridView.SelectedRows.Count == 0)
@@ -69,6 +76,7 @@ namespace WindowsFormsApp2.Forms
 
                 catch (Exception ex) 
                 {
+                    Logger.Instance.Error("부서 삭제 실패", ex);
                     MessageBox.Show("삭제 중 오류가 발생했습니다.\n" + ex.Message);
                 }
                           
@@ -76,6 +84,8 @@ namespace WindowsFormsApp2.Forms
 
         }
 
+        
+        // DataGridView 테두리
         private void DataGridView_Paint(object sender, PaintEventArgs e)
         {
             using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
@@ -84,6 +94,8 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
+
+        // 부서 추가 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             DeptAddForm daf = new DeptAddForm();
@@ -95,6 +107,7 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
+        // 부서 수정
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (DataGridView.SelectedRows.Count == 0)
@@ -109,7 +122,7 @@ namespace WindowsFormsApp2.Forms
 
             if (edit.DialogResult == DialogResult.OK)
             {
-                MessageBox.Show("부서가 추가 되었습니다.");
+                MessageBox.Show("부서가 변경 되었습니다.");
                 DataGridView.DataSource = new DepartmentRepository().GetAll();
                 return;
             }

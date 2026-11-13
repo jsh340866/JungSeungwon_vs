@@ -233,7 +233,7 @@
             this.DataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DataGridView.RowHeadersWidth = 20;
             this.DataGridView.RowTemplate.Height = 24;
-            this.DataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.DataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridView.Size = new System.Drawing.Size(1104, 248);
             this.DataGridView.TabIndex = 4;

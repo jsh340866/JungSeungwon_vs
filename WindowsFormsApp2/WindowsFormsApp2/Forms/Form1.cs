@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Repository;
+using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Forms
 {
@@ -36,6 +37,7 @@ namespace WindowsFormsApp2.Forms
             }
             catch (Exception ex)
             {
+                Logger.Instance.Error("사원 조회 실패", ex);
                 MessageBox.Show("조회 중 오류가 발생했습니다.\n" + ex.Message);
             }
         }
@@ -65,6 +67,7 @@ namespace WindowsFormsApp2.Forms
                 }
                 catch (Exception ex)
                 {
+                    Logger.Instance.Error("사원 삭제 실패 EmpId=" + empId, ex);
                     MessageBox.Show("삭제 중 오류가 발생했습니다.\n" + ex.Message);
                 }
             }
@@ -96,6 +99,7 @@ namespace WindowsFormsApp2.Forms
                     }
                     catch (Exception ex)
                     {
+                        Logger.Instance.Error("로그인정보 저장 후 목록 갱신 실패 EmpId=" + emp.EmpId, ex);
                         MessageBox.Show("로그인 정보 저장 중 오류가 발생했습니다.\n" + ex.Message);
                     }
                 }
@@ -144,6 +148,7 @@ namespace WindowsFormsApp2.Forms
                 }
                 catch (Exception ex)
                 {
+                    Logger.Instance.Error("사원 수정 후 목록 갱신 실패 EmpId=" + emp.EmpId, ex);
                     MessageBox.Show("사원 정보 저장 중 오류가 발생했습니다.\n" + ex.Message);
                 }
             }
@@ -172,6 +177,7 @@ namespace WindowsFormsApp2.Forms
                 }
                 catch (Exception ex)
                 {
+                    Logger.Instance.Error("사원 추가 후 목록 갱신 실패", ex);
                     MessageBox.Show("사원 정보 추가 중 오류가 발생했습니다.\n" + ex.Message);
                 }
             }

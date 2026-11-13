@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace WindowsFormsApp2.Dtos
 {
     // DB의 사원 한 행( + 부서 join 결과)을 담은 클래스
+    // 사원 생성자
     public class Employee
     {
         

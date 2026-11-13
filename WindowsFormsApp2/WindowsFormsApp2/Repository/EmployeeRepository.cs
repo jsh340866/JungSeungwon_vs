@@ -11,7 +11,6 @@ using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Repository
 {
-    // 사원 테이블에서 데이터를 읽어 오는 클래스
     internal class EmployeeRepository
     {
         // 사원 전체 조회 (부서 테이블과 JOIN)

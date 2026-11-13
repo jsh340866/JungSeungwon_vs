@@ -113,6 +113,7 @@ namespace WindowsFormsApp2.Forms
             }
             catch (Exception ex)
             {
+                Logger.Instance.Error("사원 수정 실패 EmpId=" + this.Empid, ex);
                 MessageBox.Show("사원 정보 저장 중 오류가 발생했습니다.\n" + ex.Message);
             }
         }

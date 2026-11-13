@@ -63,6 +63,7 @@ namespace WindowsFormsApp2.Forms
 
             catch (Exception ex)
             {
+                Logger.Instance.Error("로그인 정보 수정 실패 EmpId=" + empId, ex);
                 MessageBox.Show("로그인 정보 업데이트 중 오류가 발생했습니다: " + ex.Message);
                
             }

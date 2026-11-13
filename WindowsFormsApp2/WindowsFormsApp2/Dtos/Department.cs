@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp2.Dtos
 {
+    // 부서 생성자
     public class Department
     {
         public int DeptId {  get; set; }
