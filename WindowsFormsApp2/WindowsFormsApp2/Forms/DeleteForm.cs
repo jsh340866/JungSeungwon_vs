@@ -13,6 +13,7 @@ namespace WindowsFormsApp2.Forms
 {
     public partial class DeleteForm : Form
     {
+        // 생성자
         public DeleteForm(string title, string msg)
         {
             InitializeComponent();
