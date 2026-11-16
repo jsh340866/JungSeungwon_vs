@@ -16,6 +16,10 @@ namespace WindowsFormsApp2.Forms
 {
     public partial class DepartmentForm : Form
     {
+
+        // DataGridView 현재행 가져오기
+        private DepartmentDto Dept => DataGridView.CurrentRow?.DataBoundItem as DepartmentDto;
+
         public DepartmentForm()
         {
             InitializeComponent();
@@ -25,6 +29,7 @@ namespace WindowsFormsApp2.Forms
 
             // DataGridView 데이터 조회
             DataGridView.DataSource = new DepartmentRepository().GetAll();
+            
         }
 
         // 폼 테두리
@@ -37,7 +42,7 @@ namespace WindowsFormsApp2.Forms
         }
 
         
-        private void btnClose_Click(object sender, EventArgs e)
+        private void BtnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -52,11 +57,10 @@ namespace WindowsFormsApp2.Forms
             }
 
             
-            var deptmsg = DataGridView.SelectedRows[0].DataBoundItem as DepartmentDto;
 
             string title = "부서 삭제";
-            string msg = "부서코드: " + deptmsg.DeptCode + "\n" +
-                         "부서명: " + deptmsg.DeptName + "\n\n" +
+            string msg = "부서코드: " + Dept.DeptCode + "\n" +
+                         "부서명: " + Dept.DeptName + "\n\n" +
                          "삭제하시겠습니까?";
             DeleteForm deleteForm = new DeleteForm(title, msg);
             deleteForm.ShowDialog();
@@ -66,8 +70,7 @@ namespace WindowsFormsApp2.Forms
                 
                 try
                 {
-                    var dept = DataGridView.SelectedRows[0].DataBoundItem as DepartmentDto;
-                    new DepartmentRepository().Delete(dept.DeptId);
+                    new DepartmentRepository().Delete(Dept.DeptId);
                     MessageBox.Show("삭제되었습니다.");
                     DataGridView.DataSource = new DepartmentRepository().GetAll();
                 }

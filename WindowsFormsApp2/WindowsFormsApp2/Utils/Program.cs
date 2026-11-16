@@ -37,7 +37,7 @@ namespace WindowsFormsApp2.Utils
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new 로그인폼());
         }
     }
 }

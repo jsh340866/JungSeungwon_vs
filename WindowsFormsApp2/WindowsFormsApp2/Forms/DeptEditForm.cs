@@ -67,9 +67,9 @@ namespace WindowsFormsApp2.Forms
             }
             catch(SqlException ex) when (ex.Number == 2627)
             {
-                MessageBox.Show("이미 존재하는 부서코드입니다.");
+                MessageBox.Show("이미 존재하는 부서코드입니다.");    
             }
-
+            
             catch (Exception ex)
             {
                 Logger.Instance.Error("부서 수정 실패 DeptId=" + dept.DeptId, ex);

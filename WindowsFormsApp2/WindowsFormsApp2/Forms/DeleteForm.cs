@@ -22,7 +22,7 @@ namespace WindowsFormsApp2.Forms
 
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void BtnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -36,7 +36,7 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void BtnDelete_Click(object sender, EventArgs e)
         {
             // 삭제 버튼 클릭 시, form1에서 처리하도록 DialogResult를 OK로 설정
             this.DialogResult = DialogResult.OK;

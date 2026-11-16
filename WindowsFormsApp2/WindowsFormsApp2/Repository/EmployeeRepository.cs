@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WindowsFormsApp2.Dtos;
+using WindowsFormsApp2.Forms;
 using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Repository
@@ -105,8 +106,8 @@ namespace WindowsFormsApp2.Repository
             {
                 conn.Open();
                 string sql = @"UPDATE dbo.Employee SET 
-                                DeptId = (SELECT DeptId FROM dbo.Department WHERE DeptCode = @DeptCode),
-                                EmpCode =@EmpCode,
+                                DeptId = @DeptId,
+                                EmpCode = @EmpCode,
                                 EmpName = @EmpName, 
                                 Gender = @Gender, 
                                 Position = @Position, 
@@ -142,12 +143,12 @@ namespace WindowsFormsApp2.Repository
                 conn.Open();
                 string sql = @"INSERT INTO dbo.Employee(DeptId, EmpCode, EmpName, LoginId, Password, Position, EmpType, Gender,
                                Phone, Email, MessengerId, Memo) 
-                               VALUES ( (SELECT DeptId FROM dbo.Department WHERE DeptCode = @DeptCode), @EmpCode, @EmpName, @LoginId, 
+                               VALUES ( @DeptId, @EmpCode, @EmpName, @LoginId, 
                                @Password, @Position, @EmpType, @Gender, @Phone, @Email, @MessengerId, @Memo)";
 
                 using (var cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@DeptCode", emp.DeptCode);
+                    cmd.Parameters.AddWithValue("@DeptId", emp.DeptId);
                     cmd.Parameters.AddWithValue("@EmpCode", emp.EmpCode);
                     cmd.Parameters.AddWithValue("@EmpName", emp.EmpName);
                     cmd.Parameters.AddWithValue("@LoginId", emp.LoginId);
@@ -178,7 +179,7 @@ namespace WindowsFormsApp2.Repository
                     {
                         while (c.Read())
                         {
-                            dict.Add(c.GetString(0),c.GetString(1));
+                            dict.Add(c.GetString(0), c.GetString(1));
                         }
                     }
                     return dict;
@@ -186,9 +187,38 @@ namespace WindowsFormsApp2.Repository
             }
         }
 
-       
+        // 로그인
+        public List<EmployeeDto> Login()
+        {
 
+            var list = new List<EmployeeDto>();
+            using (var conn = new SqlConnection(Config.Connstr))
+            {
+                conn.Open();
+                string sql = @"SELECT EmpId ,LoginId, Password FROM dbo.Employee";
+                using (var cmd = new SqlCommand(sql,conn)) 
+                {
+                    using (var c = cmd.ExecuteReader())
+                    {
+                        while(c.Read())
+                        {
+                            list.Add(new EmployeeDto {
+                                EmpId = c.GetInt32(0),
+                                LoginId = c.GetString(1),
+                                Password = c.GetString(2),
+                            });
 
+                        }
+                    }
+                }
+            }
+            return list;
+        }
         
+
+
+
+
+
     }
 }

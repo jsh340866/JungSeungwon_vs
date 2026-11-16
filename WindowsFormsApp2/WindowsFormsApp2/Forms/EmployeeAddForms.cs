@@ -17,16 +17,20 @@ namespace WindowsFormsApp2.Forms
 {
     public partial class EmployeeAddForms : Form
     {
+        private static readonly List<DepartmentDto> dept = new DepartmentRepository().GetAll();
+
         public EmployeeAddForms()
         {
             InitializeComponent();
 
-            // EmployeeRepository에서 만든 DeptCodeName 사전을 deptcode에 넣기
-            foreach (var deptcode in new EmployeeRepository().DeptCodeName())
-            {
-                // deptcode.key값을 cboDeptCode 드롭박스에 넣음
-                cboDeptCode.Items.Add(deptcode.Key);
-            }
+
+            // 콤보박스에 DeptCode만 보이고 실제 값은 DeptId로 확인
+            cboDeptCode.DataSource = dept;
+            cboDeptCode.DisplayMember = nameof(DepartmentDto.DeptCode);
+            cboDeptCode.ValueMember = nameof(DepartmentDto.DeptId);
+
+
+
         }
 
         private void EmployeeAddForms_Paint(object sender, PaintEventArgs e)
@@ -46,16 +50,12 @@ namespace WindowsFormsApp2.Forms
         // 사원 추가 저장
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(cboDeptCode.Text) ||
-                string.IsNullOrWhiteSpace(txtEmpCode.Text) ||
-                string.IsNullOrWhiteSpace(txtEmpName.Text) ||
-                string.IsNullOrWhiteSpace(txtLoginId.Text) ||
-                string.IsNullOrWhiteSpace(txtPassword.Text))
-            {
-                MessageBox.Show("부서코드, 사원코드, 사원명, 로그인ID, 비밀번호는 필수기재사항입니다.");
-                return;
-
-            }
+            if (string.IsNullOrWhiteSpace(cboDeptCode.Text)) { MessageBox.Show("부서코드를 입력해주세요"); return; }
+            if (string.IsNullOrWhiteSpace(txtEmpCode.Text)) { MessageBox.Show("사원코드를 입력해주세요.");  return; }
+            if (string.IsNullOrWhiteSpace(txtEmpName.Text)) { MessageBox.Show("사원명을 입력해주세요."); return;}
+            if (string.IsNullOrWhiteSpace(txtLoginId.Text)) { MessageBox.Show("로그인ID를 입력해주세요"); return;}
+            if (string.IsNullOrWhiteSpace(txtPassword.Text)) {MessageBox.Show("비밀번호를 입력해주세요"); return;}
+            
 
             if (!Rule.isPasswordCheck(txtPassword.Text))
             {
@@ -72,23 +72,27 @@ namespace WindowsFormsApp2.Forms
 
             try
             {
-                EmployeeDto emp = new EmployeeDto();
-                emp.DeptCode = cboDeptCode.Text;
-                emp.EmpCode = txtEmpCode.Text;
-                emp.EmpName = txtEmpName.Text;
-                emp.LoginId = txtLoginId.Text;
-                emp.Password = txtPassword.Text;
-                emp.Gender = man.Checked ? "남" : woman.Checked ? "여" : null;
-                emp.Position = string.IsNullOrWhiteSpace(txtPosition.Text) ? null : txtPosition.Text;
-                emp.EmpType = string.IsNullOrWhiteSpace(txtEmpType.Text) ? null : txtEmpType.Text;
-                emp.Phone = string.IsNullOrWhiteSpace(txtPhone.Text) ? null : txtPhone.Text;
-                emp.Email = string.IsNullOrWhiteSpace(txtEmail.Text) ? null : txtEmail.Text;
-                emp.MessengerId = string.IsNullOrWhiteSpace(txtMessengerId.Text) ? null : txtMessengerId.Text;
-                emp.Memo = string.IsNullOrWhiteSpace(txtMemo.Text) ? null : txtMemo.Text;
+                EmployeeDto emp = new EmployeeDto
+                {
+                    DeptCode = cboDeptCode.Text,
+                    DeptId = (int)cboDeptCode.SelectedValue,
+                    EmpCode = txtEmpCode.Text,
+                    EmpName = txtEmpName.Text,
+                    LoginId = txtLoginId.Text,
+                    Password = txtPassword.Text,
+                    Gender = man.Checked ? "남" : woman.Checked ? "여" : null,
+                    Position = string.IsNullOrWhiteSpace(txtPosition.Text) ? null : txtPosition.Text,
+                    EmpType = string.IsNullOrWhiteSpace(txtEmpType.Text) ? null : txtEmpType.Text,
+                    Phone = string.IsNullOrWhiteSpace(txtPhone.Text) ? null : txtPhone.Text,
+                    Email = string.IsNullOrWhiteSpace(txtEmail.Text) ? null : txtEmail.Text,
+                    MessengerId = string.IsNullOrWhiteSpace(txtMessengerId.Text) ? null : txtMessengerId.Text,
+                    Memo = string.IsNullOrWhiteSpace(txtMemo.Text) ? null : txtMemo.Text
+                };
 
                 new EmployeeRepository().EmployeeAddSave(emp);
                 this.DialogResult = DialogResult.OK;
             }
+
             // Sql server 오류 발생시 처리
             catch (SqlException ex) when (ex.Number == 2627)
             {
@@ -108,7 +112,7 @@ namespace WindowsFormsApp2.Forms
                     MessageBox.Show("중복된 값이 있습니다.");
                     return;
                 }
-               
+                
 
                 
             }
@@ -123,8 +127,8 @@ namespace WindowsFormsApp2.Forms
         // 부서코드에 매칭되는 부서명 자동입력
         private void cboDeptCode_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var dict = new EmployeeRepository().DeptCodeName();
-            txtDeptName.Text = dict[cboDeptCode.Text];
+            var d = cboDeptCode.SelectedItem as DepartmentDto;
+            txtDeptName.Text = d.DeptName;
         }
 
         private void panel4_Click(object sender, EventArgs e)

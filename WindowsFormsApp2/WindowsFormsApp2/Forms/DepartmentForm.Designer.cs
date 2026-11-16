@@ -73,7 +73,7 @@
             this.btnClose.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnClose.Size = new System.Drawing.Size(65, 28);
             this.btnClose.Text = "닫기";
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // btnDelete
             // 

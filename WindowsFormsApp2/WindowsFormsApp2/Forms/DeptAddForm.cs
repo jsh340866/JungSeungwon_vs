@@ -16,6 +16,7 @@ namespace WindowsFormsApp2.Forms
 {
     public partial class DeptAddForm : Form
     {
+        private DepartmentDto dept = new DepartmentDto();
         public DeptAddForm()
         {
             InitializeComponent();
@@ -37,13 +38,20 @@ namespace WindowsFormsApp2.Forms
         // 부서 추가 저장 버튼
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtDeptCode.Text) || string.IsNullOrWhiteSpace(txtDeptName.Text))
+            if (string.IsNullOrWhiteSpace(txtDeptCode.Text) )
             {
-                MessageBox.Show("부서코드, 부서명은 필수기재사항입니다");
+                MessageBox.Show("부서코드는 필수기재사항입니다");
                 return;
             }
 
-            DepartmentDto dept = new DepartmentDto();
+            if( string.IsNullOrWhiteSpace(txtDeptName.Text))
+            {
+                MessageBox.Show("부서명은 필수기재사항입니다.");
+                return;
+            }
+
+            
+
             dept.DeptName = txtDeptName.Text;
             dept.DeptCode = txtDeptCode.Text;
             dept.Memo = string.IsNullOrWhiteSpace(txtMemo.Text) ? null : txtMemo.Text;

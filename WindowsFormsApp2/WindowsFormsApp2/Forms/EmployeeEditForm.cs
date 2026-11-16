@@ -18,7 +18,10 @@ namespace WindowsFormsApp2.Forms
     public partial class EmployeeEditForm : Form
     {
 
-        int Empid;
+        private readonly int Empid;
+
+        private static readonly List<DepartmentDto> dept = new DepartmentRepository().GetAll();
+
 
         // 생성자
         public EmployeeEditForm(EmployeeDto emp)
@@ -28,10 +31,12 @@ namespace WindowsFormsApp2.Forms
 
             
             // DeptCodeName 부서코드, 부서명 사전을 드롭박스에 추가
-            foreach (var deptCodes in new EmployeeRepository().DeptCodeName())
-            {
-                cboDeptCode.Items.Add(deptCodes.Key);
-            }
+            
+            cboDeptCode.DataSource = dept;
+            cboDeptCode.DisplayMember = nameof(DepartmentDto.DeptCode);
+            cboDeptCode.ValueMember = nameof(DepartmentDto.DeptId);
+                
+            
 
             cboDeptCode.Text = emp.DeptCode;
             txtDeptName.Text = emp.DeptName;
@@ -64,7 +69,7 @@ namespace WindowsFormsApp2.Forms
             this.Close();
         }
 
-        private void EmployeeEditForm_Paint(object sender, PaintEventArgs e)
+        private void employeeEditForm_Paint(object sender, PaintEventArgs e)
         {
             using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
             {
@@ -99,18 +104,20 @@ namespace WindowsFormsApp2.Forms
             }
             try
             {
-                EmployeeDto emp = new EmployeeDto();
-                emp.DeptCode = cboDeptCode.Text;
-                emp.EmpCode = txtEmpCode.Text;
-                emp.EmpName = txtEmpName.Text;
-                emp.Gender = man.Checked ? "남" : woman.Checked ? "여" : null;
-                emp.Position = string.IsNullOrWhiteSpace(txtPosition.Text) ? null : txtPosition.Text;
-                emp.EmpType = string.IsNullOrWhiteSpace(txtEmpType.Text) ? null : txtEmpType.Text;
-                emp.Phone = string.IsNullOrWhiteSpace(txtPhone.Text) ? null : txtPhone.Text;
-                emp.Email = string.IsNullOrWhiteSpace(txtEmail.Text) ? null : txtEmail.Text;
-                emp.MessengerId = string.IsNullOrWhiteSpace(txtMessengerId.Text) ? null : txtMessengerId.Text;
-                emp.Memo = string.IsNullOrWhiteSpace(txtMemo.Text) ? null : txtMemo.Text;
-                emp.EmpId = this.Empid;
+                EmployeeDto emp = new EmployeeDto
+                {
+                    DeptCode = cboDeptCode.Text,
+                    EmpCode = txtEmpCode.Text,
+                    EmpName = txtEmpName.Text,
+                    Gender = man.Checked ? "남" : woman.Checked ? "여" : null,
+                    Position = string.IsNullOrWhiteSpace(txtPosition.Text) ? null : txtPosition.Text,
+                    EmpType = string.IsNullOrWhiteSpace(txtEmpType.Text) ? null : txtEmpType.Text,
+                    Phone = string.IsNullOrWhiteSpace(txtPhone.Text) ? null : txtPhone.Text,
+                    Email = string.IsNullOrWhiteSpace(txtEmail.Text) ? null : txtEmail.Text,
+                    MessengerId = string.IsNullOrWhiteSpace(txtMessengerId.Text) ? null : txtMessengerId.Text,
+                    Memo = string.IsNullOrWhiteSpace(txtMemo.Text) ? null : txtMemo.Text,
+                    EmpId = this.Empid
+                };
 
                 new EmployeeRepository().UpdateEmployee(emp);
                 this.DialogResult = DialogResult.OK;
@@ -139,8 +146,8 @@ namespace WindowsFormsApp2.Forms
         // 부서코드, 부서명 자동 매칭
         private void cboDeptCode_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var dict = new EmployeeRepository().DeptCodeName();
-            txtDeptName.Text = dict[cboDeptCode.Text];
+            var d = cboDeptCode.SelectedItem as DepartmentDto;
+            txtDeptName.Text = d?.DeptName;
 
         }
 

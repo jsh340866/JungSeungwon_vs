@@ -25,7 +25,7 @@ namespace WindowsFormsApp2.Forms
             this.EmpId = EmpId;
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void BtnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -41,7 +41,7 @@ namespace WindowsFormsApp2.Forms
 
 
         // 로그인정보 저장
-        private void btnSave_Click(object sender, EventArgs e)
+        private void BtnSave_Click(object sender, EventArgs e)
         {
 
             if (string.IsNullOrWhiteSpace(LoginTextbox.Text) || string.IsNullOrWhiteSpace(PasswordTextbox.Text)) 

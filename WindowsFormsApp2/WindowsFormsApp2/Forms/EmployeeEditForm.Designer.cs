@@ -766,7 +766,7 @@
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EmployeeEditForm";
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.EmployeeEditForm_Paint);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.employeeEditForm_Paint);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnlMemo.ResumeLayout(false);

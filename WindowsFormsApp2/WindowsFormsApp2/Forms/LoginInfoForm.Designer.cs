@@ -173,7 +173,7 @@
             this.button1.TabIndex = 14;
             this.button1.Text = "저장";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.btnSave_Click);
+            this.button1.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // btnCancle
             // 
@@ -188,7 +188,7 @@
             this.btnCancle.TabIndex = 15;
             this.btnCancle.Text = "닫기";
             this.btnCancle.UseVisualStyleBackColor = false;
-            this.btnCancle.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnCancle.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // LoginInfoForm
             // 

@@ -56,7 +56,7 @@ namespace WindowsFormsApp2.Forms
             deleteForm.ShowDialog();
 
 
-            // 삭제폼에서 DialohResult.OK를 받아 데이터 삭제 후 조회 갱신
+            // 삭제폼에서 DialogResult.OK를 받아 데이터 삭제 후 조회 갱신
             if (deleteForm.DialogResult == DialogResult.OK)
             {
                 var emp = DataGridView.SelectedRows[0].DataBoundItem as EmployeeDto;

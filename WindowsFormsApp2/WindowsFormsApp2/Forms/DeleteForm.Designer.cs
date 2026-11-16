@@ -94,7 +94,7 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "삭제";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.btnDelete_Click);
+            this.button1.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // button2
             // 
@@ -109,7 +109,7 @@
             this.button2.TabIndex = 9;
             this.button2.Text = "취소";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.btnClose_Click);
+            this.button2.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // DeleteForm
             // 
