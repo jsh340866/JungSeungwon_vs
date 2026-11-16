@@ -52,7 +52,7 @@ namespace WindowsFormsApp2.Forms
             }
 
             
-            var deptmsg = DataGridView.SelectedRows[0].DataBoundItem as Department;
+            var deptmsg = DataGridView.SelectedRows[0].DataBoundItem as DepartmentDto;
 
             string title = "부서 삭제";
             string msg = "부서코드: " + deptmsg.DeptCode + "\n" +
@@ -66,7 +66,7 @@ namespace WindowsFormsApp2.Forms
                 
                 try
                 {
-                    var dept = DataGridView.SelectedRows[0].DataBoundItem as Department;
+                    var dept = DataGridView.SelectedRows[0].DataBoundItem as DepartmentDto;
                     new DepartmentRepository().Delete(dept.DeptId);
                     MessageBox.Show("삭제되었습니다.");
                     DataGridView.DataSource = new DepartmentRepository().GetAll();
@@ -109,7 +109,7 @@ namespace WindowsFormsApp2.Forms
                 return;
             }
 
-            Department dept = DataGridView.SelectedRows[0].DataBoundItem as Department;
+            DepartmentDto dept = DataGridView.SelectedRows[0].DataBoundItem as DepartmentDto;
             DeptEditForm edit = new DeptEditForm(dept);
             edit.ShowDialog();
 

@@ -13,14 +13,13 @@ namespace WindowsFormsApp2.Repository
     internal class DepartmentRepository
     {
         // 부서 조회
-        public List<Department> GetAll()
+        public List<DepartmentDto> GetAll()
         {
-            var list = new List<Department>();
+            var list = new List<DepartmentDto>();
 
             using (var conn = new SqlConnection(Config.Connstr))
             {
                 conn.Open();
-
 
                 string sql = @"SELECT DeptId, DeptCode, DeptName, Memo
                               FROM dbo.Department
@@ -32,7 +31,7 @@ namespace WindowsFormsApp2.Repository
                     {
                         while (reader.Read())
                         {
-                            list.Add(new Department 
+                            list.Add(new DepartmentDto 
                             { 
                             DeptId = reader.GetInt32(0),
                             DeptCode = reader.GetString(1),
@@ -70,7 +69,7 @@ namespace WindowsFormsApp2.Repository
         }
 
         // 부서 추가 메서드
-        public void Save(Department dept) 
+        public void Save(DepartmentDto dept) 
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
@@ -90,7 +89,7 @@ namespace WindowsFormsApp2.Repository
         }
 
         // 부서 수정 메서드
-        public void Update(Department dept)
+        public void Update(DepartmentDto dept)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {

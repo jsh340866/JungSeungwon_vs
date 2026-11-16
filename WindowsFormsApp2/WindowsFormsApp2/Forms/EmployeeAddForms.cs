@@ -72,7 +72,7 @@ namespace WindowsFormsApp2.Forms
 
             try
             {
-                Employee emp = new Employee();
+                EmployeeDto emp = new EmployeeDto();
                 emp.DeptCode = cboDeptCode.Text;
                 emp.EmpCode = txtEmpCode.Text;
                 emp.EmpName = txtEmpName.Text;

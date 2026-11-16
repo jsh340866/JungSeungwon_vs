@@ -19,7 +19,7 @@ namespace WindowsFormsApp2.Forms
         private int deptId;
 
         // 매개변수를 클래스 형태로 받을 생성자
-        public DeptEditForm(Department dept)
+        public DeptEditForm(DepartmentDto dept)
         {
             InitializeComponent();
             txtDeptCode.Text = dept.DeptCode;
@@ -53,7 +53,7 @@ namespace WindowsFormsApp2.Forms
                 return;
             }
 
-            Department dept = new Department();
+            DepartmentDto dept = new DepartmentDto();
             dept.DeptId = this.deptId;
             dept.DeptCode = txtDeptCode.Text;
             dept.DeptName = txtDeptName.Text;

@@ -43,7 +43,7 @@ namespace WindowsFormsApp2.Forms
                 return;
             }
 
-            Department dept = new Department();
+            DepartmentDto dept = new DepartmentDto();
             dept.DeptName = txtDeptName.Text;
             dept.DeptCode = txtDeptCode.Text;
             dept.Memo = string.IsNullOrWhiteSpace(txtMemo.Text) ? null : txtMemo.Text;

@@ -21,7 +21,7 @@ namespace WindowsFormsApp2.Forms
         int Empid;
 
         // 생성자
-        public EmployeeEditForm(Employee emp)
+        public EmployeeEditForm(EmployeeDto emp)
         {
             InitializeComponent();
 
@@ -99,7 +99,7 @@ namespace WindowsFormsApp2.Forms
             }
             try
             {
-                Employee emp = new Employee();
+                EmployeeDto emp = new EmployeeDto();
                 emp.DeptCode = cboDeptCode.Text;
                 emp.EmpCode = txtEmpCode.Text;
                 emp.EmpName = txtEmpName.Text;

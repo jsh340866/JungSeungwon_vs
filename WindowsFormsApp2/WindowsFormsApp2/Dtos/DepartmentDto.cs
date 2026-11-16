@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace WindowsFormsApp2.Dtos
 {
     // 부서 dto
-    public class Department
+    public class DepartmentDto
     {
         public int DeptId {  get; set; }
         public string DeptCode {  get; set; }

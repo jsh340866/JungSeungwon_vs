@@ -39,6 +39,8 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
+
+        // 로그인정보 저장
         private void btnSave_Click(object sender, EventArgs e)
         {
 

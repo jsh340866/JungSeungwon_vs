@@ -14,9 +14,9 @@ namespace WindowsFormsApp2.Repository
     internal class EmployeeRepository
     {
         // 사원 전체 조회 (부서 테이블과 JOIN)
-        public List<Employee> GetAll()
+        public List<EmployeeDto> GetAll()
         {
-            var list = new List<Employee>();
+            var list = new List<EmployeeDto>();
 
             using (var conn = new SqlConnection(Config.Connstr))
             {
@@ -35,7 +35,7 @@ namespace WindowsFormsApp2.Repository
                 {
                     while (r.Read())
                     {
-                        list.Add(new Employee
+                        list.Add(new EmployeeDto
                         {
                             EmpId = r.GetInt32(0),
                             DeptId = r.GetInt32(1),
@@ -99,7 +99,7 @@ namespace WindowsFormsApp2.Repository
         }
 
         // 사원 수정 업데이트
-        public void UpdateEmployee (Employee emp)
+        public void UpdateEmployee (EmployeeDto emp)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
@@ -135,7 +135,7 @@ namespace WindowsFormsApp2.Repository
         }
 
         // 사원 추가 저장 메서드
-        public void EmployeeAddSave(Employee emp)
+        public void EmployeeAddSave(EmployeeDto emp)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
@@ -164,9 +164,7 @@ namespace WindowsFormsApp2.Repository
             }
         }
 
-
-
-        // 사원 수정 부서코드, 부서명 연동 사전
+        // 부서코드, 부서명 연동 사전
         public Dictionary<string, string> DeptCodeName()
         {
             var dict = new Dictionary<string, string>();

@@ -1,23 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApp2.Dtos
+namespace WindowsFormsApp2.Entity
 {
-    // DB의 사원 한 행( + 부서 join 결과)을 담은 클래스
-    // 사원 dto
-    public class Employee
+    internal class Employee
     {
-        
         public int EmpId { get; set; }
         public int DeptId { get; set; }
-
-        // 부서 테이블에서 join으로 가져오는 값
-        public string DeptCode { get; set; }
-        public string DeptName { get; set; }
-
 
         public string EmpCode { get; set; }
         public string EmpName { get; set; }
@@ -25,8 +19,8 @@ namespace WindowsFormsApp2.Dtos
         public string LoginId { get; set; }
         public string Password { get; set; }
         public string Position { get; set; }
-        public string Phone { get; set; }
         public string EmpType { get; set; }
+        public string Phone { get; set; }
         public string Email { get; set; }
         public string MessengerId { get; set; }
         public string Memo { get; set; }

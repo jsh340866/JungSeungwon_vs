@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dtos\Department.cs" />
+    <Compile Include="Dtos\DepartmentDto.cs" />
     <Compile Include="Forms\DeptAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,7 +68,7 @@
     <Compile Include="Forms\DepartmentForm.Designer.cs">
       <DependentUpon>DepartmentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dtos\Employee.cs" />
+    <Compile Include="Dtos\EmployeeDto.cs" />
     <Compile Include="Forms\DeleteForm.cs">
       <SubType>Form</SubType>
     </Compile>

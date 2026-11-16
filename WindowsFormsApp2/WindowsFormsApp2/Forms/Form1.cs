@@ -59,7 +59,7 @@ namespace WindowsFormsApp2.Forms
             // 삭제폼에서 DialohResult.OK를 받아 데이터 삭제 후 조회 갱신
             if (deleteForm.DialogResult == DialogResult.OK)
             {
-                var emp = DataGridView.SelectedRows[0].DataBoundItem as Employee;
+                var emp = DataGridView.SelectedRows[0].DataBoundItem as EmployeeDto;
                 int empId = emp.EmpId;
                 try
                 {
@@ -87,7 +87,7 @@ namespace WindowsFormsApp2.Forms
             }
             else
             {
-                var emp = DataGridView.SelectedRows[0].DataBoundItem as Employee;
+                var emp = DataGridView.SelectedRows[0].DataBoundItem as EmployeeDto;
                 string LoginId = emp.LoginId;
                 string Password = emp.Password;
                 LoginInfoForm logininfoForm = new LoginInfoForm(LoginId, Password, emp.EmpId);
@@ -141,7 +141,7 @@ namespace WindowsFormsApp2.Forms
                 MessageBox.Show("수정할 사원을 선택하세요.");
                 return;
             }
-            Employee emp = DataGridView.SelectedRows[0].DataBoundItem as Employee;
+            EmployeeDto emp = DataGridView.SelectedRows[0].DataBoundItem as EmployeeDto;
             EmployeeEditForm editForm = new EmployeeEditForm(emp);
             editForm.ShowDialog();
 
@@ -160,15 +160,7 @@ namespace WindowsFormsApp2.Forms
                 }
             }
         }
-        class MyPanel : Panel
-        {
-            protected override void OnPaint(PaintEventArgs e)
-            {
-                base.OnPaint(e);
-                // 패널의 배경색을 변경합니다.
-                this.BackColor = Color.LightBlue;
-            }
-        }
+        
 
         // 사원 추가폼 연결
         private void btnAdd_Click(object sender, EventArgs e)
@@ -198,6 +190,11 @@ namespace WindowsFormsApp2.Forms
         {
             DepartmentForm departmentForm = new DepartmentForm();
             departmentForm.ShowDialog();
+        }
+
+        private void DataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
