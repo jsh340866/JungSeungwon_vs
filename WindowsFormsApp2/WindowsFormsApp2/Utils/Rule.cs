@@ -14,11 +14,11 @@ namespace WindowsFormsApp2.Utils
         public static bool isPasswordCheck(string pass)
         {
             //8자리 이상
-            if (pass != null && pass.Length < 8)
+            if (string.IsNullOrWhiteSpace(pass) || pass.Length < 8)
             {
                 return false;
             }
-            //숫자1이상, 영문1이상, 특수문자1이상
+            //숫자1이상, 영문1이상
             Regex regexPass = new Regex(@"^(?=.*?[a-zA-Z])(?=.*?[0-9]).{8,}$", RegexOptions.IgnorePatternWhitespace);
             return regexPass.IsMatch(pass);
         }

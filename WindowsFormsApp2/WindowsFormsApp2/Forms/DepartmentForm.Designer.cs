@@ -178,7 +178,6 @@
             this.DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridView.Size = new System.Drawing.Size(421, 248);
             this.DataGridView.TabIndex = 4;
-            this.DataGridView.Paint += new System.Windows.Forms.PaintEventHandler(this.DataGridView_Paint);
             // 
             // colDeptCode
             // 

@@ -41,6 +41,14 @@ namespace WindowsFormsApp2.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+
+            if (string.IsNullOrWhiteSpace(LoginTextbox.Text) || string.IsNullOrWhiteSpace(PasswordTextbox.Text)) 
+            {
+                MessageBox.Show("로그인, 비밀번호를 입력해 주세요.");
+                return;
+            }
+
+
             // 로그인정보 저장 버튼 클릭 시, EmployeeRespository의 UpdateLoginInfo 메서드를 호출하여 로그인 정보 업데이트
             string loginid = LoginTextbox.Text;
             string password = PasswordTextbox.Text;

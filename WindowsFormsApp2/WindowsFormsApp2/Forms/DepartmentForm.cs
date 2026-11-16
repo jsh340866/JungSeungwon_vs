@@ -51,10 +51,12 @@ namespace WindowsFormsApp2.Forms
                 return;
             }
 
+            
+            var deptmsg = DataGridView.SelectedRows[0].DataBoundItem as Department;
 
             string title = "부서 삭제";
-            string msg = "부서코드: " + DataGridView.SelectedCells[0].Value.ToString() + "\n" +
-                         "부서명: " + DataGridView.SelectedCells[1].Value.ToString() + "\n\n" +
+            string msg = "부서코드: " + deptmsg.DeptCode + "\n" +
+                         "부서명: " + deptmsg.DeptName + "\n\n" +
                          "삭제하시겠습니까?";
             DeleteForm deleteForm = new DeleteForm(title, msg);
             deleteForm.ShowDialog();
@@ -84,16 +86,7 @@ namespace WindowsFormsApp2.Forms
 
         }
 
-        
-        // DataGridView 테두리
-        private void DataGridView_Paint(object sender, PaintEventArgs e)
-        {
-            using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
-            {
-                e.Graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1);
-            }
-        }
-
+      
 
         // 부서 추가 
         private void btnAdd_Click(object sender, EventArgs e)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -25,12 +26,11 @@ namespace WindowsFormsApp2.Forms
             InitializeComponent();
 
 
-            // emp 객체의 데이터를 폼 컨트롤에 표시
-            var deptCodes = new EmployeeRepository().GetAll().Select(e => e.DeptCode).Distinct().ToList();
-
-            foreach (var v in deptCodes)
+            
+            // DeptCodeName 부서코드, 부서명 사전을 드롭박스에 추가
+            foreach (var deptCodes in new EmployeeRepository().DeptCodeName())
             {
-                cboDeptCode.Items.Add(v);
+                cboDeptCode.Items.Add(deptCodes.Key);
             }
 
             cboDeptCode.Text = emp.DeptCode;
@@ -114,6 +114,20 @@ namespace WindowsFormsApp2.Forms
 
                 new EmployeeRepository().UpdateEmployee(emp);
                 this.DialogResult = DialogResult.OK;
+            }
+
+
+            // SQL Server 오류 2627 UNIQUE 제약조건 위반(중복값)
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                if (ex.Message.Contains("UQ_Employee_EmpCode"))
+                {
+                    MessageBox.Show("이미 사용중인 사원코드 입니다.");
+                }
+                else
+                {
+                    MessageBox.Show("중복된 값이 있습니다.");
+                }
             }
             catch (Exception ex)
             {

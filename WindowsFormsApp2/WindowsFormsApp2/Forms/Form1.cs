@@ -170,7 +170,7 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
-
+        // 사원 추가폼 연결
         private void btnAdd_Click(object sender, EventArgs e)
         {
             EmployeeAddForms addForm = new EmployeeAddForms();
@@ -193,7 +193,7 @@ namespace WindowsFormsApp2.Forms
         }
 
 
-        // 부서 폼 연결
+        // 부서폼 연결
         private void btnDept_Click(object sender, EventArgs e)
         {
             DepartmentForm departmentForm = new DepartmentForm();
