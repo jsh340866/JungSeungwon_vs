@@ -18,6 +18,8 @@ namespace WindowsFormsApp2.Forms
     {
 
         int Empid;
+
+        // 생성자
         public EmployeeEditForm(Employee emp)
         {
             InitializeComponent();
@@ -80,6 +82,8 @@ namespace WindowsFormsApp2.Forms
             if (woman.Checked) { man.Checked = false; }
         }
 
+
+        // 사원 수정 저장
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtEmpCode.Text) || string.IsNullOrWhiteSpace(txtEmpName.Text) || string.IsNullOrWhiteSpace(cboDeptCode.Text))
@@ -118,6 +122,7 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
+        // 부서코드, 부서명 자동 매칭
         private void cboDeptCode_SelectedIndexChanged(object sender, EventArgs e)
         {
             var dict = new EmployeeRepository().DeptCodeName();
@@ -131,6 +136,7 @@ namespace WindowsFormsApp2.Forms
             cboDeptCode.DroppedDown = true; // 드롭다운 리스트 열기
         }
 
+        // 휴대폰번호 하이폰 규칙
         private void txtPhone_Leave(object sender, EventArgs e)
         {
             string digits = new string(txtPhone.Text.Where(char.IsDigit).ToArray());

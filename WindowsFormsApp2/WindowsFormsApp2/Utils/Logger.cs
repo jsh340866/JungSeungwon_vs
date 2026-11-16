@@ -14,6 +14,7 @@ namespace WindowsFormsApp2.Utils
         private readonly string _logDir =
             Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs");
 
+
         public void Write(string level, string message, Exception ex = null)
         {
             try

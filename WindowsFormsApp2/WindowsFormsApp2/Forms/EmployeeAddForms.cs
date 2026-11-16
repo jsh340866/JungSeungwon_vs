@@ -21,9 +21,10 @@ namespace WindowsFormsApp2.Forms
         {
             InitializeComponent();
 
-            // 콤보박스 리스트에 deptcode 넣기
+            // EmployeeRepository에서 만든 DeptCodeName 사전을 deptcode에 넣기
             foreach (var deptcode in new EmployeeRepository().DeptCodeName())
             {
+                // deptcode.key값을 cboDeptCode 드롭박스에 넣음
                 cboDeptCode.Items.Add(deptcode.Key);
             }
         }
@@ -42,6 +43,7 @@ namespace WindowsFormsApp2.Forms
             this.Close();
         }
 
+        // 사원 추가 저장
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(cboDeptCode.Text) ||
@@ -61,6 +63,7 @@ namespace WindowsFormsApp2.Forms
                 return;
             }
 
+            // 이메일이 비어있지 않고 Rule에서 만든 이메일 규칙이 false일때 메시지 박스 띄움
             if (!string.IsNullOrWhiteSpace(txtEmail.Text) && !Rule.isEmailCheck(txtEmail.Text))
             {
                 MessageBox.Show("이메일을 다시 입력해주세요.");
@@ -86,13 +89,16 @@ namespace WindowsFormsApp2.Forms
                 new EmployeeRepository().EmployeeAddSave(emp);
                 this.DialogResult = DialogResult.OK;
             }
+            // Sql server 오류 발생시 처리
             catch (SqlException ex) when (ex.Number == 2627)
             {
+                // unique 제약조건 위반 될시(중복값) 메세지 박스 띄움
                 if (ex.Message.Contains("UQ_Employee_LoginId"))
                 {
                     MessageBox.Show("이미 사용중인 로그인ID 입니다.");
                     return;
                 }
+                // unique 제약조건 위반 될시(중복값) 메세지 박스 띄움
                 else if (ex.Message.Contains("UQ_Employee_EmpCode")){
                     MessageBox.Show("이미 사용중인 사원코드 입니다.");
                     return; 
@@ -113,6 +119,8 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
+
+        // 부서코드에 매칭되는 부서명 자동입력
         private void cboDeptCode_SelectedIndexChanged(object sender, EventArgs e)
         {
             var dict = new EmployeeRepository().DeptCodeName();
@@ -142,6 +150,7 @@ namespace WindowsFormsApp2.Forms
 
         }
 
+        // 휴대폰번호 하이폰 규칙
         private void txtPhone_Leave(object sender, EventArgs e)
         {
             string digits = new string(txtPhone.Text.Where(char.IsDigit).ToArray());

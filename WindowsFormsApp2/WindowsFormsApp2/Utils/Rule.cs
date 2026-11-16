@@ -25,6 +25,7 @@ namespace WindowsFormsApp2.Utils
 
         public static bool isEmailCheck(string email)
         {
+            // 이메일 형식 규칙
             Regex regexEmail = new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
             return regexEmail.IsMatch(email);
         }

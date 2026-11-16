@@ -14,7 +14,7 @@ namespace WindowsFormsApp2.Utils
         static void Main()
         {
 
-            // UI 스레드에서 처리되지 않은 예외는 우리가 정한 핸들러로 보낸다.
+            // UI 스레드에서 처리되지 않은 예외는 우리가 정한 핸들러로 보냄
             Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
 
 

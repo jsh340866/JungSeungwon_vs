@@ -16,6 +16,7 @@ namespace WindowsFormsApp2.Forms
     {
         int EmpId;
 
+        // 로그인정보 생성자
         public LoginInfoForm(string loginId, string password, int EmpId)
         {
             InitializeComponent();
@@ -45,6 +46,7 @@ namespace WindowsFormsApp2.Forms
             string password = PasswordTextbox.Text;
             int empId = this.EmpId;
 
+            // Rule에서 만든 비밀번호 규칙 넣기
             if (!Rule.isPasswordCheck(PasswordTextbox.Text)) 
             {
                 MessageBox.Show("비밀번호는 영문, 숫자 포함 8자 이상입니다.");
@@ -56,6 +58,7 @@ namespace WindowsFormsApp2.Forms
                 new EmployeeRepository().UpdateLoginInfo(loginid, password, empId);
                 this.DialogResult = DialogResult.OK;
             }
+            // Sql server 오류 예외 처리
             catch(SqlException ex) when (ex.Number == 2627)
             {
                 MessageBox.Show("이미 사용중인 로그인ID 입니다.");

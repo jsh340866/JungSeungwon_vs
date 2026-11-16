@@ -18,7 +18,7 @@ namespace WindowsFormsApp2.Forms
     {
         private int deptId;
 
-
+        // 매개변수를 클래스 형태로 받을 생성자
         public DeptEditForm(Department dept)
         {
             InitializeComponent();

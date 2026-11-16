@@ -27,7 +27,7 @@ namespace WindowsFormsApp2.Forms
             DataGridView.DataSource = new DepartmentRepository().GetAll();
         }
 
-        // 테두리
+        // 폼 테두리
         private void DepartmentForm_Paint(object sender, PaintEventArgs e)
         {
             using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))

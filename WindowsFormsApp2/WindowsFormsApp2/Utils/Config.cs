@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp2.Utils
 {
+    // DB 연결 설정
     internal static class Config
     {
         public const string Connstr =

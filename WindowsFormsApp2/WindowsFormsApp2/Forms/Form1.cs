@@ -55,6 +55,8 @@ namespace WindowsFormsApp2.Forms
             DeleteForm deleteForm = new DeleteForm("사원 삭제", msg);
             deleteForm.ShowDialog();
 
+
+            // 삭제폼에서 DialohResult.OK를 받아 데이터 삭제 후 조회 갱신
             if (deleteForm.DialogResult == DialogResult.OK)
             {
                 var emp = DataGridView.SelectedRows[0].DataBoundItem as Employee;
@@ -74,6 +76,7 @@ namespace WindowsFormsApp2.Forms
         }
 
 
+        
         private void btnLoginInfo_Click(object sender, EventArgs e)
         {
 
@@ -90,6 +93,7 @@ namespace WindowsFormsApp2.Forms
                 LoginInfoForm logininfoForm = new LoginInfoForm(LoginId, Password, emp.EmpId);
                 logininfoForm.ShowDialog();
 
+                // 로그인정보폼에서 DialogResult.OK를 받고 다시 조회 갱신
                 if (logininfoForm.DialogResult == DialogResult.OK)
                 {
                     try
@@ -118,15 +122,17 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
+        // 비밀번호 "***"로 보이게
         private void DataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            // 비밀번호 "*******" 처리
+            
             if (e.ColumnIndex == colPassword.Index && e.Value != null)
             {
                 e.Value = new string('*', 8);
                 e.FormattingApplied = true;
             }
         }
+
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
@@ -139,6 +145,7 @@ namespace WindowsFormsApp2.Forms
             EmployeeEditForm editForm = new EmployeeEditForm(emp);
             editForm.ShowDialog();
 
+            // 사원 수정폼 DialogResult.OK 확인 후 조회 갱신
             if (editForm.DialogResult == DialogResult.OK)
             {
                 try
@@ -163,11 +170,13 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             EmployeeAddForms addForm = new EmployeeAddForms();
             addForm.ShowDialog();
 
+            // 사원 추가폼 DialogResult.OK 확인 후 조회 갱신
             if (addForm.DialogResult == DialogResult.OK)
             {
                 try
@@ -183,6 +192,8 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
+
+        // 부서 폼 연결
         private void btnDept_Click(object sender, EventArgs e)
         {
             DepartmentForm departmentForm = new DepartmentForm();

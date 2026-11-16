@@ -81,6 +81,8 @@ namespace WindowsFormsApp2.Repository
                 {
                     cmd.Parameters.AddWithValue("@DeptCode", dept.DeptCode);
                     cmd.Parameters.AddWithValue("@DeptName", dept.DeptName);
+
+                    // dept.Memo 값이 null이면 DBNull.Value 값을 저장
                     cmd.Parameters.AddWithValue("@Memo", dept.Memo ?? (object)DBNull.Value);
                     cmd.ExecuteNonQuery();
                 }
