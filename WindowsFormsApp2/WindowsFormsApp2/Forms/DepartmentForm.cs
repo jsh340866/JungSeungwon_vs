@@ -18,22 +18,28 @@ namespace WindowsFormsApp2.Forms
     {
 
         // DataGridView 현재행 가져오기
-        private DepartmentDto Dept => DataGridView.CurrentRow?.DataBoundItem as DepartmentDto;
+        private DepartmentDto Dept => 부서그리드.GetFocusedRow() as DepartmentDto;
+        private ParentDepartmentDto Pdept => 상위부서그리드.GetFocusedRow() as ParentDepartmentDto;
+
+        private readonly ParentForm P = new ParentForm();
 
         public DepartmentForm()
         {
             InitializeComponent();
+            this.닫기버튼.Click += 닫기;
+            this.수정버튼.Click += 부서수정;
+            this.추가버튼.Click += 부서추가;
+            this.삭제버튼.Click += 부서삭제;
+            this.Paint += 부서폼_테두리;
+            this.상위부서버튼.Click += 상위부서버튼_Click;
 
-            // 컬럼 자동 증가 끄기
-            DataGridView.AutoGenerateColumns = false;
-
-            // DataGridView 데이터 조회
-            DataGridView.DataSource = new DepartmentRepository().GetAll();
-            
+            그리드갱신();
         }
 
+
+
         // 폼 테두리
-        private void DepartmentForm_Paint(object sender, PaintEventArgs e)
+        private void 부서폼_테두리(object sender, PaintEventArgs e)
         {
             using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
             {
@@ -41,16 +47,21 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
+        private void 그리드갱신()
+        {
+            상위부서그리드컨트롤.DataSource = new ParentDepartmentRepository().GetAll();
+            부서그리드컨트롤.DataSource = new DepartmentRepository().GetAll();
+        }
         
-        private void BtnClose_Click(object sender, EventArgs e)
+        private void 닫기(object sender, EventArgs e)
         {
             this.Close();
         }
 
         // 부서 삭제
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void 부서삭제(object sender, EventArgs e)
         {
-            if (DataGridView.SelectedRows.Count == 0)
+            if (부서그리드.GetFocusedRow() == null)
             {
                 MessageBox.Show("삭제할 부서를 선택하세요.");
                 return;
@@ -72,7 +83,7 @@ namespace WindowsFormsApp2.Forms
                 {
                     new DepartmentRepository().Delete(Dept.DeptId);
                     MessageBox.Show("삭제되었습니다.");
-                    DataGridView.DataSource = new DepartmentRepository().GetAll();
+                    그리드갱신();
                 }
                 catch(SqlException ex) when (ex.Number == 547)
                 {
@@ -92,44 +103,49 @@ namespace WindowsFormsApp2.Forms
       
 
         // 부서 추가 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void 부서추가(object sender, EventArgs e)
         {
             DeptAddForm daf = new DeptAddForm();
             daf.ShowDialog();
 
             if (DialogResult.OK == daf.DialogResult)
             {
-                DataGridView.DataSource = new DepartmentRepository().GetAll();
+                그리드갱신();
             }
         }
 
         // 부서 수정
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void 부서수정(object sender, EventArgs e)
         {
-            if (DataGridView.SelectedRows.Count == 0)
+            if (부서그리드.GetFocusedRow() == null)
             {
                 MessageBox.Show("부서를 선택해주세요.");
                 return;
             }
 
-            DepartmentDto dept = DataGridView.SelectedRows[0].DataBoundItem as DepartmentDto;
-            DeptEditForm edit = new DeptEditForm(dept);
+
+            DeptEditForm edit = new DeptEditForm(Dept);
             edit.ShowDialog();
 
             if (edit.DialogResult == DialogResult.OK)
             {
                 MessageBox.Show("부서가 변경 되었습니다.");
-                DataGridView.DataSource = new DepartmentRepository().GetAll();
+                그리드갱신();
                 return;
             }
 
-            
+        }
 
+        private void 상위부서버튼_Click(object sender, EventArgs e)
+        {
+            P.ShowDialog();
 
-
-            
-
+            if (DialogResult.OK == P.DialogResult) 
+            {
+                그리드갱신();
+            }
 
         }
+
     }
 }

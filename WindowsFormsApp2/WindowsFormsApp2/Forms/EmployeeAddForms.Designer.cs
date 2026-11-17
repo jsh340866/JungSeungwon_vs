@@ -77,7 +77,6 @@
             this.txtDeptName = new System.Windows.Forms.TextBox();
             this.deptName = new System.Windows.Forms.Label();
             this.pnlDeptCode = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.cboDeptCode = new System.Windows.Forms.ComboBox();
             this.deptCode = new System.Windows.Forms.Label();
             this.pnlMemo = new System.Windows.Forms.Panel();
@@ -663,22 +662,12 @@
             // 
             // pnlDeptCode
             // 
-            this.pnlDeptCode.Controls.Add(this.panel4);
             this.pnlDeptCode.Controls.Add(this.cboDeptCode);
             this.pnlDeptCode.Controls.Add(this.deptCode);
             this.pnlDeptCode.Location = new System.Drawing.Point(10, 44);
             this.pnlDeptCode.Name = "pnlDeptCode";
             this.pnlDeptCode.Size = new System.Drawing.Size(154, 41);
             this.pnlDeptCode.TabIndex = 34;
-            // 
-            // panel4
-            // 
-            this.panel4.BackgroundImage = global::WindowsFormsApp2.Properties.Resources.drop_arrow;
-            this.panel4.Location = new System.Drawing.Point(136, 18);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(17, 21);
-            this.panel4.TabIndex = 32;
-            this.panel4.Click += new System.EventHandler(this.panel4_Click);
             // 
             // cboDeptCode
             // 
@@ -997,7 +986,6 @@
         private System.Windows.Forms.TextBox txtDeptName;
         private System.Windows.Forms.Label deptName;
         private System.Windows.Forms.Panel pnlDeptCode;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ComboBox cboDeptCode;
         private System.Windows.Forms.Label deptCode;
         private System.Windows.Forms.Panel pnlMemo;

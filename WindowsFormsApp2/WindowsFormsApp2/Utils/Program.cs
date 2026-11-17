@@ -9,7 +9,7 @@ namespace WindowsFormsApp2.Utils
 {
     internal static class Program
     {
-        
+
         [STAThread]
         static void Main()
         {
@@ -37,7 +37,13 @@ namespace WindowsFormsApp2.Utils
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new 로그인폼());
+
+            LoginForm L = new LoginForm();
+            L.ShowDialog();
+            if (L.DialogResult == DialogResult.OK)
+            {
+                Application.Run(new Form1());
+            }
         }
     }
 }

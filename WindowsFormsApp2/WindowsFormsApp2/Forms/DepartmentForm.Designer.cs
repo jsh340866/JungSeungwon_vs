@@ -29,23 +29,37 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DepartmentForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnClose = new System.Windows.Forms.ToolStripButton();
-            this.btnDelete = new System.Windows.Forms.ToolStripButton();
-            this.btnEdit = new System.Windows.Forms.ToolStripButton();
-            this.btnAdd = new System.Windows.Forms.ToolStripButton();
+            this.닫기버튼 = new System.Windows.Forms.ToolStripButton();
+            this.삭제버튼 = new System.Windows.Forms.ToolStripButton();
+            this.수정버튼 = new System.Windows.Forms.ToolStripButton();
+            this.추가버튼 = new System.Windows.Forms.ToolStripButton();
+            this.차트버튼 = new System.Windows.Forms.ToolStripButton();
+            this.트리버튼 = new System.Windows.Forms.ToolStripButton();
+            this.상위부서버튼 = new System.Windows.Forms.ToolStripButton();
             this.IblTitle = new System.Windows.Forms.ToolStripLabel();
-            this.pnlGrid = new System.Windows.Forms.Panel();
-            this.DataGridView = new System.Windows.Forms.DataGridView();
-            this.colDeptCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDeptName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMemo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.상위부서그리드컨트롤 = new DevExpress.XtraGrid.GridControl();
+            this.상위부서그리드 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.상위부서코드 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.상위부서명 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.상위메모 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.부서그리드컨트롤 = new DevExpress.XtraGrid.GridControl();
+            this.부서그리드 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.부서코드 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.부서명 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.메모 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1.SuspendLayout();
-            this.pnlGrid.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3.Panel1)).BeginInit();
+            this.splitContainerControl3.Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3.Panel2)).BeginInit();
+            this.splitContainerControl3.Panel2.SuspendLayout();
+            this.splitContainerControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.상위부서그리드컨트롤)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.상위부서그리드)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.부서그리드컨트롤)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.부서그리드)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -54,56 +68,92 @@
             this.toolStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnClose,
-            this.btnDelete,
-            this.btnEdit,
-            this.btnAdd,
+            this.닫기버튼,
+            this.삭제버튼,
+            this.수정버튼,
+            this.추가버튼,
+            this.차트버튼,
+            this.트리버튼,
+            this.상위부서버튼,
             this.IblTitle});
             this.toolStrip1.Location = new System.Drawing.Point(1, 1);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(10, 2, 8, 2);
-            this.toolStrip1.Size = new System.Drawing.Size(421, 35);
+            this.toolStrip1.Size = new System.Drawing.Size(798, 35);
             this.toolStrip1.TabIndex = 1;
             // 
-            // btnClose
+            // 닫기버튼
             // 
-            this.btnClose.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnClose.Size = new System.Drawing.Size(65, 28);
-            this.btnClose.Text = "닫기";
-            this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            this.닫기버튼.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.닫기버튼.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.닫기버튼.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.닫기버튼.Name = "닫기버튼";
+            this.닫기버튼.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.닫기버튼.Size = new System.Drawing.Size(50, 28);
+            this.닫기버튼.Text = "닫기";
             // 
-            // btnDelete
+            // 삭제버튼
             // 
-            this.btnDelete.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnDelete.Size = new System.Drawing.Size(65, 28);
-            this.btnDelete.Text = "삭제";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.삭제버튼.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.삭제버튼.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.삭제버튼.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.삭제버튼.Name = "삭제버튼";
+            this.삭제버튼.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.삭제버튼.Size = new System.Drawing.Size(50, 28);
+            this.삭제버튼.Text = "삭제";
             // 
-            // btnEdit
+            // 수정버튼
             // 
-            this.btnEdit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnEdit.Size = new System.Drawing.Size(65, 28);
-            this.btnEdit.Text = "수정";
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.수정버튼.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.수정버튼.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.수정버튼.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.수정버튼.Name = "수정버튼";
+            this.수정버튼.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.수정버튼.Size = new System.Drawing.Size(50, 28);
+            this.수정버튼.Text = "수정";
             // 
-            // btnAdd
+            // 추가버튼
             // 
-            this.btnAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnAdd.Size = new System.Drawing.Size(65, 28);
-            this.btnAdd.Text = "추가";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.추가버튼.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.추가버튼.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.추가버튼.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.추가버튼.Name = "추가버튼";
+            this.추가버튼.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.추가버튼.Size = new System.Drawing.Size(50, 28);
+            this.추가버튼.Text = "추가";
+            // 
+            // 차트버튼
+            // 
+            this.차트버튼.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.차트버튼.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.차트버튼.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.차트버튼.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.차트버튼.Name = "차트버튼";
+            this.차트버튼.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.차트버튼.Size = new System.Drawing.Size(50, 28);
+            this.차트버튼.Text = "차트";
+            // 
+            // 트리버튼
+            // 
+            this.트리버튼.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.트리버튼.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.트리버튼.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.트리버튼.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.트리버튼.Name = "트리버튼";
+            this.트리버튼.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.트리버튼.Size = new System.Drawing.Size(50, 28);
+            this.트리버튼.Text = "트리";
+            // 
+            // 상위부서버튼
+            // 
+            this.상위부서버튼.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.상위부서버튼.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.상위부서버튼.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.상위부서버튼.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.상위부서버튼.Name = "상위부서버튼";
+            this.상위부서버튼.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.상위부서버튼.Size = new System.Drawing.Size(59, 28);
+            this.상위부서버튼.Text = "상위부서";
             // 
             // IblTitle
             // 
@@ -115,97 +165,131 @@
             this.IblTitle.Size = new System.Drawing.Size(50, 28);
             this.IblTitle.Text = "부서";
             // 
-            // pnlGrid
+            // splitContainerControl3
             // 
-            this.pnlGrid.BackColor = System.Drawing.Color.White;
-            this.pnlGrid.Controls.Add(this.DataGridView);
-            this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlGrid.Location = new System.Drawing.Point(1, 36);
-            this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Padding = new System.Windows.Forms.Padding(0, 18, 0, 0);
-            this.pnlGrid.Size = new System.Drawing.Size(421, 266);
-            this.pnlGrid.TabIndex = 5;
+            this.splitContainerControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
+            this.splitContainerControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl3.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
+            this.splitContainerControl3.Location = new System.Drawing.Point(1, 36);
+            this.splitContainerControl3.Name = "splitContainerControl3";
             // 
-            // DataGridView
+            // splitContainerControl3.Panel1
             // 
-            this.DataGridView.AllowUserToAddRows = false;
-            this.DataGridView.AllowUserToDeleteRows = false;
-            this.DataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.DataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.DataGridView.ColumnHeadersHeight = 31;
-            this.DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colDeptCode,
-            this.colDeptName,
-            this.colMemo});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DataGridView.EnableHeadersVisualStyles = false;
-            this.DataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.DataGridView.Location = new System.Drawing.Point(0, 18);
-            this.DataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.DataGridView.Name = "DataGridView";
-            this.DataGridView.ReadOnly = true;
-            this.DataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.DataGridView.RowHeadersWidth = 20;
-            this.DataGridView.RowTemplate.Height = 24;
-            this.DataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridView.Size = new System.Drawing.Size(421, 248);
-            this.DataGridView.TabIndex = 4;
+            this.splitContainerControl3.Panel1.Controls.Add(this.상위부서그리드컨트롤);
+            this.splitContainerControl3.Panel1.Padding = new System.Windows.Forms.Padding(20);
+            this.splitContainerControl3.Panel1.Text = "Panel1";
             // 
-            // colDeptCode
+            // splitContainerControl3.Panel2
             // 
-            this.colDeptCode.DataPropertyName = "DeptCode";
-            this.colDeptCode.HeaderText = "부서코드";
-            this.colDeptCode.Name = "colDeptCode";
-            this.colDeptCode.ReadOnly = true;
+            this.splitContainerControl3.Panel2.Controls.Add(this.부서그리드컨트롤);
+            this.splitContainerControl3.Panel2.Padding = new System.Windows.Forms.Padding(20);
+            this.splitContainerControl3.Panel2.Text = "Panel2";
+            this.splitContainerControl3.Size = new System.Drawing.Size(798, 313);
+            this.splitContainerControl3.SplitterPosition = 399;
+            this.splitContainerControl3.TabIndex = 7;
             // 
-            // colDeptName
+            // 상위부서그리드컨트롤
             // 
-            this.colDeptName.DataPropertyName = "DeptName";
-            this.colDeptName.HeaderText = "부서명";
-            this.colDeptName.Name = "colDeptName";
-            this.colDeptName.ReadOnly = true;
+            this.상위부서그리드컨트롤.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.상위부서그리드컨트롤.Location = new System.Drawing.Point(20, 20);
+            this.상위부서그리드컨트롤.MainView = this.상위부서그리드;
+            this.상위부서그리드컨트롤.Name = "상위부서그리드컨트롤";
+            this.상위부서그리드컨트롤.Size = new System.Drawing.Size(359, 269);
+            this.상위부서그리드컨트롤.TabIndex = 1;
+            this.상위부서그리드컨트롤.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.상위부서그리드});
             // 
-            // colMemo
+            // 상위부서그리드
             // 
-            this.colMemo.DataPropertyName = "Memo";
-            this.colMemo.HeaderText = "메모";
-            this.colMemo.Name = "colMemo";
-            this.colMemo.ReadOnly = true;
+            this.상위부서그리드.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.상위부서코드,
+            this.상위부서명,
+            this.상위메모});
+            this.상위부서그리드.GridControl = this.상위부서그리드컨트롤;
+            this.상위부서그리드.Name = "상위부서그리드";
+            this.상위부서그리드.OptionsPrint.PrintFooter = false;
+            this.상위부서그리드.OptionsPrint.PrintGroupFooter = false;
+            this.상위부서그리드.OptionsPrint.PrintHeader = false;
+            this.상위부서그리드.OptionsView.ShowGroupPanel = false;
+            // 
+            // 상위부서코드
+            // 
+            this.상위부서코드.Caption = "상위부서코드";
+            this.상위부서코드.FieldName = "ParentDeptCode";
+            this.상위부서코드.Name = "상위부서코드";
+            this.상위부서코드.Visible = true;
+            this.상위부서코드.VisibleIndex = 0;
+            // 
+            // 상위부서명
+            // 
+            this.상위부서명.Caption = "상위부서명";
+            this.상위부서명.FieldName = "ParentDeptName";
+            this.상위부서명.Name = "상위부서명";
+            this.상위부서명.Visible = true;
+            this.상위부서명.VisibleIndex = 1;
+            // 
+            // 상위메모
+            // 
+            this.상위메모.Caption = "메모";
+            this.상위메모.FieldName = "ParentMemo";
+            this.상위메모.Name = "상위메모";
+            this.상위메모.Visible = true;
+            this.상위메모.VisibleIndex = 2;
+            // 
+            // 부서그리드컨트롤
+            // 
+            this.부서그리드컨트롤.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.부서그리드컨트롤.Location = new System.Drawing.Point(20, 20);
+            this.부서그리드컨트롤.MainView = this.부서그리드;
+            this.부서그리드컨트롤.Name = "부서그리드컨트롤";
+            this.부서그리드컨트롤.Size = new System.Drawing.Size(345, 269);
+            this.부서그리드컨트롤.TabIndex = 0;
+            this.부서그리드컨트롤.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.부서그리드});
+            // 
+            // 부서그리드
+            // 
+            this.부서그리드.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.부서코드,
+            this.부서명,
+            this.메모});
+            this.부서그리드.GridControl = this.부서그리드컨트롤;
+            this.부서그리드.Name = "부서그리드";
+            this.부서그리드.OptionsPrint.PrintFooter = false;
+            this.부서그리드.OptionsPrint.PrintGroupFooter = false;
+            this.부서그리드.OptionsPrint.PrintHeader = false;
+            this.부서그리드.OptionsView.ShowGroupPanel = false;
+            // 
+            // 부서코드
+            // 
+            this.부서코드.Caption = "부서코드";
+            this.부서코드.FieldName = "DeptCode";
+            this.부서코드.Name = "부서코드";
+            this.부서코드.Visible = true;
+            this.부서코드.VisibleIndex = 0;
+            // 
+            // 부서명
+            // 
+            this.부서명.Caption = "부서명";
+            this.부서명.FieldName = "DeptName";
+            this.부서명.Name = "부서명";
+            this.부서명.Visible = true;
+            this.부서명.VisibleIndex = 1;
+            // 
+            // 메모
+            // 
+            this.메모.Caption = "메모";
+            this.메모.FieldName = "Memo";
+            this.메모.Name = "메모";
+            this.메모.Visible = true;
+            this.메모.VisibleIndex = 2;
             // 
             // DepartmentForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(423, 303);
-            this.Controls.Add(this.pnlGrid);
+            this.ClientSize = new System.Drawing.Size(800, 350);
+            this.Controls.Add(this.splitContainerControl3);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -214,11 +298,18 @@
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DepartmentForm";
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.DepartmentForm_Paint);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.pnlGrid.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3.Panel1)).EndInit();
+            this.splitContainerControl3.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3.Panel2)).EndInit();
+            this.splitContainerControl3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3)).EndInit();
+            this.splitContainerControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.상위부서그리드컨트롤)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.상위부서그리드)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.부서그리드컨트롤)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.부서그리드)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -226,15 +317,24 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton btnClose;
-        private System.Windows.Forms.ToolStripButton btnDelete;
-        private System.Windows.Forms.ToolStripButton btnEdit;
-        private System.Windows.Forms.ToolStripButton btnAdd;
+        private System.Windows.Forms.ToolStripButton 닫기버튼;
+        private System.Windows.Forms.ToolStripButton 삭제버튼;
+        private System.Windows.Forms.ToolStripButton 수정버튼;
+        private System.Windows.Forms.ToolStripButton 추가버튼;
         private System.Windows.Forms.ToolStripLabel IblTitle;
-        private System.Windows.Forms.Panel pnlGrid;
-        internal System.Windows.Forms.DataGridView DataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDeptCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDeptName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMemo;
+        private System.Windows.Forms.ToolStripButton 상위부서버튼;
+        private System.Windows.Forms.ToolStripButton 차트버튼;
+        private System.Windows.Forms.ToolStripButton 트리버튼;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl3;
+        private DevExpress.XtraGrid.GridControl 부서그리드컨트롤;
+        private DevExpress.XtraGrid.Views.Grid.GridView 부서그리드;
+        private DevExpress.XtraGrid.GridControl 상위부서그리드컨트롤;
+        private DevExpress.XtraGrid.Views.Grid.GridView 상위부서그리드;
+        private DevExpress.XtraGrid.Columns.GridColumn 부서코드;
+        private DevExpress.XtraGrid.Columns.GridColumn 부서명;
+        private DevExpress.XtraGrid.Columns.GridColumn 메모;
+        private DevExpress.XtraGrid.Columns.GridColumn 상위부서코드;
+        private DevExpress.XtraGrid.Columns.GridColumn 상위부서명;
+        private DevExpress.XtraGrid.Columns.GridColumn 상위메모;
     }
 }

@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dtos\DepartmentDto.cs" />
+    <Compile Include="Dtos\ParentDepartmentDto.cs" />
     <Compile Include="Forms\DeptAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,7 +76,28 @@
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ParentAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ParentAddForm.Designer.cs">
+      <DependentUpon>ParentAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ParentEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ParentEditForm.Designer.cs">
+      <DependentUpon>ParentEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ParentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ParentForm.Designer.cs">
+      <DependentUpon>ParentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repository\DepartmentRepository.cs" />
+    <Compile Include="Repository\ParentDepartmentRepository.cs" />
+    <Compile Include="Services\DeptService.cs" />
+    <Compile Include="Services\LoginService.cs" />
     <Compile Include="Utils\Config.cs" />
     <Compile Include="Forms\DepartmentForm.cs">
       <SubType>Form</SubType>
@@ -146,6 +168,15 @@
     <EmbeddedResource Include="Forms\LoginInfoForm.resx">
       <DependentUpon>LoginInfoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ParentAddForm.resx">
+      <DependentUpon>ParentAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ParentEditForm.resx">
+      <DependentUpon>ParentEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ParentForm.resx">
+      <DependentUpon>ParentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -179,6 +210,8 @@
   <ItemGroup>
     <None Include="Properties\Resources\drop_arrow.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

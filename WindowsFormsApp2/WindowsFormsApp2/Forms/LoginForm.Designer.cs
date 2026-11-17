@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp2.Forms
 {
-    partial class 로그인폼
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -188,7 +188,7 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "로그인정보";
             // 
-            // 로그인폼
+            // LoginForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(421, 156);
@@ -202,7 +202,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "로그인폼";
+            this.Name = "LoginForm";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "로그인폼";

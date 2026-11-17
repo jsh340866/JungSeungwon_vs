@@ -13,5 +13,10 @@ namespace WindowsFormsApp2.Dtos
         public string DeptCode {  get; set; }
         public string DeptName { get; set; }
         public string Memo { get; set; }
+        public int? ParentDeptId { get; set; }
+        public string ParentDeptCode { get; set; }
+        public string ParentDeptName { get; set; }
+        public string ParentMemo { get; set; }
+       
     }
 }
