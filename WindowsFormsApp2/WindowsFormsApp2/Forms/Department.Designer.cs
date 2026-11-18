@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp2.Forms
 {
-    partial class DepartmentForm
+    partial class Department
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DepartmentForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Department));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.닫기버튼 = new System.Windows.Forms.ToolStripButton();
             this.삭제버튼 = new System.Windows.Forms.ToolStripButton();
@@ -207,6 +207,7 @@
             this.상위메모});
             this.상위부서그리드.GridControl = this.상위부서그리드컨트롤;
             this.상위부서그리드.Name = "상위부서그리드";
+            this.상위부서그리드.OptionsBehavior.Editable = false;
             this.상위부서그리드.OptionsPrint.PrintFooter = false;
             this.상위부서그리드.OptionsPrint.PrintGroupFooter = false;
             this.상위부서그리드.OptionsPrint.PrintHeader = false;
@@ -255,6 +256,7 @@
             this.메모});
             this.부서그리드.GridControl = this.부서그리드컨트롤;
             this.부서그리드.Name = "부서그리드";
+            this.부서그리드.OptionsBehavior.Editable = false;
             this.부서그리드.OptionsPrint.PrintFooter = false;
             this.부서그리드.OptionsPrint.PrintGroupFooter = false;
             this.부서그리드.OptionsPrint.PrintHeader = false;

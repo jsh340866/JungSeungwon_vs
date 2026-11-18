@@ -34,17 +34,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.CodeParser.v21.2, Version=21.2.15.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.15.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v21.2, Version=21.2.15.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v21.2, Version=21.2.15.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v21.2.UI, Version=21.2.15.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Diagram.v21.2.Core, Version=21.2.15.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v21.2.Core, Version=21.2.15.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v21.2.Core, Version=21.2.15.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v21.2, Version=21.2.15.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v21.2.UI, Version=21.2.15.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v21.2, Version=21.2.15.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v21.2, Version=21.2.15.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraDiagram.v21.2, Version=21.2.15.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v21.2, Version=21.2.15.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraGrid.v21.2, Version=21.2.15.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v21.2, Version=21.2.15.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v21.2, Version=21.2.15.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v21.2, Version=21.2.15.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v21.2, Version=21.2.15.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,128 +65,155 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dtos\DepartmentDto.cs" />
     <Compile Include="Dtos\ParentDepartmentDto.cs" />
-    <Compile Include="Forms\DeptAddForm.cs">
+    <Compile Include="Forms\DeptAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DeptAddForm.Designer.cs">
-      <DependentUpon>DeptAddForm.cs</DependentUpon>
+    <Compile Include="Forms\DeptAdd.Designer.cs">
+      <DependentUpon>DeptAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DeptEditForm.cs">
+    <Compile Include="Forms\DeptChart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DeptEditForm.Designer.cs">
-      <DependentUpon>DeptEditForm.cs</DependentUpon>
+    <Compile Include="Forms\DeptChart.Designer.cs">
+      <DependentUpon>DeptChart.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\LoginForm.cs">
+    <Compile Include="Forms\DeptEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <Compile Include="Forms\DeptEdit.Designer.cs">
+      <DependentUpon>DeptEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ParentAddForm.cs">
+    <Compile Include="Forms\DeptTree.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ParentAddForm.Designer.cs">
-      <DependentUpon>ParentAddForm.cs</DependentUpon>
+    <Compile Include="Forms\DeptTree.Designer.cs">
+      <DependentUpon>DeptTree.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ParentEditForm.cs">
+    <Compile Include="Forms\EmpMutiAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EmpMutiAdd.Designer.cs">
+      <DependentUpon>EmpMutiAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ParentAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ParentAdd.Designer.cs">
+      <DependentUpon>ParentAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ParentEdit.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ParentEditForm.Designer.cs">
-      <DependentUpon>ParentEditForm.cs</DependentUpon>
+      <DependentUpon>ParentEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ParentForm.cs">
+    <Compile Include="Forms\ParentDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ParentForm.Designer.cs">
-      <DependentUpon>ParentForm.cs</DependentUpon>
+    <Compile Include="Forms\ParentDepartment.Designer.cs">
+      <DependentUpon>ParentDepartment.cs</DependentUpon>
     </Compile>
     <Compile Include="Repository\DepartmentRepository.cs" />
     <Compile Include="Repository\ParentDepartmentRepository.cs" />
     <Compile Include="Services\DeptService.cs" />
     <Compile Include="Services\LoginService.cs" />
     <Compile Include="Utils\Config.cs" />
-    <Compile Include="Forms\DepartmentForm.cs">
+    <Compile Include="Forms\Department.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DepartmentForm.Designer.cs">
-      <DependentUpon>DepartmentForm.cs</DependentUpon>
+    <Compile Include="Forms\Department.Designer.cs">
+      <DependentUpon>Department.cs</DependentUpon>
     </Compile>
     <Compile Include="Dtos\EmployeeDto.cs" />
-    <Compile Include="Forms\DeleteForm.cs">
+    <Compile Include="Forms\Delete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DeleteForm.Designer.cs">
-      <DependentUpon>DeleteForm.cs</DependentUpon>
+    <Compile Include="Forms\Delete.Designer.cs">
+      <DependentUpon>Delete.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EmployeeAddForms.cs">
+    <Compile Include="Forms\EmployeeAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EmployeeAddForms.Designer.cs">
-      <DependentUpon>EmployeeAddForms.cs</DependentUpon>
+    <Compile Include="Forms\EmployeeAdd.Designer.cs">
+      <DependentUpon>EmployeeAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EmployeeEditForm.cs">
+    <Compile Include="Forms\EmployeeEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EmployeeEditForm.Designer.cs">
-      <DependentUpon>EmployeeEditForm.cs</DependentUpon>
+    <Compile Include="Forms\EmployeeEdit.Designer.cs">
+      <DependentUpon>EmployeeEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Repository\EmployeeRepository.cs" />
-    <Compile Include="Forms\Form1.cs">
+    <Compile Include="Forms\Employee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\Employee.Designer.cs">
+      <DependentUpon>Employee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\LoginInfoForm.cs">
+    <Compile Include="Forms\LoginInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\LoginInfoForm.Designer.cs">
-      <DependentUpon>LoginInfoForm.cs</DependentUpon>
+    <Compile Include="Forms\LoginInfo.Designer.cs">
+      <DependentUpon>LoginInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\ExcelTransfer.cs" />
+    <Compile Include="Utils\ImageHelper.cs" />
     <Compile Include="Utils\Logger.cs" />
     <Compile Include="Utils\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Rule.cs" />
-    <EmbeddedResource Include="Forms\DeleteForm.resx">
-      <DependentUpon>DeleteForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Delete.resx">
+      <DependentUpon>Delete.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DepartmentForm.resx">
-      <DependentUpon>DepartmentForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Department.resx">
+      <DependentUpon>Department.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DeptAddForm.resx">
-      <DependentUpon>DeptAddForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DeptAdd.resx">
+      <DependentUpon>DeptAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DeptEditForm.resx">
-      <DependentUpon>DeptEditForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DeptEdit.resx">
+      <DependentUpon>DeptEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EmployeeAddForms.resx">
-      <DependentUpon>EmployeeAddForms.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DeptTree.resx">
+      <DependentUpon>DeptTree.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EmployeeEditForm.resx">
-      <DependentUpon>EmployeeEditForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EmployeeAdd.resx">
+      <DependentUpon>EmployeeAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EmployeeEdit.resx">
+      <DependentUpon>EmployeeEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Employee.resx">
+      <DependentUpon>Employee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\LoginInfoForm.resx">
-      <DependentUpon>LoginInfoForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ParentAddForm.resx">
-      <DependentUpon>ParentAddForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\LoginInfo.resx">
+      <DependentUpon>LoginInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ParentAdd.resx">
+      <DependentUpon>ParentAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ParentEdit.resx">
+      <DependentUpon>ParentEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ParentEditForm.resx">
-      <DependentUpon>ParentEditForm.cs</DependentUpon>
+      <DependentUpon>ParentEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ParentForm.resx">
-      <DependentUpon>ParentForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ParentDepartment.resx">
+      <DependentUpon>ParentDepartment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

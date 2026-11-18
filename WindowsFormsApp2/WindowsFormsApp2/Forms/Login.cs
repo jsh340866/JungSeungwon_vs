@@ -12,23 +12,23 @@ using WindowsFormsApp2.Repository;
 
 namespace WindowsFormsApp2.Forms
 {
-    public partial class LoginForm : Form
+    public partial class Login : Form
     {
 
         private readonly List<EmployeeDto> Emp = new EmployeeRepository().Login();
-        private readonly Form1 F = new Form1();
+        private readonly Employee F = new Employee();
 
-        public LoginForm()
+        public Login()
         {
             InitializeComponent();
-            this.Paint += 로그인폼_테두리;
-            this.저장버튼.Click += 로그인;
-            this.닫기버튼.Click += 닫기;
+            this.Paint += 테두리_Paint;
+            this.저장.Click += 저장btn_Click;
+            this.닫기.Click += 닫기btn_Click;
             
 
         }
 
-        private void 로그인폼_테두리(object sensor, PaintEventArgs e)
+        private void 테두리_Paint(object sensor, PaintEventArgs e)
         {
             using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
             {
@@ -36,14 +36,12 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
-        
-
-        private void 닫기(object sensor, EventArgs e)
+        private void 닫기btn_Click(object sensor, EventArgs e)
         {
             this.Close();
         }
 
-        private void 로그인(object sensor, EventArgs e)
+        private void 저장btn_Click(object sensor, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(로그인텍스트박스.Text))
             {

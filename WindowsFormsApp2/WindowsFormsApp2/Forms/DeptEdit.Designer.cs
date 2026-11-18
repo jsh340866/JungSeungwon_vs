@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp2.Forms
 {
-    partial class DeptEditForm
+    partial class DeptEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -103,7 +103,7 @@
             // 
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Controls.Add(this.label4);
-            this.panel8.Location = new System.Drawing.Point(13, 103);
+            this.panel8.Location = new System.Drawing.Point(12, 103);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(147, 41);
             this.panel8.TabIndex = 54;
@@ -157,7 +157,7 @@
             // 
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.label3);
-            this.panel5.Location = new System.Drawing.Point(14, 155);
+            this.panel5.Location = new System.Drawing.Point(13, 155);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(310, 41);
             this.panel5.TabIndex = 53;
@@ -211,7 +211,7 @@
             // 
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(178, 103);
+            this.panel2.Location = new System.Drawing.Point(177, 103);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(147, 41);
             this.panel2.TabIndex = 52;
@@ -287,7 +287,7 @@
             // 
             this.pnlDeptCode.Controls.Add(this.cbo상위부서코드);
             this.pnlDeptCode.Controls.Add(this.deptCode);
-            this.pnlDeptCode.Location = new System.Drawing.Point(13, 50);
+            this.pnlDeptCode.Location = new System.Drawing.Point(12, 50);
             this.pnlDeptCode.Name = "pnlDeptCode";
             this.pnlDeptCode.Size = new System.Drawing.Size(147, 41);
             this.pnlDeptCode.TabIndex = 58;
@@ -296,11 +296,10 @@
             // 
             this.cbo상위부서코드.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo상위부서코드.FormattingEnabled = true;
-            this.cbo상위부서코드.Location = new System.Drawing.Point(3, 17);
+            this.cbo상위부서코드.Location = new System.Drawing.Point(0, 17);
             this.cbo상위부서코드.Name = "cbo상위부서코드";
-            this.cbo상위부서코드.Size = new System.Drawing.Size(142, 23);
+            this.cbo상위부서코드.Size = new System.Drawing.Size(147, 23);
             this.cbo상위부서코드.TabIndex = 31;
-            this.cbo상위부서코드.SelectedIndexChanged += new System.EventHandler(this.cbo상위부서코드_SelectedIndexChanged);
             // 
             // deptCode
             // 
@@ -317,7 +316,7 @@
             // 
             this.pnlDeptName.Controls.Add(this.bdrDeptName);
             this.pnlDeptName.Controls.Add(this.deptName);
-            this.pnlDeptName.Location = new System.Drawing.Point(177, 50);
+            this.pnlDeptName.Location = new System.Drawing.Point(176, 50);
             this.pnlDeptName.Name = "pnlDeptName";
             this.pnlDeptName.Size = new System.Drawing.Size(147, 41);
             this.pnlDeptName.TabIndex = 59;

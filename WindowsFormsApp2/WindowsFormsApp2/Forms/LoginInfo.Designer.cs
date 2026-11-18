@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp2.Forms
 {
-    partial class LoginInfoForm
+    partial class LoginInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -32,14 +32,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.LoginTextbox = new System.Windows.Forms.TextBox();
+            this.로그인ID = new System.Windows.Forms.TextBox();
             this.bdrLogin = new System.Windows.Forms.Panel();
             this.inLogin = new System.Windows.Forms.Panel();
-            this.PasswordTextbox = new System.Windows.Forms.TextBox();
+            this.비밀번호 = new System.Windows.Forms.TextBox();
             this.bdrPassword = new System.Windows.Forms.Panel();
             this.inPassword = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnCancle = new System.Windows.Forms.Button();
+            this.저장 = new System.Windows.Forms.Button();
+            this.닫기 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.bdrLogin.SuspendLayout();
             this.inLogin.SuspendLayout();
@@ -92,18 +92,18 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "비밀번호";
             // 
-            // LoginTextbox
+            // 로그인ID
             // 
-            this.LoginTextbox.BackColor = System.Drawing.Color.White;
-            this.LoginTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.LoginTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LoginTextbox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.LoginTextbox.Location = new System.Drawing.Point(3, 3);
-            this.LoginTextbox.Multiline = true;
-            this.LoginTextbox.Name = "LoginTextbox";
-            this.LoginTextbox.Size = new System.Drawing.Size(149, 18);
-            this.LoginTextbox.TabIndex = 12;
+            this.로그인ID.BackColor = System.Drawing.Color.White;
+            this.로그인ID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.로그인ID.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.로그인ID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.로그인ID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.로그인ID.Location = new System.Drawing.Point(3, 3);
+            this.로그인ID.Multiline = true;
+            this.로그인ID.Name = "로그인ID";
+            this.로그인ID.Size = new System.Drawing.Size(149, 18);
+            this.로그인ID.TabIndex = 12;
             // 
             // bdrLogin
             // 
@@ -118,7 +118,7 @@
             // inLogin
             // 
             this.inLogin.BackColor = System.Drawing.Color.White;
-            this.inLogin.Controls.Add(this.LoginTextbox);
+            this.inLogin.Controls.Add(this.로그인ID);
             this.inLogin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inLogin.Location = new System.Drawing.Point(1, 1);
             this.inLogin.Name = "inLogin";
@@ -126,18 +126,18 @@
             this.inLogin.Size = new System.Drawing.Size(152, 21);
             this.inLogin.TabIndex = 0;
             // 
-            // PasswordTextbox
+            // 비밀번호
             // 
-            this.PasswordTextbox.BackColor = System.Drawing.Color.White;
-            this.PasswordTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PasswordTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PasswordTextbox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.PasswordTextbox.Location = new System.Drawing.Point(3, 3);
-            this.PasswordTextbox.Name = "PasswordTextbox";
-            this.PasswordTextbox.PasswordChar = '*';
-            this.PasswordTextbox.Size = new System.Drawing.Size(149, 16);
-            this.PasswordTextbox.TabIndex = 13;
+            this.비밀번호.BackColor = System.Drawing.Color.White;
+            this.비밀번호.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.비밀번호.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.비밀번호.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.비밀번호.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.비밀번호.Location = new System.Drawing.Point(3, 3);
+            this.비밀번호.Name = "비밀번호";
+            this.비밀번호.PasswordChar = '*';
+            this.비밀번호.Size = new System.Drawing.Size(149, 16);
+            this.비밀번호.TabIndex = 13;
             // 
             // bdrPassword
             // 
@@ -152,7 +152,7 @@
             // inPassword
             // 
             this.inPassword.BackColor = System.Drawing.Color.White;
-            this.inPassword.Controls.Add(this.PasswordTextbox);
+            this.inPassword.Controls.Add(this.비밀번호);
             this.inPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inPassword.Location = new System.Drawing.Point(1, 1);
             this.inPassword.Name = "inPassword";
@@ -160,55 +160,52 @@
             this.inPassword.Size = new System.Drawing.Size(152, 21);
             this.inPassword.TabIndex = 0;
             // 
-            // button1
+            // 저장
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(198)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(150, 105);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 30);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "저장";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.BtnSave_Click);
+            this.저장.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.저장.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(198)))));
+            this.저장.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.저장.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.저장.ForeColor = System.Drawing.Color.White;
+            this.저장.Location = new System.Drawing.Point(150, 105);
+            this.저장.Name = "저장";
+            this.저장.Size = new System.Drawing.Size(120, 30);
+            this.저장.TabIndex = 14;
+            this.저장.Text = "저장";
+            this.저장.UseVisualStyleBackColor = false;
             // 
-            // btnCancle
+            // 닫기
             // 
-            this.btnCancle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.btnCancle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.btnCancle.ForeColor = System.Drawing.Color.White;
-            this.btnCancle.Location = new System.Drawing.Point(285, 105);
-            this.btnCancle.Name = "btnCancle";
-            this.btnCancle.Size = new System.Drawing.Size(120, 30);
-            this.btnCancle.TabIndex = 15;
-            this.btnCancle.Text = "닫기";
-            this.btnCancle.UseVisualStyleBackColor = false;
-            this.btnCancle.Click += new System.EventHandler(this.BtnClose_Click);
+            this.닫기.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.닫기.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
+            this.닫기.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.닫기.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.닫기.ForeColor = System.Drawing.Color.White;
+            this.닫기.Location = new System.Drawing.Point(285, 105);
+            this.닫기.Name = "닫기";
+            this.닫기.Size = new System.Drawing.Size(120, 30);
+            this.닫기.TabIndex = 15;
+            this.닫기.Text = "닫기";
+            this.닫기.UseVisualStyleBackColor = false;
             // 
-            // LoginInfoForm
+            // LoginInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(421, 156);
-            this.Controls.Add(this.btnCancle);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.닫기);
+            this.Controls.Add(this.저장);
             this.Controls.Add(this.bdrPassword);
             this.Controls.Add(this.bdrLogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "LoginInfoForm";
+            this.Name = "LoginInfo";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "LoginInfoForm";
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.LoginInfoForm_Paint);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.bdrLogin.ResumeLayout(false);
@@ -227,13 +224,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox LoginTextbox;
+        private System.Windows.Forms.TextBox 로그인ID;
         private System.Windows.Forms.Panel bdrLogin;
         private System.Windows.Forms.Panel inLogin;
-        private System.Windows.Forms.TextBox PasswordTextbox;
+        private System.Windows.Forms.TextBox 비밀번호;
         private System.Windows.Forms.Panel bdrPassword;
         private System.Windows.Forms.Panel inPassword;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnCancle;
+        private System.Windows.Forms.Button 저장;
+        private System.Windows.Forms.Button 닫기;
     }
 }

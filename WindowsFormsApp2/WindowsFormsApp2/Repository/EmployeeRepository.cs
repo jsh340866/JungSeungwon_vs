@@ -1,6 +1,7 @@
 ﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Drawing.Imaging;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace WindowsFormsApp2.Repository
                 string sql = @"
                     SELECT e.EmpId, e.DeptId, d.DeptCode, d.DeptName,
                            e.EmpCode, e.EmpName, e.Gender, e.LoginId, e.Password,
-                           e.Position, e.EmpType, e.Phone, e.Email, e.MessengerId, e.Memo
+                           e.Position, e.EmpType, e.Phone, e.Email, e.MessengerId, e.Memo, e.Photo
                     FROM dbo.Employee e
                     JOIN dbo.Department d ON d.DeptId = e.DeptId
                     ORDER BY d.DeptCode, e.EmpCode";
@@ -47,12 +48,13 @@ namespace WindowsFormsApp2.Repository
                             Gender = GetStringOrNull(r, 6),
                             LoginId = r.GetString(7),
                             Password = r.GetString(8),
-                            Position =GetStringOrNull(r, 9),
+                            Position = GetStringOrNull(r, 9),
                             EmpType = GetStringOrNull(r, 10),
                             Phone = GetStringOrNull(r, 11),
                             Email = GetStringOrNull(r, 12),
                             MessengerId = GetStringOrNull(r, 13),
-                            Memo = GetStringOrNull(r, 14)
+                            Memo = GetStringOrNull(r, 14),
+                            Photo = GetByteOrNull(r, 15),
                         });
                     }
                 }
@@ -65,6 +67,11 @@ namespace WindowsFormsApp2.Repository
         private static string GetStringOrNull(SqlDataReader r, int i)
         {
             return r.IsDBNull(i) ? null : r.GetString(i);
+        }
+
+        private static byte[] GetByteOrNull(SqlDataReader r, int i)
+        {
+            return r.IsDBNull(i) ? null : (byte[])r.GetValue(i);
         }
 
         // 사원 삭제 메서드
@@ -100,7 +107,7 @@ namespace WindowsFormsApp2.Repository
         }
 
         // 사원 수정 업데이트
-        public void UpdateEmployee (EmployeeDto emp)
+        public void Update (EmployeeDto emp)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
@@ -115,11 +122,12 @@ namespace WindowsFormsApp2.Repository
                                 Memo = @Memo, 
                                 Email = @Email, 
                                 MessengerId = @MessengerId, 
-                                Phone = @Phone
+                                Phone = @Phone,
+                                Photo = @Photo
                                 WHERE EmpId = @EmpId";
                 using (var cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@DeptCode", emp.DeptCode);
+                    cmd.Parameters.AddWithValue("@DeptId", emp.DeptId);
                     cmd.Parameters.AddWithValue("@EmpCode", emp.EmpCode);
                     cmd.Parameters.AddWithValue("@EmpName", emp.EmpName);
                     cmd.Parameters.AddWithValue("@Gender", emp.Gender ?? (object)DBNull.Value);
@@ -129,6 +137,7 @@ namespace WindowsFormsApp2.Repository
                     cmd.Parameters.AddWithValue("@Email", emp.Email ?? (object)DBNull.Value);   
                     cmd.Parameters.AddWithValue("@MessengerId", emp.MessengerId ?? (object)DBNull.Value);   
                     cmd.Parameters.AddWithValue("@Phone", emp.Phone ?? (object)DBNull.Value);
+                    cmd.Parameters.Add("@Photo", SqlDbType.VarBinary, -1).Value = (object)emp.Photo ?? DBNull.Value;
                     cmd.Parameters.AddWithValue("@EmpId", emp.EmpId);
                     cmd.ExecuteNonQuery();  
                 }
@@ -136,15 +145,15 @@ namespace WindowsFormsApp2.Repository
         }
 
         // 사원 추가 저장 메서드
-        public void EmployeeAddSave(EmployeeDto emp)
+        public void Save(EmployeeDto emp)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
                 conn.Open();
                 string sql = @"INSERT INTO dbo.Employee(DeptId, EmpCode, EmpName, LoginId, Password, Position, EmpType, Gender,
-                               Phone, Email, MessengerId, Memo) 
+                               Phone, Email, MessengerId, Memo, Photo) 
                                VALUES ( @DeptId, @EmpCode, @EmpName, @LoginId, 
-                               @Password, @Position, @EmpType, @Gender, @Phone, @Email, @MessengerId, @Memo)";
+                               @Password, @Position, @EmpType, @Gender, @Phone, @Email, @MessengerId, @Memo, @Photo)";
 
                 using (var cmd = new SqlCommand(sql, conn))
                 {
@@ -160,29 +169,8 @@ namespace WindowsFormsApp2.Repository
                     cmd.Parameters.AddWithValue("@Email", emp.Email ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("@MessengerId", emp.MessengerId ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("@Phone", emp.Phone ?? (object)DBNull.Value);
+                    cmd.Parameters.Add("@Photo", SqlDbType.VarBinary, -1).Value = (object)emp.Photo ?? DBNull.Value;
                     cmd.ExecuteNonQuery();
-                }
-            }
-        }
-
-        // 부서코드, 부서명 연동 사전
-        public Dictionary<string, string> DeptCodeName()
-        {
-            var dict = new Dictionary<string, string>();
-            using (var conn = new SqlConnection(Config.Connstr))
-            {
-                conn.Open();
-                string Sql = @"SELECT DeptCode, DeptName FROM dbo.Department";
-                using (var cmd = new SqlCommand(Sql, conn))
-                {
-                    using (var c = cmd.ExecuteReader())
-                    {
-                        while (c.Read())
-                        {
-                            dict.Add(c.GetString(0), c.GetString(1));
-                        }
-                    }
-                    return dict;
                 }
             }
         }

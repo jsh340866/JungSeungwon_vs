@@ -11,23 +11,28 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp2.Forms
 {
-    public partial class DeleteForm : Form
+    public partial class Delete : Form
     {
         // 생성자
-        public DeleteForm(string title, string msg)
+        public Delete(string title, string msg)
         {
             InitializeComponent();
-            label1.Text = title;
-            label2.Text = msg;
+            this.취소.Click += 취소_Click;
+            this.삭제.Click += 삭제_Click;
+            this.Paint += 테두리;
+
+
+            제목.Text = title;
+            메시지.Text = msg;
 
         }
 
-        private void BtnClose_Click(object sender, EventArgs e)
+        private void 취소_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void DeleteForm_Paint(object sender, PaintEventArgs e)
+        private void 테두리(object sender, PaintEventArgs e)
         {
             // 폼 테두리
             using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
@@ -36,7 +41,7 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
-        private void BtnDelete_Click(object sender, EventArgs e)
+        private void 삭제_Click(object sender, EventArgs e)
         {
             // 삭제 버튼 클릭 시, form1에서 처리하도록 DialogResult를 OK로 설정
             this.DialogResult = DialogResult.OK;

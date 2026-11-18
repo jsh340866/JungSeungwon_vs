@@ -14,6 +14,8 @@ namespace WindowsFormsApp2.Dtos
         public string DeptName { get; set; }
         public string Memo { get; set; }
         public int? ParentDeptId { get; set; }
+
+        // LEFT JOIN으로 ParentDepartmenet 에서 가져옴
         public string ParentDeptCode { get; set; }
         public string ParentDeptName { get; set; }
         public string ParentMemo { get; set; }

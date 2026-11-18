@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraGrid;
+﻿using DevExpress.XtraExport.Helpers;
+using DevExpress.XtraGrid;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,28 +16,28 @@ using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Forms
 {
-    public partial class ParentForm : Form
+    public partial class ParentDepartment : Form
     {
-        ParentDepartmentDto Pdept => gridView1.GetFocusedRow() as ParentDepartmentDto;
-        public ParentForm()
+        ParentDepartmentDto Pdept => 그리드뷰.GetFocusedRow() as ParentDepartmentDto;
+        public ParentDepartment()
         {
             InitializeComponent();
-            this.닫기버튼.Click += 닫기버튼_Click;
-            this.삭제버튼.Click += 삭제버튼_Click;
-            this.수정버튼.Click += 수정버튼_Click;
-            this.추가버튼.Click += 추가버튼_Click;
-            this.상위부서버튼.Click += 상위부서버튼_Click;
-            this.Paint += 테두리;
+            this.닫기.Click += 닫기btn_Click;
+            this.삭제.Click += 삭제btn_Click;
+            this.수정.Click += 수정btn_Click;
+            this.추가.Click += 추가btn_Click;
+            this.자료변환.Click += 자료변환btn_Click;
+            this.Paint += 테두리_Paint;
 
-            그리드갱신();
+            GridUpdate();
         }
 
-        private void 그리드갱신()
+        private void GridUpdate()
         {
-            gridControl1.DataSource = new ParentDepartmentRepository().GetAll();
+            그리드컨트롤.DataSource = new ParentDepartmentRepository().GetAll();
         }
 
-        private void 테두리(object sender, PaintEventArgs e)
+        private void 테두리_Paint(object sender, PaintEventArgs e)
         {
             // 폼 테두리
             using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
@@ -47,12 +48,12 @@ namespace WindowsFormsApp2.Forms
 
 
 
-        private void 닫기버튼_Click(object sender, EventArgs e)
+        private void 닫기btn_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
         }
 
-        private void 삭제버튼_Click(object sender, EventArgs e)
+        private void 삭제btn_Click(object sender, EventArgs e)
         {
             if (Pdept == null)
             {
@@ -66,7 +67,7 @@ namespace WindowsFormsApp2.Forms
                       "상위부서명: " + Pdept.ParentDeptName + "\n\n" +
                       "삭제하시겠습니까?";
 
-            DeleteForm D = new DeleteForm(title, msg);
+            Delete D = new Delete(title, msg);
             D.ShowDialog();
 
             if (D.DialogResult == DialogResult.OK)
@@ -75,7 +76,7 @@ namespace WindowsFormsApp2.Forms
                 {
                     new ParentDepartmentRepository().Delete(Pdept.ParentDeptId);
                     MessageBox.Show("삭제가 완료되었습니다.");
-                    그리드갱신();
+                    GridUpdate();
                 }
                 catch (SqlException ex) when (ex.Number == 547)
                 {
@@ -92,49 +93,45 @@ namespace WindowsFormsApp2.Forms
 
         }
 
-        private void 수정버튼_Click(object sender, EventArgs e)
+        private void 수정btn_Click(object sender, EventArgs e)
         {
-            if (gridView1.GetFocusedRow() == null)
+            if (그리드뷰.GetFocusedRow() == null)
             {
                 MessageBox.Show("수정할 상위부서를 선택해주세요.");
                 return;
             }
 
 
-            ParentEditForm F = new ParentEditForm(Pdept);
-            F.ShowDialog();
+            ParentEditForm E = new ParentEditForm(Pdept);
+            E.ShowDialog();
 
-            if (F.DialogResult == DialogResult.OK)
+            if (E.DialogResult == DialogResult.OK)
             {
                 MessageBox.Show("상위부서가 수정되었습니다.");
-                그리드갱신();
+                GridUpdate();
                 return;
             }
 
 
         }
 
-        private void 추가버튼_Click(object sender, EventArgs e)
+        private void 추가btn_Click(object sender, EventArgs e)
         {
-            ParentAddForm F = new ParentAddForm();
-            F.ShowDialog();
+            ParentAdd A = new ParentAdd();
+            A.ShowDialog();
 
-            if (F.DialogResult == DialogResult.OK)
+            if (A.DialogResult == DialogResult.OK)
             {
                 MessageBox.Show("상위부서가 추가되었습니다.");
-                그리드갱신();
+                GridUpdate();
                 return;
             }
         }
 
-        private void 상위부서버튼_Click(object sender, EventArgs e)
+        private void 자료변환btn_Click(object sender, EventArgs e)
         {
-
+            new ExcelTransfer().ExportExcel("상위부서", 그리드뷰);
         }
-
-
-
-
     }
 }
 

@@ -15,31 +15,41 @@ using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Forms
 {
-
-    
-    public partial class DeptEditForm : Form
+    public partial class DeptEdit : Form
     {
         private readonly int deptId;
 
         // 매개변수를 클래스 형태로 받을 생성자
-        public DeptEditForm(DepartmentDto dept)
+        public DeptEdit(DepartmentDto dept)
         {
             InitializeComponent();
             this.Paint += 테두리;
             this.취소클릭.Click += 취소_Click;
             this.저장클릭.Click += 저장_Click;
-
-
-
+            this.cbo상위부서코드.SelectedIndexChanged += 상위부서코드_Change;
+            
             // 수정 전 기존 값
             부서코드.Text = dept.DeptCode;
             부서명.Text = dept.DeptName; 
             메모.Text = dept.Memo;
             this.deptId = dept.DeptId;
-
+  
+            // 콤보박스 드롭리스트
             cbo상위부서코드.DataSource = new ParentDepartmentRepository().GetAll();
             cbo상위부서코드.DisplayMember = nameof(ParentDepartmentDto.ParentDeptCode);
             cbo상위부서코드.ValueMember = nameof(ParentDepartmentDto.ParentDeptId);
+
+            // 수정 시 상위부서가 있는경우 상위부서를 선택
+            if (dept?.ParentDeptId != null)
+            {
+                cbo상위부서코드.SelectedValue = dept.ParentDeptId.Value;
+            }
+            // 상위부서가 없으면 선택을 비워둠
+            else
+            {
+                cbo상위부서코드.SelectedIndex = -1; 
+            }
+
         }
 
         
@@ -52,17 +62,27 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
-        
-
         private void 취소_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // 상위부서명 상위부서코드에 따라 변경
+        private void 상위부서코드_Change(object sender, EventArgs e)
+        {
+            ParentDepartmentDto D = cbo상위부서코드.SelectedItem as ParentDepartmentDto;
+            상위부서명.Text = D?.ParentDeptName;
+        }
 
         // 부서 수정 저장 
         private void 저장_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(cbo상위부서코드.Text))
+            {
+                MessageBox.Show("상위부서코드를 선택해주세요.");
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(부서코드.Text)) 
             {
                 MessageBox.Show("부서코드를 입력해주세요.");
@@ -79,6 +99,7 @@ namespace WindowsFormsApp2.Forms
                 DeptId = this.deptId,
                 DeptCode = 부서코드.Text,
                 DeptName = 부서명.Text,
+                ParentDeptId = (int?)cbo상위부서코드.SelectedValue,
                 Memo = string.IsNullOrWhiteSpace(메모.Text) ? null : 메모.Text
             };
 
@@ -102,9 +123,6 @@ namespace WindowsFormsApp2.Forms
 
         }
         
-        private void cbo상위부서코드_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

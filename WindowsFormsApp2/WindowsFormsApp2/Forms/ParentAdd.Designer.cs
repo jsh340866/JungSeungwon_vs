@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp2.Forms
 {
-    partial class ParentAddForm
+    partial class ParentAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +30,8 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.취소버튼 = new System.Windows.Forms.Button();
-            this.저장버튼 = new System.Windows.Forms.Button();
+            this.취소 = new System.Windows.Forms.Button();
+            this.저장 = new System.Windows.Forms.Button();
             this.pnlPhone = new System.Windows.Forms.Panel();
             this.bdrPhone = new System.Windows.Forms.Panel();
             this.inPhone = new System.Windows.Forms.Panel();
@@ -81,33 +81,33 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "상위 부서 추가";
             // 
-            // 취소버튼
+            // 취소
             // 
-            this.취소버튼.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.취소버튼.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(80)))), ((int)(((byte)(59)))));
-            this.취소버튼.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.취소버튼.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.취소버튼.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.취소버튼.Location = new System.Drawing.Point(229, 180);
-            this.취소버튼.Name = "취소버튼";
-            this.취소버튼.Size = new System.Drawing.Size(120, 30);
-            this.취소버튼.TabIndex = 49;
-            this.취소버튼.Text = "취소";
-            this.취소버튼.UseVisualStyleBackColor = false;
+            this.취소.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.취소.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(80)))), ((int)(((byte)(59)))));
+            this.취소.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.취소.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.취소.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.취소.Location = new System.Drawing.Point(229, 180);
+            this.취소.Name = "취소";
+            this.취소.Size = new System.Drawing.Size(120, 30);
+            this.취소.TabIndex = 49;
+            this.취소.Text = "취소";
+            this.취소.UseVisualStyleBackColor = false;
             // 
-            // 저장버튼
+            // 저장
             // 
-            this.저장버튼.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.저장버튼.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(198)))));
-            this.저장버튼.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.저장버튼.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.저장버튼.ForeColor = System.Drawing.Color.White;
-            this.저장버튼.Location = new System.Drawing.Point(94, 180);
-            this.저장버튼.Name = "저장버튼";
-            this.저장버튼.Size = new System.Drawing.Size(120, 30);
-            this.저장버튼.TabIndex = 48;
-            this.저장버튼.Text = "저장";
-            this.저장버튼.UseVisualStyleBackColor = false;
+            this.저장.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.저장.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(198)))));
+            this.저장.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.저장.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.저장.ForeColor = System.Drawing.Color.White;
+            this.저장.Location = new System.Drawing.Point(94, 180);
+            this.저장.Name = "저장";
+            this.저장.Size = new System.Drawing.Size(120, 30);
+            this.저장.TabIndex = 48;
+            this.저장.Text = "저장";
+            this.저장.UseVisualStyleBackColor = false;
             // 
             // pnlPhone
             // 
@@ -271,21 +271,21 @@
             this.label2.TabIndex = 18;
             this.label2.Text = "상위부서명";
             // 
-            // ParentAddForm
+            // ParentAdd
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(364, 225);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.취소버튼);
-            this.Controls.Add(this.저장버튼);
+            this.Controls.Add(this.취소);
+            this.Controls.Add(this.저장);
             this.Controls.Add(this.pnlPhone);
             this.Controls.Add(this.pnlMemo);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "ParentAddForm";
+            this.Name = "ParentAdd";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ParentAddForm";
@@ -310,8 +310,8 @@
         #endregion
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button 취소버튼;
-        private System.Windows.Forms.Button 저장버튼;
+        private System.Windows.Forms.Button 취소;
+        private System.Windows.Forms.Button 저장;
         private System.Windows.Forms.Panel pnlPhone;
         private System.Windows.Forms.Panel bdrPhone;
         private System.Windows.Forms.Panel inPhone;

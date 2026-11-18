@@ -26,9 +26,9 @@ namespace WindowsFormsApp2.Forms
 
             InitializeComponent();
 
-            this.Paint += 테두리;
-            this.저장버튼.Click += 저장버튼_Click;
-            this.취소버튼.Click += 취소버튼_Click;
+            this.Paint += 테두리_Paint;
+            this.저장.Click += 저장btn_Click;
+            this.취소.Click += 취소btn_Click;
 
             // 수정 전 기존 값
             this.ParentDeptId = pdept.ParentDeptId;
@@ -37,7 +37,7 @@ namespace WindowsFormsApp2.Forms
             상위메모박스.Text = pdept.ParentMemo;
         }
 
-        private void 테두리(object sender, PaintEventArgs e)
+        private void 테두리_Paint(object sender, PaintEventArgs e)
         {
             using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
             {
@@ -45,12 +45,12 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
-        private void 취소버튼_Click(object sender, EventArgs e)
+        private void 취소btn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void 저장버튼_Click(object sender, EventArgs e)
+        private void 저장btn_Click(object sender, EventArgs e)
         {
 
 

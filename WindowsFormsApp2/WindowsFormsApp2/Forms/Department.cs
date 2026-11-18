@@ -14,16 +14,16 @@ using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Forms
 {
-    public partial class DepartmentForm : Form
+    public partial class Department : Form
     {
 
         // DataGridView 현재행 가져오기
         private DepartmentDto Dept => 부서그리드.GetFocusedRow() as DepartmentDto;
         private ParentDepartmentDto Pdept => 상위부서그리드.GetFocusedRow() as ParentDepartmentDto;
 
-        private readonly ParentForm P = new ParentForm();
+        private readonly ParentDepartment P = new ParentDepartment();
 
-        public DepartmentForm()
+        public Department()
         {
             InitializeComponent();
             this.닫기버튼.Click += 닫기;
@@ -35,8 +35,6 @@ namespace WindowsFormsApp2.Forms
 
             그리드갱신();
         }
-
-
 
         // 폼 테두리
         private void 부서폼_테두리(object sender, PaintEventArgs e)
@@ -73,7 +71,7 @@ namespace WindowsFormsApp2.Forms
             string msg = "부서코드: " + Dept.DeptCode + "\n" +
                          "부서명: " + Dept.DeptName + "\n\n" +
                          "삭제하시겠습니까?";
-            DeleteForm deleteForm = new DeleteForm(title, msg);
+            Delete deleteForm = new Delete(title, msg);
             deleteForm.ShowDialog();
 
             if (deleteForm.DialogResult == DialogResult.OK)
@@ -105,7 +103,7 @@ namespace WindowsFormsApp2.Forms
         // 부서 추가 
         private void 부서추가(object sender, EventArgs e)
         {
-            DeptAddForm daf = new DeptAddForm();
+            DeptAdd daf = new DeptAdd();
             daf.ShowDialog();
 
             if (DialogResult.OK == daf.DialogResult)
@@ -119,12 +117,12 @@ namespace WindowsFormsApp2.Forms
         {
             if (부서그리드.GetFocusedRow() == null)
             {
-                MessageBox.Show("부서를 선택해주세요.");
+                MessageBox.Show("수정할 부서를 선택해주세요.");
                 return;
             }
 
 
-            DeptEditForm edit = new DeptEditForm(Dept);
+            DeptEdit edit = new DeptEdit(Dept);
             edit.ShowDialog();
 
             if (edit.DialogResult == DialogResult.OK)
@@ -144,6 +142,11 @@ namespace WindowsFormsApp2.Forms
             {
                 그리드갱신();
             }
+
+        }
+
+        private void 트리_Click(Object sender, EventArgs e)
+        {
 
         }
 

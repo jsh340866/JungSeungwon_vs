@@ -38,11 +38,11 @@ namespace WindowsFormsApp2.Utils
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            LoginForm L = new LoginForm();
+            Login L = new Login();
             L.ShowDialog();
             if (L.DialogResult == DialogResult.OK)
             {
-                Application.Run(new Form1());
+                Application.Run(new Employee());
             }
         }
     }

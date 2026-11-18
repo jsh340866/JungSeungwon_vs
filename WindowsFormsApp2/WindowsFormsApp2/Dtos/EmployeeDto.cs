@@ -30,6 +30,7 @@ namespace WindowsFormsApp2.Dtos
         public string Email { get; set; }
         public string MessengerId { get; set; }
         public string Memo { get; set; }
+        public byte[] Photo { get; set; }
 
     }
 }

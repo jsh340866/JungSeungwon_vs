@@ -12,27 +12,31 @@ using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Forms
 {
-    public partial class LoginInfoForm : Form
+    public partial class LoginInfo : Form
     {
-        int EmpId;
+        private readonly int EmpId;
 
         // 로그인정보 생성자
-        public LoginInfoForm(string loginId, string password, int EmpId)
+        public LoginInfo(string loginId, string password, int EmpId)
         {
             InitializeComponent();
-            LoginTextbox.Text = loginId;
-            PasswordTextbox.Text = password;
+            this.닫기.Click += 닫기btn_Click;
+            this.저장.Click += 저장btn_Click;
+            this.Paint += 테두리_Paint;
+
+
+            로그인ID.Text = loginId;
+            비밀번호.Text = password;
             this.EmpId = EmpId;
         }
 
-        private void BtnClose_Click(object sender, EventArgs e)
+        private void 닫기btn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void LoginInfoForm_Paint(object sender, PaintEventArgs e)
+        private void 테두리_Paint(object sender, PaintEventArgs e)
         {
-            // 폼 테두리
             using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
             {
                 e.Graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1);
@@ -41,27 +45,18 @@ namespace WindowsFormsApp2.Forms
 
 
         // 로그인정보 저장
-        private void BtnSave_Click(object sender, EventArgs e)
+        private void 저장btn_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrWhiteSpace(LoginTextbox.Text) || string.IsNullOrWhiteSpace(PasswordTextbox.Text)) 
-            {
-                MessageBox.Show("로그인, 비밀번호를 입력해 주세요.");
-                return;
-            }
-
-
-            // 로그인정보 저장 버튼 클릭 시, EmployeeRespository의 UpdateLoginInfo 메서드를 호출하여 로그인 정보 업데이트
-            string loginid = LoginTextbox.Text;
-            string password = PasswordTextbox.Text;
-            int empId = this.EmpId;
+            if (string.IsNullOrWhiteSpace(로그인ID.Text)) { MessageBox.Show("로그인ID를 입력해주세요."); return;} 
+            if (string.IsNullOrWhiteSpace(비밀번호.Text)) { MessageBox.Show("비밀번호를 입력해주세요."); return;}
 
             // Rule에서 만든 비밀번호 규칙 넣기
-            if (!Rule.isPasswordCheck(PasswordTextbox.Text)) 
-            {
-                MessageBox.Show("비밀번호는 영문, 숫자 포함 8자 이상입니다.");
-                return;
-            }
+            if (!Rule.isPasswordCheck(비밀번호.Text)) { MessageBox.Show("비밀번호는 영문, 숫자 포함 8자 이상입니다."); return;}
+
+            string loginid = 로그인ID.Text;
+            string password = 비밀번호.Text;
+            int empId = this.EmpId;
 
             try
             {
