@@ -25,27 +25,34 @@ namespace WindowsFormsApp2.Forms
         {
             InitializeComponent();
             this.Paint += 테두리_Paint;
+            this.닫기.Click += 닫기btn_Click;
 
-
+            // TreeList 데이터소스에 넣을 데이터테이블 제작
+            // 테이블 내 컬럼
             DataTable dt = new DataTable();
-            dt.Columns.Add("NodeId", typeof(string));
-            dt.Columns.Add("PartendId", typeof(string));
-            dt.Columns.Add("NodeType", typeof(string));
-            dt.Columns.Add("NodeName", typeof(string));
+            dt.Columns.Add("NodeId", typeof(string));   // 노드ID
+            dt.Columns.Add("ParentId", typeof(string)); // 부모노드ID
+            dt.Columns.Add("NodeCode", typeof(string)); // 노드코드
+            dt.Columns.Add("NodeName", typeof(string)); // 노드명
 
-            foreach (var p in pdept)
-                dt.Rows.Add("P" + p.ParentDeptId, DBNull.Value, "상위부서", p.ParentDeptName);
-
+            // 컬럼에 넣을 로우값 상위부서,부서,사원 순서
+            // db의 각 Id들은 identity 자동증가로 겹칠수 있음 "P,D,E" 접두사를 붙여구분
+            foreach (var p in pdept) 
+            { 
+                // P+Id, null(상위부서라 더 상위가 없음), 상위부서코드, 상위부서명
+                dt.Rows.Add("P" + p.ParentDeptId, DBNull.Value, p.ParentDeptCode, p.ParentDeptName);
+            }
             foreach (var d in dept)
-                dt.Rows.Add("D" + d.DeptId,
-                               d.ParentDeptId == null ? (object)DBNull.Value : "P" + d.ParentDeptId,
-                               "부서", d.DeptName);
-
+            {
+                // D+Id, null(상위가 없는경우 체크) + P+상위부서ID, 부서코드, 부서명
+                dt.Rows.Add("D" + d.DeptId, d.ParentDeptId == null ? (object)DBNull.Value : "P" + d.ParentDeptId, d.DeptCode, d.DeptName);
+            }
             foreach (var e in emp)
-                dt.Rows.Add("E" + e.EmpId, "D" + e.DeptId, "사원", e.EmpName);
+            {
+                // E+Id, D+부서Id, 사원코드, 사원명
+                dt.Rows.Add("E" + e.EmpId, "D" + e.DeptId, e.EmpCode, e.EmpName); 
+            }
 
-            treeList1.KeyFieldName = "NodeId";
-            treeList1.ParentFieldName = "ParentId";
             treeList1.DataSource = dt;
 
 
@@ -59,9 +66,10 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
-        private void treeList1_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
+        private void 닫기btn_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
+
     }
 }

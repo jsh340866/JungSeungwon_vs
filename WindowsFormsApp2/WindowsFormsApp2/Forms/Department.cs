@@ -17,7 +17,6 @@ namespace WindowsFormsApp2.Forms
     public partial class Department : Form
     {
 
-        // DataGridView 현재행 가져오기
         private DepartmentDto Dept => 부서그리드.GetFocusedRow() as DepartmentDto;
 
         private readonly ParentDepartment P = new ParentDepartment();
@@ -31,6 +30,8 @@ namespace WindowsFormsApp2.Forms
             this.추가.Click += 추가btn_Click;
             this.삭제.Click += 삭제btn_Click;
             this.상위부서.Click += 상위부서btn_Click;
+            this.트리.Click += 트리btn_Click;
+            this.차트.Click += 차트btn_Click;
 
             GridUpdate();
         }
@@ -144,10 +145,16 @@ namespace WindowsFormsApp2.Forms
 
         }
 
-        private void 트리_Click(Object sender, EventArgs e)
+        private void 트리btn_Click(object sender, EventArgs e)
         {
-
+            DeptTree T = new DeptTree();
+            T.ShowDialog();
         }
-
+        
+        private void 차트btn_Click(object sender, EventArgs e)
+        {
+            DeptChart C = new DeptChart();
+            C.ShowDialog();
+        }
     }
 }
