@@ -16,9 +16,7 @@ namespace WindowsFormsApp2.Forms
 {
     public partial class Employee : Form
     {
-
         EmployeeDto Emp => 그리드뷰.GetFocusedRow() as EmployeeDto;
-
         public Employee()
         {
             InitializeComponent();
@@ -32,35 +30,38 @@ namespace WindowsFormsApp2.Forms
             this.삭제.Click += 삭제btn_Click;
             this.수정.Click += 수정btn_Click;
             this.자료변환.Click += 자료변환btn_Click;
-            
+
         }
 
+        // 폼 테두리
         private void 테두리_Paint(object sender, PaintEventArgs e)
         {
-            // 폼 테두리 
             using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
             {
                 e.Graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1);
             }
         }
 
+        // 그리드 갱신
         private void GridUpdate()
         {
             그리드컨트롤.DataSource = new EmployeeRepository().GetAll();
         }
 
-
+        // 닫기
         private void 닫기btn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // 조회
         private void 조회btn_Click(object sender, EventArgs e)
         {
             try
             {
                 GridUpdate();
             }
+            // 조회 실패시 예외처리 및 로그
             catch (Exception ex)
             {
                 Logger.Instance.Error("사원 조회 실패", ex);
@@ -68,16 +69,20 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
+        // 삭제
         private void 삭제btn_Click(object sender, EventArgs e)
         {
+            // 선택한 행이 없을경우 메시지 띄움
             if (그리드뷰.GetFocusedRow() == null)
             {
                 MessageBox.Show("삭제할 사원을 선택하세요.");
                 return;
             }
+            // 삭제폼에서 사용할 제목과, 메시지 작성
             string msg = "사원코드: " + Emp.EmpCode + "\n" +
                          "사원명: " + Emp.EmpName + "\n\n" +
                          "삭제하시겠습니까?";
+
             Delete deleteForm = new Delete("사원 삭제", msg);
             deleteForm.ShowDialog();
 
@@ -91,6 +96,7 @@ namespace WindowsFormsApp2.Forms
                     MessageBox.Show("삭제되었습니다.");
                     GridUpdate();
                 }
+                // 에러 발생시 예외처리 및 로그
                 catch (Exception ex)
                 {
                     Logger.Instance.Error("사원 삭제 실패 EmpId=" + Emp.EmpId, ex);
@@ -100,39 +106,37 @@ namespace WindowsFormsApp2.Forms
         }
 
 
-        
+        // 로그인정보
         private void 로그인정보btn_Click(object sender, EventArgs e)
         {
-
+            // 선택한 행이 없을 경우 메시지 띄움
             if (그리드뷰.GetFocusedRow() == null)
             {
                 MessageBox.Show("로그인 정보를 확인할 사원을 선택하세요.");
                 return;
             }
-            else
-            {
-                string LoginId = Emp.LoginId;
-                string Password = Emp.Password;
-                LoginInfo logininfoForm = new LoginInfo(LoginId, Password, Emp.EmpId);
-                logininfoForm.ShowDialog();
+            string LoginId = Emp.LoginId;
+            string Password = Emp.Password;
+            LoginInfo logininfoForm = new LoginInfo(LoginId, Password, Emp.EmpId);
+            logininfoForm.ShowDialog();
 
-                // 로그인정보폼에서 DialogResult.OK를 받고 다시 조회 갱신
-                if (logininfoForm.DialogResult == DialogResult.OK)
+            // 로그인정보폼에서 DialogResult.OK를 받고 다시 조회 갱신
+            if (logininfoForm.DialogResult == DialogResult.OK)
+            {
+                try
                 {
-                    try
-                    {
-                        MessageBox.Show("로그인 정보가 저장되었습니다.");
-                        GridUpdate();
-                    }
-                    catch (Exception ex)
-                    {
-                        Logger.Instance.Error("로그인정보 저장 후 목록 갱신 실패 EmpId=" + Emp.EmpId, ex);
-                        MessageBox.Show("로그인 정보 저장 중 오류가 발생했습니다.\n" + ex.Message);
-                    }
+                    MessageBox.Show("로그인 정보가 저장되었습니다.");
+                    GridUpdate();
+                }
+                // 에러 발생시 예외처리 및 로그
+                catch (Exception ex)
+                {
+                    Logger.Instance.Error("로그인정보 저장 후 목록 갱신 실패 EmpId=" + Emp.EmpId, ex);
+                    MessageBox.Show("로그인 정보 저장 중 오류가 발생했습니다.\n" + ex.Message);
                 }
             }
-
         }
+
 
 
         private void 수정btn_Click(object sender, EventArgs e)
@@ -160,7 +164,7 @@ namespace WindowsFormsApp2.Forms
                 }
             }
         }
-        
+
 
         // 사원 추가폼 연결
         private void 추가btn_Click(object sender, EventArgs e)

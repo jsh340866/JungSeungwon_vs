@@ -41,15 +41,11 @@ namespace WindowsFormsApp2.Forms
                 // 차트 y축, 부서의 사원수, 같은 상위부서끼리 쌓임
                 Count_Y = emp.Where(e => e.DeptId == d.DeptId).Count()
             });
-
             chartControl1.DataSource = list;
-
-
-
         }
 
 
-
+        // 폼 테두리
         private void 테두리_Paint(object sender, PaintEventArgs e)
         {
             using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
@@ -57,15 +53,10 @@ namespace WindowsFormsApp2.Forms
                 e.Graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1);
             }
         }
-
+        // 닫기
         private void 닫기btn_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void chartControl1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -16,8 +16,11 @@ using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Forms
 {
+
     public partial class ParentDepartment : Form
     {
+
+        private readonly List<DepartmentDto> dept = new DepartmentRepository().GetAll();
         ParentDepartmentDto Pdept => 그리드뷰.GetFocusedRow() as ParentDepartmentDto;
         public ParentDepartment()
         {
@@ -61,7 +64,6 @@ namespace WindowsFormsApp2.Forms
                 return;
             }
 
-
             string title = "상위 부서 삭제";
             string msg = "상위부서코드: " + Pdept.ParentDeptCode + "\n" +
                       "상위부서명: " + Pdept.ParentDeptName + "\n\n" +
@@ -74,13 +76,15 @@ namespace WindowsFormsApp2.Forms
             {
                 try
                 {
+                    // Pdept에 소속된 부서가 있는지 확인
+                    if (dept.Any(d => d.ParentDeptId == Pdept.ParentDeptId))
+                    {
+                        MessageBox.Show("소속 부서가 존재하는 상위부서는 삭제할 수 없습니다.");
+                        return;
+                    }
                     new ParentDepartmentRepository().Delete(Pdept.ParentDeptId);
                     MessageBox.Show("삭제가 완료되었습니다.");
                     GridUpdate();
-                }
-                catch (SqlException ex) when (ex.Number == 547)
-                {
-                    MessageBox.Show("소속 부서가 있는 상위부서는 삭제할 수 없습니다.");
                 }
 
                 catch (Exception ex)
@@ -88,9 +92,7 @@ namespace WindowsFormsApp2.Forms
                     Logger.Instance.Error("상위부서 삭제 실패 ParentDeptId =" + Pdept.ParentDeptId);
                     MessageBox.Show("상위부서 삭제 중 오류가 발생하였습니다.\n", ex.Message);
                 }
-
             }
-
         }
 
         private void 수정btn_Click(object sender, EventArgs e)

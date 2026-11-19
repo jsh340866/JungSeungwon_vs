@@ -39,12 +39,12 @@ namespace WindowsFormsApp2.Forms
             cbo상위부서코드.DisplayMember = nameof(ParentDepartmentDto.ParentDeptCode);
             cbo상위부서코드.ValueMember = nameof(ParentDepartmentDto.ParentDeptId);
 
-            // 수정 시 상위부서가 있는경우 상위부서를 선택
+            // 기존값으로 상위부서가 있는경우 상위부서를 선택
             if (dept?.ParentDeptId != null)
             {
                 cbo상위부서코드.SelectedValue = dept.ParentDeptId.Value;
             }
-            // 상위부서가 없으면 선택을 비워둠
+            // 기존값에 상위부서가 없으면 선택을 비워둠
             else
             {
                 cbo상위부서코드.SelectedIndex = -1; 
@@ -53,7 +53,7 @@ namespace WindowsFormsApp2.Forms
         }
 
         
-
+        // 폼 테두리
         private void 테두리_Paint(object sender, PaintEventArgs e)
         {
             using(var pen = new Pen(Color.FromArgb(171,171,171),1))
@@ -62,12 +62,13 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
+        // 취소
         private void 취소btn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        // 상위부서명 상위부서코드에 따라 변경
+        // 상위부서코드에 따라 상위부서명 변경
         private void 상위부서코드_SelectedIndexChanged(object sender, EventArgs e)
         {
             ParentDepartmentDto D = cbo상위부서코드.SelectedItem as ParentDepartmentDto;
@@ -77,23 +78,12 @@ namespace WindowsFormsApp2.Forms
         // 부서 수정 저장 
         private void 저장btn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(cbo상위부서코드.Text))
-            {
-                MessageBox.Show("상위부서코드를 선택해주세요.");
-                return;
-            }
+            // 필수값 체크
+            if (string.IsNullOrWhiteSpace(cbo상위부서코드.Text)){MessageBox.Show("상위부서코드를 선택해주세요.");return;}
+            if (string.IsNullOrWhiteSpace(부서코드.Text)) {MessageBox.Show("부서코드를 입력해주세요.");return;}
+            if (string.IsNullOrWhiteSpace(부서명.Text)){MessageBox.Show("부서명을 입력해주세요.");return;}
 
-            if (string.IsNullOrWhiteSpace(부서코드.Text)) 
-            {
-                MessageBox.Show("부서코드를 입력해주세요.");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(부서명.Text))
-            {
-                MessageBox.Show("부서명을 입력해주세요.");
-                return;
-            }
-
+            // 수정 값 메모리에 담기
             DepartmentDto dept = new DepartmentDto
             {
                 DeptId = this.deptId,
@@ -103,17 +93,17 @@ namespace WindowsFormsApp2.Forms
                 Memo = string.IsNullOrWhiteSpace(메모.Text) ? null : 메모.Text
             };
 
-
             try
             {
                 new DepartmentRepository().Update(dept);
                 this.DialogResult = DialogResult.OK;
             }
+            // 유니크키 제약조건 부서코드 중복 발생시 Sql에러로 메시지 띄움
             catch(SqlException ex) when (ex.Number == 2627)
             {
                 MessageBox.Show("이미 존재하는 부서코드입니다.");    
             }
-            
+            // 나머지 에러 발생시 메시지 띄움
             catch (Exception ex)
             {
                 Logger.Instance.Error("부서 수정 실패 DeptId=" + dept.DeptId, ex);

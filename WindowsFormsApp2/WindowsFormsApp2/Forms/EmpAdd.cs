@@ -17,8 +17,6 @@ namespace WindowsFormsApp2.Forms
 {
     public partial class EmpAdd : Form
     {
-        private readonly List<DepartmentDto> dept = new DepartmentRepository().GetAll();
-
         public EmpAdd()
         {
             InitializeComponent();
@@ -33,30 +31,35 @@ namespace WindowsFormsApp2.Forms
 
 
             // 상위부서코드 -> 부서코드 콤보박스 드롭박스리스트 연동
+            // 부서코드 콤보박스에 보일 값, 실제 값을 미리지정
             cbo부서코드.DisplayMember = nameof(DepartmentDto.DeptCode);
             cbo부서코드.ValueMember = nameof(DepartmentDto.DeptId);
-
+            // 상위부서코드 콤보박스에 값 지정
             cbo상위부서코드.DisplayMember = nameof(ParentDepartmentDto.ParentDeptCode);
             cbo상위부서코드.ValueMember = nameof(ParentDepartmentDto.ParentDeptId);
             cbo상위부서코드.DataSource = new ParentDepartmentRepository().GetAll();
                         
         }
 
-        // 부서코드에 매칭되는 부서명 자동입력
+        // 상위부서코드 콤보박스에 따라 상위부서명과 부서코드 콤보박스 리스트 변경
         private void 상위부서코드_SelectedIndexChanged(object sender, EventArgs e)
         {
             ParentDepartmentDto p = cbo상위부서코드.SelectedItem as ParentDepartmentDto;
             상위부서명.Text = p?.ParentDeptName;
 
+            // 부서코드 콤보박스 리스트 변경
+            List<DepartmentDto> dept = new DepartmentRepository().GetAll();
             cbo부서코드.DataSource = dept.Where(d => p != null && d.ParentDeptId == p.ParentDeptId).ToList();
             
         }
+        // 부서코드 콤보박스에 따라 부서명 변경
         private void 부서코드_SelectedIndexChanged(Object sender, EventArgs e)
         {
             DepartmentDto d = cbo부서코드.SelectedItem as DepartmentDto;
             부서명.Text = d?.DeptName;
         }
 
+        // 폼 테두리
         private void 테두리_Paint(object sender, PaintEventArgs e)
         {   
             using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
@@ -66,6 +69,7 @@ namespace WindowsFormsApp2.Forms
 
         }
 
+        // 취소
         private void 취소btn_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -74,6 +78,7 @@ namespace WindowsFormsApp2.Forms
         // 사원 추가 저장
         private void 저장btn_Click(object sender, EventArgs e)
         {
+            // 필수값 지정
             if (string.IsNullOrWhiteSpace(cbo상위부서코드.Text)) { MessageBox.Show("상위부서를 선택해주세요."); return; }
             if (string.IsNullOrWhiteSpace(cbo부서코드.Text)) { MessageBox.Show("부서코드를 선택해주세요"); return; }
             if (string.IsNullOrWhiteSpace(사원코드.Text)) { MessageBox.Show("사원코드를 입력해주세요.");  return; }
@@ -81,7 +86,7 @@ namespace WindowsFormsApp2.Forms
             if (string.IsNullOrWhiteSpace(로그인ID.Text)) { MessageBox.Show("로그인ID를 입력해주세요"); return;}
             if (string.IsNullOrWhiteSpace(비밀번호.Text)) {MessageBox.Show("비밀번호를 입력해주세요"); return;}
             
-
+            // 비밀번호 규칙
             if (!Rule.isPasswordCheck(비밀번호.Text))
             {
                 MessageBox.Show("비밀번호는 영문,숫자 포함 8자 이상입니다.");
@@ -95,6 +100,7 @@ namespace WindowsFormsApp2.Forms
                 return;
             }
 
+            // 수정 값 메모리 담기
             EmployeeDto emp = new EmployeeDto
             {
                 DeptId = (int)cbo부서코드.SelectedValue,
@@ -117,16 +123,16 @@ namespace WindowsFormsApp2.Forms
                 this.DialogResult = DialogResult.OK;
             }
 
-            // Sql server 오류 발생시 처리
+            // 유니크키 중복으로 Sql오류 발생시 예외처리
             catch (SqlException ex) when (ex.Number == 2627)
             {
-                // unique 제약조건 위반 될시(중복값) 메세지 박스 띄움
+                // 유니크키 제약조건 위반 될시(중복값) 메세지 박스 띄움
                 if (ex.Message.Contains("UQ_Employee_LoginId"))
                 {
                     MessageBox.Show("이미 사용중인 로그인ID 입니다.");
                     return;
                 }
-                // unique 제약조건 위반 될시(중복값) 메세지 박스 띄움
+                // 유니크키 제약조건 위반 될시(중복값) 메세지 박스 띄움
                 else if (ex.Message.Contains("UQ_Employee_EmpCode")){
                     MessageBox.Show("이미 사용중인 사원코드 입니다.");
                     return; 
@@ -136,10 +142,8 @@ namespace WindowsFormsApp2.Forms
                     MessageBox.Show("중복된 값이 있습니다.");
                     return;
                 }
-                
-
-                
             }
+            // 나머지 에러발생시 메시지 띄움 + 로그
             catch (Exception ex)
             {
                 Logger.Instance.Error("사원 추가 실패 EmpCode=" + 사원코드.Text, ex);
@@ -147,6 +151,7 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
+        // 남자체크
         private void 남자체크_Check(object sender, EventArgs e)
         {
             if (남.Checked == true)
@@ -155,6 +160,7 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
+        // 여자체크
         private void 여자체크_Check(object sender, EventArgs e)
         {
             if (여.Checked == true)
@@ -172,11 +178,6 @@ namespace WindowsFormsApp2.Forms
             {
                 휴대전화.Text = digits.Insert(7, "-").Insert(3, "-");
             }
-        }
-
-        private void EmpAdd_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -15,11 +15,9 @@ namespace WindowsFormsApp2.Forms
 {
     public partial class DeptTree : Form
     {
-
         private readonly List<ParentDepartmentDto> pdept = new ParentDepartmentRepository().GetAll();
         private readonly List<DepartmentDto> dept = new DepartmentRepository().GetAll();
         private readonly List<EmployeeDto> emp = new EmployeeRepository().GetAll();
-
 
         public DeptTree()
         {
@@ -54,10 +52,9 @@ namespace WindowsFormsApp2.Forms
             }
 
             treeList1.DataSource = dt;
-
-
         }
 
+        // 폼 테두리
         public void 테두리_Paint(object sender, PaintEventArgs e)
         {
             using(var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
@@ -65,7 +62,7 @@ namespace WindowsFormsApp2.Forms
                 e.Graphics.DrawRectangle(pen,0,0,Width-1,Height-1);
             }
         }
-
+        // 닫기
         private void 닫기btn_Click(object sender, EventArgs e)
         {
             this.Close();
