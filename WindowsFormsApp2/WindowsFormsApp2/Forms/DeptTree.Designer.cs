@@ -32,15 +32,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.트리판넬 = new System.Windows.Forms.Panel();
-            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            this.상위부서 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.하위부서 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.사원 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.panel1.SuspendLayout();
             this.트리판넬.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -78,37 +75,9 @@
             this.트리판넬.Size = new System.Drawing.Size(534, 570);
             this.트리판넬.TabIndex = 54;
             // 
-            // 상위부서
-            // 
-            this.상위부서.Caption = "상위부서";
-            this.상위부서.FieldName = "상위부서";
-            this.상위부서.Name = "상위부서";
-            this.상위부서.Visible = true;
-            this.상위부서.VisibleIndex = 0;
-            // 
-            // 하위부서
-            // 
-            this.하위부서.Caption = "하위부서";
-            this.하위부서.FieldName = "하위부서";
-            this.하위부서.Name = "하위부서";
-            this.하위부서.Visible = true;
-            this.하위부서.VisibleIndex = 2;
-            // 
-            // 사원
-            // 
-            this.사원.Caption = "사원";
-            this.사원.FieldName = "사원";
-            this.사원.Name = "사원";
-            this.사원.Visible = true;
-            this.사원.VisibleIndex = 1;
-            // 
             // treeList1
             // 
             this.treeList1.ChildListFieldName = "사원";
-            this.treeList1.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
-            this.상위부서,
-            this.하위부서,
-            this.사원});
             this.treeList1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeList1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.treeList1.KeyFieldName = "";
@@ -118,6 +87,7 @@
             this.treeList1.ParentFieldName = "";
             this.treeList1.Size = new System.Drawing.Size(494, 520);
             this.treeList1.TabIndex = 53;
+            this.treeList1.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeList1_FocusedNodeChanged);
             // 
             // DeptTree
             // 
@@ -136,8 +106,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.트리판넬.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -149,8 +119,5 @@
         private System.Windows.Forms.Panel 트리판넬;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private DevExpress.XtraTreeList.TreeList treeList1;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn 상위부서;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn 하위부서;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn 사원;
     }
 }

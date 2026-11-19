@@ -27,7 +27,28 @@ namespace WindowsFormsApp2.Forms
             this.Paint += 테두리_Paint;
 
 
-            treeList1.DataSource = new DepartmentRepository().GetAll();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("NodeId", typeof(string));
+            dt.Columns.Add("PartendId", typeof(string));
+            dt.Columns.Add("NodeType", typeof(string));
+            dt.Columns.Add("NodeName", typeof(string));
+
+            foreach (var p in pdept)
+                dt.Rows.Add("P" + p.ParentDeptId, DBNull.Value, "상위부서", p.ParentDeptName);
+
+            foreach (var d in dept)
+                dt.Rows.Add("D" + d.DeptId,
+                               d.ParentDeptId == null ? (object)DBNull.Value : "P" + d.ParentDeptId,
+                               "부서", d.DeptName);
+
+            foreach (var e in emp)
+                dt.Rows.Add("E" + e.EmpId, "D" + e.DeptId, "사원", e.EmpName);
+
+            treeList1.KeyFieldName = "NodeId";
+            treeList1.ParentFieldName = "ParentId";
+            treeList1.DataSource = dt;
+
+
         }
 
         public void 테두리_Paint(object sender, PaintEventArgs e)
@@ -38,6 +59,9 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
+        private void treeList1_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
+        {
 
+        }
     }
 }

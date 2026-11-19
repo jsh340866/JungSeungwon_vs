@@ -155,10 +155,10 @@ C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsAp
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.DeptAdd.resources
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.DeptEdit.resources
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.DeptTree.resources
-C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.EmployeeAdd.resources
-C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.EmployeeEdit.resources
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.Employee.resources
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.Login.resources
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.LoginInfo.resources
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.ParentAdd.resources
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.ParentDepartment.resources
+C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.EmpAdd.resources
+C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.EmpEdit.resources
