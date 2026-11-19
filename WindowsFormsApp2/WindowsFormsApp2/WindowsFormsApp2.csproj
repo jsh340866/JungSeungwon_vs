@@ -142,17 +142,17 @@
     <Compile Include="Forms\Delete.Designer.cs">
       <DependentUpon>Delete.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EmployeeAdd.cs">
+    <Compile Include="Forms\EmpAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EmployeeAdd.Designer.cs">
-      <DependentUpon>EmployeeAdd.cs</DependentUpon>
+    <Compile Include="Forms\EmpAdd.Designer.cs">
+      <DependentUpon>EmpAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EmployeeEdit.cs">
+    <Compile Include="Forms\EmpEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EmployeeEdit.Designer.cs">
-      <DependentUpon>EmployeeEdit.cs</DependentUpon>
+    <Compile Include="Forms\EmpEdit.Designer.cs">
+      <DependentUpon>EmpEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Repository\EmployeeRepository.cs" />
     <Compile Include="Forms\Employee.cs">
@@ -188,11 +188,11 @@
     <EmbeddedResource Include="Forms\DeptTree.resx">
       <DependentUpon>DeptTree.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EmployeeAdd.resx">
-      <DependentUpon>EmployeeAdd.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EmpAdd.resx">
+      <DependentUpon>EmpAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EmployeeEdit.resx">
-      <DependentUpon>EmployeeEdit.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EmpEdit.resx">
+      <DependentUpon>EmpEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Employee.resx">
       <DependentUpon>Employee.cs</DependentUpon>

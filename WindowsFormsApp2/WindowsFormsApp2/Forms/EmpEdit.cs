@@ -17,24 +17,24 @@ using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Forms
 {
-    public partial class EmployeeEdit : Form
+    public partial class EmpEdit : Form
     {
 
         private readonly int EmpId;
 
         private readonly List<DepartmentDto> dept = new DepartmentRepository().GetAll();
         // 생성자
-        public EmployeeEdit(EmployeeDto emp)
+        public EmpEdit(EmployeeDto emp)
         {
             InitializeComponent();
-            this.Paint += 테두리;
-            this.취소.Click += 취소_Click;
-            this.저장.Click += 저장_Click;
-            this.cbo상위부서코드.SelectedIndexChanged += 상위부서코드_Change;
-            this.cbo부서코드.SelectedIndexChanged += 부서코드_Change;
-            this.남.Click += 남자체크;
-            this.여.Click += 여자체크;
-            this.휴대전화.Leave += 휴대전화_하이폰규칙;
+            this.Paint += 테두리_Paint;
+            this.취소.Click += 취소btn_Click;
+            this.저장.Click += 저장btn_Click;
+            this.cbo상위부서코드.SelectedIndexChanged += 상위부서코드_SelectedIndexChanged;
+            this.cbo부서코드.SelectedIndexChanged += 부서코드_SelectedIndexChanged;
+            this.남.Click += 남자체크_Check;
+            this.여.Click += 여자체크_Check;
+            this.휴대전화.Leave += 휴대전화_하이폰규칙_Leave;
 
 
             // 수정 전 기존 값
@@ -84,7 +84,7 @@ namespace WindowsFormsApp2.Forms
 
         }
 
-        private void 상위부서코드_Change(object sender, EventArgs e)
+        private void 상위부서코드_SelectedIndexChanged(object sender, EventArgs e)
         {
             ParentDepartmentDto p = cbo상위부서코드.SelectedItem as ParentDepartmentDto;
             상위부서명.Text = p?.ParentDeptName;
@@ -93,13 +93,13 @@ namespace WindowsFormsApp2.Forms
             cbo부서코드.DataSource = dept.Where(d => p != null && d.ParentDeptId == p.ParentDeptId).ToList();
         }
 
-        private void 부서코드_Change(object sender, EventArgs e)
+        private void 부서코드_SelectedIndexChanged(object sender, EventArgs e)
         {
             DepartmentDto d = cbo부서코드.SelectedItem as DepartmentDto;
             부서명.Text = d?.DeptName;
         }
 
-        private void 테두리(object sender, PaintEventArgs e)
+        private void 테두리_Paint(object sender, PaintEventArgs e)
         {
             using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
             {
@@ -107,24 +107,24 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
-        private void 취소_Click(object sender, EventArgs e)
+        private void 취소btn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void 남자체크(object sender, EventArgs e)
+        private void 남자체크_Check(object sender, EventArgs e)
         {
             if (남.Checked) { 여.Checked = false; }
         }
 
-        private void 여자체크(object sender, EventArgs e)
+        private void 여자체크_Check(object sender, EventArgs e)
         {
             if (여.Checked) { 남.Checked = false; }
         }
 
 
         // 사원 수정 저장
-        private void 저장_Click(object sender, EventArgs e)
+        private void 저장btn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(cbo상위부서코드.Text)) { MessageBox.Show("상위부서코드를 선택해주세요."); return; }
             if (string.IsNullOrWhiteSpace(cbo부서코드.Text)) { MessageBox.Show("부서코드를 선택해주세요."); return; }
@@ -180,7 +180,7 @@ namespace WindowsFormsApp2.Forms
         }
 
         // 휴대폰번호 하이폰 규칙
-        private void 휴대전화_하이폰규칙(object sender, EventArgs e)
+        private void 휴대전화_하이폰규칙_Leave(object sender, EventArgs e)
         {
             string digits = new string(휴대전화.Text.Where(char.IsDigit).ToArray());
             if (digits.Length >= 11)

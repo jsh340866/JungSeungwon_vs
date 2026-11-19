@@ -23,10 +23,10 @@ namespace WindowsFormsApp2.Forms
         public DeptEdit(DepartmentDto dept)
         {
             InitializeComponent();
-            this.Paint += 테두리;
-            this.취소클릭.Click += 취소_Click;
-            this.저장클릭.Click += 저장_Click;
-            this.cbo상위부서코드.SelectedIndexChanged += 상위부서코드_Change;
+            this.Paint += 테두리_Paint;
+            this.취소.Click += 취소btn_Click;
+            this.저장.Click += 저장btn_Click;
+            this.cbo상위부서코드.SelectedIndexChanged += 상위부서코드_SelectedIndexChanged;
             
             // 수정 전 기존 값
             부서코드.Text = dept.DeptCode;
@@ -54,7 +54,7 @@ namespace WindowsFormsApp2.Forms
 
         
 
-        private void 테두리(object sender, PaintEventArgs e)
+        private void 테두리_Paint(object sender, PaintEventArgs e)
         {
             using(var pen = new Pen(Color.FromArgb(171,171,171),1))
             {
@@ -62,20 +62,20 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
-        private void 취소_Click(object sender, EventArgs e)
+        private void 취소btn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         // 상위부서명 상위부서코드에 따라 변경
-        private void 상위부서코드_Change(object sender, EventArgs e)
+        private void 상위부서코드_SelectedIndexChanged(object sender, EventArgs e)
         {
             ParentDepartmentDto D = cbo상위부서코드.SelectedItem as ParentDepartmentDto;
             상위부서명.Text = D?.ParentDeptName;
         }
 
         // 부서 수정 저장 
-        private void 저장_Click(object sender, EventArgs e)
+        private void 저장btn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(cbo상위부서코드.Text))
             {

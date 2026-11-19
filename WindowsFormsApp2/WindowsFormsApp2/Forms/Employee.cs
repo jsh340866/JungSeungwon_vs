@@ -23,19 +23,19 @@ namespace WindowsFormsApp2.Forms
         {
             InitializeComponent();
 
-            this.Paint += 테두리;
-            this.조회.Click += 조회_Click;
-            this.닫기.Click += 닫기_Click;
-            this.로그인정보.Click += 로그인정보_Click;
-            this.추가.Click += 추가_Click;
-            this.부서.Click += 부서_Click;
-            this.삭제.Click += 삭제_Click;
-            this.수정.Click += 수정_Click;
-            this.자료변환.Click += 자료변환_Click;
+            this.Paint += 테두리_Paint;
+            this.조회.Click += 조회btn_Click;
+            this.닫기.Click += 닫기btn_Click;
+            this.로그인정보.Click += 로그인정보btn_Click;
+            this.추가.Click += 추가btn_Click;
+            this.부서.Click += 부서btn_Click;
+            this.삭제.Click += 삭제btn_Click;
+            this.수정.Click += 수정btn_Click;
+            this.자료변환.Click += 자료변환btn_Click;
             
         }
 
-        private void 테두리(object sender, PaintEventArgs e)
+        private void 테두리_Paint(object sender, PaintEventArgs e)
         {
             // 폼 테두리 
             using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
@@ -44,22 +44,22 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
-        private void 그리드갱신()
+        private void GridUpdate()
         {
             그리드컨트롤.DataSource = new EmployeeRepository().GetAll();
         }
 
 
-        private void 닫기_Click(object sender, EventArgs e)
+        private void 닫기btn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void 조회_Click(object sender, EventArgs e)
+        private void 조회btn_Click(object sender, EventArgs e)
         {
             try
             {
-                그리드갱신();
+                GridUpdate();
             }
             catch (Exception ex)
             {
@@ -68,7 +68,7 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
-        private void 삭제_Click(object sender, EventArgs e)
+        private void 삭제btn_Click(object sender, EventArgs e)
         {
             if (그리드뷰.GetFocusedRow() == null)
             {
@@ -89,7 +89,7 @@ namespace WindowsFormsApp2.Forms
                 {
                     new EmployeeRepository().Delete(Emp.EmpId);
                     MessageBox.Show("삭제되었습니다.");
-                    그리드갱신();
+                    GridUpdate();
                 }
                 catch (Exception ex)
                 {
@@ -101,7 +101,7 @@ namespace WindowsFormsApp2.Forms
 
 
         
-        private void 로그인정보_Click(object sender, EventArgs e)
+        private void 로그인정보btn_Click(object sender, EventArgs e)
         {
 
             if (그리드뷰.GetFocusedRow() == null)
@@ -122,7 +122,7 @@ namespace WindowsFormsApp2.Forms
                     try
                     {
                         MessageBox.Show("로그인 정보가 저장되었습니다.");
-                        그리드갱신();
+                        GridUpdate();
                     }
                     catch (Exception ex)
                     {
@@ -135,14 +135,14 @@ namespace WindowsFormsApp2.Forms
         }
 
 
-        private void 수정_Click(object sender, EventArgs e)
+        private void 수정btn_Click(object sender, EventArgs e)
         {
             if (그리드뷰.GetFocusedRow() == null)
             {
                 MessageBox.Show("수정할 사원을 선택하세요.");
                 return;
             }
-            EmployeeEdit editForm = new EmployeeEdit(Emp);
+            EmpEdit editForm = new EmpEdit(Emp);
             editForm.ShowDialog();
 
             // 사원 수정폼 DialogResult.OK 확인 후 조회 갱신
@@ -151,7 +151,7 @@ namespace WindowsFormsApp2.Forms
                 try
                 {
                     MessageBox.Show("사원 정보가 저장되었습니다.");
-                    그리드갱신();
+                    GridUpdate();
                 }
                 catch (Exception ex)
                 {
@@ -163,9 +163,9 @@ namespace WindowsFormsApp2.Forms
         
 
         // 사원 추가폼 연결
-        private void 추가_Click(object sender, EventArgs e)
+        private void 추가btn_Click(object sender, EventArgs e)
         {
-            EmployeeAdd addForm = new EmployeeAdd();
+            EmpAdd addForm = new EmpAdd();
             addForm.ShowDialog();
 
             // 사원 추가폼 DialogResult.OK 확인 후 조회 갱신
@@ -174,7 +174,7 @@ namespace WindowsFormsApp2.Forms
                 try
                 {
                     MessageBox.Show("사원 정보가 추가 되었습니다.");
-                    그리드갱신();
+                    GridUpdate();
                 }
                 catch (Exception ex)
                 {
@@ -185,14 +185,14 @@ namespace WindowsFormsApp2.Forms
         }
 
         // 부서폼 연결
-        private void 부서_Click(object sender, EventArgs e)
+        private void 부서btn_Click(object sender, EventArgs e)
         {
             Department departmentForm = new Department();
             departmentForm.ShowDialog();
         }
 
         // GridView -> 엑셀파일로 자료변환
-        private void 자료변환_Click(object sender, EventArgs e)
+        private void 자료변환btn_Click(object sender, EventArgs e)
         {
             new ExcelTransfer().ExportExcel("사원 정보", 그리드뷰);
         }

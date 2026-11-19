@@ -19,25 +19,24 @@ namespace WindowsFormsApp2.Forms
 
         // DataGridView 현재행 가져오기
         private DepartmentDto Dept => 부서그리드.GetFocusedRow() as DepartmentDto;
-        private ParentDepartmentDto Pdept => 상위부서그리드.GetFocusedRow() as ParentDepartmentDto;
 
         private readonly ParentDepartment P = new ParentDepartment();
 
         public Department()
         {
             InitializeComponent();
-            this.닫기버튼.Click += 닫기;
-            this.수정버튼.Click += 부서수정;
-            this.추가버튼.Click += 부서추가;
-            this.삭제버튼.Click += 부서삭제;
-            this.Paint += 부서폼_테두리;
-            this.상위부서버튼.Click += 상위부서버튼_Click;
+            this.Paint += 테두리_Paint;
+            this.닫기.Click += 닫기btn_Click;
+            this.수정.Click += 수정btn_Click;
+            this.추가.Click += 추가btn_Click;
+            this.삭제.Click += 삭제btn_Click;
+            this.상위부서.Click += 상위부서btn_Click;
 
-            그리드갱신();
+            GridUpdate();
         }
 
         // 폼 테두리
-        private void 부서폼_테두리(object sender, PaintEventArgs e)
+        private void 테두리_Paint(object sender, PaintEventArgs e)
         {
             using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
             {
@@ -45,19 +44,19 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
-        private void 그리드갱신()
+        private void GridUpdate()
         {
             상위부서그리드컨트롤.DataSource = new ParentDepartmentRepository().GetAll();
             부서그리드컨트롤.DataSource = new DepartmentRepository().GetAll();
         }
         
-        private void 닫기(object sender, EventArgs e)
+        private void 닫기btn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         // 부서 삭제
-        private void 부서삭제(object sender, EventArgs e)
+        private void 삭제btn_Click(object sender, EventArgs e)
         {
             if (부서그리드.GetFocusedRow() == null)
             {
@@ -81,7 +80,7 @@ namespace WindowsFormsApp2.Forms
                 {
                     new DepartmentRepository().Delete(Dept.DeptId);
                     MessageBox.Show("삭제되었습니다.");
-                    그리드갱신();
+                    GridUpdate();
                 }
                 catch(SqlException ex) when (ex.Number == 547)
                 {
@@ -101,19 +100,19 @@ namespace WindowsFormsApp2.Forms
       
 
         // 부서 추가 
-        private void 부서추가(object sender, EventArgs e)
+        private void 추가btn_Click(object sender, EventArgs e)
         {
             DeptAdd daf = new DeptAdd();
             daf.ShowDialog();
 
             if (DialogResult.OK == daf.DialogResult)
             {
-                그리드갱신();
+                GridUpdate();
             }
         }
 
         // 부서 수정
-        private void 부서수정(object sender, EventArgs e)
+        private void 수정btn_Click(object sender, EventArgs e)
         {
             if (부서그리드.GetFocusedRow() == null)
             {
@@ -128,19 +127,19 @@ namespace WindowsFormsApp2.Forms
             if (edit.DialogResult == DialogResult.OK)
             {
                 MessageBox.Show("부서가 변경 되었습니다.");
-                그리드갱신();
+                GridUpdate();
                 return;
             }
 
         }
 
-        private void 상위부서버튼_Click(object sender, EventArgs e)
+        private void 상위부서btn_Click(object sender, EventArgs e)
         {
             P.ShowDialog();
 
             if (DialogResult.OK == P.DialogResult) 
             {
-                그리드갱신();
+                GridUpdate();
             }
 
         }

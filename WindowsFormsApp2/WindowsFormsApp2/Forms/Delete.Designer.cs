@@ -56,9 +56,9 @@
             this.제목.Location = new System.Drawing.Point(9, 8);
             this.제목.Margin = new System.Windows.Forms.Padding(0);
             this.제목.Name = "제목";
-            this.제목.Size = new System.Drawing.Size(64, 17);
+            this.제목.Size = new System.Drawing.Size(34, 17);
             this.제목.TabIndex = 1;
-            this.제목.Text = "사원 삭제";
+            this.제목.Text = "제목";
             // 
             // 메시지
             // 
@@ -67,9 +67,9 @@
             this.메시지.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.메시지.Location = new System.Drawing.Point(10, 43);
             this.메시지.Name = "메시지";
-            this.메시지.Size = new System.Drawing.Size(43, 17);
+            this.메시지.Size = new System.Drawing.Size(47, 17);
             this.메시지.TabIndex = 5;
-            this.메시지.Text = "label2";
+            this.메시지.Text = "메시지";
             // 
             // panel1
             // 
@@ -109,7 +109,7 @@
             this.취소.Text = "취소";
             this.취소.UseVisualStyleBackColor = false;
             // 
-            // DeleteForm
+            // Delete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -123,7 +123,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "DeleteForm";
+            this.Name = "Delete";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

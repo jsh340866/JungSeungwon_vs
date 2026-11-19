@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.취소클릭 = new System.Windows.Forms.Button();
-            this.저장클릭 = new System.Windows.Forms.Button();
+            this.취소 = new System.Windows.Forms.Button();
+            this.저장 = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -71,33 +71,33 @@
             this.inDeptName.SuspendLayout();
             this.SuspendLayout();
             // 
-            // 취소클릭
+            // 취소
             // 
-            this.취소클릭.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.취소클릭.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(80)))), ((int)(((byte)(59)))));
-            this.취소클릭.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.취소클릭.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.취소클릭.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.취소클릭.Location = new System.Drawing.Point(203, 222);
-            this.취소클릭.Name = "취소클릭";
-            this.취소클릭.Size = new System.Drawing.Size(120, 30);
-            this.취소클릭.TabIndex = 56;
-            this.취소클릭.Text = "취소";
-            this.취소클릭.UseVisualStyleBackColor = false;
+            this.취소.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.취소.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(80)))), ((int)(((byte)(59)))));
+            this.취소.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.취소.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.취소.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.취소.Location = new System.Drawing.Point(203, 222);
+            this.취소.Name = "취소";
+            this.취소.Size = new System.Drawing.Size(120, 30);
+            this.취소.TabIndex = 56;
+            this.취소.Text = "취소";
+            this.취소.UseVisualStyleBackColor = false;
             // 
-            // 저장클릭
+            // 저장
             // 
-            this.저장클릭.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.저장클릭.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(198)))));
-            this.저장클릭.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.저장클릭.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.저장클릭.ForeColor = System.Drawing.Color.White;
-            this.저장클릭.Location = new System.Drawing.Point(68, 222);
-            this.저장클릭.Name = "저장클릭";
-            this.저장클릭.Size = new System.Drawing.Size(120, 30);
-            this.저장클릭.TabIndex = 55;
-            this.저장클릭.Text = "저장";
-            this.저장클릭.UseVisualStyleBackColor = false;
+            this.저장.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.저장.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(198)))));
+            this.저장.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.저장.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.저장.ForeColor = System.Drawing.Color.White;
+            this.저장.Location = new System.Drawing.Point(68, 222);
+            this.저장.Name = "저장";
+            this.저장.Size = new System.Drawing.Size(120, 30);
+            this.저장.TabIndex = 55;
+            this.저장.Text = "저장";
+            this.저장.UseVisualStyleBackColor = false;
             // 
             // panel8
             // 
@@ -369,7 +369,7 @@
             this.deptName.TabIndex = 18;
             this.deptName.Text = "상위부서명";
             // 
-            // DeptEditForm
+            // DeptEdit
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
@@ -377,14 +377,14 @@
             this.Controls.Add(this.pnlDeptName);
             this.Controls.Add(this.pnlDeptCode);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.취소클릭);
-            this.Controls.Add(this.저장클릭);
+            this.Controls.Add(this.취소);
+            this.Controls.Add(this.저장);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "DeptEditForm";
+            this.Name = "DeptEdit";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DeptEditForm";
@@ -412,8 +412,8 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button 취소클릭;
-        private System.Windows.Forms.Button 저장클릭;
+        private System.Windows.Forms.Button 취소;
+        private System.Windows.Forms.Button 저장;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel10;

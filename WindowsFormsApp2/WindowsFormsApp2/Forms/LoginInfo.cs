@@ -20,10 +20,9 @@ namespace WindowsFormsApp2.Forms
         public LoginInfo(string loginId, string password, int EmpId)
         {
             InitializeComponent();
+            this.Paint += 테두리_Paint;
             this.닫기.Click += 닫기btn_Click;
             this.저장.Click += 저장btn_Click;
-            this.Paint += 테두리_Paint;
-
 
             로그인ID.Text = loginId;
             비밀번호.Text = password;

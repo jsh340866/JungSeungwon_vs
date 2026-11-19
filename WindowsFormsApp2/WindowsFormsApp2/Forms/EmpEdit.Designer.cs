@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp2.Forms
 {
-    partial class EmployeeEdit
+    partial class EmpEdit
     {
         /// <summary>
         /// Required designer variable.

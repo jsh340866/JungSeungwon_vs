@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Department));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.닫기버튼 = new System.Windows.Forms.ToolStripButton();
-            this.삭제버튼 = new System.Windows.Forms.ToolStripButton();
-            this.수정버튼 = new System.Windows.Forms.ToolStripButton();
-            this.추가버튼 = new System.Windows.Forms.ToolStripButton();
-            this.차트버튼 = new System.Windows.Forms.ToolStripButton();
-            this.트리버튼 = new System.Windows.Forms.ToolStripButton();
-            this.상위부서버튼 = new System.Windows.Forms.ToolStripButton();
+            this.닫기 = new System.Windows.Forms.ToolStripButton();
+            this.삭제 = new System.Windows.Forms.ToolStripButton();
+            this.수정 = new System.Windows.Forms.ToolStripButton();
+            this.추가 = new System.Windows.Forms.ToolStripButton();
+            this.차트 = new System.Windows.Forms.ToolStripButton();
+            this.트리 = new System.Windows.Forms.ToolStripButton();
+            this.상위부서 = new System.Windows.Forms.ToolStripButton();
             this.IblTitle = new System.Windows.Forms.ToolStripLabel();
             this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
             this.상위부서그리드컨트롤 = new DevExpress.XtraGrid.GridControl();
@@ -68,13 +68,13 @@
             this.toolStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.닫기버튼,
-            this.삭제버튼,
-            this.수정버튼,
-            this.추가버튼,
-            this.차트버튼,
-            this.트리버튼,
-            this.상위부서버튼,
+            this.닫기,
+            this.삭제,
+            this.수정,
+            this.추가,
+            this.차트,
+            this.트리,
+            this.상위부서,
             this.IblTitle});
             this.toolStrip1.Location = new System.Drawing.Point(1, 1);
             this.toolStrip1.Name = "toolStrip1";
@@ -82,78 +82,78 @@
             this.toolStrip1.Size = new System.Drawing.Size(798, 35);
             this.toolStrip1.TabIndex = 1;
             // 
-            // 닫기버튼
+            // 닫기
             // 
-            this.닫기버튼.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.닫기버튼.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.닫기버튼.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.닫기버튼.Name = "닫기버튼";
-            this.닫기버튼.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.닫기버튼.Size = new System.Drawing.Size(50, 28);
-            this.닫기버튼.Text = "닫기";
+            this.닫기.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.닫기.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.닫기.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.닫기.Name = "닫기";
+            this.닫기.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.닫기.Size = new System.Drawing.Size(50, 28);
+            this.닫기.Text = "닫기";
             // 
-            // 삭제버튼
+            // 삭제
             // 
-            this.삭제버튼.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.삭제버튼.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.삭제버튼.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.삭제버튼.Name = "삭제버튼";
-            this.삭제버튼.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.삭제버튼.Size = new System.Drawing.Size(50, 28);
-            this.삭제버튼.Text = "삭제";
+            this.삭제.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.삭제.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.삭제.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.삭제.Name = "삭제";
+            this.삭제.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.삭제.Size = new System.Drawing.Size(50, 28);
+            this.삭제.Text = "삭제";
             // 
-            // 수정버튼
+            // 수정
             // 
-            this.수정버튼.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.수정버튼.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.수정버튼.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.수정버튼.Name = "수정버튼";
-            this.수정버튼.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.수정버튼.Size = new System.Drawing.Size(50, 28);
-            this.수정버튼.Text = "수정";
+            this.수정.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.수정.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.수정.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.수정.Name = "수정";
+            this.수정.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.수정.Size = new System.Drawing.Size(50, 28);
+            this.수정.Text = "수정";
             // 
-            // 추가버튼
+            // 추가
             // 
-            this.추가버튼.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.추가버튼.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.추가버튼.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.추가버튼.Name = "추가버튼";
-            this.추가버튼.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.추가버튼.Size = new System.Drawing.Size(50, 28);
-            this.추가버튼.Text = "추가";
+            this.추가.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.추가.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.추가.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.추가.Name = "추가";
+            this.추가.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.추가.Size = new System.Drawing.Size(50, 28);
+            this.추가.Text = "추가";
             // 
-            // 차트버튼
+            // 차트
             // 
-            this.차트버튼.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.차트버튼.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.차트버튼.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.차트버튼.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.차트버튼.Name = "차트버튼";
-            this.차트버튼.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.차트버튼.Size = new System.Drawing.Size(50, 28);
-            this.차트버튼.Text = "차트";
+            this.차트.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.차트.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.차트.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.차트.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.차트.Name = "차트";
+            this.차트.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.차트.Size = new System.Drawing.Size(50, 28);
+            this.차트.Text = "차트";
             // 
-            // 트리버튼
+            // 트리
             // 
-            this.트리버튼.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.트리버튼.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.트리버튼.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.트리버튼.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.트리버튼.Name = "트리버튼";
-            this.트리버튼.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.트리버튼.Size = new System.Drawing.Size(50, 28);
-            this.트리버튼.Text = "트리";
+            this.트리.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.트리.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.트리.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.트리.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.트리.Name = "트리";
+            this.트리.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.트리.Size = new System.Drawing.Size(50, 28);
+            this.트리.Text = "트리";
             // 
-            // 상위부서버튼
+            // 상위부서
             // 
-            this.상위부서버튼.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.상위부서버튼.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.상위부서버튼.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.상위부서버튼.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.상위부서버튼.Name = "상위부서버튼";
-            this.상위부서버튼.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.상위부서버튼.Size = new System.Drawing.Size(59, 28);
-            this.상위부서버튼.Text = "상위부서";
+            this.상위부서.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.상위부서.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.상위부서.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.상위부서.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.상위부서.Name = "상위부서";
+            this.상위부서.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.상위부서.Size = new System.Drawing.Size(59, 28);
+            this.상위부서.Text = "상위부서";
             // 
             // IblTitle
             // 
@@ -286,7 +286,7 @@
             this.메모.Visible = true;
             this.메모.VisibleIndex = 2;
             // 
-            // DepartmentForm
+            // Department
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
@@ -296,7 +296,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "DepartmentForm";
+            this.Name = "Department";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DepartmentForm";
@@ -319,14 +319,14 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton 닫기버튼;
-        private System.Windows.Forms.ToolStripButton 삭제버튼;
-        private System.Windows.Forms.ToolStripButton 수정버튼;
-        private System.Windows.Forms.ToolStripButton 추가버튼;
+        private System.Windows.Forms.ToolStripButton 닫기;
+        private System.Windows.Forms.ToolStripButton 삭제;
+        private System.Windows.Forms.ToolStripButton 수정;
+        private System.Windows.Forms.ToolStripButton 추가;
         private System.Windows.Forms.ToolStripLabel IblTitle;
-        private System.Windows.Forms.ToolStripButton 상위부서버튼;
-        private System.Windows.Forms.ToolStripButton 차트버튼;
-        private System.Windows.Forms.ToolStripButton 트리버튼;
+        private System.Windows.Forms.ToolStripButton 상위부서;
+        private System.Windows.Forms.ToolStripButton 차트;
+        private System.Windows.Forms.ToolStripButton 트리;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl3;
         private DevExpress.XtraGrid.GridControl 부서그리드컨트롤;
         private DevExpress.XtraGrid.Views.Grid.GridView 부서그리드;

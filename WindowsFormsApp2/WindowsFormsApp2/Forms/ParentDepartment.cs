@@ -22,12 +22,12 @@ namespace WindowsFormsApp2.Forms
         public ParentDepartment()
         {
             InitializeComponent();
+            this.Paint += 테두리_Paint;
             this.닫기.Click += 닫기btn_Click;
             this.삭제.Click += 삭제btn_Click;
             this.수정.Click += 수정btn_Click;
             this.추가.Click += 추가btn_Click;
             this.자료변환.Click += 자료변환btn_Click;
-            this.Paint += 테두리_Paint;
 
             GridUpdate();
         }
