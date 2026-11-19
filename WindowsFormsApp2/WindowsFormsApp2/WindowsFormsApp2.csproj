@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Dtos\DepartmentDto.cs" />
     <Compile Include="Dtos\ParentDepartmentDto.cs" />
+    <Compile Include="Dtos\TreeListDto.cs" />
     <Compile Include="Forms\DeptAdd.cs">
       <SubType>Form</SubType>
     </Compile>

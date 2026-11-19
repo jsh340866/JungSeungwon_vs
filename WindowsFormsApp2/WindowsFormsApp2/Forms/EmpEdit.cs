@@ -21,9 +21,9 @@ namespace WindowsFormsApp2.Forms
     {
 
         private readonly int EmpId;
-
+ 
         private readonly List<DepartmentDto> dept = new DepartmentRepository().GetAll();
-        // 생성자
+        
         public EmpEdit(EmployeeDto emp)
         {
             InitializeComponent();
@@ -90,6 +90,7 @@ namespace WindowsFormsApp2.Forms
             상위부서명.Text = p?.ParentDeptName;
 
             // 부서코드 콤보박스 드랍다운리스트
+            // 상위부서의 ParentDeptId와 부서DB의 외래키로 받은 ParentDeptId가 같은 부서만 List로 DataSource에 담음
             cbo부서코드.DataSource = dept.Where(d => p != null && d.ParentDeptId == p.ParentDeptId).ToList();
         }
 

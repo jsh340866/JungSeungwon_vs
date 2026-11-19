@@ -16,7 +16,6 @@ namespace WindowsFormsApp2.Forms
     {
 
         private readonly List<EmployeeDto> Emp = new EmployeeRepository().Login();
-        private readonly Employee F = new Employee();
 
         public Login()
         {

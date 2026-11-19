@@ -183,7 +183,6 @@
             this.취소.TabIndex = 43;
             this.취소.Text = "취소";
             this.취소.UseVisualStyleBackColor = false;
-
             // 
             // 저장
             // 
@@ -972,7 +971,7 @@
             this.label7.TabIndex = 18;
             this.label7.Text = "로그인ID";
             // 
-            // EmployeeAddForms
+            // EmpAdd
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
@@ -1000,10 +999,11 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "EmployeeAddForms";
+            this.Name = "EmpAdd";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EmployeeAddForms";
+            this.Load += new System.EventHandler(this.EmpAdd_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);

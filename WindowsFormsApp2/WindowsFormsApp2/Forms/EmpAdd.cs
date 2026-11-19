@@ -173,5 +173,10 @@ namespace WindowsFormsApp2.Forms
                 휴대전화.Text = digits.Insert(7, "-").Insert(3, "-");
             }
         }
+
+        private void EmpAdd_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
