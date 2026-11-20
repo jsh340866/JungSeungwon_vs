@@ -29,6 +29,7 @@ namespace WindowsFormsApp2.Forms
             this.삭제.Click += 삭제btn_Click;
             this.수정.Click += 수정btn_Click;
             this.자료변환.Click += 자료변환btn_Click;
+            this.다중추가.Click += 다중추가btn_Click;
         }
 
         // 폼 테두리
@@ -202,6 +203,13 @@ namespace WindowsFormsApp2.Forms
         private void 자료변환btn_Click(object sender, EventArgs e)
         {
             new ExcelTransfer().ExportExcel("사원 정보", 그리드뷰);
+        }
+
+        // 다중추가
+        private void 다중추가btn_Click(object sender, EventArgs e)
+        {
+            EmpMutiAdd M = new EmpMutiAdd();
+            M.ShowDialog();
         }
     }
 }

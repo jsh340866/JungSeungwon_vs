@@ -142,7 +142,7 @@ namespace WindowsFormsApp2.Forms
             if (string.IsNullOrWhiteSpace(사원코드.Text)) { MessageBox.Show("사원코드를 입력해주세요."); return; }
             if (string.IsNullOrWhiteSpace(사원명.Text)) { MessageBox.Show("사원명을 입력해주세요."); return; }
             // 이메일 규칙
-            if (!string.IsNullOrWhiteSpace(이메일.Text) && !Rule.isEmailCheck(이메일.Text))
+            if (!string.IsNullOrWhiteSpace(이메일.Text) && !Rule.EmailCheck(이메일.Text))
             {
                 MessageBox.Show("이메일을 다시 입력해주세요.");
                 return;

@@ -53,7 +53,7 @@ namespace WindowsFormsApp2.Forms
             if (string.IsNullOrWhiteSpace(비밀번호.Text)) { MessageBox.Show("비밀번호를 입력해주세요."); return;}
 
             // Rule에서 만든 비밀번호 규칙 넣기
-            if (!Rule.isPasswordCheck(비밀번호.Text)) { MessageBox.Show("비밀번호는 영문, 숫자 포함 8자 이상입니다."); return;}
+            if (!Rule.PasswordCheck(비밀번호.Text)) { MessageBox.Show("비밀번호는 영문, 숫자 포함 8자 이상입니다."); return;}
 
             string loginid = 로그인ID.Text;
             string password = 비밀번호.Text;

@@ -98,7 +98,7 @@ namespace WindowsFormsApp2.Forms
                 // 삭제 중 에러발생시 예외처리 및 로그
                 catch (Exception ex)
                 {
-                    Logger.Instance.Error("상위부서 삭제 실패 ParentDeptId =" + Row.ParentDeptId);
+                    Logger.Instance.Error("상위부서 삭제 실패 ParentDeptId =" + Row.ParentDeptId, ex);
                     MessageBox.Show("상위부서 삭제 중 오류가 발생하였습니다.\n", ex.Message);
                 }
             }

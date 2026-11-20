@@ -54,12 +54,11 @@ namespace WindowsFormsApp2.Repository
         {
             return r.IsDBNull(i) ? null : r.GetString(i);
         }
-        // 
+        // DB값이 NULL 이면 null, 아니면 Int를 돌려줌
         private static int? GetIntOrNull(SqlDataReader r, int i)
         {
             return r.IsDBNull(i) ? (int?)null : r.GetInt32(i);
         }
-
 
         // 부서 삭제 메서드
         public void Delete(int deptId)

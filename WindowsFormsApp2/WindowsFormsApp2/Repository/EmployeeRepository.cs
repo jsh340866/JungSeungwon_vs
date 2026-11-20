@@ -24,42 +24,42 @@ namespace WindowsFormsApp2.Repository
             {
                 conn.Open();
 
-                string sql = @"
-                    SELECT e.EmpId, e.DeptId, d.DeptCode, d.DeptName,
-                           e.EmpCode, e.EmpName, e.Gender, e.LoginId, e.Password,
-                           e.Position, e.EmpType, e.Phone, e.Email, e.MessengerId, e.Memo, e.Photo
-                    FROM dbo.Employee e
-                    JOIN dbo.Department d ON d.DeptId = e.DeptId
-                    ORDER BY d.DeptCode, e.EmpCode";
+                string sql = @"SELECT e.EmpId, e.DeptId, d.DeptCode, d.DeptName,
+                                      e.EmpCode, e.EmpName, e.Gender, e.LoginId, e.Password,
+                                      e.Position, e.EmpType, e.Phone, e.Email, e.MessengerId, e.Memo, e.Photo
+                                FROM dbo.Employee e
+                                JOIN dbo.Department d ON d.DeptId = e.DeptId
+                                ORDER BY d.DeptCode, e.EmpCode";
 
                 using (var cmd = new SqlCommand(sql, conn))
-                using (var r = cmd.ExecuteReader())
                 {
-                    while (r.Read())
+                    using (var r = cmd.ExecuteReader())
                     {
-                        list.Add(new EmployeeDto
+                        while (r.Read())
                         {
-                            EmpId = r.GetInt32(0),
-                            DeptId = r.GetInt32(1),
-                            DeptCode = r.GetString(2),
-                            DeptName = r.GetString(3),
-                            EmpCode = r.GetString(4),
-                            EmpName = r.GetString(5),
-                            Gender = GetStringOrNull(r, 6),
-                            LoginId = r.GetString(7),
-                            Password = r.GetString(8),
-                            Position = GetStringOrNull(r, 9),
-                            EmpType = GetStringOrNull(r, 10),
-                            Phone = GetStringOrNull(r, 11),
-                            Email = GetStringOrNull(r, 12),
-                            MessengerId = GetStringOrNull(r, 13),
-                            Memo = GetStringOrNull(r, 14),
-                            Photo = GetByteOrNull(r, 15),
-                        });
-                    }
+                            list.Add(new EmployeeDto
+                            {
+                                EmpId = r.GetInt32(0),
+                                DeptId = r.GetInt32(1),
+                                DeptCode = r.GetString(2),
+                                DeptName = r.GetString(3),
+                                EmpCode = r.GetString(4),
+                                EmpName = r.GetString(5),
+                                Gender = GetStringOrNull(r, 6),
+                                LoginId = r.GetString(7),
+                                Password = r.GetString(8),
+                                Position = GetStringOrNull(r, 9),
+                                EmpType = GetStringOrNull(r, 10),
+                                Phone = GetStringOrNull(r, 11),
+                                Email = GetStringOrNull(r, 12),
+                                MessengerId = GetStringOrNull(r, 13),
+                                Memo = GetStringOrNull(r, 14),
+                                Photo = GetByteOrNull(r, 15)
+                            });
+                        }
+                    } 
                 }
             }
-
             return list;
         }
 
@@ -68,7 +68,7 @@ namespace WindowsFormsApp2.Repository
         {
             return r.IsDBNull(i) ? null : r.GetString(i);
         }
-
+        // DB가 NULL이면 null, 아니면 byte[]로 돌려줌
         private static byte[] GetByteOrNull(SqlDataReader r, int i)
         {
             return r.IsDBNull(i) ? null : (byte[])r.GetValue(i);
@@ -107,7 +107,7 @@ namespace WindowsFormsApp2.Repository
         }
 
         // 사원 수정 업데이트
-        public void Update (EmployeeDto emp)
+        public void Update(EmployeeDto emp)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
@@ -131,15 +131,15 @@ namespace WindowsFormsApp2.Repository
                     cmd.Parameters.AddWithValue("@EmpCode", emp.EmpCode);
                     cmd.Parameters.AddWithValue("@EmpName", emp.EmpName);
                     cmd.Parameters.AddWithValue("@Gender", emp.Gender ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Position", emp.Position ?? (object)DBNull.Value); 
-                    cmd.Parameters.AddWithValue("@EmpType", emp.EmpType ?? (object)DBNull.Value);   
-                    cmd.Parameters.AddWithValue("@Memo", emp.Memo ?? (object)DBNull.Value); 
-                    cmd.Parameters.AddWithValue("@Email", emp.Email ?? (object)DBNull.Value);   
-                    cmd.Parameters.AddWithValue("@MessengerId", emp.MessengerId ?? (object)DBNull.Value);   
+                    cmd.Parameters.AddWithValue("@Position", emp.Position ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@EmpType", emp.EmpType ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Memo", emp.Memo ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Email", emp.Email ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@MessengerId", emp.MessengerId ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("@Phone", emp.Phone ?? (object)DBNull.Value);
                     cmd.Parameters.Add("@Photo", SqlDbType.VarBinary, -1).Value = (object)emp.Photo ?? DBNull.Value;
                     cmd.Parameters.AddWithValue("@EmpId", emp.EmpId);
-                    cmd.ExecuteNonQuery();  
+                    cmd.ExecuteNonQuery();
                 }
             }
         }
@@ -150,11 +150,11 @@ namespace WindowsFormsApp2.Repository
             using (var conn = new SqlConnection(Config.Connstr))
             {
                 conn.Open();
-                string sql = @"INSERT INTO dbo.Employee(DeptId, EmpCode, EmpName, LoginId, Password, Position, EmpType, Gender,
-                               Phone, Email, MessengerId, Memo, Photo) 
-                               VALUES ( @DeptId, @EmpCode, @EmpName, @LoginId, 
-                               @Password, @Position, @EmpType, @Gender, @Phone, @Email, @MessengerId, @Memo, @Photo)";
-
+                string sql = @"INSERT INTO 
+                                dbo.Employee(DeptId, EmpCode, EmpName, LoginId, Password, Position, 
+                                             EmpType, Gender,Phone, Email, MessengerId, Memo, Photo) 
+                                VALUES(@DeptId, @EmpCode, @EmpName, @LoginId, @Password, @Position, 
+                                       @EmpType,@Gender, @Phone, @Email, @MessengerId, @Memo, @Photo)";
                 using (var cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@DeptId", emp.DeptId);
@@ -178,22 +178,22 @@ namespace WindowsFormsApp2.Repository
         // 로그인
         public List<EmployeeDto> Login()
         {
-
             var list = new List<EmployeeDto>();
             using (var conn = new SqlConnection(Config.Connstr))
             {
                 conn.Open();
                 string sql = @"SELECT EmpId ,LoginId, Password FROM dbo.Employee";
-                using (var cmd = new SqlCommand(sql,conn)) 
+                using (var cmd = new SqlCommand(sql, conn))
                 {
-                    using (var c = cmd.ExecuteReader())
+                    using (var r = cmd.ExecuteReader())
                     {
-                        while(c.Read())
+                        while (r.Read())
                         {
-                            list.Add(new EmployeeDto {
-                                EmpId = c.GetInt32(0),
-                                LoginId = c.GetString(1),
-                                Password = c.GetString(2),
+                            list.Add(new EmployeeDto
+                            {
+                                EmpId = r.GetInt32(0),
+                                LoginId = r.GetString(1),
+                                Password = r.GetString(2),
                             });
 
                         }
@@ -202,7 +202,7 @@ namespace WindowsFormsApp2.Repository
             }
             return list;
         }
-        
+
 
 
 

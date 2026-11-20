@@ -85,14 +85,14 @@ namespace WindowsFormsApp2.Forms
             if (string.IsNullOrWhiteSpace(비밀번호.Text)) {MessageBox.Show("비밀번호를 입력해주세요"); return;}
             
             // 비밀번호 규칙
-            if (!Rule.isPasswordCheck(비밀번호.Text))
+            if (!Rule.PasswordCheck(비밀번호.Text))
             {
                 MessageBox.Show("비밀번호는 영문,숫자 포함 8자 이상입니다.");
                 return;
             }
 
             // 이메일이 비어있지 않고 Rule에서 만든 이메일 규칙이 false일때 메시지 박스 띄움
-            if (!string.IsNullOrWhiteSpace(이메일.Text) && !Rule.isEmailCheck(이메일.Text))
+            if (!string.IsNullOrWhiteSpace(이메일.Text) && !Rule.EmailCheck(이메일.Text))
             {
                 MessageBox.Show("이메일을 다시 입력해주세요.");
                 return;

@@ -11,7 +11,8 @@ namespace WindowsFormsApp2.Utils
 {
     internal class Rule
     {
-        public static bool isPasswordCheck(string pass)
+        // 비밀번호 규칙(영문,숫자 포함 8자리 이상)
+        public static bool PasswordCheck(string pass)
         {
             //8자리 이상
             if (string.IsNullOrWhiteSpace(pass) || pass.Length < 8)
@@ -23,11 +24,13 @@ namespace WindowsFormsApp2.Utils
             return regexPass.IsMatch(pass);
         }
 
-        public static bool isEmailCheck(string email)
+        // 이메일 규칙( _@_._)
+        public static bool EmailCheck(string email)
         {
             // 이메일 형식 규칙
             Regex regexEmail = new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
             return regexEmail.IsMatch(email);
+
         }
 
 

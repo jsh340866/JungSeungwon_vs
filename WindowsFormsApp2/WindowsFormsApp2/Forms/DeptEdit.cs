@@ -19,7 +19,6 @@ namespace WindowsFormsApp2.Forms
     {
         private readonly int deptId;
 
-        // 매개변수를 클래스 형태로 받을 생성자
         public DeptEdit(DepartmentDto dept)
         {
             InitializeComponent();
@@ -44,7 +43,6 @@ namespace WindowsFormsApp2.Forms
             {
                 cbo상위부서코드.SelectedValue = dept.ParentDeptId.Value;
             }
-
             // 기존값에 상위부서가 없으면 선택을 비워둠
             else
             {

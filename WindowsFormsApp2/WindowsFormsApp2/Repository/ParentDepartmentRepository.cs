@@ -11,6 +11,7 @@ namespace WindowsFormsApp2.Repository
 {
     internal class ParentDepartmentRepository
     {
+        // 상위부서 조회
         public List<ParentDepartmentDto> GetAll()
         {
             var list = new List<ParentDepartmentDto>();
@@ -68,8 +69,9 @@ namespace WindowsFormsApp2.Repository
             using (var conn = new SqlConnection(Config.Connstr))
             {
                 conn.Open();
-                string sql = @"INSERT INTO dbo.ParentDepartment (ParentDeptCode, ParentDeptName, ParentMemo)
-                              VALUES(@ParentDeptCode, @ParentDeptName, @ParentMemo)";
+                string sql = @"INSERT INTO 
+                             dbo.ParentDepartment (ParentDeptCode, ParentDeptName, ParentMemo)
+                             VALUES(@ParentDeptCode, @ParentDeptName, @ParentMemo)";
                 using (var cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@ParentDeptCode", pdept.ParentDeptCode);
