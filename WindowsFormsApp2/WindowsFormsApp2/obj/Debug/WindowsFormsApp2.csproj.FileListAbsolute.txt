@@ -203,3 +203,11 @@ C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsAp
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\ja\DevExpress.XtraSpreadsheet.v21.2.resources.dll
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\ru\DevExpress.XtraSpreadsheet.v21.2.resources.dll
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.EmpMutiAdd.resources
+C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\DevExpress.Docs.v21.2.dll
+C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\DevExpress.Snap.v21.2.Core.dll
+C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\DevExpress.Docs.v21.2.xml
+C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\DevExpress.Snap.v21.2.Core.xml
+C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\de\DevExpress.Snap.v21.2.Core.resources.dll
+C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\es\DevExpress.Snap.v21.2.Core.resources.dll
+C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\ja\DevExpress.Snap.v21.2.Core.resources.dll
+C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\ru\DevExpress.Snap.v21.2.Core.resources.dll

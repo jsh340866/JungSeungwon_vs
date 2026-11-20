@@ -7,6 +7,7 @@ using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Forms;
 using WindowsFormsApp2.Utils;
@@ -57,7 +58,7 @@ namespace WindowsFormsApp2.Repository
                                 Photo = GetByteOrNull(r, 15)
                             });
                         }
-                    } 
+                    }
                 }
             }
             return list;
@@ -203,6 +204,40 @@ namespace WindowsFormsApp2.Repository
             return list;
         }
 
+        // 스프레드시트컨트롤 데이터테이블 DB 저장
+        public void SaveSheet(DataTable dt)
+        {
+            using (var conn = new SqlConnection(Config.Connstr))
+            {
+                conn.Open();
+                string sql = @"INSERT INTO 
+                                dbo.Employee(DeptId, EmpCode, EmpName, LoginId, Password, Position,
+                                             EmpType, Gender, Phone, Email, MessengerId, Memo)
+                                VALUES((SELECT DeptId FROM dbo.Department WHERE DeptCode = @DeptCode),
+                                       @EmpCode, @EmpName, @LoginId, @Password, @Position,
+                                       @EmpType, @Gender, @Phone, @Email, @MessengerId, @Memo)";
+                using (var cmd = new SqlCommand(sql, conn))
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.AddWithValue("@DeptCode", dr["부서코드"]);
+                        cmd.Parameters.AddWithValue("@EmpCode", dr["사원코드"]);
+                        cmd.Parameters.AddWithValue("@EmpName", dr["사원명"]);
+                        cmd.Parameters.AddWithValue("@LoginId", dr["로그인ID"]);
+                        cmd.Parameters.AddWithValue("@Password", dr["비밀번호"]);
+                        cmd.Parameters.AddWithValue("@Position", dr["직위"]);
+                        cmd.Parameters.AddWithValue("@EmpType", dr["고용형태"]);
+                        cmd.Parameters.AddWithValue("@Gender", dr["성별"]);
+                        cmd.Parameters.AddWithValue("@Phone", dr["휴대전화"]);
+                        cmd.Parameters.AddWithValue("@Email", dr["이메일"]);
+                        cmd.Parameters.AddWithValue("@MessengerId", dr["메신저ID"]);
+                        cmd.Parameters.AddWithValue("@Memo", dr["메모"]);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+        }
 
 
 

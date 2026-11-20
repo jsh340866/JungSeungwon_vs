@@ -1,5 +1,7 @@
 ﻿using DevExpress.Spreadsheet;
+using DevExpress.Spreadsheet.Export;
 using DevExpress.Utils.MVVM;
+using DevExpress.XtraCharts;
 using DevExpress.XtraSpreadsheet;
 using System;
 using System.Collections.Generic;
@@ -12,13 +14,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Repository;
+using WindowsFormsApp2.Utils;
+
 
 namespace WindowsFormsApp2.Forms
 {
 
-    
+
     public partial class EmpMutiAdd : Form
     {
+        private Worksheet Sheet => spreadsheetControl1.ActiveWorksheet;
 
         public EmpMutiAdd()
         {
@@ -28,14 +33,16 @@ namespace WindowsFormsApp2.Forms
             this.취소.Click += 취소btn_Click;
 
 
-            var sheet = spreadsheetControl1.ActiveWorksheet;
-
-            string[] head = { "부서코드", "사원코드", "사원명", "로그인ID", "비밀번호", "직위", "고용형태", "성별", "휴대전화", "이메일", "메신저ID", "메모" };
-            int c = 0;
-            foreach( string s in head)
+            // spreadsheet에서 헤더로 사용할 사원컬럼 목록
+            string[] head = { "부서코드", "사원코드", "사원명", "로그인ID", "비밀번호", "직위",
+                              "고용형태", "성별", "휴대전화", "이메일", "메신저ID", "메모"};
+           
+            // 반복문으로 헤드 컬럼에 하나씩 넣기
+            int i = 0;
+            foreach ( string s in head)
             {
-                sheet.Cells[0, c].Value = s;
-                c += 1;
+                Sheet.Cells[0, i].Value = s;
+                i += 1;
             }
         }
 
@@ -57,10 +64,28 @@ namespace WindowsFormsApp2.Forms
         // 저장
         private void 저장btn_Click(object sender, EventArgs e)
         {
-            var sheet = spreadsheetControl1.ActiveWorksheet;
+            // 데이터입력 범위지정, 처음부터 입력한 행까지
+            CellRange range = Sheet.GetDataRange();
+            // 시트에 입력한 범위까지 데이터테이블 컬럼 만들기
+            DataTable dt = Sheet.CreateDataTable(range, true);
+            // 만들어진 데이터테이블에 시트에 입력된 데이터 넣기
+            DataTableExporter exporter = Sheet.CreateDataTableExporter(range, dt, true);
+            exporter.Export();
 
-            //필수값 지정
-            sheet.GetDataRange();
+            try
+            {
+                new EmployeeRepository().SaveSheet(dt);
+            }
+            catch (Exception ex)
+            {
+                Logger.Instance.Error("다중 사원 추가 저장 실패", ex);
+                MessageBox.Show("사원 추가가 실패했습니다.");
+            }
+
+
+
+
+
 
 
 
