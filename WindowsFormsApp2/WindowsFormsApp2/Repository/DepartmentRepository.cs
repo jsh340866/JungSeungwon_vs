@@ -20,7 +20,7 @@ namespace WindowsFormsApp2.Repository
             {
                 conn.Open();
                 string sql = @"SELECT d.DeptId, d.DeptCode, d.DeptName, d.Memo, d.ParentDeptId,
-                               p.ParentDeptCode, p.ParentDeptName, p.ParentMemo
+                              p.ParentDeptCode, p.ParentDeptName, p.ParentMemo
                               FROM dbo.Department d
                               LEFT JOIN dbo.ParentDepartment p ON p.ParentDeptId = d.ParentDeptId
                               ORDER BY d.DeptCode";
@@ -54,7 +54,7 @@ namespace WindowsFormsApp2.Repository
         {
             return r.IsDBNull(i) ? null : r.GetString(i);
         }
-
+        // 
         private static int? GetIntOrNull(SqlDataReader r, int i)
         {
             return r.IsDBNull(i) ? (int?)null : r.GetInt32(i);

@@ -15,6 +15,7 @@ namespace WindowsFormsApp2.Forms
 {
     public partial class DeptTree : Form
     {
+        // TreeList 데이터소스로 활용할 List
         private readonly List<ParentDepartmentDto> pdept = new ParentDepartmentRepository().GetAll();
         private readonly List<DepartmentDto> dept = new DepartmentRepository().GetAll();
         private readonly List<EmployeeDto> emp = new EmployeeRepository().GetAll();
@@ -50,7 +51,6 @@ namespace WindowsFormsApp2.Forms
                 // E+Id, D+부서Id, 사원코드, 사원명
                 dt.Rows.Add("E" + e.EmpId, "D" + e.DeptId, e.EmpCode, e.EmpName); 
             }
-
             treeList1.DataSource = dt;
         }
 

@@ -71,17 +71,27 @@ namespace WindowsFormsApp2.Forms
                 new DepartmentRepository().Save(dept);
                 this.DialogResult = DialogResult.OK;
             }
-            // 사원 추가 저장시 유니크키 중복 발생으로 Sql에로 발생할시 실패처리
+            // 유니크키 중복으로 Sql에러 발생시 예외처리
             catch (SqlException ex) when (ex.Number == 2627) 
             {
-                MessageBox.Show("중복된 부서코드 입니다. 다시 입력해주세요.");
+                // 사원코드 중복일 경우 메시지 띄움
+                if (ex.Message.Contains("UQ_Department_DeptCode"))
+                {
+                    MessageBox.Show("이미 존재하는 부서코드입니다.");
+                    return;
+                }
+                // 나머지 중복값 존재시 메시지 띄움
+                else
+                {
+                    MessageBox.Show("중복된 값이 있습니다.");
+                    return;
+                }
             }
             // 나머지 예외 발생시 메시지 출력 및 로그
             catch (Exception ex)
             {
                 Logger.Instance.Error("부서 추가 실패 DeptCode=" + dept.DeptCode, ex);
                 MessageBox.Show("부서 추가 중 오류가 발생하였습니다.\n" + ex.Message);
-
             }
         }
 

@@ -21,7 +21,6 @@ namespace WindowsFormsApp2.Forms
     {
 
         private readonly int EmpId;
- 
         private readonly List<DepartmentDto> dept = new DepartmentRepository().GetAll();
         
         public EmpEdit(EmployeeDto emp)
@@ -58,7 +57,7 @@ namespace WindowsFormsApp2.Forms
             // Byte로 db에 저장된 Photo를 Image로 받기
             if(emp.Photo != null)
             {
-                // ImageHelper에서 만든 메서드로 db에 저장된 바이트 이미지, 이미지로 변환
+                // ImageHelper에서 만든 메서드로 db에 저장된 Byte, Image로 변환
                 이미지.Image = ImageHelper.ByteToImage(emp.Photo);
             }
 
@@ -86,7 +85,6 @@ namespace WindowsFormsApp2.Forms
             {
                 cbo상위부서코드.SelectedIndex = -1;
             }
-
         }
 
         // 상위부서코드 콤보박스 변경시 상위부서명 자동변경
@@ -96,7 +94,7 @@ namespace WindowsFormsApp2.Forms
             상위부서명.Text = p?.ParentDeptName;
 
             // 부서코드 콤보박스 드랍다운리스트
-            // 상위부서의 ParentDeptId와 부서DB의 외래키로 받은 ParentDeptId가 같은 부서만 List로 DataSource에 담음
+            // 상위부서코드 콤보박스에 따라 부서코드 콤보박스 리스트를 변경
             cbo부서코드.DataSource = dept.Where(d => p != null && d.ParentDeptId == p.ParentDeptId).ToList();
         }
 
@@ -166,14 +164,12 @@ namespace WindowsFormsApp2.Forms
                 Photo = 이미지.Image == null ? null : ImageHelper.ImageToByte(이미지.Image),
                 EmpId = this.EmpId
             };
-
+            // 수정값 DB에 저장
             try
             {
                 new EmployeeRepository().Update(emp);
                 this.DialogResult = DialogResult.OK;
             }
-
-
             // 유니크키 중복으로 Sql 에러 발생시 예외처리
             catch (SqlException ex) when (ex.Number == 2627)
             {

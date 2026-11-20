@@ -35,17 +35,17 @@
             this.pnlPhone = new System.Windows.Forms.Panel();
             this.bdrPhone = new System.Windows.Forms.Panel();
             this.inPhone = new System.Windows.Forms.Panel();
-            this.상위부서코드박스 = new System.Windows.Forms.TextBox();
+            this.상위부서코드 = new System.Windows.Forms.TextBox();
             this.phone = new System.Windows.Forms.Label();
             this.pnlMemo = new System.Windows.Forms.Panel();
             this.bdrMemo = new System.Windows.Forms.Panel();
             this.inMemo = new System.Windows.Forms.Panel();
-            this.상위메모박스 = new System.Windows.Forms.TextBox();
+            this.메모 = new System.Windows.Forms.TextBox();
             this.memo = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.상위부서명박스 = new System.Windows.Forms.TextBox();
+            this.상위부서명 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnlPhone.SuspendLayout();
@@ -131,7 +131,7 @@
             // inPhone
             // 
             this.inPhone.BackColor = System.Drawing.Color.White;
-            this.inPhone.Controls.Add(this.상위부서코드박스);
+            this.inPhone.Controls.Add(this.상위부서코드);
             this.inPhone.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inPhone.Location = new System.Drawing.Point(1, 1);
             this.inPhone.Name = "inPhone";
@@ -139,18 +139,18 @@
             this.inPhone.Size = new System.Drawing.Size(152, 21);
             this.inPhone.TabIndex = 0;
             // 
-            // 상위부서코드박스
+            // 상위부서코드
             // 
-            this.상위부서코드박스.BackColor = System.Drawing.Color.White;
-            this.상위부서코드박스.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.상위부서코드박스.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.상위부서코드박스.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.상위부서코드박스.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.상위부서코드박스.Location = new System.Drawing.Point(3, 3);
-            this.상위부서코드박스.Multiline = true;
-            this.상위부서코드박스.Name = "상위부서코드박스";
-            this.상위부서코드박스.Size = new System.Drawing.Size(149, 18);
-            this.상위부서코드박스.TabIndex = 19;
+            this.상위부서코드.BackColor = System.Drawing.Color.White;
+            this.상위부서코드.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.상위부서코드.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.상위부서코드.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.상위부서코드.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.상위부서코드.Location = new System.Drawing.Point(3, 3);
+            this.상위부서코드.Multiline = true;
+            this.상위부서코드.Name = "상위부서코드";
+            this.상위부서코드.Size = new System.Drawing.Size(149, 18);
+            this.상위부서코드.TabIndex = 19;
             // 
             // phone
             // 
@@ -185,7 +185,7 @@
             // inMemo
             // 
             this.inMemo.BackColor = System.Drawing.Color.White;
-            this.inMemo.Controls.Add(this.상위메모박스);
+            this.inMemo.Controls.Add(this.메모);
             this.inMemo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inMemo.Location = new System.Drawing.Point(1, 1);
             this.inMemo.Name = "inMemo";
@@ -193,18 +193,18 @@
             this.inMemo.Size = new System.Drawing.Size(335, 21);
             this.inMemo.TabIndex = 0;
             // 
-            // 상위메모박스
+            // 메모
             // 
-            this.상위메모박스.BackColor = System.Drawing.Color.White;
-            this.상위메모박스.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.상위메모박스.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.상위메모박스.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.상위메모박스.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.상위메모박스.Location = new System.Drawing.Point(3, 3);
-            this.상위메모박스.Multiline = true;
-            this.상위메모박스.Name = "상위메모박스";
-            this.상위메모박스.Size = new System.Drawing.Size(332, 18);
-            this.상위메모박스.TabIndex = 19;
+            this.메모.BackColor = System.Drawing.Color.White;
+            this.메모.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.메모.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.메모.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.메모.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.메모.Location = new System.Drawing.Point(3, 3);
+            this.메모.Multiline = true;
+            this.메모.Name = "메모";
+            this.메모.Size = new System.Drawing.Size(332, 18);
+            this.메모.TabIndex = 19;
             // 
             // memo
             // 
@@ -239,7 +239,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.상위부서명박스);
+            this.panel4.Controls.Add(this.상위부서명);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(1, 1);
             this.panel4.Name = "panel4";
@@ -247,18 +247,18 @@
             this.panel4.Size = new System.Drawing.Size(152, 21);
             this.panel4.TabIndex = 0;
             // 
-            // 상위부서명박스
+            // 상위부서명
             // 
-            this.상위부서명박스.BackColor = System.Drawing.Color.White;
-            this.상위부서명박스.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.상위부서명박스.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.상위부서명박스.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.상위부서명박스.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.상위부서명박스.Location = new System.Drawing.Point(3, 3);
-            this.상위부서명박스.Multiline = true;
-            this.상위부서명박스.Name = "상위부서명박스";
-            this.상위부서명박스.Size = new System.Drawing.Size(149, 18);
-            this.상위부서명박스.TabIndex = 19;
+            this.상위부서명.BackColor = System.Drawing.Color.White;
+            this.상위부서명.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.상위부서명.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.상위부서명.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.상위부서명.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.상위부서명.Location = new System.Drawing.Point(3, 3);
+            this.상위부서명.Multiline = true;
+            this.상위부서명.Name = "상위부서명";
+            this.상위부서명.Size = new System.Drawing.Size(149, 18);
+            this.상위부서명.TabIndex = 19;
             // 
             // label2
             // 
@@ -315,17 +315,17 @@
         private System.Windows.Forms.Panel pnlPhone;
         private System.Windows.Forms.Panel bdrPhone;
         private System.Windows.Forms.Panel inPhone;
-        private System.Windows.Forms.TextBox 상위부서코드박스;
+        private System.Windows.Forms.TextBox 상위부서코드;
         private System.Windows.Forms.Label phone;
         private System.Windows.Forms.Panel pnlMemo;
         private System.Windows.Forms.Panel bdrMemo;
         private System.Windows.Forms.Panel inMemo;
-        private System.Windows.Forms.TextBox 상위메모박스;
+        private System.Windows.Forms.TextBox 메모;
         private System.Windows.Forms.Label memo;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox 상위부서명박스;
+        private System.Windows.Forms.TextBox 상위부서명;
         private System.Windows.Forms.Label label2;
     }
 }

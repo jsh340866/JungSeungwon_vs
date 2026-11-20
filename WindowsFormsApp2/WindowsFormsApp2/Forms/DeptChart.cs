@@ -17,10 +17,10 @@ namespace WindowsFormsApp2.Forms
 {
     public partial class DeptChart : Form
     {
+        // ChartControll에 데이터소스로 사용할 리스트
         private readonly List<ParentDepartmentDto> pdept = new ParentDepartmentRepository().GetAll();
         private readonly List<DepartmentDto> dept = new DepartmentRepository().GetAll();
         private readonly List<EmployeeDto> emp = new EmployeeRepository().GetAll();
-
 
         public DeptChart()
         {
@@ -28,10 +28,8 @@ namespace WindowsFormsApp2.Forms
             this.Paint += 테두리_Paint;
             this.닫기.Click += 닫기btn_Click;
 
-
-
             // 누적막대차트 데이터소스
-            // 부서를 시리즈 기준으로 상위부서, 부서명, 사원수 값을 list에 담음
+            // 부서 시리즈 기준으로 상위부서, 부서명, 사원수 값을 list에 담음
             var list = dept.Select(d => new
             {   
                 // 차트 x축, 상위부서의 ParentDeptId 와 부서의 ParentDeptId가 같은 pdept의 ParentDeptName을 표시, 상위부서가 없으면 null
@@ -44,7 +42,6 @@ namespace WindowsFormsApp2.Forms
             chartControl1.DataSource = list;
         }
 
-
         // 폼 테두리
         private void 테두리_Paint(object sender, PaintEventArgs e)
         {
@@ -53,6 +50,7 @@ namespace WindowsFormsApp2.Forms
                 e.Graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1);
             }
         }
+
         // 닫기
         private void 닫기btn_Click(object sender, EventArgs e)
         {

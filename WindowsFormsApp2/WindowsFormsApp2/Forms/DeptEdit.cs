@@ -44,14 +44,13 @@ namespace WindowsFormsApp2.Forms
             {
                 cbo상위부서코드.SelectedValue = dept.ParentDeptId.Value;
             }
+
             // 기존값에 상위부서가 없으면 선택을 비워둠
             else
             {
                 cbo상위부서코드.SelectedIndex = -1; 
             }
-
         }
-
         
         // 폼 테두리
         private void 테두리_Paint(object sender, PaintEventArgs e)
@@ -71,8 +70,8 @@ namespace WindowsFormsApp2.Forms
         // 상위부서코드에 따라 상위부서명 변경
         private void 상위부서코드_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ParentDepartmentDto D = cbo상위부서코드.SelectedItem as ParentDepartmentDto;
-            상위부서명.Text = D?.ParentDeptName;
+            ParentDepartmentDto P = cbo상위부서코드.SelectedItem as ParentDepartmentDto;
+            상위부서명.Text = P?.ParentDeptName;
         }
 
         // 부서 수정 저장 
@@ -92,16 +91,27 @@ namespace WindowsFormsApp2.Forms
                 ParentDeptId = (int?)cbo상위부서코드.SelectedValue,
                 Memo = string.IsNullOrWhiteSpace(메모.Text) ? null : 메모.Text
             };
-
+            // 수정 값 DB에 저장
             try
             {
                 new DepartmentRepository().Update(dept);
                 this.DialogResult = DialogResult.OK;
             }
-            // 유니크키 제약조건 부서코드 중복 발생시 Sql에러로 메시지 띄움
+            // 유니크키 중복 발생시 Sql에러 메시지 띄움
             catch(SqlException ex) when (ex.Number == 2627)
             {
-                MessageBox.Show("이미 존재하는 부서코드입니다.");    
+                // 사원코드 중복값일 경우 메세지 띄움
+                if (ex.Message.Contains("UQ_Department_DeptCode"))
+                {
+                    MessageBox.Show("이미 존재하는 부서코드입니다.");
+                    return;
+                }
+                // 그 외 중복값이 존재할 경우 메시지 띄움
+                else
+                {
+                    MessageBox.Show("중복된 값이 존재합니다."); 
+                    return;
+                }
             }
             // 나머지 에러 발생시 메시지 띄움
             catch (Exception ex)
@@ -109,10 +119,6 @@ namespace WindowsFormsApp2.Forms
                 Logger.Instance.Error("부서 수정 실패 DeptId=" + dept.DeptId, ex);
                 MessageBox.Show("수정 중 오류가 발생했습니다.\n" + ex.Message);
             }
-            
-
         }
-        
-       
     }
 }

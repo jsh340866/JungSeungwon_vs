@@ -32,10 +32,10 @@
             this.저장 = new System.Windows.Forms.Button();
             this.bdrPassword = new System.Windows.Forms.Panel();
             this.inPassword = new System.Windows.Forms.Panel();
-            this.비밀번호텍스트박스 = new System.Windows.Forms.TextBox();
+            this.비밀번호 = new System.Windows.Forms.TextBox();
             this.bdrLogin = new System.Windows.Forms.Panel();
             this.inLogin = new System.Windows.Forms.Panel();
-            this.로그인텍스트박스 = new System.Windows.Forms.TextBox();
+            this.로그인ID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -89,7 +89,7 @@
             // inPassword
             // 
             this.inPassword.BackColor = System.Drawing.Color.White;
-            this.inPassword.Controls.Add(this.비밀번호텍스트박스);
+            this.inPassword.Controls.Add(this.비밀번호);
             this.inPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inPassword.Location = new System.Drawing.Point(1, 1);
             this.inPassword.Name = "inPassword";
@@ -97,18 +97,18 @@
             this.inPassword.Size = new System.Drawing.Size(152, 21);
             this.inPassword.TabIndex = 0;
             // 
-            // 비밀번호텍스트박스
+            // 비밀번호
             // 
-            this.비밀번호텍스트박스.BackColor = System.Drawing.Color.White;
-            this.비밀번호텍스트박스.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.비밀번호텍스트박스.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.비밀번호텍스트박스.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.비밀번호텍스트박스.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.비밀번호텍스트박스.Location = new System.Drawing.Point(3, 3);
-            this.비밀번호텍스트박스.Name = "비밀번호텍스트박스";
-            this.비밀번호텍스트박스.PasswordChar = '*';
-            this.비밀번호텍스트박스.Size = new System.Drawing.Size(149, 16);
-            this.비밀번호텍스트박스.TabIndex = 13;
+            this.비밀번호.BackColor = System.Drawing.Color.White;
+            this.비밀번호.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.비밀번호.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.비밀번호.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.비밀번호.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.비밀번호.Location = new System.Drawing.Point(3, 3);
+            this.비밀번호.Name = "비밀번호";
+            this.비밀번호.PasswordChar = '*';
+            this.비밀번호.Size = new System.Drawing.Size(149, 16);
+            this.비밀번호.TabIndex = 13;
             // 
             // bdrLogin
             // 
@@ -123,7 +123,7 @@
             // inLogin
             // 
             this.inLogin.BackColor = System.Drawing.Color.White;
-            this.inLogin.Controls.Add(this.로그인텍스트박스);
+            this.inLogin.Controls.Add(this.로그인ID);
             this.inLogin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inLogin.Location = new System.Drawing.Point(1, 1);
             this.inLogin.Name = "inLogin";
@@ -131,18 +131,18 @@
             this.inLogin.Size = new System.Drawing.Size(152, 21);
             this.inLogin.TabIndex = 0;
             // 
-            // 로그인텍스트박스
+            // 로그인ID
             // 
-            this.로그인텍스트박스.BackColor = System.Drawing.Color.White;
-            this.로그인텍스트박스.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.로그인텍스트박스.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.로그인텍스트박스.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.로그인텍스트박스.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.로그인텍스트박스.Location = new System.Drawing.Point(3, 3);
-            this.로그인텍스트박스.Multiline = true;
-            this.로그인텍스트박스.Name = "로그인텍스트박스";
-            this.로그인텍스트박스.Size = new System.Drawing.Size(149, 18);
-            this.로그인텍스트박스.TabIndex = 12;
+            this.로그인ID.BackColor = System.Drawing.Color.White;
+            this.로그인ID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.로그인ID.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.로그인ID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.로그인ID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.로그인ID.Location = new System.Drawing.Point(3, 3);
+            this.로그인ID.Multiline = true;
+            this.로그인ID.Name = "로그인ID";
+            this.로그인ID.Size = new System.Drawing.Size(149, 18);
+            this.로그인ID.TabIndex = 12;
             // 
             // label2
             // 
@@ -226,10 +226,10 @@
         private System.Windows.Forms.Button 저장;
         private System.Windows.Forms.Panel bdrPassword;
         private System.Windows.Forms.Panel inPassword;
-        private System.Windows.Forms.TextBox 비밀번호텍스트박스;
+        private System.Windows.Forms.TextBox 비밀번호;
         private System.Windows.Forms.Panel bdrLogin;
         private System.Windows.Forms.Panel inLogin;
-        private System.Windows.Forms.TextBox 로그인텍스트박스;
+        private System.Windows.Forms.TextBox 로그인ID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;

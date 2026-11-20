@@ -21,17 +21,18 @@ namespace WindowsFormsApp2.Forms
             this.삭제.Click += 삭제btn_Click;
             this.Paint += 테두리_Paint;
 
-
             제목.Text = title;
             메시지.Text = msg;
 
         }
 
+        // 취소
         private void 취소btn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // 폼 테두리
         private void 테두리_Paint(object sender, PaintEventArgs e)
         {
             using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
@@ -40,6 +41,7 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
+        // 삭제
         private void 삭제btn_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;

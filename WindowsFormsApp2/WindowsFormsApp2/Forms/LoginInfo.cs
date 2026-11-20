@@ -15,8 +15,6 @@ namespace WindowsFormsApp2.Forms
     public partial class LoginInfo : Form
     {
         private readonly int EmpId;
-
-        // 로그인정보 생성자
         public LoginInfo(string loginId, string password, int EmpId)
         {
             InitializeComponent();
@@ -24,16 +22,20 @@ namespace WindowsFormsApp2.Forms
             this.닫기.Click += 닫기btn_Click;
             this.저장.Click += 저장btn_Click;
 
+
+            // 수정 전 기존값 텍스트박스에 담기
             로그인ID.Text = loginId;
             비밀번호.Text = password;
             this.EmpId = EmpId;
         }
 
+        // 닫기
         private void 닫기btn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // 폼 테두리
         private void 테두리_Paint(object sender, PaintEventArgs e)
         {
             using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
@@ -46,7 +48,7 @@ namespace WindowsFormsApp2.Forms
         // 로그인정보 저장
         private void 저장btn_Click(object sender, EventArgs e)
         {
-
+            // 필수값 지정
             if (string.IsNullOrWhiteSpace(로그인ID.Text)) { MessageBox.Show("로그인ID를 입력해주세요."); return;} 
             if (string.IsNullOrWhiteSpace(비밀번호.Text)) { MessageBox.Show("비밀번호를 입력해주세요."); return;}
 
@@ -57,17 +59,29 @@ namespace WindowsFormsApp2.Forms
             string password = 비밀번호.Text;
             int empId = this.EmpId;
 
+            // 수정한 로그인정보 db에 저장
             try
             {
                 new EmployeeRepository().UpdateLoginInfo(loginid, password, empId);
                 this.DialogResult = DialogResult.OK;
             }
-            // Sql server 오류 예외 처리
+            // 유니크키 중복으로 Sql에러 발생시 예외처리
             catch(SqlException ex) when (ex.Number == 2627)
             {
-                MessageBox.Show("이미 사용중인 로그인ID 입니다.");
+                // 수정한 로그인ID가 중복일 경우 메시지 띄움
+                if (ex.Message.Contains("UQ_Employee_LoginId"))
+                {
+                    MessageBox.Show("이미 사용중인 로그인ID 입니다.");
+                    return;
+                }
+                // 그 외의 중복에러가 발생시 메시지 띄움
+                else
+                {
+                    MessageBox.Show("중복된 값이 있습니다.");
+                    return;
+                }
             }
-
+            // 나머지 에러 발생시 예외처리 및 로그
             catch (Exception ex)
             {
                 Logger.Instance.Error("로그인 정보 수정 실패 EmpId=" + empId, ex);

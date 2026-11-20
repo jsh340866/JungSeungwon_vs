@@ -38,7 +38,6 @@ namespace WindowsFormsApp2.Forms
             cbo상위부서코드.DisplayMember = nameof(ParentDepartmentDto.ParentDeptCode);
             cbo상위부서코드.ValueMember = nameof(ParentDepartmentDto.ParentDeptId);
             cbo상위부서코드.DataSource = new ParentDepartmentRepository().GetAll();
-                        
         }
 
         // 상위부서코드 콤보박스에 따라 상위부서명과 부서코드 콤보박스 리스트 변경
@@ -47,11 +46,11 @@ namespace WindowsFormsApp2.Forms
             ParentDepartmentDto p = cbo상위부서코드.SelectedItem as ParentDepartmentDto;
             상위부서명.Text = p?.ParentDeptName;
 
-            // 부서코드 콤보박스 리스트 변경
+            // 부서코드 콤보박스 리스트 상위부서코드에 따라 변경
             List<DepartmentDto> dept = new DepartmentRepository().GetAll();
             cbo부서코드.DataSource = dept.Where(d => p != null && d.ParentDeptId == p.ParentDeptId).ToList();
-            
         }
+
         // 부서코드 콤보박스에 따라 부서명 변경
         private void 부서코드_SelectedIndexChanged(Object sender, EventArgs e)
         {
@@ -66,7 +65,6 @@ namespace WindowsFormsApp2.Forms
             {
                 e.Graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1);
             }
-
         }
 
         // 취소
@@ -100,7 +98,7 @@ namespace WindowsFormsApp2.Forms
                 return;
             }
 
-            // 수정 값 메모리 담기
+            // 사원정보 메모리에 담기
             EmployeeDto emp = new EmployeeDto
             {
                 DeptId = (int)cbo부서코드.SelectedValue,
@@ -116,27 +114,27 @@ namespace WindowsFormsApp2.Forms
                 MessengerId = string.IsNullOrWhiteSpace(메신저ID.Text) ? null : 메신저ID.Text,
                 Memo = string.IsNullOrWhiteSpace(메모.Text) ? null : 메모.Text
             };
-
+            // 사원정보 db에 저장
             try
             {
                 new EmployeeRepository().Save(emp);
                 this.DialogResult = DialogResult.OK;
             }
-
-            // 유니크키 중복으로 Sql오류 발생시 예외처리
+            // 유니크키 중복으로 Sql에러 발생시 예외처리
             catch (SqlException ex) when (ex.Number == 2627)
             {
-                // 유니크키 제약조건 위반 될시(중복값) 메세지 박스 띄움
+                // 로그인ID 중복일 경우 메세지 박스 띄움
                 if (ex.Message.Contains("UQ_Employee_LoginId"))
                 {
                     MessageBox.Show("이미 사용중인 로그인ID 입니다.");
                     return;
                 }
-                // 유니크키 제약조건 위반 될시(중복값) 메세지 박스 띄움
+                // 사원코드 중복일 경우 메세지 박스 띄움
                 else if (ex.Message.Contains("UQ_Employee_EmpCode")){
                     MessageBox.Show("이미 사용중인 사원코드 입니다.");
                     return; 
                 }
+                // 그 외 Sql중복오류시 메시지 띄움
                 else
                 {
                     MessageBox.Show("중복된 값이 있습니다.");
@@ -167,7 +165,6 @@ namespace WindowsFormsApp2.Forms
             {
                 남.Checked = false;
             }
-
         }
 
         // 휴대폰번호 하이폰 규칙
