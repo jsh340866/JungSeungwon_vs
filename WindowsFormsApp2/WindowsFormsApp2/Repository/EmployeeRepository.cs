@@ -204,7 +204,7 @@ namespace WindowsFormsApp2.Repository
             return list;
         }
 
-        // 스프레드시트컨트롤 데이터테이블 DB 저장
+        // spreadsheetcontrol 데이터테이블 받아 DB에 저장
         public void SaveSheet(DataTable dt)
         {
             using (var conn = new SqlConnection(Config.Connstr))
