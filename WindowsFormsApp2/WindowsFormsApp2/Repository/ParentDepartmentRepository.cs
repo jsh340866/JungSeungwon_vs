@@ -102,10 +102,6 @@ namespace WindowsFormsApp2.Repository
                 }
             }
         }
-
-
-
-
     }
 }
 
