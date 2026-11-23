@@ -33,6 +33,17 @@ namespace WindowsFormsApp2.Utils
 
         }
 
+        // 휴대전화 번호 하이폰 규칙 ( 000-0000-0000..)
+        public static string PhoneRule(string phone) 
+        {
+            string digits = new string(phone.Where(char.IsDigit).ToArray());
+            if (digits.Length >= 11)
+            {
+                phone = digits.Insert(7, "-").Insert(3, "-");
 
+            }
+            return phone;
+
+        }
     }
 }

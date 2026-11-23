@@ -1,17 +1,23 @@
-﻿using System;
+﻿using DevExpress.XtraTreeList;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
+using WindowsFormsApp2.Entity;
+using WindowsFormsApp2.Services;
 using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Repository
 {
     internal class DepartmentRepository
     {
+
+
         // 부서 + 상위부서 조회 
         public List<DepartmentDto> GetAll()
         {
@@ -26,20 +32,20 @@ namespace WindowsFormsApp2.Repository
                               ORDER BY d.DeptCode";
                 using (var cmd = new SqlCommand(sql, conn))
                 {
-                    using (var reader = cmd.ExecuteReader())
+                    using (var r = cmd.ExecuteReader())
                     {
-                        while (reader.Read())
+                        while (r.Read())
                         {
                             list.Add(new DepartmentDto
                             {
-                                DeptId = reader.GetInt32(0),
-                                DeptCode = reader.GetString(1),
-                                DeptName = reader.GetString(2),
-                                Memo = GetStringOrNull(reader, 3),
-                                ParentDeptId = GetIntOrNull(reader, 4),
-                                ParentDeptCode = GetStringOrNull(reader, 5),
-                                ParentDeptName = GetStringOrNull(reader, 6),
-                                ParentMemo = GetStringOrNull(reader, 7)
+                                DeptId = r.GetInt32(0),
+                                DeptCode = r.GetString(1),
+                                DeptName = r.GetString(2),
+                                Memo = GetStringOrNull(r, 3),
+                                ParentDeptId = GetIntOrNull(r, 4),
+                                ParentDeptCode = GetStringOrNull(r, 5),
+                                ParentDeptName = GetStringOrNull(r, 6),
+                                ParentMemo = GetStringOrNull(r, 7)
                             });
                         }
                     }
@@ -77,7 +83,7 @@ namespace WindowsFormsApp2.Repository
         }
 
         // 부서 추가 메서드
-        public void Save(DepartmentDto dept)
+        public void Save(Department entity)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
@@ -86,19 +92,19 @@ namespace WindowsFormsApp2.Repository
                               VALUES(@DeptCode, @DeptName, @Memo, @ParentDeptId)";
                 using (var cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@DeptCode", dept.DeptCode);
-                    cmd.Parameters.AddWithValue("@DeptName", dept.DeptName);
+                    cmd.Parameters.AddWithValue("@DeptCode", entity.DeptCode);
+                    cmd.Parameters.AddWithValue("@DeptName", entity.DeptName);
 
                     // dept.Memo 값이 null이면 DBNull.Value 값을 저장
-                    cmd.Parameters.AddWithValue("@Memo", dept.Memo ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@ParentDeptId", dept.ParentDeptId ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Memo", entity.Memo ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@ParentDeptId", entity.ParentDeptId ?? (object)DBNull.Value);
                     cmd.ExecuteNonQuery();
                 }
             }
         }
 
         // 부서 수정 메서드
-        public void Update(DepartmentDto dept)
+        public void Update(Department entity)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
@@ -108,11 +114,11 @@ namespace WindowsFormsApp2.Repository
                               WHERE DeptId = @DeptId";
                 using (var cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@DeptCode", dept.DeptCode);
-                    cmd.Parameters.AddWithValue("@DeptName", dept.DeptName);
-                    cmd.Parameters.AddWithValue("@Memo", dept.Memo ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@DeptId", dept.DeptId);
-                    cmd.Parameters.AddWithValue("@ParentDeptId", dept.ParentDeptId ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@DeptCode", entity.DeptCode);
+                    cmd.Parameters.AddWithValue("@DeptName", entity.DeptName);
+                    cmd.Parameters.AddWithValue("@Memo", entity.Memo ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@DeptId", entity.DeptId);
+                    cmd.Parameters.AddWithValue("@ParentDeptId", entity.ParentDeptId ?? (object)DBNull.Value);
                     cmd.ExecuteNonQuery();
                 }
             }

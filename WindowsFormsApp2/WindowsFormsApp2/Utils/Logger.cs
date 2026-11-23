@@ -13,7 +13,7 @@ namespace WindowsFormsApp2.Utils
         private readonly object _lock = new object();      // 동시에 쓰는 것 방지, 싱글톤
         private readonly string _logDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs");
 
-        public void Write(string level, string message, Exception ex = null)
+        public void Write(string level, string message, System.Exception ex = null)
         {
             try
             {
@@ -29,6 +29,6 @@ namespace WindowsFormsApp2.Utils
         // 레벨별 편의 메서드: Write("ERROR", ...) 대신 Error(...)처럼 짧게 호출치
         public void Info(string message) { Write("INFO", message); }
         public void Warn(string message) { Write("WARN", message); }   
-        public void Error(string message, Exception ex = null) { Write("ERROR", message, ex); }
+        public void Error(string message, System.Exception ex = null) { Write("ERROR", message, ex); }
     }
 }

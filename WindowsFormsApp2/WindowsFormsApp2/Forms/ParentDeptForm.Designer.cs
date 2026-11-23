@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp2.Forms
 {
-    partial class ParentDepartment
+    partial class ParentDeptForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ParentDepartment));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ParentDeptForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.닫기 = new System.Windows.Forms.ToolStripButton();
             this.삭제 = new System.Windows.Forms.ToolStripButton();

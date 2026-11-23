@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WindowsFormsApp2.Dtos;
+using WindowsFormsApp2.Entity;
 using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Repository
@@ -64,7 +65,7 @@ namespace WindowsFormsApp2.Repository
         }
 
         // 상위부서 추가 메서드
-        public void Save(ParentDepartmentDto pdept)
+        public void Save(ParentDepartment pdept)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
@@ -83,7 +84,7 @@ namespace WindowsFormsApp2.Repository
         }
 
         // 상위부서 수정 메서드
-        public void Update(ParentDepartmentDto pdept)
+        public void Update(ParentDepartment pdept)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {

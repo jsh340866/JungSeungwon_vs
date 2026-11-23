@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Repository;
+using WindowsFormsApp2.Services;
 using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Forms
@@ -48,13 +49,6 @@ namespace WindowsFormsApp2.Forms
         // 로그인정보 저장
         private void 저장btn_Click(object sender, EventArgs e)
         {
-            // 필수값 지정
-            if (string.IsNullOrWhiteSpace(로그인ID.Text)) { MessageBox.Show("로그인ID를 입력해주세요."); return;} 
-            if (string.IsNullOrWhiteSpace(비밀번호.Text)) { MessageBox.Show("비밀번호를 입력해주세요."); return;}
-
-            // Rule에서 만든 비밀번호 규칙 넣기
-            if (!Rule.PasswordCheck(비밀번호.Text)) { MessageBox.Show("비밀번호는 영문, 숫자 포함 8자 이상입니다."); return;}
-
             string loginid = 로그인ID.Text;
             string password = 비밀번호.Text;
             int empId = this.EmpId;
@@ -62,30 +56,19 @@ namespace WindowsFormsApp2.Forms
             // 수정한 로그인정보 db에 저장
             try
             {
-                new EmployeeRepository().UpdateLoginInfo(loginid, password, empId);
+                new EmpService().LoginInfoEdit(loginid, password, empId);
+                MessageBox.Show("로그인 정보가 저장되었습니다.");
                 this.DialogResult = DialogResult.OK;
             }
             // 유니크키 중복으로 Sql에러 발생시 예외처리
-            catch(SqlException ex) when (ex.Number == 2627)
+            catch(BusinessException ex)
             {
-                // 수정한 로그인ID가 중복일 경우 메시지 띄움
-                if (ex.Message.Contains("UQ_Employee_LoginId"))
-                {
-                    MessageBox.Show("이미 사용중인 로그인ID 입니다.");
-                    return;
-                }
-                // 그 외의 중복에러가 발생시 메시지 띄움
-                else
-                {
-                    MessageBox.Show("중복된 값이 있습니다.");
-                    return;
-                }
+                MessageBox.Show(ex.Message);
             }
             // 나머지 에러 발생시 예외처리 및 로그
-            catch (Exception ex)
+            catch
             {
-                Logger.Instance.Error("로그인 정보 수정 실패 EmpId=" + empId, ex);
-                MessageBox.Show("로그인 정보 업데이트 중 오류가 발생했습니다: " + ex.Message);
+                MessageBox.Show("로그인 정보 업데이트 중 오류가 발생했습니다. ");
                
             }
         }

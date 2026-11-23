@@ -27,7 +27,7 @@ namespace WindowsFormsApp2.Utils
             // UI 스레드가 아닌 곳에서 터진 오류 (백그라운드)
             AppDomain.CurrentDomain.UnhandledException += (s, e) =>
             {
-                Logger.Instance.Error("처리되지 않은 예외", e.ExceptionObject as Exception);
+                Logger.Instance.Error("처리되지 않은 예외", e.ExceptionObject as System.Exception);
             };
 
             Application.EnableVisualStyles();
@@ -37,7 +37,7 @@ namespace WindowsFormsApp2.Utils
             L.ShowDialog();
             if (L.DialogResult == DialogResult.OK)
             {
-                Application.Run(new Employee());
+                Application.Run(new EmpForm());
             }
         }
     }

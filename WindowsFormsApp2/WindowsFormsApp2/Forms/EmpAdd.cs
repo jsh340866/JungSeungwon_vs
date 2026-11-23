@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Repository;
+using WindowsFormsApp2.Services;
 using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Forms
@@ -37,7 +38,7 @@ namespace WindowsFormsApp2.Forms
             // 상위부서코드 콤보박스에 값 지정
             cbo상위부서코드.DisplayMember = nameof(ParentDepartmentDto.ParentDeptCode);
             cbo상위부서코드.ValueMember = nameof(ParentDepartmentDto.ParentDeptId);
-            cbo상위부서코드.DataSource = new ParentDepartmentRepository().GetAll();
+            cbo상위부서코드.DataSource = new ParentService().GetAll();
         }
 
         // 상위부서코드 콤보박스에 따라 상위부서명과 부서코드 콤보박스 리스트 변경
@@ -47,7 +48,7 @@ namespace WindowsFormsApp2.Forms
             상위부서명.Text = p?.ParentDeptName;
 
             // 부서코드 콤보박스 리스트 상위부서코드에 따라 변경
-            List<DepartmentDto> dept = new DepartmentRepository().GetAll();
+            List<DepartmentDto> dept = new DeptService().GetAll();
             cbo부서코드.DataSource = dept.Where(d => p != null && d.ParentDeptId == p.ParentDeptId).ToList();
         }
 
@@ -76,32 +77,12 @@ namespace WindowsFormsApp2.Forms
         // 사원 추가 저장
         private void 저장btn_Click(object sender, EventArgs e)
         {
-            // 필수값 지정
-            if (string.IsNullOrWhiteSpace(cbo상위부서코드.Text)) { MessageBox.Show("상위부서를 선택해주세요."); return; }
-            if (string.IsNullOrWhiteSpace(cbo부서코드.Text)) { MessageBox.Show("부서코드를 선택해주세요"); return; }
-            if (string.IsNullOrWhiteSpace(사원코드.Text)) { MessageBox.Show("사원코드를 입력해주세요.");  return; }
-            if (string.IsNullOrWhiteSpace(사원명.Text)) { MessageBox.Show("사원명을 입력해주세요."); return; }
-            if (string.IsNullOrWhiteSpace(로그인ID.Text)) { MessageBox.Show("로그인ID를 입력해주세요"); return;}
-            if (string.IsNullOrWhiteSpace(비밀번호.Text)) {MessageBox.Show("비밀번호를 입력해주세요"); return;}
-            
-            // 비밀번호 규칙
-            if (!Rule.PasswordCheck(비밀번호.Text))
-            {
-                MessageBox.Show("비밀번호는 영문,숫자 포함 8자 이상입니다.");
-                return;
-            }
-
-            // 이메일이 비어있지 않고 Rule에서 만든 이메일 규칙이 false일때 메시지 박스 띄움
-            if (!string.IsNullOrWhiteSpace(이메일.Text) && !Rule.EmailCheck(이메일.Text))
-            {
-                MessageBox.Show("이메일을 다시 입력해주세요.");
-                return;
-            }
 
             // 사원정보 메모리에 담기
             EmployeeDto emp = new EmployeeDto
             {
-                DeptId = (int)cbo부서코드.SelectedValue,
+                // 부서ID를 선택하지않으면 null 대신 0을 넣어서 null 대신 사용, null 이 들어가면 에러발생
+                DeptId = (int?)cbo부서코드.SelectedValue == null ? 0 : (int)cbo부서코드.SelectedValue,
                 EmpCode = 사원코드.Text,
                 EmpName = 사원명.Text,
                 LoginId = 로그인ID.Text,
@@ -117,35 +98,19 @@ namespace WindowsFormsApp2.Forms
             // 사원정보 db에 저장
             try
             {
-                new EmployeeRepository().Save(emp);
+                new EmpService().Add(emp);
+                MessageBox.Show("사원 정보가 저장되었습니다.");
                 this.DialogResult = DialogResult.OK;
             }
-            // 유니크키 중복으로 Sql에러 발생시 예외처리
-            catch (SqlException ex) when (ex.Number == 2627)
+            // 서비스에 예외처리한 BusinessException 걸리면 메시지 출력
+            catch (BusinessException ex)
             {
-                // 로그인ID 중복일 경우 메세지 박스 띄움
-                if (ex.Message.Contains("UQ_Employee_LoginId"))
-                {
-                    MessageBox.Show("이미 사용중인 로그인ID 입니다.");
-                    return;
-                }
-                // 사원코드 중복일 경우 메세지 박스 띄움
-                else if (ex.Message.Contains("UQ_Employee_EmpCode")){
-                    MessageBox.Show("이미 사용중인 사원코드 입니다.");
-                    return; 
-                }
-                // 그 외 Sql중복오류시 메시지 띄움
-                else
-                {
-                    MessageBox.Show("중복된 값이 있습니다.");
-                    return;
-                }
+                MessageBox.Show(ex.Message);
             }
-            // 나머지 에러발생시 메시지 띄움 + 로그
-            catch (Exception ex)
+            // 나머지 에러발생시 메시지 출력
+            catch 
             {
-                Logger.Instance.Error("사원 추가 실패 EmpCode=" + 사원코드.Text, ex);
-                MessageBox.Show("사원 추가 중 오류가 발생했습니다.\n\n" + ex.Message);
+                MessageBox.Show("사원 추가 중 오류가 발생했습니다.");
             }
         }
 
@@ -170,11 +135,7 @@ namespace WindowsFormsApp2.Forms
         // 휴대폰번호 하이폰 규칙
         private void 휴대전화_하이폰규칙_Leave(object sender, EventArgs e)
         {
-            string digits = new string(휴대전화.Text.Where(char.IsDigit).ToArray());
-            if (digits.Length >= 11)
-            {
-                휴대전화.Text = digits.Insert(7, "-").Insert(3, "-");
-            }
+            휴대전화.Text = Rule.PhoneRule(휴대전화.Text);
         }
     }
 }

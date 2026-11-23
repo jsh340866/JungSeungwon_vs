@@ -11,16 +11,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Repository;
+using WindowsFormsApp2.Services;
 using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Forms
 {
-    public partial class Department : Form
+    public partial class DeptForm : Form
     {
-        
+       
         private DepartmentDto Row => 부서그리드.GetFocusedRow() as DepartmentDto;
 
-        public Department()
+        public DeptForm()
         {
             InitializeComponent();
             this.Paint += 테두리_Paint;
@@ -47,12 +48,11 @@ namespace WindowsFormsApp2.Forms
         {
             try
             {
-                상위부서그리드컨트롤.DataSource = new ParentDepartmentRepository().GetAll();
-                부서그리드컨트롤.DataSource = new DepartmentRepository().GetAll();
+                상위부서그리드컨트롤.DataSource = new ParentService().GetAll();
+                부서그리드컨트롤.DataSource = new DeptService().GetAll();
             }
-            catch (Exception ex) 
+            catch
             {
-                Logger.Instance.Error("목록 갱신 실패", ex);
                 MessageBox.Show("목록 갱신을 실패하였습니다.");
             }
         }
@@ -83,25 +83,18 @@ namespace WindowsFormsApp2.Forms
             {
                 try
                 {
-                    new DepartmentRepository().Delete(Row.DeptId);
+                    new DeptService().Delete(Row.DeptId);
                     MessageBox.Show("삭제되었습니다.");
                     GridUpdate();
                 }
-                // 외래키 제약조건 위반시 예외처리
-                catch (SqlException ex) when (ex.Number == 547)
+                catch (BusinessException ex)
                 {
-                    // 상위부서가 존재하는 부서는 외래키 제약조건위반으로 메시지띄움
-                    if (ex.Message.Contains("fk_department_parent"))
-                    {
-                        MessageBox.Show("소속 사원이 존재하는 부서는 삭제할 수 없습니다.");
-                        return;
-                    }
+                    MessageBox.Show(ex.Message);
                 }
                 // 나머지 제약조건 위반시 예외처리 및 로그
-                catch (Exception ex)
+                catch 
                 {
-                    Logger.Instance.Error("부서 삭제 실패", ex);
-                    MessageBox.Show("삭제 중 오류가 발생했습니다.\n" + ex.Message);
+                    MessageBox.Show("삭제 중 오류가 발생했습니다.");
                 }
 
             }
@@ -134,9 +127,7 @@ namespace WindowsFormsApp2.Forms
 
             if (E.DialogResult == DialogResult.OK)
             {
-                MessageBox.Show("부서가 변경 되었습니다.");
                 GridUpdate();
-                return;
             }
 
         }
@@ -144,7 +135,7 @@ namespace WindowsFormsApp2.Forms
         // 상위부서
         private void 상위부서btn_Click(object sender, EventArgs e)
         {
-            ParentDepartment P = new ParentDepartment();
+            ParentDeptForm P = new ParentDeptForm();
             P.ShowDialog();
 
             // 상위부서가 추가,삭제,수정 될 경우 그리드갱신
@@ -152,8 +143,8 @@ namespace WindowsFormsApp2.Forms
             {
                 GridUpdate();
             }
-
         }
+
         // 트리
         private void 트리btn_Click(object sender, EventArgs e)
         {

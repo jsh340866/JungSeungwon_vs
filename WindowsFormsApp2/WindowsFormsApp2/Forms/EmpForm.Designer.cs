@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp2.Forms
 {
-    partial class Employee
+    partial class EmpForm
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employee));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmpForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.닫기 = new System.Windows.Forms.ToolStripButton();
             this.자료변환 = new System.Windows.Forms.ToolStripButton();

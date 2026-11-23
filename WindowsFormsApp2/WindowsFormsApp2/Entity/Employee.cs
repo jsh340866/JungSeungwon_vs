@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp2.Entity
 {
-    internal class Employee
+    public class Employee
     {
         public int EmpId { get; set; }
         public int DeptId { get; set; }
@@ -24,6 +24,7 @@ namespace WindowsFormsApp2.Entity
         public string Email { get; set; }
         public string MessengerId { get; set; }
         public string Memo { get; set; }
+        public byte[] Photo {  get; set; }
 
     }
 }

@@ -13,6 +13,7 @@ using System.Web;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Repository;
+using WindowsFormsApp2.Services;
 using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Forms
@@ -21,7 +22,7 @@ namespace WindowsFormsApp2.Forms
     {
 
         private readonly int EmpId;
-        private readonly List<DepartmentDto> dept = new DepartmentRepository().GetAll();
+        private readonly List<DepartmentDto> dept = new DeptService().GetAll();
         
         public EmpEdit(EmployeeDto emp)
         {
@@ -68,7 +69,7 @@ namespace WindowsFormsApp2.Forms
             // 상위부서코드 콤보박스 보일값, 실제값 지정
             cbo상위부서코드.DisplayMember = nameof(ParentDepartmentDto.ParentDeptCode);
             cbo상위부서코드.ValueMember = nameof(ParentDepartmentDto.ParentDeptId);
-            cbo상위부서코드.DataSource = new ParentDepartmentRepository().GetAll();
+            cbo상위부서코드.DataSource = new ParentService().GetAll();
 
             // 수정 선택한 사원Id로 부서dto 값 찾기
             DepartmentDto department = dept.FirstOrDefault(d => d.DeptId == emp.DeptId);
@@ -136,22 +137,10 @@ namespace WindowsFormsApp2.Forms
         // 사원 수정 저장
         private void 저장btn_Click(object sender, EventArgs e)
         {
-            // 필수값 지정
-            if (string.IsNullOrWhiteSpace(cbo상위부서코드.Text)) { MessageBox.Show("상위부서코드를 선택해주세요."); return; }
-            if (string.IsNullOrWhiteSpace(cbo부서코드.Text)) { MessageBox.Show("부서코드를 선택해주세요."); return; }
-            if (string.IsNullOrWhiteSpace(사원코드.Text)) { MessageBox.Show("사원코드를 입력해주세요."); return; }
-            if (string.IsNullOrWhiteSpace(사원명.Text)) { MessageBox.Show("사원명을 입력해주세요."); return; }
-            // 이메일 규칙
-            if (!string.IsNullOrWhiteSpace(이메일.Text) && !Rule.EmailCheck(이메일.Text))
-            {
-                MessageBox.Show("이메일을 다시 입력해주세요.");
-                return;
-            }
-
             // 수정값 메모리에 담기
             EmployeeDto emp = new EmployeeDto
             {
-                DeptId = (int)cbo부서코드.SelectedValue,
+                DeptId = (int?)cbo부서코드.SelectedValue == null ? 0 : (int)cbo부서코드.SelectedValue,
                 EmpCode = 사원코드.Text,
                 EmpName = 사원명.Text,
                 Gender = 남.Checked ? "남" : 여.Checked ? "여" : null,
@@ -164,50 +153,29 @@ namespace WindowsFormsApp2.Forms
                 Photo = 이미지.Image == null ? null : ImageHelper.ImageToByte(이미지.Image),
                 EmpId = this.EmpId
             };
-            // 수정값 DB에 저장
+            // 수정값 서비스에 요청
             try
             {
-                new EmployeeRepository().Update(emp);
+                new EmpService().Edit(emp);
+                MessageBox.Show("사원 정보가 저장되었습니다.");
                 this.DialogResult = DialogResult.OK;
             }
-            // 유니크키 중복으로 Sql 에러 발생시 예외처리
-            catch (SqlException ex) when (ex.Number == 2627)
+            // 서비스에 예외처리한 BusinessException 걸리면 메시지 출력
+            catch (BusinessException ex) 
             {
-                // 사원코드 중복시 메시지 박스 띄움
-                if (ex.Message.Contains("UQ_Employee_EmpCode"))
-                {
-                    MessageBox.Show("이미 사용중인 사원코드입니다.");
-                    return;
-                }
-                // 로그인Id 중복시 메시지 박스 띄움
-                else if (ex.Message.Contains("UQ_Employee_LoginId"))
-                {
-                    MessageBox.Show("이미 존재하는 로그인ID입니다.");
-                    return;
-                }
-                // 그 외 중복 에러시 메시지 박스 띄움
-                else
-                {
-                    MessageBox.Show("중복된 값이 존재합니다.");
-                    return;
-                }
+                MessageBox.Show(ex.Message);
             }
-            // 나머지 에러 발생시 예외처리 및 로그
-            catch (Exception ex)
+            // 나머지 에러 발생시 예외처리
+            catch 
             {
-                Logger.Instance.Error("사원 수정 실패 EmpId=" + this.EmpId, ex);
-                MessageBox.Show("사원 정보 저장 중 오류가 발생했습니다.\n\n" + ex.Message);
+                MessageBox.Show("사원 정보 저장 중 오류가 발생했습니다.");
             }
         }
 
         // 휴대폰번호 하이폰 규칙
         private void 휴대전화_하이폰규칙_Leave(object sender, EventArgs e)
         {
-            string digits = new string(휴대전화.Text.Where(char.IsDigit).ToArray());
-            if (digits.Length >= 11)
-            {
-                휴대전화.Text = digits.Insert(7, "-").Insert(3, "-");
-            }
+            휴대전화.Text = Rule.PhoneRule(휴대전화.Text);
         }
 
 

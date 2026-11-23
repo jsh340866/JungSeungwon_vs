@@ -12,15 +12,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Repository;
+using WindowsFormsApp2.Services;
 using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Forms
 {
-    public partial class ParentDepartment : Form
+    public partial class ParentDeptForm : Form
     {
-        private readonly List<DepartmentDto> dept = new DepartmentRepository().GetAll();
         private ParentDepartmentDto Row => 그리드뷰.GetFocusedRow() as ParentDepartmentDto;
-        public ParentDepartment()
+        public ParentDeptForm()
         {
             InitializeComponent();
             this.Paint += 테두리_Paint;
@@ -38,11 +38,10 @@ namespace WindowsFormsApp2.Forms
         {
             try 
             {
-                그리드컨트롤.DataSource = new ParentDepartmentRepository().GetAll();
+                그리드컨트롤.DataSource = new ParentService().GetAll();
             }
-            catch (Exception ex) 
+            catch (Exception) 
             {
-                Logger.Instance.Error("목록 갱신 실패", ex);
                 MessageBox.Show("목록 갱신 실패하였습니다.");
             }
             
@@ -82,24 +81,21 @@ namespace WindowsFormsApp2.Forms
 
             if (D.DialogResult == DialogResult.OK)
             {
-                // 선택한 행 Row에 소속된 부서가 존재한다면 메시지 띄움
-                if (dept.Any(d => d.ParentDeptId == Row.ParentDeptId))
-                {
-                    MessageBox.Show("소속 부서가 존재하는 상위부서는 삭제할 수 없습니다.");
-                    return;
-                }
                 // 소속된 부서가 없으면 삭제 후 그리드갱신
                 try
                 {
-                    new ParentDepartmentRepository().Delete(Row.ParentDeptId);
+                    new ParentService().Delete(Row.ParentDeptId);
                     MessageBox.Show("삭제가 완료되었습니다.");
                     GridUpdate();
                 }
-                // 삭제 중 에러발생시 예외처리 및 로그
-                catch (Exception ex)
+                catch (BusinessException ex)
                 {
-                    Logger.Instance.Error("상위부서 삭제 실패 ParentDeptId =" + Row.ParentDeptId, ex);
-                    MessageBox.Show("상위부서 삭제 중 오류가 발생하였습니다.\n", ex.Message);
+                    MessageBox.Show(ex.Message);
+                }
+                // 삭제 중 에러발생시 예외처리 및 로그
+                catch (Exception)
+                {
+                    MessageBox.Show("상위부서 삭제 중 오류가 발생하였습니다.");
                 }
             }
         }
@@ -117,9 +113,7 @@ namespace WindowsFormsApp2.Forms
 
             if (E.DialogResult == DialogResult.OK)
             {
-                MessageBox.Show("상위부서가 수정되었습니다.");
                 GridUpdate();
-                return;
             }
         }
 
@@ -131,9 +125,7 @@ namespace WindowsFormsApp2.Forms
 
             if (A.DialogResult == DialogResult.OK)
             {
-                MessageBox.Show("상위부서가 추가되었습니다.");
                 GridUpdate();
-                return;
             }
         }
 

@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp2.Entity
 {
-    internal class Department
+    public class Department
     {
+        public int DeptId {  get; set; }
+        public string DeptCode {  get; set; }
+        public string DeptName {  get; set; }
+        public string Memo {  get; set; }
+        public int? ParentDeptId { get; set; }
+
     }
 }

@@ -45,7 +45,6 @@ namespace WindowsFormsApp2.Forms
         private void 삭제btn_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
-
         }
     }
 }

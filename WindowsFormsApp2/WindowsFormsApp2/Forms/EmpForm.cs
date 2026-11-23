@@ -10,14 +10,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Repository;
+using WindowsFormsApp2.Services;
 using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Forms
 {
-    public partial class Employee : Form
+    public partial class EmpForm : Form
     {
         private EmployeeDto Row => 그리드뷰.GetFocusedRow() as EmployeeDto;
-        public Employee()
+        public EmpForm()
         {
             InitializeComponent();
             this.Paint += 테두리_Paint;
@@ -46,12 +47,11 @@ namespace WindowsFormsApp2.Forms
         {
             try
             {
-                그리드컨트롤.DataSource = new EmployeeRepository().GetAll();
+                그리드컨트롤.DataSource = new EmpService().GetAll();
             }
-            catch (Exception ex)
+            catch
             {
-                Logger.Instance.Error("목록 갱신 실패", ex);
-                MessageBox.Show("목록 갱신을 실패하였습니다.");
+                MessageBox.Show("목록 갱신에 실패하였습니다.");
             }
         }
 
@@ -69,10 +69,9 @@ namespace WindowsFormsApp2.Forms
                 GridUpdate();
             }
             // 조회 실패시 예외처리 및 로그
-            catch (Exception ex)
+            catch
             {
-                Logger.Instance.Error("사원 조회 실패", ex);
-                MessageBox.Show("조회 중 오류가 발생했습니다.\n" + ex.Message);
+                MessageBox.Show("조회 중 오류가 발생했습니다.");
             }
         }
 
@@ -97,15 +96,14 @@ namespace WindowsFormsApp2.Forms
             {
                 try
                 {
-                    new EmployeeRepository().Delete(Row.EmpId);
+                    new EmpService().Delete(Row.EmpId);
                     MessageBox.Show("삭제되었습니다.");
                     GridUpdate();
                 }
                 // 에러 발생시 예외처리 및 로그
-                catch (Exception ex)
+                catch
                 {
-                    Logger.Instance.Error("사원 삭제 실패 EmpId=" + Row.EmpId, ex);
-                    MessageBox.Show("삭제 중 오류가 발생했습니다.\n" + ex.Message);
+                    MessageBox.Show("삭제 중 오류가 발생했습니다.");
                 }
             }
         }
@@ -128,21 +126,13 @@ namespace WindowsFormsApp2.Forms
             // 로그인정보폼에서 DialogResult.OK를 받고 다시 조회 갱신
             if (L.DialogResult == DialogResult.OK)
             {
-                try
-                {
-                    MessageBox.Show("로그인 정보가 저장되었습니다.");
-                    GridUpdate();
-                }
-                // 에러 발생시 예외처리 및 로그
-                catch (Exception ex)
-                {
-                    Logger.Instance.Error("로그인정보 저장 후 목록 갱신 실패 EmpId=" + Row.EmpId, ex);
-                    MessageBox.Show("로그인 정보 저장 중 오류가 발생했습니다.\n" + ex.Message);
-                }
+                GridUpdate();
+
+
             }
         }
 
-        // 수정
+        // 사원 수정
         private void 수정btn_Click(object sender, EventArgs e)
         {
             if (Row == null)
@@ -156,16 +146,8 @@ namespace WindowsFormsApp2.Forms
             // 사원 수정폼 DialogResult.OK 확인 후 조회 갱신
             if (E.DialogResult == DialogResult.OK)
             {
-                try
-                {
-                    MessageBox.Show("사원 정보가 저장되었습니다.");
-                    GridUpdate();
-                }
-                catch (Exception ex)
-                {
-                    Logger.Instance.Error("사원 수정 후 목록 갱신 실패 EmpId=" + Row.EmpId, ex);
-                    MessageBox.Show("사원 정보 저장 중 오류가 발생했습니다.\n\n" + ex.Message);
-                }
+                GridUpdate();
+
             }
         }
 
@@ -179,23 +161,15 @@ namespace WindowsFormsApp2.Forms
             // 사원 추가폼 DialogResult.OK 확인 후 조회 갱신
             if (A.DialogResult == DialogResult.OK)
             {
-                try
-                {
-                    MessageBox.Show("사원 정보가 추가 되었습니다.");
-                    GridUpdate();
-                }
-                catch (Exception ex)
-                {
-                    Logger.Instance.Error("사원 추가 후 목록 갱신 실패",ex);
-                    MessageBox.Show("사원 정보 추가 중 오류가 발생했습니다.\n\n" + ex.Message);
-                }
+                GridUpdate();
             }
+        
         }
 
         // 부서폼 연결
         private void 부서btn_Click(object sender, EventArgs e)
         {
-            Department D = new Department();
+            DeptForm D = new DeptForm();
             D.ShowDialog();
         }
 
@@ -210,6 +184,11 @@ namespace WindowsFormsApp2.Forms
         {
             EmpMutiAdd M = new EmpMutiAdd();
             M.ShowDialog();
+
+            if(M.DialogResult == DialogResult.OK)
+            {
+                GridUpdate();
+            }
         }
     }
 }

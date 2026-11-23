@@ -7,9 +7,8 @@ using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
-using WindowsFormsApp2.Forms;
+using WindowsFormsApp2.Entity;
 using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Repository
@@ -108,7 +107,7 @@ namespace WindowsFormsApp2.Repository
         }
 
         // 사원 수정 업데이트
-        public void Update(EmployeeDto emp)
+        public void Update(Employee entity)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
@@ -128,25 +127,25 @@ namespace WindowsFormsApp2.Repository
                                 WHERE EmpId = @EmpId";
                 using (var cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@DeptId", emp.DeptId);
-                    cmd.Parameters.AddWithValue("@EmpCode", emp.EmpCode);
-                    cmd.Parameters.AddWithValue("@EmpName", emp.EmpName);
-                    cmd.Parameters.AddWithValue("@Gender", emp.Gender ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Position", emp.Position ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@EmpType", emp.EmpType ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Memo", emp.Memo ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Email", emp.Email ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@MessengerId", emp.MessengerId ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Phone", emp.Phone ?? (object)DBNull.Value);
-                    cmd.Parameters.Add("@Photo", SqlDbType.VarBinary, -1).Value = (object)emp.Photo ?? DBNull.Value;
-                    cmd.Parameters.AddWithValue("@EmpId", emp.EmpId);
+                    cmd.Parameters.AddWithValue("@DeptId", entity.DeptId);
+                    cmd.Parameters.AddWithValue("@EmpCode", entity.EmpCode);
+                    cmd.Parameters.AddWithValue("@EmpName", entity.EmpName);
+                    cmd.Parameters.AddWithValue("@Gender", entity.Gender ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Position", entity.Position ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@EmpType", entity.EmpType ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Memo", entity.Memo ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Email", entity.Email ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@MessengerId", entity.MessengerId ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Phone", entity.Phone ?? (object)DBNull.Value);
+                    cmd.Parameters.Add("@Photo", SqlDbType.VarBinary, -1).Value = (object)entity.Photo ?? DBNull.Value;
+                    cmd.Parameters.AddWithValue("@EmpId", entity.EmpId);
                     cmd.ExecuteNonQuery();
                 }
             }
         }
 
         // 사원 추가 저장 메서드
-        public void Save(EmployeeDto emp)
+        public void Save(Employee entity)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
@@ -158,28 +157,28 @@ namespace WindowsFormsApp2.Repository
                                        @EmpType,@Gender, @Phone, @Email, @MessengerId, @Memo, @Photo)";
                 using (var cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@DeptId", emp.DeptId);
-                    cmd.Parameters.AddWithValue("@EmpCode", emp.EmpCode);
-                    cmd.Parameters.AddWithValue("@EmpName", emp.EmpName);
-                    cmd.Parameters.AddWithValue("@LoginId", emp.LoginId);
-                    cmd.Parameters.AddWithValue("@Password", emp.Password);
-                    cmd.Parameters.AddWithValue("@Gender", emp.Gender ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Position", emp.Position ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@EmpType", emp.EmpType ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Memo", emp.Memo ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Email", emp.Email ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@MessengerId", emp.MessengerId ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Phone", emp.Phone ?? (object)DBNull.Value);
-                    cmd.Parameters.Add("@Photo", SqlDbType.VarBinary, -1).Value = (object)emp.Photo ?? DBNull.Value;
+                    cmd.Parameters.AddWithValue("@DeptId", entity.DeptId);
+                    cmd.Parameters.AddWithValue("@EmpCode", entity.EmpCode);
+                    cmd.Parameters.AddWithValue("@EmpName", entity.EmpName);
+                    cmd.Parameters.AddWithValue("@LoginId", entity.LoginId);
+                    cmd.Parameters.AddWithValue("@Password", entity.Password);
+                    cmd.Parameters.AddWithValue("@Gender", entity.Gender ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Position", entity.Position ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@EmpType", entity.EmpType ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Memo", entity.Memo ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Email", entity.Email ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@MessengerId", entity.MessengerId ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Phone", entity.Phone ?? (object)DBNull.Value);
+                    cmd.Parameters.Add("@Photo", SqlDbType.VarBinary, -1).Value = (object)entity.Photo ?? DBNull.Value;
                     cmd.ExecuteNonQuery();
                 }
             }
         }
 
         // 로그인
-        public List<EmployeeDto> Login()
+        public List<Employee> Login()
         {
-            var list = new List<EmployeeDto>();
+            var list = new List<Employee>();
             using (var conn = new SqlConnection(Config.Connstr))
             {
                 conn.Open();
@@ -190,13 +189,12 @@ namespace WindowsFormsApp2.Repository
                     {
                         while (r.Read())
                         {
-                            list.Add(new EmployeeDto
+                            list.Add(new Employee
                             {
                                 EmpId = r.GetInt32(0),
                                 LoginId = r.GetString(1),
                                 Password = r.GetString(2),
                             });
-
                         }
                     }
                 }

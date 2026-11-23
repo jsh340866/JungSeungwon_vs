@@ -13,6 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>게시\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -25,7 +26,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -95,8 +95,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dtos\DeptChartDto.cs" />
     <Compile Include="Dtos\DepartmentDto.cs" />
     <Compile Include="Dtos\ParentDepartmentDto.cs" />
+    <Compile Include="Entity\Department.cs" />
+    <Compile Include="Entity\Employee.cs" />
+    <Compile Include="Entity\ParentDepartment.cs" />
     <Compile Include="Forms\DeptAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,22 +149,23 @@
     <Compile Include="Forms\ParentEdit.Designer.cs">
       <DependentUpon>ParentEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ParentDepartment.cs">
+    <Compile Include="Forms\ParentDeptForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ParentDepartment.Designer.cs">
-      <DependentUpon>ParentDepartment.cs</DependentUpon>
+    <Compile Include="Forms\ParentDeptForm.Designer.cs">
+      <DependentUpon>ParentDeptForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Repository\DepartmentRepository.cs" />
     <Compile Include="Repository\ParentDepartmentRepository.cs" />
     <Compile Include="Services\DeptService.cs" />
-    <Compile Include="Services\LoginService.cs" />
+    <Compile Include="Services\EmpService.cs" />
+    <Compile Include="Services\ParentService.cs" />
     <Compile Include="Utils\Config.cs" />
-    <Compile Include="Forms\Department.cs">
+    <Compile Include="Forms\DeptForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Department.Designer.cs">
-      <DependentUpon>Department.cs</DependentUpon>
+    <Compile Include="Forms\DeptForm.Designer.cs">
+      <DependentUpon>DeptForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Dtos\EmployeeDto.cs" />
     <Compile Include="Forms\Delete.cs">
@@ -182,11 +187,11 @@
       <DependentUpon>EmpEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Repository\EmployeeRepository.cs" />
-    <Compile Include="Forms\Employee.cs">
+    <Compile Include="Forms\EmpForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Employee.Designer.cs">
-      <DependentUpon>Employee.cs</DependentUpon>
+    <Compile Include="Forms\EmpForm.Designer.cs">
+      <DependentUpon>EmpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginInfo.cs">
       <SubType>Form</SubType>
@@ -195,6 +200,7 @@
       <DependentUpon>LoginInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\ExcelTransfer.cs" />
+    <Compile Include="Utils\BusinessException.cs" />
     <Compile Include="Utils\ImageHelper.cs" />
     <Compile Include="Utils\Logger.cs" />
     <Compile Include="Utils\Program.cs" />
@@ -203,8 +209,8 @@
     <EmbeddedResource Include="Forms\Delete.resx">
       <DependentUpon>Delete.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Department.resx">
-      <DependentUpon>Department.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DeptForm.resx">
+      <DependentUpon>DeptForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DeptAdd.resx">
       <DependentUpon>DeptAdd.cs</DependentUpon>
@@ -224,8 +230,8 @@
     <EmbeddedResource Include="Forms\EmpEdit.resx">
       <DependentUpon>EmpEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Employee.resx">
-      <DependentUpon>Employee.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EmpForm.resx">
+      <DependentUpon>EmpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EmpMutiAdd.resx">
       <DependentUpon>EmpMutiAdd.cs</DependentUpon>
@@ -242,8 +248,8 @@
     <EmbeddedResource Include="Forms\ParentEdit.resx">
       <DependentUpon>ParentEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ParentDepartment.resx">
-      <DependentUpon>ParentDepartment.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ParentDeptForm.resx">
+      <DependentUpon>ParentDeptForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
