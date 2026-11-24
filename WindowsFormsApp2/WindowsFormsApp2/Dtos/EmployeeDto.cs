@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WindowsFormsApp2.Dtos
+﻿namespace WindowsFormsApp2.Dtos
 {
     // DB의 사원 한 행( + 부서 join 결과)을 담은 클래스
     // 사원 dto

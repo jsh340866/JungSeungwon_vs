@@ -10,13 +10,8 @@ using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Services
 {
-
-
     internal class DeptService
     {
-        private readonly List<ParentDepartmentDto> pdept = new ParentService().GetAll();
-        private readonly List<EmployeeDto> emp = new EmpService().GetAll();
-
         private readonly DepartmentRepository deptRepo = new DepartmentRepository();
 
          
@@ -130,7 +125,7 @@ namespace WindowsFormsApp2.Services
             catch (SqlException ex) when (ex.Number == 547)
             {
                 // 사원이 참조 중인 부서이면 메시지 담아 예외처리
-                if (ex.Message.Contains("fk_department_parent"))
+                if (ex.Message.Contains("FK_Employee_Department"))
                 {
                     throw new BusinessException("소속 사원이 존재하는 부서는 삭제할 수 없습니다.");
                 }
@@ -147,6 +142,11 @@ namespace WindowsFormsApp2.Services
         // 부서 트리 메서드
         public DataTable TreeDataTable()
         {
+            var pdept = new ParentDepartmentRepository().GetAll();
+            var dept = deptRepo.GetAll();
+            var emp = new EmployeeRepository().GetAll();
+            
+
             // TreeList 데이터소스에 넣을 데이터테이블 제작
             // 테이블 내 컬럼
             DataTable dt = new DataTable();
@@ -155,14 +155,14 @@ namespace WindowsFormsApp2.Services
             dt.Columns.Add("NodeCode", typeof(string)); // 노드코드
             dt.Columns.Add("NodeName", typeof(string)); // 노드명
 
-            // 컬럼에 넣을 로우값 상위부서,부서,사원 순서
+            // 컬럼에 넣을 로우값 상위부서, 부서, 사원 순서
             // db의 각 Id들은 identity 자동증가로 겹칠수 있음 "P,D,E" 접두사를 붙여구분
             foreach (var p in pdept)
             {
                 // P+Id, null(상위부서라 더 상위가 없음), 상위부서코드, 상위부서명
                 dt.Rows.Add("P" + p.ParentDeptId, DBNull.Value, p.ParentDeptCode, p.ParentDeptName);
             }
-            foreach (var d in deptRepo.GetAll())
+            foreach (var d in dept)
             {
                 // D+Id, null(상위가 없는경우 체크) + P+상위부서ID, 부서코드, 부서명
                 dt.Rows.Add("D" + d.DeptId, d.ParentDeptId == null ? (object)DBNull.Value : "P" + d.ParentDeptId, d.DeptCode, d.DeptName);
@@ -178,6 +178,9 @@ namespace WindowsFormsApp2.Services
         // 부서 차트 메서드
         public List<DeptChartDto> Chart()
         {
+            var pdept = new ParentDepartmentRepository().GetAll();
+            var emp = new EmployeeRepository().GetAll();
+
             // 누적막대차트 데이터소스
             // 부서 시리즈 기준으로 상위부서, 부서명, 사원수 값을 list에 담음
             return deptRepo.GetAll().Select(d => new DeptChartDto

@@ -1,12 +1,7 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Entity;
 using WindowsFormsApp2.Utils;
@@ -176,7 +171,7 @@ namespace WindowsFormsApp2.Repository
         }
 
         // 로그인
-        public List<Employee> Login()
+        public List<Employee> LoginInfo()
         {
             var list = new List<Employee>();
             using (var conn = new SqlConnection(Config.Connstr))
@@ -214,25 +209,31 @@ namespace WindowsFormsApp2.Repository
                                 VALUES((SELECT DeptId FROM dbo.Department WHERE DeptCode = @DeptCode),
                                        @EmpCode, @EmpName, @LoginId, @Password, @Position,
                                        @EmpType, @Gender, @Phone, @Email, @MessengerId, @Memo)";
-                using (var cmd = new SqlCommand(sql, conn))
+                // 에러없이 sql문이 전부 성공해야지 커밋
+                using (var tran = conn.BeginTransaction())
                 {
-                    foreach (DataRow dr in dt.Rows)
+                    using (var cmd = new SqlCommand(sql, conn, tran))
                     {
-                        cmd.Parameters.Clear();
-                        cmd.Parameters.AddWithValue("@DeptCode", dr["부서코드"]);
-                        cmd.Parameters.AddWithValue("@EmpCode", dr["사원코드"]);
-                        cmd.Parameters.AddWithValue("@EmpName", dr["사원명"]);
-                        cmd.Parameters.AddWithValue("@LoginId", dr["로그인ID"]);
-                        cmd.Parameters.AddWithValue("@Password", dr["비밀번호"]);
-                        cmd.Parameters.AddWithValue("@Position", dr["직위"]);
-                        cmd.Parameters.AddWithValue("@EmpType", dr["고용형태"]);
-                        cmd.Parameters.AddWithValue("@Gender", dr["성별"]);
-                        cmd.Parameters.AddWithValue("@Phone", dr["휴대전화"]);
-                        cmd.Parameters.AddWithValue("@Email", dr["이메일"]);
-                        cmd.Parameters.AddWithValue("@MessengerId", dr["메신저ID"]);
-                        cmd.Parameters.AddWithValue("@Memo", dr["메모"]);
-                        cmd.ExecuteNonQuery();
-                    }
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cmd.Parameters.Clear();
+                            cmd.Parameters.AddWithValue("@DeptCode", dr["부서코드"]);
+                            cmd.Parameters.AddWithValue("@EmpCode", dr["사원코드"]);
+                            cmd.Parameters.AddWithValue("@EmpName", dr["사원명"]);
+                            cmd.Parameters.AddWithValue("@LoginId", dr["로그인ID"]);
+                            cmd.Parameters.AddWithValue("@Password", dr["비밀번호"]);
+                            cmd.Parameters.AddWithValue("@Position", dr["직위"]);
+                            cmd.Parameters.AddWithValue("@EmpType", dr["고용형태"]);
+                            cmd.Parameters.AddWithValue("@Gender", dr["성별"]);
+                            cmd.Parameters.AddWithValue("@Phone", dr["휴대전화"]);
+                            cmd.Parameters.AddWithValue("@Email", dr["이메일"]);
+                            cmd.Parameters.AddWithValue("@MessengerId", dr["메신저ID"]);
+                            cmd.Parameters.AddWithValue("@Memo", dr["메모"]);
+                            cmd.ExecuteNonQuery();
+                        }
+                    } 
+                    // 최종 커밋
+                    tran.Commit();
                 }
             }
         }

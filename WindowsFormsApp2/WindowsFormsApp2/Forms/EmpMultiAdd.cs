@@ -1,34 +1,19 @@
 ﻿using DevExpress.Spreadsheet;
-using DevExpress.Spreadsheet.Export;
-using DevExpress.Utils.MVVM;
-using DevExpress.XtraCharts;
-using DevExpress.XtraRichEdit.UI;
-using DevExpress.XtraSpreadsheet;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp2.Dtos;
-using WindowsFormsApp2.Repository;
 using WindowsFormsApp2.Services;
 using WindowsFormsApp2.Utils;
 
 
 namespace WindowsFormsApp2.Forms
 {
-
-
-    public partial class EmpMutiAdd : Form
+    public partial class EmpMultiAdd : Form
     {
+        
         private Worksheet Sheet => spreadsheetControl1.ActiveWorksheet;
 
-        public EmpMutiAdd()
+        public EmpMultiAdd()
         {
             InitializeComponent();
             this.Paint += 테두리_Paint;
@@ -75,7 +60,6 @@ namespace WindowsFormsApp2.Forms
         // 저장
         private void 저장btn_Click(object sender, EventArgs e)
         {
-
             // db에 입력한 사원정보 저장
             try
             {

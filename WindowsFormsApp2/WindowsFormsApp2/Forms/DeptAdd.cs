@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
-using WindowsFormsApp2.Repository;
 using WindowsFormsApp2.Services;
 using WindowsFormsApp2.Utils;
 
@@ -30,6 +22,9 @@ namespace WindowsFormsApp2.Forms
             cbo상위부서코드.DisplayMember = nameof(ParentDepartmentDto.ParentDeptCode);
             cbo상위부서코드.ValueMember = nameof(ParentDepartmentDto.ParentDeptId);
             cbo상위부서코드.DataSource = new ParentService().GetAll();
+
+            // 기본은 빈값
+            cbo상위부서코드.SelectedIndex = -1;
         }
 
         // 폼 테두리

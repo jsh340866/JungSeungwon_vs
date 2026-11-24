@@ -1,16 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
-using WindowsFormsApp2.Repository;
 using WindowsFormsApp2.Services;
 using WindowsFormsApp2.Utils;
 
@@ -35,10 +28,12 @@ namespace WindowsFormsApp2.Forms
             // 부서코드 콤보박스에 보일 값, 실제 값을 미리지정
             cbo부서코드.DisplayMember = nameof(DepartmentDto.DeptCode);
             cbo부서코드.ValueMember = nameof(DepartmentDto.DeptId);
+
             // 상위부서코드 콤보박스에 값 지정
             cbo상위부서코드.DisplayMember = nameof(ParentDepartmentDto.ParentDeptCode);
             cbo상위부서코드.ValueMember = nameof(ParentDepartmentDto.ParentDeptId);
             cbo상위부서코드.DataSource = new ParentService().GetAll();
+            
         }
 
         // 상위부서코드 콤보박스에 따라 상위부서명과 부서코드 콤보박스 리스트 변경
@@ -81,7 +76,8 @@ namespace WindowsFormsApp2.Forms
             // 사원정보 메모리에 담기
             EmployeeDto emp = new EmployeeDto
             {
-                // 부서ID를 선택하지않으면 null 대신 0을 넣어서 null 대신 사용, null 이 들어가면 에러발생
+                // 부서ID를 선택하지않으면 null 대신 0을 넣어서 null 대신 사용
+                // DeptId는 not null 이라 null이 들어가면 에러발생
                 DeptId = (int?)cbo부서코드.SelectedValue == null ? 0 : (int)cbo부서코드.SelectedValue,
                 EmpCode = 사원코드.Text,
                 EmpName = 사원명.Text,

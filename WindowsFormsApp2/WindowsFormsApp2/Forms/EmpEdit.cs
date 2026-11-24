@@ -1,18 +1,9 @@
-﻿using DevExpress.XtraEditors.TextEditController.Win32;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
-using WindowsFormsApp2.Repository;
 using WindowsFormsApp2.Services;
 using WindowsFormsApp2.Utils;
 
@@ -66,6 +57,7 @@ namespace WindowsFormsApp2.Forms
             // 부서코드 콤보박스 보일값, 실제값 미리 지정
             cbo부서코드.DisplayMember = nameof(DepartmentDto.DeptCode);
             cbo부서코드.ValueMember = nameof(DepartmentDto.DeptId);
+
             // 상위부서코드 콤보박스 보일값, 실제값 지정
             cbo상위부서코드.DisplayMember = nameof(ParentDepartmentDto.ParentDeptCode);
             cbo상위부서코드.ValueMember = nameof(ParentDepartmentDto.ParentDeptId);
@@ -172,13 +164,11 @@ namespace WindowsFormsApp2.Forms
             }
         }
 
-        // 휴대폰번호 하이폰 규칙
+        // 휴대전화 번호 하이폰 규칙
         private void 휴대전화_하이폰규칙_Leave(object sender, EventArgs e)
         {
             휴대전화.Text = Rule.PhoneRule(휴대전화.Text);
         }
-
-
     }
 }
 

@@ -102,7 +102,6 @@ C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsAp
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\ja\DevExpress.Office.v21.2.Core.resources.dll
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\ru\DevExpress.Office.v21.2.Core.resources.dll
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsF.EA766B00.Up2Date
-C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe.config
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.ParentEditForm.resources
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\DevExpress.CodeParser.v21.2.dll
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\DevExpress.DataAccess.v21.2.dll
@@ -199,7 +198,6 @@ C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsAp
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\es\DevExpress.XtraSpreadsheet.v21.2.resources.dll
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\ja\DevExpress.XtraSpreadsheet.v21.2.resources.dll
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\ru\DevExpress.XtraSpreadsheet.v21.2.resources.dll
-C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.EmpMutiAdd.resources
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\DevExpress.Docs.v21.2.dll
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\DevExpress.Snap.v21.2.Core.dll
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\DevExpress.Docs.v21.2.xml
@@ -211,3 +209,5 @@ C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsAp
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.DeptForm.resources
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.EmpForm.resources
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.ParentDeptForm.resources
+C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.EmpMultiAdd.resources
+C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe.config

@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp2.Forms
 {
-    partial class EmpMutiAdd
+    partial class EmpMultiAdd
     {
         /// <summary>
         /// Required designer variable.

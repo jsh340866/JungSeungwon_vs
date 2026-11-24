@@ -1,17 +1,7 @@
-﻿using DevExpress.XtraGrid;
-using DevExpress.XtraGrid.Views.Grid;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
+﻿using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
-using WindowsFormsApp2.Repository;
 using WindowsFormsApp2.Services;
 using WindowsFormsApp2.Utils;
 

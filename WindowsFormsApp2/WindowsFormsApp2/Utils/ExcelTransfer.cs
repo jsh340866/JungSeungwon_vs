@@ -1,13 +1,5 @@
-﻿using DevExpress.CodeParser;
-using DevExpress.XtraDashboardLayout;
-using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraLayout.Customization;
+﻿using DevExpress.XtraGrid.Views.Grid;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp2.Utils

@@ -6,11 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
-using WindowsFormsApp2.Entity;
 using WindowsFormsApp2.Repository;
 using WindowsFormsApp2.Utils;
 using Rule = WindowsFormsApp2.Utils.Rule;
@@ -20,8 +16,6 @@ namespace WindowsFormsApp2.Services
     internal class EmpService
     {
         private readonly EmployeeRepository empRepo = new EmployeeRepository();
-        private readonly List<Employee> Emp = new EmployeeRepository().Login();
-        private readonly List<DepartmentDto> dept = new DepartmentRepository().GetAll();
 
         // 사원 조회
         public List<EmployeeDto> GetAll()
@@ -76,7 +70,6 @@ namespace WindowsFormsApp2.Services
                 MessengerId = dto.MessengerId,
                 Memo = dto.Memo,
                 Photo = dto.Photo,
-                
             };
             // 사원정보 db에 저장
             try
@@ -211,18 +204,19 @@ namespace WindowsFormsApp2.Services
             {
                 Logger.Instance.Error("로그인 정보 수정 실패 EmpId=" + empId, ex);
                 throw;
-
             }
         }
 
         // 로그인 검사
         public void Login(string loginId, string password)
         {
+
             // 필수값 지정
             if (string.IsNullOrWhiteSpace(loginId)) { throw new BusinessException("ID를 입력해주세요."); }
             if (string.IsNullOrWhiteSpace(password)) { throw new BusinessException("비밀번호를 입력해주세요."); }
 
             // 입력한 로그인ID의 사원dto를 가져와 로그인ID와 비밀번호 확인 후 같지 않으면 메시지 담아 예외처리
+            var Emp = new EmployeeRepository().LoginInfo();
             var user = Emp.FirstOrDefault(u => u.LoginId == loginId) ?? throw new BusinessException("존재하지않는 ID입니다.");
             if (user.Password != password) { throw new BusinessException("비밀번호가 정확하지 않습니다, 다시 시도해주세요"); }
         }
@@ -242,6 +236,7 @@ namespace WindowsFormsApp2.Services
             if (dt.Rows.Count == 0) { throw new BusinessException("입력된 데이터가 없습니다."); }
 
             // 필수값 지정, dt에 받은 행을 한줄씩 확인
+            var dept = new DepartmentRepository().GetAll();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 DataRow dr = dt.Rows[i];
@@ -255,8 +250,7 @@ namespace WindowsFormsApp2.Services
                 if (string.IsNullOrWhiteSpace(dr["비밀번호"].ToString())) { throw new BusinessException(row + "행의 비밀번호를 입력해주세요."); }
 
                 // 부서db에 존재하지않는 사원코드 입력시 메세지 담아 예외처리
-                string deptCode = dr["부서코드"].ToString();
-                if (!dept.Any(d => d.DeptCode == deptCode)) { throw new BusinessException(row + "행의 부서코드는 존재하지않습니다."); }
+                if (!dept.Any(d => d.DeptCode == dr["부서코드"].ToString())) { throw new BusinessException(row + "행의 부서코드는 존재하지않습니다."); }
             }
 
             // db에 입력한 사원정보 저장

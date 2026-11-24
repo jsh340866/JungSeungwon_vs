@@ -1,15 +1,7 @@
-﻿using DevExpress.Utils.VisualEffects;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
-using WindowsFormsApp2.Repository;
 using WindowsFormsApp2.Services;
 using WindowsFormsApp2.Utils;
 
@@ -68,7 +60,7 @@ namespace WindowsFormsApp2.Forms
             {
                 GridUpdate();
             }
-            // 조회 실패시 예외처리 및 로그
+            // 조회 실패시 예외처리
             catch
             {
                 MessageBox.Show("조회 중 오류가 발생했습니다.");
@@ -127,8 +119,6 @@ namespace WindowsFormsApp2.Forms
             if (L.DialogResult == DialogResult.OK)
             {
                 GridUpdate();
-
-
             }
         }
 
@@ -147,7 +137,6 @@ namespace WindowsFormsApp2.Forms
             if (E.DialogResult == DialogResult.OK)
             {
                 GridUpdate();
-
             }
         }
 
@@ -182,7 +171,7 @@ namespace WindowsFormsApp2.Forms
         // 다중추가
         private void 다중추가btn_Click(object sender, EventArgs e)
         {
-            EmpMutiAdd M = new EmpMutiAdd();
+            EmpMultiAdd M = new EmpMultiAdd();
             M.ShowDialog();
 
             if(M.DialogResult == DialogResult.OK)
