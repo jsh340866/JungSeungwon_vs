@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Threading.Tasks;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Repository;
 using WindowsFormsApp2.Utils;
@@ -16,11 +17,11 @@ namespace WindowsFormsApp2.Services
 
          
         // 부서 조회
-        public List<DepartmentDto> GetAll()
+        public async Task<List<DepartmentDto>> GetAllAsync()
         {
             try
             {
-                return deptRepo.GetAll();
+                return await deptRepo.GetAllAsync();
             }
             catch (Exception ex)
             {
@@ -31,7 +32,7 @@ namespace WindowsFormsApp2.Services
 
 
         // 부서 추가
-        public void Add(DepartmentDto dto)
+        public async Task AddAsync(DepartmentDto dto)
         {
             // 필수값 체크
             if (dto.ParentDeptId == null) { throw new BusinessException("상위부서코드를 선택해주세요."); }
@@ -51,7 +52,7 @@ namespace WindowsFormsApp2.Services
             // 레파지토리 호출 후 db저장
             try
             {
-                deptRepo.Save(entity);
+                await deptRepo.SaveAsync(entity);
             }
             // 유니크키 중복으로 Sql에러 발생시 예외처리
             catch (SqlException ex) when (ex.Number == 2627)
@@ -73,7 +74,7 @@ namespace WindowsFormsApp2.Services
         }
 
         // 부서 수정
-        public void Edit(DepartmentDto dto)
+        public async Task EditAsync(DepartmentDto dto)
         {
             // 필수값 체크
             if (dto.ParentDeptId == null) { throw new BusinessException("상위부서코드를 선택해주세요."); }
@@ -93,7 +94,7 @@ namespace WindowsFormsApp2.Services
             // db 저장
             try
             {
-                deptRepo.Update(entity);
+                await deptRepo.UpdateAsync(entity);
             }
             // 유니크키 중복 발생시 Sql에러 메세지 담아 예외처리
             catch (SqlException ex) when (ex.Number == 2627)
@@ -115,11 +116,11 @@ namespace WindowsFormsApp2.Services
         }
 
         // 부서 삭제
-        public void Delete(int deptId)
+        public async Task DeleteAsync(int deptId)
         {
             try
             {
-                new DepartmentRepository().Delete(deptId);
+                await new DepartmentRepository().DeleteAsync(deptId);
             }
             // 소속 사원이 있는 부서를 삭제하면 외래키 졔약조건 위반이 발생
             catch (SqlException ex) when (ex.Number == 547)
@@ -140,11 +141,11 @@ namespace WindowsFormsApp2.Services
         }
 
         // 부서 트리 메서드
-        public DataTable TreeDataTable()
+        public async Task<DataTable> TreeDataTableAsync()
         {
-            var pdept = new ParentDepartmentRepository().GetAll();
-            var dept = deptRepo.GetAll();
-            var emp = new EmployeeRepository().GetAll();
+            var pdept = await new ParentDepartmentRepository().GetAllAsync();
+            var dept = await deptRepo.GetAllAsync();
+            var emp = await new EmployeeRepository().GetAllAsync();
             
 
             // TreeList 데이터소스에 넣을 데이터테이블 제작
@@ -176,14 +177,15 @@ namespace WindowsFormsApp2.Services
         }
 
         // 부서 차트 메서드
-        public List<DeptChartDto> Chart()
+        public async Task<List<DeptChartDto>> ChartAsync()
         {
-            var pdept = new ParentDepartmentRepository().GetAll();
-            var emp = new EmployeeRepository().GetAll();
+            var pdept = await new ParentDepartmentRepository().GetAllAsync();
+            var emp = await new EmployeeRepository().GetAllAsync();
+            var dept = await deptRepo.GetAllAsync();
 
             // 누적막대차트 데이터소스
             // 부서 시리즈 기준으로 상위부서, 부서명, 사원수 값을 list에 담음
-            return deptRepo.GetAll().Select(d => new DeptChartDto
+            return dept.Select(d => new DeptChartDto
             {
                 // 차트 x축, 상위부서의 ParentDeptId 와 부서의 ParentDeptId가 같은 pdept의 ParentDeptName을 표시, 상위부서가 없으면 null
                 ParentDeptName_X = pdept.FirstOrDefault(p => p.ParentDeptId == d.ParentDeptId)?.ParentDeptName,

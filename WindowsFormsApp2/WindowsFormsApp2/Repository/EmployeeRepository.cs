@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Threading.Tasks;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Entity;
 using WindowsFormsApp2.Utils;
@@ -11,14 +12,13 @@ namespace WindowsFormsApp2.Repository
     internal class EmployeeRepository
     {
         // 사원 전체 조회 (부서 테이블과 JOIN)
-        public List<EmployeeDto> GetAll()
+        public async Task<List<EmployeeDto>> GetAllAsync()
         {
             var list = new List<EmployeeDto>();
 
             using (var conn = new SqlConnection(Config.Connstr))
             {
-                conn.Open();
-
+                await conn.OpenAsync();
                 string sql = @"SELECT e.EmpId, e.DeptId, d.DeptCode, d.DeptName,
                                       e.EmpCode, e.EmpName, e.Gender, e.LoginId, e.Password,
                                       e.Position, e.EmpType, e.Phone, e.Email, e.MessengerId, e.Memo, e.Photo
@@ -28,9 +28,9 @@ namespace WindowsFormsApp2.Repository
 
                 using (var cmd = new SqlCommand(sql, conn))
                 {
-                    using (var r = cmd.ExecuteReader())
+                    using (var r = await cmd.ExecuteReaderAsync())
                     {
-                        while (r.Read())
+                        while (await r.ReadAsync())
                         {
                             list.Add(new EmployeeDto
                             {
@@ -70,43 +70,43 @@ namespace WindowsFormsApp2.Repository
         }
 
         // 사원 삭제 메서드
-        public void Delete(int empId)
+        public async Task DeleteAsync(int empId)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 string sql = "DELETE FROM dbo.Employee WHERE EmpId = @EmpID";
                 using (var cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@EmpId", empId);
-                    cmd.ExecuteNonQuery();
+                    await cmd.ExecuteNonQueryAsync();
                 }
             }
         }
 
         // 로그인정보 업데이트
-        public void UpdateLoginInfo(string LoginId, string Password, int EmpId)
+        public async Task UpdateLoginInfoAsync(string LoginId, string Password, int EmpId)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 string sql = "UPDATE dbo.Employee SET LoginId = @LoginId, Password = @Password WHERE EmpId = @EmpId";
                 using (var cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@EmpId", EmpId);
                     cmd.Parameters.AddWithValue("@LoginId", LoginId);
                     cmd.Parameters.AddWithValue("@Password", Password);
-                    cmd.ExecuteNonQuery();
+                    await cmd.ExecuteNonQueryAsync();
                 }
             }
         }
 
         // 사원 수정 업데이트
-        public void Update(Employee entity)
+        public async Task UpdateAsync(Employee entity)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 string sql = @"UPDATE dbo.Employee SET 
                                 DeptId = @DeptId,
                                 EmpCode = @EmpCode,
@@ -134,17 +134,17 @@ namespace WindowsFormsApp2.Repository
                     cmd.Parameters.AddWithValue("@Phone", entity.Phone ?? (object)DBNull.Value);
                     cmd.Parameters.Add("@Photo", SqlDbType.VarBinary, -1).Value = (object)entity.Photo ?? DBNull.Value;
                     cmd.Parameters.AddWithValue("@EmpId", entity.EmpId);
-                    cmd.ExecuteNonQuery();
+                    await cmd.ExecuteNonQueryAsync();
                 }
             }
         }
 
         // 사원 추가 저장 메서드
-        public void Save(Employee entity)
+        public async Task SaveAsync(Employee entity)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 string sql = @"INSERT INTO 
                                 dbo.Employee(DeptId, EmpCode, EmpName, LoginId, Password, Position, 
                                              EmpType, Gender,Phone, Email, MessengerId, Memo, Photo) 
@@ -165,24 +165,24 @@ namespace WindowsFormsApp2.Repository
                     cmd.Parameters.AddWithValue("@MessengerId", entity.MessengerId ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("@Phone", entity.Phone ?? (object)DBNull.Value);
                     cmd.Parameters.Add("@Photo", SqlDbType.VarBinary, -1).Value = (object)entity.Photo ?? DBNull.Value;
-                    cmd.ExecuteNonQuery();
+                    await cmd.ExecuteNonQueryAsync();
                 }
             }
         }
 
         // 로그인
-        public List<Employee> LoginInfo()
+        public async Task<List<Employee>> LoginInfoAsync()
         {
             var list = new List<Employee>();
             using (var conn = new SqlConnection(Config.Connstr))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 string sql = @"SELECT EmpId ,LoginId, Password FROM dbo.Employee";
                 using (var cmd = new SqlCommand(sql, conn))
                 {
-                    using (var r = cmd.ExecuteReader())
+                    using (var r = await cmd.ExecuteReaderAsync())
                     {
-                        while (r.Read())
+                        while (await r.ReadAsync())
                         {
                             list.Add(new Employee
                             {
@@ -198,11 +198,11 @@ namespace WindowsFormsApp2.Repository
         }
 
         // spreadsheetcontrol 데이터테이블 받아 DB에 저장
-        public void SaveSheet(DataTable dt)
+        public async Task SaveSheetAsync(DataTable dt)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 string sql = @"INSERT INTO 
                                 dbo.Employee(DeptId, EmpCode, EmpName, LoginId, Password, Position,
                                              EmpType, Gender, Phone, Email, MessengerId, Memo)
@@ -229,7 +229,7 @@ namespace WindowsFormsApp2.Repository
                             cmd.Parameters.AddWithValue("@Email", dr["이메일"]);
                             cmd.Parameters.AddWithValue("@MessengerId", dr["메신저ID"]);
                             cmd.Parameters.AddWithValue("@Memo", dr["메모"]);
-                            cmd.ExecuteNonQuery();
+                            await cmd.ExecuteNonQueryAsync();
                         }
                     } 
                     // 최종 커밋

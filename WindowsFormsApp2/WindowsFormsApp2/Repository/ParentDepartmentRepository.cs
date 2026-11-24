@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Threading.Tasks;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Entity;
 using WindowsFormsApp2.Utils;
@@ -10,21 +11,21 @@ namespace WindowsFormsApp2.Repository
     internal class ParentDepartmentRepository
     {
         // 상위부서 조회
-        public List<ParentDepartmentDto> GetAll()
+        public async Task<List<ParentDepartmentDto>> GetAllAsync()
         {
             var list = new List<ParentDepartmentDto>();
             using (var conn = new SqlConnection(Config.Connstr))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 string sql = @"SELECT ParentDeptId, ParentDeptCode, ParentDeptName, ParentMemo
                               FROM dbo.ParentDepartment
                               ORDER BY ParentDeptCode";
 
                 using (var cmd = new SqlCommand(sql, conn))
                 {
-                    using (var r = cmd.ExecuteReader())
+                    using (var r = await cmd.ExecuteReaderAsync())
                     {
-                        while (r.Read()) {
+                        while (await r.ReadAsync()) {
                             list.Add(new ParentDepartmentDto()
                             {
                                 ParentDeptId = r.GetInt32(0),
@@ -46,27 +47,27 @@ namespace WindowsFormsApp2.Repository
         }
 
         // 상위부서 삭제 메서드
-        public void Delete(int pdeptId)
+        public async Task DeleteAsync(int pdeptId)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 string sql = @"DELETE FROM dbo.ParentDepartment WHERE ParentDeptId = @ParentDeptId";
                 using (var cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@ParentDeptId", pdeptId);
-                    cmd.ExecuteNonQuery();
+                    await cmd.ExecuteNonQueryAsync();
                 }
 
             }
         }
 
         // 상위부서 추가 메서드
-        public void Save(ParentDepartment pdept)
+        public async Task SaveAsync(ParentDepartment pdept)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 string sql = @"INSERT INTO 
                              dbo.ParentDepartment (ParentDeptCode, ParentDeptName, ParentMemo)
                              VALUES(@ParentDeptCode, @ParentDeptName, @ParentMemo)";
@@ -75,17 +76,17 @@ namespace WindowsFormsApp2.Repository
                     cmd.Parameters.AddWithValue("@ParentDeptCode", pdept.ParentDeptCode);
                     cmd.Parameters.AddWithValue("@ParentDeptName", pdept.ParentDeptName);
                     cmd.Parameters.AddWithValue("@ParentMemo", pdept.ParentMemo ?? (object)DBNull.Value);
-                    cmd.ExecuteNonQuery();
+                    await cmd.ExecuteNonQueryAsync();
                 }
             }
         }
 
         // 상위부서 수정 메서드
-        public void Update(ParentDepartment pdept)
+        public async Task UpdateAsync(ParentDepartment pdept)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 string sql = @"UPDATE dbo.ParentDepartment 
                               SET ParentDeptCode = @ParentDeptCode, ParentDeptName = @ParentDeptName, ParentMemo = @ParentMemo
                               WHERE ParentDeptId = @ParentDeptId";
@@ -95,7 +96,7 @@ namespace WindowsFormsApp2.Repository
                     cmd.Parameters.AddWithValue("@ParentDeptCode", pdept.ParentDeptCode);
                     cmd.Parameters.AddWithValue("@ParentDeptName", pdept.ParentDeptName);
                     cmd.Parameters.AddWithValue("@ParentMemo", pdept.ParentMemo ?? (object)DBNull.Value);
-                    cmd.ExecuteNonQuery();
+                    await cmd.ExecuteNonQueryAsync();
                 }
             }
         }

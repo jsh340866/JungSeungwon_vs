@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Threading.Tasks;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Repository;
 using WindowsFormsApp2.Utils;
@@ -18,11 +19,11 @@ namespace WindowsFormsApp2.Services
         private readonly EmployeeRepository empRepo = new EmployeeRepository();
 
         // 사원 조회
-        public List<EmployeeDto> GetAll()
+        public async Task<List<EmployeeDto>> GetAllAsync()
         {
             try
             {
-                return empRepo.GetAll();
+                return await empRepo.GetAllAsync();
             }
             catch(Exception ex) 
             {
@@ -32,7 +33,7 @@ namespace WindowsFormsApp2.Services
         }
 
         // 사원 추가
-        public void Add(EmployeeDto dto)
+        public async Task AddAsync(EmployeeDto dto)
         {
             // 필수값 지정
             if (dto.DeptId <= 0) { throw new BusinessException("부서코드를 선택해주세요");}
@@ -74,7 +75,7 @@ namespace WindowsFormsApp2.Services
             // 사원정보 db에 저장
             try
             {
-                new EmployeeRepository().Save(entity);
+                await new EmployeeRepository().SaveAsync(entity);
             }
             // 유니크키 중복으로 Sql에러 발생시 예외처리
             catch (SqlException ex) when (ex.Number == 2627)
@@ -101,7 +102,7 @@ namespace WindowsFormsApp2.Services
         }
 
         // 사원 수정
-        public void Edit(EmployeeDto dto)
+        public async Task EditAsync(EmployeeDto dto)
         {
             // 필수값 지정
             if (dto.DeptId <= 0) { throw new BusinessException("부서코드를 선택해주세요."); }
@@ -132,7 +133,7 @@ namespace WindowsFormsApp2.Services
             // 수정값 DB에 저장
             try
             {
-                new EmployeeRepository().Update(entity);
+                await new EmployeeRepository().UpdateAsync(entity);
             }
             // 유니크키 중복으로 Sql 에러 발생시 예외처리
             catch (SqlException ex) when (ex.Number == 2627)
@@ -159,11 +160,11 @@ namespace WindowsFormsApp2.Services
         }
 
         // 사원 삭제
-        public void Delete(int empId)
+        public async Task DeleteAsync(int empId)
         {
             try
             {
-                new EmployeeRepository().Delete(empId);
+                await new EmployeeRepository().DeleteAsync(empId);
             }
             // 에러 발생시 로그 기록
             catch (System.Exception ex)
@@ -174,7 +175,7 @@ namespace WindowsFormsApp2.Services
         }
 
         // 로그인,비밀번호 수정
-        public void LoginInfoEdit(string loginId, string password, int empId)
+        public async Task LoginInfoEditAsync(string loginId, string password, int empId)
         {
             // 필수값 지정
             if (string.IsNullOrWhiteSpace(loginId)) { throw new BusinessException("로그인ID를 입력해주세요."); }
@@ -186,7 +187,7 @@ namespace WindowsFormsApp2.Services
             // 수정한 로그인정보 db에 저장
             try
             {
-                new EmployeeRepository().UpdateLoginInfo(loginId, password, empId);
+                await new EmployeeRepository().UpdateLoginInfoAsync(loginId, password, empId);
             }
             // 유니크키 중복으로 Sql에러 발생시 예외처리
             catch (SqlException ex) when (ex.Number == 2627)
@@ -208,7 +209,7 @@ namespace WindowsFormsApp2.Services
         }
 
         // 로그인 검사
-        public void Login(string loginId, string password)
+        public async Task LoginAsync(string loginId, string password)
         {
 
             // 필수값 지정
@@ -216,13 +217,13 @@ namespace WindowsFormsApp2.Services
             if (string.IsNullOrWhiteSpace(password)) { throw new BusinessException("비밀번호를 입력해주세요."); }
 
             // 입력한 로그인ID의 사원dto를 가져와 로그인ID와 비밀번호 확인 후 같지 않으면 메시지 담아 예외처리
-            var Emp = new EmployeeRepository().LoginInfo();
+            var Emp = await new EmployeeRepository().LoginInfoAsync();
             var user = Emp.FirstOrDefault(u => u.LoginId == loginId) ?? throw new BusinessException("존재하지않는 ID입니다.");
             if (user.Password != password) { throw new BusinessException("비밀번호가 정확하지 않습니다, 다시 시도해주세요"); }
         }
 
         // 사원 다중 추가
-        public void MutiAdd(Worksheet sheet)
+        public async Task MutiAddAsync(Worksheet sheet)
         {
             // 데이터입력 범위지정, 처음부터 입력한 행까지
             CellRange range = sheet.GetDataRange();
@@ -236,7 +237,7 @@ namespace WindowsFormsApp2.Services
             if (dt.Rows.Count == 0) { throw new BusinessException("입력된 데이터가 없습니다."); }
 
             // 필수값 지정, dt에 받은 행을 한줄씩 확인
-            var dept = new DepartmentRepository().GetAll();
+            var dept = await new DepartmentRepository().GetAllAsync();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 DataRow dr = dt.Rows[i];
@@ -256,7 +257,7 @@ namespace WindowsFormsApp2.Services
             // db에 입력한 사원정보 저장
             try
             {
-                new EmployeeRepository().SaveSheet(dt);
+                await new EmployeeRepository().SaveSheetAsync(dt);
                 sheet.Clear(range.Offset(1, 0));
             }
             // 유니크키 중복으로 Sql에러 발생시 예외처리

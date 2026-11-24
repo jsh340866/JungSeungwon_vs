@@ -13,11 +13,13 @@ namespace WindowsFormsApp2.Forms
     {
 
         private readonly int EmpId;
-        private readonly List<DepartmentDto> dept = new DeptService().GetAll();
+        private readonly int DeptId;
+        private List<DepartmentDto> dept;
         
         public EmpEdit(EmployeeDto emp)
         {
             InitializeComponent();
+            this.Load += 사원수정폼_Load;
             this.Paint += 테두리_Paint;
             this.취소.Click += 취소btn_Click;
             this.저장.Click += 저장btn_Click;
@@ -37,6 +39,7 @@ namespace WindowsFormsApp2.Forms
             메신저ID.Text = emp.MessengerId;
             메모.Text = emp.Memo;
             this.EmpId = emp.EmpId;
+            this.DeptId = emp.DeptId;
             if (emp.Gender == "남")
             {
                 남.Checked = true;
@@ -53,32 +56,46 @@ namespace WindowsFormsApp2.Forms
                 이미지.Image = ImageHelper.ByteToImage(emp.Photo);
             }
 
-            // 상위부서코드 -> 부서코드 콤보박스 드랍다운리스트 연동
-            // 부서코드 콤보박스 보일값, 실제값 미리 지정
-            cbo부서코드.DisplayMember = nameof(DepartmentDto.DeptCode);
-            cbo부서코드.ValueMember = nameof(DepartmentDto.DeptId);
-
-            // 상위부서코드 콤보박스 보일값, 실제값 지정
-            cbo상위부서코드.DisplayMember = nameof(ParentDepartmentDto.ParentDeptCode);
-            cbo상위부서코드.ValueMember = nameof(ParentDepartmentDto.ParentDeptId);
-            cbo상위부서코드.DataSource = new ParentService().GetAll();
-
-            // 수정 선택한 사원Id로 부서dto 값 찾기
-            DepartmentDto department = dept.FirstOrDefault(d => d.DeptId == emp.DeptId);
-
-            if (department?.ParentDeptId != null)
+        }
+        
+        private async void 사원수정폼_Load(object sender, EventArgs e)
+        {
+            try
             {
-                // 찾은 부서dto로 상위부서코드 실제값 표기
-                cbo상위부서코드.SelectedValue = department.ParentDeptId.Value;
-                // 부서코드 실제값 표기
-                cbo부서코드.SelectedValue = emp.DeptId;
+                dept = await new DeptService().GetAllAsync();
+
+                // 상위부서코드 -> 부서코드 콤보박스 드랍다운리스트 연동
+                // 부서코드 콤보박스 보일값, 실제값 미리 지정
+                cbo부서코드.DisplayMember = nameof(DepartmentDto.DeptCode);
+                cbo부서코드.ValueMember = nameof(DepartmentDto.DeptId);
+
+                // 상위부서코드 콤보박스 보일값, 실제값 지정
+                cbo상위부서코드.DisplayMember = nameof(ParentDepartmentDto.ParentDeptCode);
+                cbo상위부서코드.ValueMember = nameof(ParentDepartmentDto.ParentDeptId);
+                cbo상위부서코드.DataSource = await new ParentService().GetAllAsync();
+
+                // 수정 선택한 사원Id로 부서dto 값 찾기
+                DepartmentDto department = dept.FirstOrDefault(d => d.DeptId == this.DeptId);
+
+                if (department?.ParentDeptId != null)
+                {
+                    // 찾은 부서dto로 상위부서코드 실제값 표기
+                    cbo상위부서코드.SelectedValue = department.ParentDeptId.Value;
+                    // 부서코드 실제값 표기
+                    cbo부서코드.SelectedValue = this.DeptId;
+                }
+                // 상위부서가 없을시 빈값으로 지정
+                else
+                {
+                    cbo상위부서코드.SelectedIndex = -1;
+                }
             }
-            // 상위부서가 없을시 빈값으로 지정
-            else
+            catch   
             {
-                cbo상위부서코드.SelectedIndex = -1;
+                MessageBox.Show("부서 정보를 불러오지 못했습니다.");
             }
         }
+
 
         // 상위부서코드 콤보박스 변경시 상위부서명 자동변경
         private void 상위부서코드_SelectedIndexChanged(object sender, EventArgs e)
@@ -127,7 +144,7 @@ namespace WindowsFormsApp2.Forms
 
 
         // 사원 수정 저장
-        private void 저장btn_Click(object sender, EventArgs e)
+        private async void 저장btn_Click(object sender, EventArgs e)
         {
             // 수정값 메모리에 담기
             EmployeeDto emp = new EmployeeDto
@@ -146,9 +163,10 @@ namespace WindowsFormsApp2.Forms
                 EmpId = this.EmpId
             };
             // 수정값 서비스에 요청
+            저장.Enabled = false;
             try
             {
-                new EmpService().Edit(emp);
+                await new EmpService().EditAsync(emp);
                 MessageBox.Show("사원 정보가 저장되었습니다.");
                 this.DialogResult = DialogResult.OK;
             }
@@ -161,6 +179,10 @@ namespace WindowsFormsApp2.Forms
             catch 
             {
                 MessageBox.Show("사원 정보 저장 중 오류가 발생했습니다.");
+            }
+            finally
+            {
+                저장.Enabled = true;
             }
         }
 

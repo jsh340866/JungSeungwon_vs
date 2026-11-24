@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Threading.Tasks;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Entity;
 using WindowsFormsApp2.Utils;
@@ -12,12 +13,12 @@ namespace WindowsFormsApp2.Repository
 
 
         // 부서 + 상위부서 조회 
-        public List<DepartmentDto> GetAll()
+        public async Task<List<DepartmentDto>> GetAllAsync()
         {
             var list = new List<DepartmentDto>();
             using (var conn = new SqlConnection(Config.Connstr))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 string sql = @"SELECT d.DeptId, d.DeptCode, d.DeptName, d.Memo, d.ParentDeptId,
                               p.ParentDeptCode, p.ParentDeptName, p.ParentMemo
                               FROM dbo.Department d
@@ -25,9 +26,9 @@ namespace WindowsFormsApp2.Repository
                               ORDER BY d.DeptCode";
                 using (var cmd = new SqlCommand(sql, conn))
                 {
-                    using (var r = cmd.ExecuteReader())
+                    using (var r = await cmd.ExecuteReaderAsync())
                     {
-                        while (r.Read())
+                        while (await r.ReadAsync())
                         {
                             list.Add(new DepartmentDto
                             {
@@ -60,27 +61,27 @@ namespace WindowsFormsApp2.Repository
         }
 
         // 부서 삭제 메서드
-        public void Delete(int deptId)
+        public async Task DeleteAsync(int deptId)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 string sql = @"DELETE FROM dbo.Department WHERE DeptId = @DeptId";
                 using (var cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@DeptId", deptId);
-                    cmd.ExecuteNonQuery();
+                    await cmd.ExecuteNonQueryAsync();
                 }
 
             }
         }
 
         // 부서 추가 메서드
-        public void Save(Department entity)
+        public async Task SaveAsync(Department entity)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 string sql = @"INSERT INTO dbo.Department (DeptCode, DeptName, Memo, ParentDeptId)
                               VALUES(@DeptCode, @DeptName, @Memo, @ParentDeptId)";
                 using (var cmd = new SqlCommand(sql, conn))
@@ -91,17 +92,17 @@ namespace WindowsFormsApp2.Repository
                     // dept.Memo 값이 null이면 DBNull.Value 값을 저장
                     cmd.Parameters.AddWithValue("@Memo", entity.Memo ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("@ParentDeptId", entity.ParentDeptId ?? (object)DBNull.Value);
-                    cmd.ExecuteNonQuery();
+                    await cmd.ExecuteNonQueryAsync();
                 }
             }
         }
 
         // 부서 수정 메서드
-        public void Update(Department entity)
+        public async Task UpdateAsync(Department entity)
         {
             using (var conn = new SqlConnection(Config.Connstr))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 string sql = @"UPDATE dbo.Department 
                               SET DeptCode = @DeptCode, DeptName = @DeptName, Memo = @Memo, ParentDeptId = @ParentDeptId
                               WHERE DeptId = @DeptId";
@@ -112,7 +113,7 @@ namespace WindowsFormsApp2.Repository
                     cmd.Parameters.AddWithValue("@Memo", entity.Memo ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("@DeptId", entity.DeptId);
                     cmd.Parameters.AddWithValue("@ParentDeptId", entity.ParentDeptId ?? (object)DBNull.Value);
-                    cmd.ExecuteNonQuery();
+                    await cmd.ExecuteNonQueryAsync();
                 }
             }
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Threading.Tasks;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Entity;
 using WindowsFormsApp2.Repository;
@@ -12,14 +13,13 @@ namespace WindowsFormsApp2.Services
     internal class ParentService
     {
         private readonly ParentDepartmentRepository pdeptRepo = new ParentDepartmentRepository();
-        private readonly DepartmentRepository deptRepo = new DepartmentRepository();
 
         // 상위부서 전체 조회
-        public List<ParentDepartmentDto> GetAll()
+        public async Task<List<ParentDepartmentDto>> GetAllAsync()
         {
             try
             {
-                return pdeptRepo.GetAll();
+                return await pdeptRepo.GetAllAsync();
             }
             catch (Exception ex)
             {
@@ -29,7 +29,7 @@ namespace WindowsFormsApp2.Services
         }
 
         // 상위부서 추가
-        public void Add(ParentDepartmentDto dto)
+        public async Task AddAsync(ParentDepartmentDto dto)
         {
             // 필수값 지정
             if (string.IsNullOrWhiteSpace(dto.ParentDeptCode)) { throw new BusinessException("상위부서코드는 필수기재사항입니다.");}
@@ -45,7 +45,7 @@ namespace WindowsFormsApp2.Services
             // 레파지토리 호출 후 db저장
             try
             {
-                pdeptRepo.Save(entity);
+                await pdeptRepo.SaveAsync(entity);
             }
             // 유니크키 중복으로 Sql에러 발생시 예외처리
             catch (SqlException ex) when (ex.Number == 2627)
@@ -66,7 +66,7 @@ namespace WindowsFormsApp2.Services
         }
         
         // 상위부서 수정 
-        public void Edit(ParentDepartmentDto dto)
+        public async Task EditAsync(ParentDepartmentDto dto)
         {
             // 필수값 지정
             if (string.IsNullOrWhiteSpace(dto.ParentDeptName)) { throw new BusinessException("상위부서명은 필수기재사항입니다."); }
@@ -84,7 +84,7 @@ namespace WindowsFormsApp2.Services
             // 수정값 레파지토리 호출 후 db에 저장 
             try
             {
-                pdeptRepo.Update(entity);
+                await pdeptRepo.UpdateAsync(entity);
             }
             // 유니크키 중복으로 Sql에러 발생시 예외처리
             catch (SqlException ex) when (ex.Number == 2627)
@@ -105,10 +105,11 @@ namespace WindowsFormsApp2.Services
             }
         }
 
-        public void Delete(int ParentDeptId)
+        public async Task DeleteAsync(int ParentDeptId)
         {
             // 소속된 부서가 있으면 삭제 불가, 메시지 담고 예외처리
-            if (deptRepo.GetAll().Any(d => d.ParentDeptId == ParentDeptId))
+            var dept = await new DepartmentRepository().GetAllAsync();
+            if (dept.Any(d => d.ParentDeptId == ParentDeptId))
             {
                 throw new BusinessException("소속 부서가 존재하는 상위부서는 삭제할 수 없습니다.");
             }
@@ -116,7 +117,7 @@ namespace WindowsFormsApp2.Services
             // 레파지토리 호출 후 상위부서 삭제
             try
             {
-                pdeptRepo.Delete(ParentDeptId);
+                await pdeptRepo.DeleteAsync(ParentDeptId);
             }
             // 삭제 중 에러발생시 로그 기록
             catch (Exception ex)

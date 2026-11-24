@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Services;
@@ -35,11 +36,11 @@ namespace WindowsFormsApp2.Forms
         }
 
         // 그리드 갱신
-        private void GridUpdate()
+        private async Task GridUpdateAsync()
         {
             try
             {
-                그리드컨트롤.DataSource = new EmpService().GetAll();
+                그리드컨트롤.DataSource = await new EmpService().GetAllAsync();
             }
             catch
             {
@@ -54,11 +55,11 @@ namespace WindowsFormsApp2.Forms
         }
 
         // 조회
-        private void 조회btn_Click(object sender, EventArgs e)
+        private async void 조회btn_Click(object sender, EventArgs e)
         {
             try
             {
-                GridUpdate();
+                await GridUpdateAsync();
             }
             // 조회 실패시 예외처리
             catch
@@ -68,7 +69,7 @@ namespace WindowsFormsApp2.Forms
         }
 
         // 삭제
-        private void 삭제btn_Click(object sender, EventArgs e)
+        private async void 삭제btn_Click(object sender, EventArgs e)
         {
             // 선택한 행이 없을경우 메시지 띄움
             if (Row == null)
@@ -88,9 +89,9 @@ namespace WindowsFormsApp2.Forms
             {
                 try
                 {
-                    new EmpService().Delete(Row.EmpId);
+                    await new EmpService().DeleteAsync(Row.EmpId);
                     MessageBox.Show("삭제되었습니다.");
-                    GridUpdate();
+                    await GridUpdateAsync();
                 }
                 // 에러 발생시 예외처리 및 로그
                 catch
@@ -102,7 +103,7 @@ namespace WindowsFormsApp2.Forms
 
 
         // 로그인정보
-        private void 로그인정보btn_Click(object sender, EventArgs e)
+        private async void 로그인정보btn_Click(object sender, EventArgs e)
         {
             // 선택한 행이 없을 경우 메시지 띄움
             if (Row == null)
@@ -118,12 +119,12 @@ namespace WindowsFormsApp2.Forms
             // 로그인정보폼에서 DialogResult.OK를 받고 다시 조회 갱신
             if (L.DialogResult == DialogResult.OK)
             {
-                GridUpdate();
+                await GridUpdateAsync();
             }
         }
 
         // 사원 수정
-        private void 수정btn_Click(object sender, EventArgs e)
+        private async void 수정btn_Click(object sender, EventArgs e)
         {
             if (Row == null)
             {
@@ -136,13 +137,13 @@ namespace WindowsFormsApp2.Forms
             // 사원 수정폼 DialogResult.OK 확인 후 조회 갱신
             if (E.DialogResult == DialogResult.OK)
             {
-                GridUpdate();
+                await GridUpdateAsync();
             }
         }
 
 
         // 사원 추가
-        private void 추가btn_Click(object sender, EventArgs e)
+        private async void 추가btn_Click(object sender, EventArgs e)
         {
             EmpAdd A = new EmpAdd();
             A.ShowDialog();
@@ -150,7 +151,7 @@ namespace WindowsFormsApp2.Forms
             // 사원 추가폼 DialogResult.OK 확인 후 조회 갱신
             if (A.DialogResult == DialogResult.OK)
             {
-                GridUpdate();
+                await GridUpdateAsync();
             }
         
         }
@@ -169,14 +170,14 @@ namespace WindowsFormsApp2.Forms
         }
 
         // 다중추가
-        private void 다중추가btn_Click(object sender, EventArgs e)
+        private async void 다중추가btn_Click(object sender, EventArgs e)
         {
             EmpMultiAdd M = new EmpMultiAdd();
             M.ShowDialog();
 
             if(M.DialogResult == DialogResult.OK)
             {
-                GridUpdate();
+                await GridUpdateAsync();
             }
         }
     }

@@ -32,17 +32,20 @@ namespace WindowsFormsApp2.Forms
         }
 
         // 저장(로그인)
-        private void 저장btn_Click(object sensor, EventArgs e)
+        private async void 저장btn_Click(object sensor, EventArgs e)
         {
+            저장.Enabled = false;
             try
             {
-                new EmpService().Login(로그인ID.Text, 비밀번호.Text);
+                await new EmpService().LoginAsync(로그인ID.Text, 비밀번호.Text);
                 this.DialogResult = DialogResult.OK;
             }
             catch(BusinessException ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            finally { 저장.Enabled = true; }
+
         }
 
 

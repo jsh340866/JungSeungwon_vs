@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Services;
@@ -11,9 +12,12 @@ namespace WindowsFormsApp2.Forms
 {
     public partial class EmpAdd : Form
     {
+
+        private List<DepartmentDto> dept;
         public EmpAdd()
         {
             InitializeComponent();
+            this.Load += 사원추가폼_Load;
             this.Paint += 테두리_Paint;
             this.취소.Click += 취소btn_Click;
             this.저장.Click += 저장btn_Click;
@@ -23,18 +27,32 @@ namespace WindowsFormsApp2.Forms
             this.cbo상위부서코드.SelectedIndexChanged += 상위부서코드_SelectedIndexChanged;
             this.cbo부서코드.SelectedIndexChanged += 부서코드_SelectedIndexChanged;
 
-
-            // 상위부서코드 -> 부서코드 콤보박스 드롭박스리스트 연동
-            // 부서코드 콤보박스에 보일 값, 실제 값을 미리지정
-            cbo부서코드.DisplayMember = nameof(DepartmentDto.DeptCode);
-            cbo부서코드.ValueMember = nameof(DepartmentDto.DeptId);
-
-            // 상위부서코드 콤보박스에 값 지정
-            cbo상위부서코드.DisplayMember = nameof(ParentDepartmentDto.ParentDeptCode);
-            cbo상위부서코드.ValueMember = nameof(ParentDepartmentDto.ParentDeptId);
-            cbo상위부서코드.DataSource = new ParentService().GetAll();
-            
         }
+
+        // 사원추가폼 Load
+        private async void 사원추가폼_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                // 상위부서코드 데이터소스를 넣으면 SelecteIndexChanged가 바로 실행되므로 그 전에 dept를 먼저 담아둠
+                dept = await new DeptService().GetAllAsync();
+
+                // 상위부서코드 -> 부서코드 콤보박스 드롭박스리스트 연동
+                // 부서코드 콤보박스에 보일 값, 실제 값을 미리지정
+                cbo부서코드.DisplayMember = nameof(DepartmentDto.DeptCode);
+                cbo부서코드.ValueMember = nameof(DepartmentDto.DeptId);
+
+                // 상위부서코드 콤보박스에 값 지정
+                cbo상위부서코드.DisplayMember = nameof(ParentDepartmentDto.ParentDeptCode);
+                cbo상위부서코드.ValueMember = nameof(ParentDepartmentDto.ParentDeptId);
+                cbo상위부서코드.DataSource = await new ParentService().GetAllAsync();
+            }
+            catch
+            {
+                MessageBox.Show("부서 정보를 불러오지 못했습니다.");
+            }
+        }
+
 
         // 상위부서코드 콤보박스에 따라 상위부서명과 부서코드 콤보박스 리스트 변경
         private void 상위부서코드_SelectedIndexChanged(object sender, EventArgs e)
@@ -43,7 +61,6 @@ namespace WindowsFormsApp2.Forms
             상위부서명.Text = p?.ParentDeptName;
 
             // 부서코드 콤보박스 리스트 상위부서코드에 따라 변경
-            List<DepartmentDto> dept = new DeptService().GetAll();
             cbo부서코드.DataSource = dept.Where(d => p != null && d.ParentDeptId == p.ParentDeptId).ToList();
         }
 
@@ -70,7 +87,7 @@ namespace WindowsFormsApp2.Forms
         }
 
         // 사원 추가 저장
-        private void 저장btn_Click(object sender, EventArgs e)
+        private async void 저장btn_Click(object sender, EventArgs e)
         {
 
             // 사원정보 메모리에 담기
@@ -92,9 +109,10 @@ namespace WindowsFormsApp2.Forms
                 Memo = string.IsNullOrWhiteSpace(메모.Text) ? null : 메모.Text
             };
             // 사원정보 db에 저장
+            저장.Enabled = false;
             try
             {
-                new EmpService().Add(emp);
+                await new EmpService().AddAsync(emp);
                 MessageBox.Show("사원 정보가 저장되었습니다.");
                 this.DialogResult = DialogResult.OK;
             }
@@ -107,6 +125,10 @@ namespace WindowsFormsApp2.Forms
             catch 
             {
                 MessageBox.Show("사원 추가 중 오류가 발생했습니다.");
+            }
+            finally
+            {
+                저장.Enabled = true;
             }
         }
 

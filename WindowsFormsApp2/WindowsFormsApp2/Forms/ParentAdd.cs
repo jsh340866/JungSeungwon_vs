@@ -26,7 +26,7 @@ namespace WindowsFormsApp2.Forms
             }
         }
         // 저장
-        private void 저장btn_Click(object sender, EventArgs e)
+        private async void 저장btn_Click(object sender, EventArgs e)
         {
             // 입력한 상위부서 메모리에 담기
             ParentDepartmentDto pdept = new ParentDepartmentDto
@@ -37,9 +37,10 @@ namespace WindowsFormsApp2.Forms
             };
           
             // 상위부서값 db에 저장
+            저장.Enabled = false;
             try
             {
-                new ParentService().Add(pdept);
+                await new ParentService().AddAsync(pdept);
                 MessageBox.Show("상위부서가 추가되었습니다.");
                 this.DialogResult = DialogResult.OK;
             }
@@ -54,6 +55,7 @@ namespace WindowsFormsApp2.Forms
             {
                 MessageBox.Show("상위부서 추가 중 오류가 발생하였습니다.");
             }
+            finally { 저장.Enabled = true; }
         }
 
         // 취소

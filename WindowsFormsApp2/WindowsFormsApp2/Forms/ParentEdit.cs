@@ -41,7 +41,7 @@ namespace WindowsFormsApp2.Forms
         }
 
         // 저장
-        private void 저장btn_Click(object sender, EventArgs e)
+        private async void 저장btn_Click(object sender, EventArgs e)
         {
             // 수정값 메모리에 담기
             ParentDepartmentDto pdept = new ParentDepartmentDto
@@ -52,9 +52,10 @@ namespace WindowsFormsApp2.Forms
                 ParentMemo = string.IsNullOrWhiteSpace(상위메모박스.Text) ? null : 상위메모박스.Text
             };
             // 수정값 db에 저장 
+            저장.Enabled = false;
             try
             {
-                new ParentService().Edit(pdept);
+                await new ParentService().EditAsync(pdept);
                 MessageBox.Show("상위부서가 수정되었습니다.");
                 this.DialogResult = DialogResult.OK;
             }
@@ -65,8 +66,9 @@ namespace WindowsFormsApp2.Forms
             // 나머지 에러 발생시 예외처리 및 로그
             catch (Exception)
             {
-                MessageBox.Show("상위부서 수정 중 오류가 발생하였습니다." );
+                MessageBox.Show("상위부서 수정 중 오류가 발생하였습니다.");
             }
+            finally { 저장.Enabled = true; }
 
         }
     }

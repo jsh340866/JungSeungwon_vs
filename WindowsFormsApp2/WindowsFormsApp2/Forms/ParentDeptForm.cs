@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Services;
@@ -13,28 +14,31 @@ namespace WindowsFormsApp2.Forms
         public ParentDeptForm()
         {
             InitializeComponent();
+            this.Load += 상위부서폼_Load;
             this.Paint += 테두리_Paint;
             this.닫기.Click += 닫기btn_Click;
             this.삭제.Click += 삭제btn_Click;
             this.수정.Click += 수정btn_Click;
             this.추가.Click += 추가btn_Click;
             this.자료변환.Click += 자료변환btn_Click;
+        }
 
-            GridUpdate();
+        private async void 상위부서폼_Load(object sender, EventArgs e)
+        {
+            await GridUpdateAsync();
         }
 
         // 그리드 갱신
-        private void GridUpdate()
+        private async Task GridUpdateAsync()
         {
             try 
             {
-                그리드컨트롤.DataSource = new ParentService().GetAll();
+                그리드컨트롤.DataSource = await new ParentService().GetAllAsync();
             }
             catch (Exception) 
             {
                 MessageBox.Show("목록 갱신 실패하였습니다.");
             }
-            
         }
 
         // 폼 테두리
@@ -53,7 +57,7 @@ namespace WindowsFormsApp2.Forms
         }
 
         // 삭제
-        private void 삭제btn_Click(object sender, EventArgs e)
+        private async void 삭제btn_Click(object sender, EventArgs e)
         {
             if (Row == null)
             {
@@ -72,11 +76,12 @@ namespace WindowsFormsApp2.Forms
             if (D.DialogResult == DialogResult.OK)
             {
                 // 소속된 부서가 없으면 삭제 후 그리드갱신
+                삭제.Enabled = false;
                 try
                 {
-                    new ParentService().Delete(Row.ParentDeptId);
+                    await new ParentService().DeleteAsync(Row.ParentDeptId);
                     MessageBox.Show("삭제가 완료되었습니다.");
-                    GridUpdate();
+                    await GridUpdateAsync();
                 }
                 catch (BusinessException ex)
                 {
@@ -87,11 +92,12 @@ namespace WindowsFormsApp2.Forms
                 {
                     MessageBox.Show("상위부서 삭제 중 오류가 발생하였습니다.");
                 }
+                finally { 삭제.Enabled = true; }
             }
         }
 
         // 수정
-        private void 수정btn_Click(object sender, EventArgs e)
+        private async void 수정btn_Click(object sender, EventArgs e)
         {
             if (Row == null)
             {
@@ -103,19 +109,19 @@ namespace WindowsFormsApp2.Forms
 
             if (E.DialogResult == DialogResult.OK)
             {
-                GridUpdate();
+                await GridUpdateAsync();
             }
         }
 
         // 추가
-        private void 추가btn_Click(object sender, EventArgs e)
+        private async void 추가btn_Click(object sender, EventArgs e)
         {
             ParentAdd A = new ParentAdd();
             A.ShowDialog();
 
             if (A.DialogResult == DialogResult.OK)
             {
-                GridUpdate();
+                await GridUpdateAsync();
             }
         }
 

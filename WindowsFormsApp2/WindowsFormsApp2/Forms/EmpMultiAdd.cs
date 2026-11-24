@@ -58,12 +58,13 @@ namespace WindowsFormsApp2.Forms
         }
 
         // 저장
-        private void 저장btn_Click(object sender, EventArgs e)
+        private async void 저장btn_Click(object sender, EventArgs e)
         {
+            저장.Enabled = false;
             // db에 입력한 사원정보 저장
             try
             {
-                new EmpService().MutiAdd(Sheet);
+                await new EmpService().MutiAddAsync(Sheet);
                 MessageBox.Show("사원 정보가 저장되었습니다.");
                 this.DialogResult = DialogResult.OK;
             }
@@ -77,6 +78,7 @@ namespace WindowsFormsApp2.Forms
             {
                 MessageBox.Show("사원 추가 중 오류가 발생하였습니다.");
             }
+            finally { 저장.Enabled = true; }
         }
     }
 }

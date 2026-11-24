@@ -40,16 +40,17 @@ namespace WindowsFormsApp2.Forms
 
 
         // 로그인정보 저장
-        private void 저장btn_Click(object sender, EventArgs e)
+        private async void 저장btn_Click(object sender, EventArgs e)
         {
             string loginid = 로그인ID.Text;
             string password = 비밀번호.Text;
             int empId = this.EmpId;
 
             // 수정한 로그인정보 db에 저장
+            저장.Enabled = false;
             try
             {
-                new EmpService().LoginInfoEdit(loginid, password, empId);
+                await new EmpService().LoginInfoEditAsync(loginid, password, empId);
                 MessageBox.Show("로그인 정보가 저장되었습니다.");
                 this.DialogResult = DialogResult.OK;
             }
@@ -64,6 +65,7 @@ namespace WindowsFormsApp2.Forms
                 MessageBox.Show("로그인 정보 업데이트 중 오류가 발생했습니다. ");
                
             }
+            finally { 저장.Enabled = false; }
         }
     }
 }

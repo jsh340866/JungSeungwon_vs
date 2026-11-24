@@ -12,11 +12,24 @@ namespace WindowsFormsApp2.Forms
         public DeptTree()
         {
             InitializeComponent();
+            this.Load += 부서트리폼_Load;
             this.Paint += 테두리_Paint;
             this.닫기.Click += 닫기btn_Click;
 
-
-            treeList1.DataSource = new DeptService().TreeDataTable();
+        }
+        
+        // 부서트리폼 Load
+        private async void 부서트리폼_Load(object sender, EventArgs e)
+        {
+            // 서비스 호출해 트리 데이터소스 담기
+            try
+            {
+                treeList1.DataSource = await new DeptService().TreeDataTableAsync();
+            }
+            catch
+            {
+                MessageBox.Show("부서 정보를 불러오지 못했습니다.");
+            }
         }
 
         // 폼 테두리
