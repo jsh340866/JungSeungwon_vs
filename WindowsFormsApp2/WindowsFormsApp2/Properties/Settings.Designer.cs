@@ -22,5 +22,17 @@ namespace WindowsFormsApp2.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SavedLoginId {
+            get {
+                return ((string)(this["SavedLoginId"]));
+            }
+            set {
+                this["SavedLoginId"] = value;
+            }
+        }
     }
 }

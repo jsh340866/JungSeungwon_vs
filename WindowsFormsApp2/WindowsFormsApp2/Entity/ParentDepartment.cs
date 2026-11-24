@@ -7,8 +7,5 @@
         public string ParentDeptCode {  get; set; }
         public string ParentDeptName {  get; set; }
         public string ParentMemo {  get; set; }
-
-
-        
     }
 }

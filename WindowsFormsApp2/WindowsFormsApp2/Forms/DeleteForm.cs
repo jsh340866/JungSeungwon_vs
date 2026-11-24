@@ -4,10 +4,10 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp2.Forms
 {
-    public partial class Delete : Form
+    public partial class DeleteForm : Form
     {
         // title,msg를 받아 제목, 메시지로 담아 공통 삭제폼으로 사용
-        public Delete(string title, string msg)
+        public DeleteForm(string title, string msg)
         {
             InitializeComponent();
             this.취소.Click += 취소btn_Click;

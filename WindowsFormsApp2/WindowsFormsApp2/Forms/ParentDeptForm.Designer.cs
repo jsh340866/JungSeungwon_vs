@@ -158,6 +158,10 @@
             this.그리드뷰.Appearance.HeaderPanel.Options.UseFont = true;
             this.그리드뷰.Appearance.Row.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.그리드뷰.Appearance.Row.Options.UseFont = true;
+            this.그리드뷰.AppearancePrint.HeaderPanel.Font = new System.Drawing.Font("맑은 고딕", 8.25F);
+            this.그리드뷰.AppearancePrint.HeaderPanel.Options.UseFont = true;
+            this.그리드뷰.AppearancePrint.Row.Font = new System.Drawing.Font("맑은 고딕", 8.25F);
+            this.그리드뷰.AppearancePrint.Row.Options.UseFont = true;
             this.그리드뷰.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.상위부서코드,
             this.상위부서명,
@@ -167,7 +171,6 @@
             this.그리드뷰.OptionsBehavior.Editable = false;
             this.그리드뷰.OptionsBehavior.ReadOnly = true;
             this.그리드뷰.OptionsPrint.PrintFooter = false;
-            this.그리드뷰.OptionsPrint.PrintHeader = false;
             this.그리드뷰.OptionsView.ShowGroupPanel = false;
             // 
             // 상위부서코드
@@ -194,7 +197,7 @@
             this.메모.Visible = true;
             this.메모.VisibleIndex = 2;
             // 
-            // ParentDepartment
+            // ParentDeptForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
@@ -204,7 +207,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "ParentDepartment";
+            this.Name = "ParentDeptForm";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ParentForm";

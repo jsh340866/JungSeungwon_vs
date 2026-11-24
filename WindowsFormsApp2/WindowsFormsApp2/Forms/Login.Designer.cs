@@ -40,6 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.아이디기억 = new System.Windows.Forms.CheckBox();
             this.bdrPassword.SuspendLayout();
             this.inPassword.SuspendLayout();
             this.bdrLogin.SuspendLayout();
@@ -189,11 +190,22 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "로그인정보";
             // 
+            // 아이디기억
+            // 
+            this.아이디기억.AutoSize = true;
+            this.아이디기억.Location = new System.Drawing.Point(17, 112);
+            this.아이디기억.Name = "아이디기억";
+            this.아이디기억.Size = new System.Drawing.Size(100, 19);
+            this.아이디기억.TabIndex = 23;
+            this.아이디기억.Text = "로그인ID 저장";
+            this.아이디기억.UseVisualStyleBackColor = true;
+            // 
             // Login
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(421, 156);
+            this.Controls.Add(this.아이디기억);
             this.Controls.Add(this.닫기);
             this.Controls.Add(this.저장);
             this.Controls.Add(this.bdrPassword);
@@ -217,6 +229,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -234,5 +247,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox 아이디기억;
     }
 }

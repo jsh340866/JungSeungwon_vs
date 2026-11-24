@@ -149,7 +149,6 @@ C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsAp
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\es\DevExpress.XtraVerticalGrid.v21.2.resources.dll
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\ja\DevExpress.XtraVerticalGrid.v21.2.resources.dll
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\ru\DevExpress.XtraVerticalGrid.v21.2.resources.dll
-C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.Delete.resources
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.DeptAdd.resources
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.DeptEdit.resources
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.DeptTree.resources
@@ -210,3 +209,8 @@ C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsAp
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.EmpForm.resources
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.ParentDeptForm.resources
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.EmpMultiAdd.resources
+C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.DeleteForm.resources
+C:\Users\user\AppData\Local\Temp\claude\06ad7f939083df4c\018c9f09-2121-485f-b1ea-a2fc8d4857eb\scratchpad\out\WindowsFormsApp2.exe.config
+C:\Users\user\AppData\Local\Temp\claude\06ad7f939083df4c\018c9f09-2121-485f-b1ea-a2fc8d4857eb\scratchpad\out\WindowsFormsApp2.exe
+C:\Users\user\AppData\Local\Temp\claude\06ad7f939083df4c\018c9f09-2121-485f-b1ea-a2fc8d4857eb\scratchpad\out\WindowsFormsApp2.pdb
+C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe.config

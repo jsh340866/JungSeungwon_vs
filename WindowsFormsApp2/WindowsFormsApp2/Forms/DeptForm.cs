@@ -75,7 +75,7 @@ namespace WindowsFormsApp2.Forms
             string msg = "부서코드: " + Row.DeptCode + "\n" +
                          "부서명: " + Row.DeptName + "\n\n" +
                          "삭제하시겠습니까?";
-            Delete D = new Delete(title, msg);
+            DeleteForm D = new DeleteForm(title, msg);
             D.ShowDialog();
 
             if (D.DialogResult == DialogResult.OK)

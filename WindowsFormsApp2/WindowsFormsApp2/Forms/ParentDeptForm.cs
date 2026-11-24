@@ -70,7 +70,7 @@ namespace WindowsFormsApp2.Forms
                       "상위부서명: " + Row.ParentDeptName + "\n\n" +
                       "삭제하시겠습니까?";
 
-            Delete D = new Delete(title, msg);
+            DeleteForm D = new DeleteForm(title, msg);
             D.ShowDialog();
 
             if (D.DialogResult == DialogResult.OK)

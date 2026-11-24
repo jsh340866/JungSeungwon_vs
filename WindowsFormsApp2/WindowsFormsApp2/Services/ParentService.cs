@@ -50,14 +50,14 @@ namespace WindowsFormsApp2.Services
             // 유니크키 중복으로 Sql에러 발생시 예외처리
             catch (SqlException ex) when (ex.Number == 2627)
             {
-                // 추가시 상위부서코드 중복일 경우 메시지 띄움
+                // 추가시 상위부서코드 중복일 경우 메시지 출력
                 if (ex.Message.Contains("UQ_ParentDeptCode"))
                 {
                     throw new BusinessException("이미 존재하는 상위부서코드입니다.");
                 }
                 throw new BusinessException("중복된 값이 존재합니다.");
             }
-            // 나머지 에러 예외처리 및 로그
+            // 나머지 에러 발생시 로그 기록
             catch (Exception ex)
             {
                 Logger.Instance.Error("상위부서 추가 실패", ex);

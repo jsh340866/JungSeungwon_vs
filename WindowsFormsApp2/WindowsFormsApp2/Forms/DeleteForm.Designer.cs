@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp2.Forms
 {
-    partial class Delete
+    partial class DeleteForm
     {
         /// <summary>
         /// Required designer variable.

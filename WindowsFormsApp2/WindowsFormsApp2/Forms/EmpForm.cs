@@ -14,6 +14,7 @@ namespace WindowsFormsApp2.Forms
         public EmpForm()
         {
             InitializeComponent();
+            this.Load += 사원폼_Load;
             this.Paint += 테두리_Paint;
             this.조회.Click += 조회btn_Click;
             this.닫기.Click += 닫기btn_Click;
@@ -25,6 +26,13 @@ namespace WindowsFormsApp2.Forms
             this.자료변환.Click += 자료변환btn_Click;
             this.다중추가.Click += 다중추가btn_Click;
         }
+        
+        // 사원폼 Load
+        private async void 사원폼_Load(object sender, EventArgs e)
+        {
+            await GridUpdateAsync();
+        }
+
 
         // 폼 테두리
         private void 테두리_Paint(object sender, PaintEventArgs e)
@@ -81,7 +89,7 @@ namespace WindowsFormsApp2.Forms
             string msg = "사원코드: " + Row.EmpCode + "\n" +
                          "사원명: " + Row.EmpName + "\n\n" +
                          "삭제하시겠습니까?";
-            Delete D = new Delete("사원 삭제", msg);
+            DeleteForm D = new DeleteForm("사원 삭제", msg);
             D.ShowDialog();
 
             // 삭제폼에서 DialogResult.OK를 받아 데이터 삭제 후 조회 갱신

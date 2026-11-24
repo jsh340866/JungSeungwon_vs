@@ -40,6 +40,7 @@ namespace WindowsFormsApp2.Forms
             header.Font.Color = Color.White;
             header.Alignment.Horizontal = SpreadsheetHorizontalAlignment.Center;
             header.Alignment.Vertical = SpreadsheetVerticalAlignment.Center;
+            Sheet.Columns[8].NumberFormat = "@";
         }
 
         // 폼 테두리

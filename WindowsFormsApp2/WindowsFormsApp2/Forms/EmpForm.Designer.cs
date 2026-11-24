@@ -108,7 +108,6 @@
             this.자료변환.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.자료변환.Size = new System.Drawing.Size(89, 28);
             this.자료변환.Text = "자료변환";
-
             // 
             // 삭제
             // 
@@ -195,6 +194,7 @@
             // 그리드컨트롤
             // 
             this.그리드컨트롤.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.그리드컨트롤.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.그리드컨트롤.Location = new System.Drawing.Point(1, 20);
             this.그리드컨트롤.MainView = this.그리드뷰;
             this.그리드컨트롤.Name = "그리드컨트롤";
@@ -207,6 +207,10 @@
             // 
             // 그리드뷰
             // 
+            this.그리드뷰.AppearancePrint.HeaderPanel.Font = new System.Drawing.Font("맑은 고딕", 8.25F);
+            this.그리드뷰.AppearancePrint.HeaderPanel.Options.UseFont = true;
+            this.그리드뷰.AppearancePrint.Row.Font = new System.Drawing.Font("맑은 고딕", 8.25F);
+            this.그리드뷰.AppearancePrint.Row.Options.UseFont = true;
             this.그리드뷰.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.부서코드,
             this.부서명,
@@ -347,7 +351,7 @@
             this.판넬그리드.Size = new System.Drawing.Size(1104, 266);
             this.판넬그리드.TabIndex = 2;
             // 
-            // Form1
+            // EmpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -358,7 +362,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "Form1";
+            this.Name = "EmpForm";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "부서사원";

@@ -203,7 +203,7 @@ namespace WindowsFormsApp2.Services
             // 나머지 에러 발생시 로그 기록
             catch (Exception ex)
             {
-                Logger.Instance.Error("로그인 정보 수정 실패 EmpId=" + empId, ex);
+                Logger.Instance.Error("로그인 정보 수정 실패 EmpId=" + empId, ex);   
                 throw;
             }
         }
@@ -242,6 +242,7 @@ namespace WindowsFormsApp2.Services
             {
                 DataRow dr = dt.Rows[i];
                 int row = i + 2;
+                
 
                 // 필수값 지정
                 if (string.IsNullOrWhiteSpace(dr["부서코드"].ToString())) { throw new BusinessException(row + "행의 부서코드를 입력해주세요."); }
@@ -252,6 +253,18 @@ namespace WindowsFormsApp2.Services
 
                 // 부서db에 존재하지않는 사원코드 입력시 메세지 담아 예외처리
                 if (!dept.Any(d => d.DeptCode == dr["부서코드"].ToString())) { throw new BusinessException(row + "행의 부서코드는 존재하지않습니다."); }
+                // 비밀번호 및 이메일 규칙
+                if (!ValidationRule.PasswordCheck(dr["비밀번호"].ToString())) { throw new BusinessException(row + "행의 비밀번호를 다시 입력해주세요. 숫자, 영문포함 8자리 이상입니다."); }
+                if (!string.IsNullOrWhiteSpace(dr["이메일"].ToString()) && !ValidationRule.EmailCheck(dr["이메일"].ToString())) 
+                { 
+                    throw new BusinessException(row + "행의 이메일을 다시 입력해주세요. \n"); 
+                }
+                // 휴대전화 하이폰 규칙
+                string phone = dr["휴대전화"].ToString();
+                if (!string.IsNullOrWhiteSpace(dr["휴대전화"].ToString()))
+                {
+                    dr["휴대전화"] = ValidationRule.PhoneRule(phone);
+                }
             }
 
             // db에 입력한 사원정보 저장
