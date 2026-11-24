@@ -1,5 +1,6 @@
 ﻿namespace WindowsFormsApp2.Entity
 {
+    // 사원 엔티티
     public class Employee
     {
         public int EmpId { get; set; }

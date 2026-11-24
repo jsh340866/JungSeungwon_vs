@@ -25,6 +25,7 @@ namespace WindowsFormsApp2.Forms
                 e.Graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1);
             }
         }
+
         // 저장
         private async void 저장btn_Click(object sender, EventArgs e)
         {
@@ -36,7 +37,7 @@ namespace WindowsFormsApp2.Forms
                 ParentMemo = string.IsNullOrWhiteSpace(메모.Text) ? null : 메모.Text
             };
           
-            // 상위부서값 db에 저장
+            // 입력값 db에 저장
             저장.Enabled = false;
             try
             {
@@ -44,13 +45,13 @@ namespace WindowsFormsApp2.Forms
                 MessageBox.Show("상위부서가 추가되었습니다.");
                 this.DialogResult = DialogResult.OK;
             }
-            // 유니크키 중복으로 Sql에러 발생시 예외처리
+            // 서비스에 예외처리한 BusinessException 걸리면 메시지 출력
             catch (BusinessException ex)
             {
                 MessageBox.Show(ex.Message);
             }
             
-            // 나머지 에러 예외처리 및 로그
+            // 나머지 에러 발생시 메시지 출력
             catch (Exception)
             {
                 MessageBox.Show("상위부서 추가 중 오류가 발생하였습니다.");

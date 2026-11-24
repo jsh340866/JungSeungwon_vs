@@ -14,13 +14,12 @@ namespace WindowsFormsApp2.Forms
             this.Load += 부서차트폼_Load;
             this.Paint += 테두리_Paint;
             this.닫기.Click += 닫기btn_Click;
-
         }
 
         // 부서차트폼 Load
         private async void 부서차트폼_Load(object sender, EventArgs e)
         {
-            // 서비스 호출해 차트 데이터소스에 데이터 입력
+            // 서비스 호출해 차트 데이터소스에 데이터 담기
             try
             {
                 chartControl1.DataSource = await new DeptService().ChartAsync();

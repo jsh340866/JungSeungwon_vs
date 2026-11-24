@@ -60,8 +60,9 @@ namespace WindowsFormsApp2.Forms
         // 저장
         private async void 저장btn_Click(object sender, EventArgs e)
         {
-            저장.Enabled = false;
+
             // db에 입력한 사원정보 저장
+            저장.Enabled = false;
             try
             {
                 await new EmpService().MutiAddAsync(Sheet);
@@ -73,7 +74,7 @@ namespace WindowsFormsApp2.Forms
             {
                 MessageBox.Show(ex.Message);
             }
-            // 나머지 에러 발생시 예외처리 및 로그
+            // 나머지 에러 발생시 메시지 출력
             catch 
             {
                 MessageBox.Show("사원 추가 중 오류가 발생하였습니다.");

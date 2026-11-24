@@ -1,5 +1,6 @@
 ﻿namespace WindowsFormsApp2.Entity
 {
+    // 상위부서 엔티티
     public class ParentDepartment
     {
         public int ParentDeptId { get; set; }

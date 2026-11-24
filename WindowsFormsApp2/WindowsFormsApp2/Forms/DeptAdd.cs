@@ -18,8 +18,6 @@ namespace WindowsFormsApp2.Forms
             this.저장.Click += 저장btn_Click;
             this.취소.Click += 취소btn_Click;
             this.cbo상위부서코드.SelectedIndexChanged += 상위부서코드_SelectedIndexChanged;
-
-            
         }
 
         // 부서추가폼 Load 이벤트 

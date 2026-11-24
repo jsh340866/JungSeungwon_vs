@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Repository;
 using WindowsFormsApp2.Utils;
-using Rule = WindowsFormsApp2.Utils.Rule;
+using WindowsFormsApp2.Entity;
 
 namespace WindowsFormsApp2.Services
 {
@@ -18,7 +18,7 @@ namespace WindowsFormsApp2.Services
     {
         private readonly EmployeeRepository empRepo = new EmployeeRepository();
 
-        // 사원 조회
+        // 사원전체조회
         public async Task<List<EmployeeDto>> GetAllAsync()
         {
             try
@@ -43,19 +43,19 @@ namespace WindowsFormsApp2.Services
             if (string.IsNullOrWhiteSpace(dto.Password)) { throw new BusinessException("비밀번호를 입력해주세요"); }
 
             // 비밀번호 규칙 틀리면 메시지 담아 예외처리
-            if (!Rule.PasswordCheck(dto.Password))
+            if (!ValidationRule.PasswordCheck(dto.Password))
             {
                 throw new BusinessException("비밀번호는 영문,숫자 포함 8자 이상입니다.");
             }
 
             // 이메일이 공백이 아니고 이메일 규칙을 어겼다면 메시지 담아 예외처리
-            if (!string.IsNullOrWhiteSpace(dto.Email) && !Rule.EmailCheck(dto.Email))
+            if (!string.IsNullOrWhiteSpace(dto.Email) && !ValidationRule.EmailCheck(dto.Email))
             {
                 throw new BusinessException("이메일을 다시 입력해주세요.");
             }
 
             // 사원정보 메모리에 담기
-            var entity = new Entity.Employee
+            var entity = new Employee
             {
                 EmpId = dto.EmpId,
                 DeptId = dto.DeptId,
@@ -109,7 +109,7 @@ namespace WindowsFormsApp2.Services
             if (string.IsNullOrWhiteSpace(dto.EmpCode)) { throw new BusinessException("사원코드를 입력해주세요."); }
             if (string.IsNullOrWhiteSpace(dto.EmpName)) { throw new BusinessException("사원명을 입력해주세요."); }
             // 이메일 규칙
-            if (!string.IsNullOrWhiteSpace(dto.Email) && !Rule.EmailCheck(dto.Email))
+            if (!string.IsNullOrWhiteSpace(dto.Email) && !ValidationRule.EmailCheck(dto.Email))
             {
                 throw new BusinessException("이메일을 다시 입력해주세요.");
             }
@@ -182,7 +182,7 @@ namespace WindowsFormsApp2.Services
             if (string.IsNullOrWhiteSpace(password)) { throw new BusinessException("비밀번호를 입력해주세요."); }
 
             // Rule에서 만든 비밀번호 규칙 넣기
-            if (!Rule.PasswordCheck(password)) { throw new BusinessException("비밀번호는 영문, 숫자 포함 8자 이상입니다."); }
+            if (!ValidationRule.PasswordCheck(password)) { throw new BusinessException("비밀번호는 영문, 숫자 포함 8자 이상입니다."); }
 
             // 수정한 로그인정보 db에 저장
             try

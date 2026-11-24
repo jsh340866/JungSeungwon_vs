@@ -7,15 +7,12 @@ namespace WindowsFormsApp2.Forms
 {
     public partial class DeptTree : Form
     {
-
-
         public DeptTree()
         {
             InitializeComponent();
             this.Load += 부서트리폼_Load;
             this.Paint += 테두리_Paint;
             this.닫기.Click += 닫기btn_Click;
-
         }
         
         // 부서트리폼 Load

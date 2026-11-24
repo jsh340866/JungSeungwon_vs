@@ -36,7 +36,7 @@ namespace WindowsFormsApp2.Services
             if (string.IsNullOrWhiteSpace(dto.ParentDeptName)) { throw new BusinessException("상위부서명은 필수기재사항입니다.");}
 
             // Dto -> Entity로 변환
-            var entity = new Entity.ParentDepartment
+            var entity = new ParentDepartment
             {
                 ParentDeptCode = dto.ParentDeptCode,
                 ParentDeptName = dto.ParentDeptName,
@@ -105,6 +105,7 @@ namespace WindowsFormsApp2.Services
             }
         }
 
+        // 상위부서 삭제
         public async Task DeleteAsync(int ParentDeptId)
         {
             // 소속된 부서가 있으면 삭제 불가, 메시지 담고 예외처리

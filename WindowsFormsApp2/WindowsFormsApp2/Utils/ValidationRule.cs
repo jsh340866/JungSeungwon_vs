@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace WindowsFormsApp2.Utils
 {
-    internal class Rule
+    internal class ValidationRule
     {
         // 비밀번호 규칙(영문,숫자 포함 8자리 이상)
         public static bool PasswordCheck(string pass)

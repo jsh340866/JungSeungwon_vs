@@ -210,4 +210,3 @@ C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsAp
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.EmpForm.resources
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.ParentDeptForm.resources
 C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Forms.EmpMultiAdd.resources
-C:\Users\user\Desktop\새 폴더\JungSeungwon_vs\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe.config

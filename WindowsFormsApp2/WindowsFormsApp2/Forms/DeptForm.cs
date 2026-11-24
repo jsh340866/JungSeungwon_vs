@@ -25,10 +25,10 @@ namespace WindowsFormsApp2.Forms
             this.상위부서.Click += 상위부서btn_Click;
             this.트리.Click += 트리btn_Click;
             this.차트.Click += 차트btn_Click;
-
         }
 
 
+        // 부서폼 Load
         private async void 부서폼_Load(object sender, EventArgs e)
         {
             await GridUpdateAsync();

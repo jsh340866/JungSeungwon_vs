@@ -26,7 +26,6 @@ namespace WindowsFormsApp2.Forms
             this.휴대전화.Leave += 휴대전화_하이폰규칙_Leave;
             this.cbo상위부서코드.SelectedIndexChanged += 상위부서코드_SelectedIndexChanged;
             this.cbo부서코드.SelectedIndexChanged += 부서코드_SelectedIndexChanged;
-
         }
 
         // 사원추가폼 Load
@@ -61,7 +60,7 @@ namespace WindowsFormsApp2.Forms
             상위부서명.Text = p?.ParentDeptName;
 
             // 부서코드 콤보박스 리스트 상위부서코드에 따라 변경
-            cbo부서코드.DataSource = dept.Where(d => p != null && d.ParentDeptId == p.ParentDeptId).ToList();
+            cbo부서코드.DataSource = dept.Where(d => d.ParentDeptId == p.ParentDeptId && p != null).ToList();
         }
 
         // 부서코드 콤보박스에 따라 부서명 변경
@@ -108,6 +107,7 @@ namespace WindowsFormsApp2.Forms
                 MessengerId = string.IsNullOrWhiteSpace(메신저ID.Text) ? null : 메신저ID.Text,
                 Memo = string.IsNullOrWhiteSpace(메모.Text) ? null : 메모.Text
             };
+
             // 사원정보 db에 저장
             저장.Enabled = false;
             try
@@ -126,34 +126,25 @@ namespace WindowsFormsApp2.Forms
             {
                 MessageBox.Show("사원 추가 중 오류가 발생했습니다.");
             }
-            finally
-            {
-                저장.Enabled = true;
-            }
+            finally{ 저장.Enabled = true; }
         }
 
         // 남자체크
         private void 남자체크_Check(object sender, EventArgs e)
         {
-            if (남.Checked == true)
-            {
-                여.Checked = false;
-            }
+            if (남.Checked == true){ 여.Checked = false; }
         }
 
         // 여자체크
         private void 여자체크_Check(object sender, EventArgs e)
         {
-            if (여.Checked == true)
-            {
-                남.Checked = false;
-            }
+            if (여.Checked == true){ 남.Checked = false; }
         }
 
         // 휴대폰번호 하이폰 규칙
         private void 휴대전화_하이폰규칙_Leave(object sender, EventArgs e)
         {
-            휴대전화.Text = Rule.PhoneRule(휴대전화.Text);
+            휴대전화.Text = ValidationRule.PhoneRule(휴대전화.Text);
         }
     }
 }

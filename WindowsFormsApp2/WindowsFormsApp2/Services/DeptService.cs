@@ -1,4 +1,5 @@
 ﻿
+using DevExpress.XtraLayout.Customization;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Repository;
 using WindowsFormsApp2.Utils;
+using WindowsFormsApp2.Entity;
 
 namespace WindowsFormsApp2.Services
 {
@@ -15,7 +17,6 @@ namespace WindowsFormsApp2.Services
     {
         private readonly DepartmentRepository deptRepo = new DepartmentRepository();
 
-         
         // 부서 조회
         public async Task<List<DepartmentDto>> GetAllAsync()
         {
@@ -82,7 +83,7 @@ namespace WindowsFormsApp2.Services
             if (string.IsNullOrWhiteSpace(dto.DeptName)) { throw new BusinessException("부서명을 입력해주세요."); }
 
             // dto -> entity 변환
-            var entity = new Entity.Department
+            var entity = new Department
             {
                 DeptId = dto.DeptId,
                 DeptCode = dto.DeptCode,
@@ -147,7 +148,6 @@ namespace WindowsFormsApp2.Services
             var dept = await deptRepo.GetAllAsync();
             var emp = await new EmployeeRepository().GetAllAsync();
             
-
             // TreeList 데이터소스에 넣을 데이터테이블 제작
             // 테이블 내 컬럼
             DataTable dt = new DataTable();

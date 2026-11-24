@@ -6,7 +6,7 @@ namespace WindowsFormsApp2.Forms
 {
     public partial class Delete : Form
     {
-        // title,msg를 받아 제목, 메시지로 사용해 공통 삭제폼으로 사용
+        // title,msg를 받아 제목, 메시지로 담아 공통 삭제폼으로 사용
         public Delete(string title, string msg)
         {
             InitializeComponent();

@@ -58,10 +58,12 @@ namespace WindowsFormsApp2.Forms
 
         }
         
+        // 사원수정폼 Load
         private async void 사원수정폼_Load(object sender, EventArgs e)
         {
             try
             {
+                // 상위부서코드 데이터소스를 넣으면 SelectedIndexChanged가 바로 실행되므로 그 전에 dept를 미리 담아둠
                 dept = await new DeptService().GetAllAsync();
 
                 // 상위부서코드 -> 부서코드 콤보박스 드랍다운리스트 연동
@@ -75,12 +77,12 @@ namespace WindowsFormsApp2.Forms
                 cbo상위부서코드.DataSource = await new ParentService().GetAllAsync();
 
                 // 수정 선택한 사원Id로 부서dto 값 찾기
-                DepartmentDto department = dept.FirstOrDefault(d => d.DeptId == this.DeptId);
+                DepartmentDto dto = dept.FirstOrDefault(d => d.DeptId == this.DeptId);
 
-                if (department?.ParentDeptId != null)
+                if (dto?.ParentDeptId != null)
                 {
                     // 찾은 부서dto로 상위부서코드 실제값 표기
-                    cbo상위부서코드.SelectedValue = department.ParentDeptId.Value;
+                    cbo상위부서코드.SelectedValue = dto.ParentDeptId.Value;
                     // 부서코드 실제값 표기
                     cbo부서코드.SelectedValue = this.DeptId;
                 }
@@ -162,6 +164,7 @@ namespace WindowsFormsApp2.Forms
                 Photo = 이미지.Image == null ? null : ImageHelper.ImageToByte(이미지.Image),
                 EmpId = this.EmpId
             };
+
             // 수정값 서비스에 요청
             저장.Enabled = false;
             try
@@ -180,16 +183,14 @@ namespace WindowsFormsApp2.Forms
             {
                 MessageBox.Show("사원 정보 저장 중 오류가 발생했습니다.");
             }
-            finally
-            {
-                저장.Enabled = true;
-            }
+            finally { 저장.Enabled = true; }
+
         }
 
         // 휴대전화 번호 하이폰 규칙
         private void 휴대전화_하이폰규칙_Leave(object sender, EventArgs e)
         {
-            휴대전화.Text = Rule.PhoneRule(휴대전화.Text);
+            휴대전화.Text = ValidationRule.PhoneRule(휴대전화.Text);
         }
     }
 }

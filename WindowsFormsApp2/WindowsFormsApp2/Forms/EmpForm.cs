@@ -93,7 +93,7 @@ namespace WindowsFormsApp2.Forms
                     MessageBox.Show("삭제되었습니다.");
                     await GridUpdateAsync();
                 }
-                // 에러 발생시 예외처리 및 로그
+                // 에러 발생시 메시지 출력
                 catch
                 {
                     MessageBox.Show("삭제 중 오류가 발생했습니다.");

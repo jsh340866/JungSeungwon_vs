@@ -13,7 +13,6 @@ namespace WindowsFormsApp2.Forms
         public ParentEditForm(ParentDepartmentDto pdept)
         {
             InitializeComponent();
-
             this.Paint += 테두리_Paint;
             this.저장.Click += 저장btn_Click;
             this.취소.Click += 취소btn_Click;
