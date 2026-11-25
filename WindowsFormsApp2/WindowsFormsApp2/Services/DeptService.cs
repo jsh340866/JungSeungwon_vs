@@ -30,6 +30,13 @@ namespace WindowsFormsApp2.Services
             }
         }
 
+        public async Task<List<DepartmentDto>> GetParentAsync()
+        {
+            var parent = await deptRepo.GetAllAsync();
+            return parent.Where(p => p.ParentDeptId == null).ToList();
+        }
+
+
         // 부서 추가
         public async Task AddAsync(DepartmentDto dto)
         {
@@ -145,7 +152,7 @@ namespace WindowsFormsApp2.Services
             var pdept = await new ParentDepartmentRepository().GetAllAsync();
             var dept = await deptRepo.GetAllAsync();
             var emp = await new EmployeeRepository().GetAllAsync();
-            
+
             // TreeList 데이터소스에 넣을 데이터테이블 제작
             // 테이블 내 컬럼
             DataTable dt = new DataTable();
@@ -177,7 +184,7 @@ namespace WindowsFormsApp2.Services
         // 부서 차트 메서드
         public async Task<List<DeptChartDto>> ChartAsync()
         {
-            var pdept = await new ParentDepartmentRepository().GetAllAsync();
+            var pdept = await GetParentAsync();
             var emp = await new EmployeeRepository().GetAllAsync();
             var dept = await deptRepo.GetAllAsync();
 

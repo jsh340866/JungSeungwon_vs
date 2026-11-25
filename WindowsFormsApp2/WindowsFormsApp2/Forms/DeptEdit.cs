@@ -35,9 +35,9 @@ namespace WindowsFormsApp2.Forms
             try
             {
                 // 콤보박스 드롭리스트
-                상위부서코드cbo.DisplayMember = nameof(ParentDepartmentDto.ParentDeptCode);
-                상위부서코드cbo.ValueMember = nameof(ParentDepartmentDto.ParentDeptId);
-                상위부서코드cbo.DataSource = await new ParentService().GetAllAsync();
+                상위부서코드cbo.DisplayMember = nameof(DepartmentDto.DeptCode);
+                상위부서코드cbo.ValueMember = nameof(DepartmentDto.DeptId);
+                상위부서코드cbo.DataSource = await new DeptService().GetParentAsync();
 
                 // 기존값으로 상위부서가 있는경우 상위부서를 선택
                 if (this.pdeptId != 0)
@@ -71,8 +71,8 @@ namespace WindowsFormsApp2.Forms
         // 상위부서코드에 따라 상위부서명 변경
         private void 상위부서코드_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ParentDepartmentDto P = 상위부서코드cbo.SelectedItem as ParentDepartmentDto;
-            상위부서명txt.Text = P?.ParentDeptName;
+            DepartmentDto P = 상위부서코드cbo.SelectedItem as DepartmentDto;
+            상위부서명txt.Text = P?.DeptName;
         }
 
         // 부서 수정 저장 

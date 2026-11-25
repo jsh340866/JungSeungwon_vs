@@ -9,7 +9,7 @@
         public string Memo { get; set; }
         public int? ParentDeptId { get; set; }
 
-        // LEFT JOIN으로 ParentDepartmenet 에서 가져옴
+        // 자기자신을 LEFT JOIN 해서 가져옴
         public string ParentDeptCode { get; set; }
         public string ParentDeptName { get; set; }
         public string ParentMemo { get; set; }

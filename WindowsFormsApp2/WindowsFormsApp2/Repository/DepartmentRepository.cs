@@ -20,9 +20,9 @@ namespace WindowsFormsApp2.Repository
             {
                 await conn.OpenAsync();
                 string sql = @"SELECT d.DeptId, d.DeptCode, d.DeptName, d.Memo, d.ParentDeptId,
-                              p.ParentDeptCode, p.ParentDeptName, p.ParentMemo
+                                      p.DeptCode AS ParentDeptCode, p.DeptName AS ParentDeptName, p.Memo AS ParentMemo
                               FROM dbo.Department d
-                              LEFT JOIN dbo.ParentDepartment p ON p.ParentDeptId = d.ParentDeptId
+                              LEFT JOIN dbo.Department p ON p.DeptId = d.ParentDeptId
                               ORDER BY d.DeptCode";
                 using (var cmd = new SqlCommand(sql, conn))
                 {

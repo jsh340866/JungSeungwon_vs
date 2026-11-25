@@ -45,7 +45,7 @@ namespace WindowsFormsApp2.Forms
         {
             try
             {
-                상위부서gridcontrol.DataSource = await new ParentService().GetAllAsync();
+                상위부서gridcontrol.DataSource = await new DeptService().GetParentAsync();
                 부서gridcontrol.DataSource = await new DeptService().GetAllAsync();
             }
             catch

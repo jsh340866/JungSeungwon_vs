@@ -32,7 +32,7 @@ namespace WindowsFormsApp2.Forms
         {
             try 
             {
-                그리드컨트롤.DataSource = await new ParentService().GetAllAsync();
+                그리드컨트롤.DataSource = await new DeptService().GetParentAsync();
             }
             catch (Exception) 
             {
