@@ -32,8 +32,7 @@ namespace WindowsFormsApp2.Repository
                                 ParentDeptCode = r.GetString(1),
                                 ParentDeptName = r.GetString(2),
                                 ParentMemo = GetStringOrNull(r,3)
-                            }
-                            );
+                            });
                         }
                     }
                 }      

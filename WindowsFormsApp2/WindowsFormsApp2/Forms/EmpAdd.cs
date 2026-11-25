@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,13 +18,13 @@ namespace WindowsFormsApp2.Forms
             InitializeComponent();
             this.Load += 사원추가폼_Load;
             this.Paint += 테두리_Paint;
-            this.취소.Click += 취소btn_Click;
-            this.저장.Click += 저장btn_Click;
+            this.취소btn.Click += 취소btn_Click;
+            this.저장btn.Click += 저장btn_Click;
             this.남.Click += 남자체크_Check;
             this.여.Click += 여자체크_Check;
-            this.휴대전화.Leave += 휴대전화_하이픈규칙_Leave;
-            this.cbo상위부서코드.SelectedIndexChanged += 상위부서코드_SelectedIndexChanged;
-            this.cbo부서코드.SelectedIndexChanged += 부서코드_SelectedIndexChanged;
+            this.휴대전화txt.Leave += 휴대전화_하이픈규칙_Leave;
+            this.상위부서코드cbo.SelectedIndexChanged += 상위부서코드_SelectedIndexChanged;
+            this.부서코드cbo.SelectedIndexChanged += 부서코드_SelectedIndexChanged;
         }
 
         // 사원추가폼 Load
@@ -38,13 +37,13 @@ namespace WindowsFormsApp2.Forms
 
                 // 상위부서코드 -> 부서코드 콤보박스 드롭박스리스트 연동
                 // 부서코드 콤보박스에 보일 값, 실제 값을 미리지정
-                cbo부서코드.DisplayMember = nameof(DepartmentDto.DeptCode);
-                cbo부서코드.ValueMember = nameof(DepartmentDto.DeptId);
+                부서코드cbo.DisplayMember = nameof(DepartmentDto.DeptCode);
+                부서코드cbo.ValueMember = nameof(DepartmentDto.DeptId);
 
                 // 상위부서코드 콤보박스에 값 지정
-                cbo상위부서코드.DisplayMember = nameof(ParentDepartmentDto.ParentDeptCode);
-                cbo상위부서코드.ValueMember = nameof(ParentDepartmentDto.ParentDeptId);
-                cbo상위부서코드.DataSource = await new ParentService().GetAllAsync();
+                상위부서코드cbo.DisplayMember = nameof(ParentDepartmentDto.ParentDeptCode);
+                상위부서코드cbo.ValueMember = nameof(ParentDepartmentDto.ParentDeptId);
+                상위부서코드cbo.DataSource = await new ParentService().GetAllAsync();
             }
             catch
             {
@@ -56,27 +55,24 @@ namespace WindowsFormsApp2.Forms
         // 상위부서코드 콤보박스에 따라 상위부서명과 부서코드 콤보박스 리스트 변경
         private void 상위부서코드_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ParentDepartmentDto p = cbo상위부서코드.SelectedItem as ParentDepartmentDto;
-            상위부서명.Text = p?.ParentDeptName;
+            ParentDepartmentDto p = 상위부서코드cbo.SelectedItem as ParentDepartmentDto;
+            상위부서명txt.Text = p?.ParentDeptName;
 
             // 부서코드 콤보박스 리스트 상위부서코드에 따라 변경
-            cbo부서코드.DataSource = dept.Where(d => p != null && d.ParentDeptId == p.ParentDeptId ).ToList();
+            부서코드cbo.DataSource = dept.Where(d => p != null && d.ParentDeptId == p.ParentDeptId ).ToList();
         }
 
         // 부서코드 콤보박스에 따라 부서명 변경
         private void 부서코드_SelectedIndexChanged(Object sender, EventArgs e)
         {
-            DepartmentDto d = cbo부서코드.SelectedItem as DepartmentDto;
-            부서명.Text = d?.DeptName;
+            DepartmentDto d = 부서코드cbo.SelectedItem as DepartmentDto;
+            부서명txt.Text = d?.DeptName;
         }
 
         // 폼 테두리
         private void 테두리_Paint(object sender, PaintEventArgs e)
-        {   
-            using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
-            {
-                e.Graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1);
-            }
+        {
+            FormDesign.Line(e, Width, Height);
         }
 
         // 취소
@@ -93,22 +89,22 @@ namespace WindowsFormsApp2.Forms
             {
                 // 부서ID를 선택하지않으면 null 대신 0을 넣어서 null 대신 사용
                 // DeptId는 not null 이라 null이 들어가면 에러발생
-                DeptId = (int?)cbo부서코드.SelectedValue == null ? 0 : (int)cbo부서코드.SelectedValue,
-                EmpCode = 사원코드.Text,
-                EmpName = 사원명.Text,
-                LoginId = 로그인ID.Text,
-                Password = 비밀번호.Text,
+                DeptId = (int?)부서코드cbo.SelectedValue == null ? 0 : (int)부서코드cbo.SelectedValue,
+                EmpCode = 사원코드txt.Text,
+                EmpName = 사원명txt.Text,
+                LoginId = 로그인IDtxt.Text,
+                Password = 비밀번호txt.Text,
                 Gender = 남.Checked ? "남" : 여.Checked ? "여" : null,
-                Position = string.IsNullOrWhiteSpace(직위.Text) ? null : 직위.Text,
-                EmpType = string.IsNullOrWhiteSpace(고용형태.Text) ? null : 고용형태.Text,
-                Phone = string.IsNullOrWhiteSpace(휴대전화.Text) ? null : 휴대전화.Text,
-                Email = string.IsNullOrWhiteSpace(이메일.Text) ? null : 이메일.Text,
-                MessengerId = string.IsNullOrWhiteSpace(메신저ID.Text) ? null : 메신저ID.Text,
-                Memo = string.IsNullOrWhiteSpace(메모.Text) ? null : 메모.Text
+                Position = string.IsNullOrWhiteSpace(직위txt.Text) ? null : 직위txt.Text,
+                EmpType = string.IsNullOrWhiteSpace(고용형태txt.Text) ? null : 고용형태txt.Text,
+                Phone = string.IsNullOrWhiteSpace(휴대전화txt.Text) ? null : 휴대전화txt.Text,
+                Email = string.IsNullOrWhiteSpace(이메일txt.Text) ? null : 이메일txt.Text,
+                MessengerId = string.IsNullOrWhiteSpace(메신저IDtxt.Text) ? null : 메신저IDtxt.Text,
+                Memo = string.IsNullOrWhiteSpace(메모txt.Text) ? null : 메모txt.Text
             };
 
             // 사원정보 db에 저장, 연속클릭방지 Enabled = false;
-            저장.Enabled = false;
+            저장btn.Enabled = false;
             try
             {
                 await new EmpService().AddAsync(emp);
@@ -126,7 +122,7 @@ namespace WindowsFormsApp2.Forms
                 MessageBox.Show("사원 추가 중 오류가 발생했습니다.");
             }
             // 마지막 true로 다시 허용
-            finally{ 저장.Enabled = true; }
+            finally{ 저장btn.Enabled = true; }
         }
 
         // 남자체크
@@ -144,7 +140,7 @@ namespace WindowsFormsApp2.Forms
         // 휴대폰번호 하이픈 규칙
         private void 휴대전화_하이픈규칙_Leave(object sender, EventArgs e)
         {
-            휴대전화.Text = ValidationRule.PhoneRule(휴대전화.Text);
+            휴대전화txt.Text = ValidationRule.PhoneRule(휴대전화txt.Text);
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 using WindowsFormsApp2.Services;
 using WindowsFormsApp2.Utils;
@@ -13,15 +12,16 @@ namespace WindowsFormsApp2.Forms
         {
             InitializeComponent();
             this.Paint += 테두리_Paint;
-            this.닫기.Click += 닫기btn_Click;
-            this.저장.Click += 저장btn_Click;
+            this.닫기btn.Click += 닫기btn_Click;
+            this.저장btn.Click += 저장btn_Click;
 
 
             // 수정 전 기존값 텍스트박스에 담기
-            로그인ID.Text = loginId;
-            비밀번호.Text = password;
+            로그인IDtxt.Text = loginId;
+            비밀번호txt.Text = password;
             this.EmpId = EmpId;
         }
+
 
         // 닫기
         private void 닫기btn_Click(object sender, EventArgs e)
@@ -32,22 +32,19 @@ namespace WindowsFormsApp2.Forms
         // 폼 테두리
         private void 테두리_Paint(object sender, PaintEventArgs e)
         {
-            using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
-            {
-                e.Graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1);
-            }
+            FormDesign.Line(e, Width, Height);
         }
 
 
         // 로그인정보 저장
         private async void 저장btn_Click(object sender, EventArgs e)
         {
-            string loginid = 로그인ID.Text;
-            string password = 비밀번호.Text;
+            string loginid = 로그인IDtxt.Text;
+            string password = 비밀번호txt.Text;
             int empId = this.EmpId;
 
             // 수정한 로그인정보 db에 저장
-            저장.Enabled = false;
+            저장btn.Enabled = false;
             try
             {
                 await new EmpService().LoginInfoEditAsync(loginid, password, empId);
@@ -65,7 +62,7 @@ namespace WindowsFormsApp2.Forms
                 MessageBox.Show("로그인 정보 업데이트 중 오류가 발생했습니다. ");
                
             }
-            finally { 저장.Enabled = false; }
+            finally { 저장btn.Enabled = false; }
         }
     }
 }

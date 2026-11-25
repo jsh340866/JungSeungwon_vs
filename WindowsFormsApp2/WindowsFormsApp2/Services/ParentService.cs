@@ -115,14 +115,14 @@ namespace WindowsFormsApp2.Services
             // 소속 부서가 있는 상위부서를 삭제하면 외래키 제약조건 위반이 발생
             catch (SqlException ex) when (ex.Number == 547)
             {
-                // 부서가이 참조 중인 상위부서면 메시지 담아 예외처리
+                // 부서가 참조 중인 상위부서면 메시지 담아 예외처리
                 if (ex.Message.Contains("FK_Department_Parent"))
                 {
                     throw new BusinessException("소속 부서가 존재하는 상위부서는 삭제할 수 없습니다.");
                 }
                 throw new BusinessException("삭제할 수 없는 상태입니다.");
             }
-            // 에러 발생시 로그 기록
+            // 나머지 에러 발생시 로그 기록
             catch (Exception ex)
             {
                 Logger.Instance.Error("상위부서 삭제 실패 ParentDeptId =" + ParentDeptId, ex);

@@ -1,5 +1,5 @@
-﻿using System;
-using System.Drawing;
+﻿using DevExpress.CodeParser;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
@@ -11,20 +11,20 @@ namespace WindowsFormsApp2.Forms
     public partial class DeptForm : Form
     {
        
-        private DepartmentDto Row => 부서그리드.GetFocusedRow() as DepartmentDto;
+        private DepartmentDto Row => 부서view.GetFocusedRow() as DepartmentDto;
 
         public DeptForm()
         {
             InitializeComponent();
             this.Load += 부서폼_Load;
             this.Paint += 테두리_Paint;
-            this.닫기.Click += 닫기btn_Click;
-            this.수정.Click += 수정btn_Click;
-            this.추가.Click += 추가btn_Click;
-            this.삭제.Click += 삭제btn_Click;
-            this.상위부서.Click += 상위부서btn_Click;
-            this.트리.Click += 트리btn_Click;
-            this.차트.Click += 차트btn_Click;
+            this.닫기btn.Click += 닫기btn_Click;
+            this.수정btn.Click += 수정btn_Click;
+            this.추가btn.Click += 추가btn_Click;
+            this.삭제btn.Click += 삭제btn_Click;
+            this.상위부서btn.Click += 상위부서btn_Click;
+            this.트리btn.Click += 트리btn_Click;
+            this.차트btn.Click += 차트btn_Click;
         }
 
 
@@ -37,10 +37,7 @@ namespace WindowsFormsApp2.Forms
         // 폼 테두리
         private void 테두리_Paint(object sender, PaintEventArgs e)
         {
-            using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
-            {
-                e.Graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1);
-            }
+            FormDesign.Line(e, Width, Height);
         }
 
         // 그리드 갱신
@@ -48,8 +45,8 @@ namespace WindowsFormsApp2.Forms
         {
             try
             {
-                상위부서그리드컨트롤.DataSource = await new ParentService().GetAllAsync();
-                부서그리드컨트롤.DataSource = await new DeptService().GetAllAsync();
+                상위부서gridcontrol.DataSource = await new ParentService().GetAllAsync();
+                부서gridcontrol.DataSource = await new DeptService().GetAllAsync();
             }
             catch
             {
@@ -82,7 +79,7 @@ namespace WindowsFormsApp2.Forms
             if (D.DialogResult == DialogResult.OK)
             {
                 // 서비스 호출후 삭제, 두 번 연속으로 클릭 방지
-                삭제.Enabled = false;
+                삭제btn.Enabled = false;
                 try
                 {
                     await new DeptService().DeleteAsync(Row.DeptId);
@@ -100,10 +97,9 @@ namespace WindowsFormsApp2.Forms
                     MessageBox.Show("삭제 중 오류가 발생했습니다.");
                 }
                 // 클릭 다시 허용
-                finally { 삭제.Enabled = true; }
+                finally { 삭제btn.Enabled = true; }
 
             }
-
         }
 
         // 부서 추가 

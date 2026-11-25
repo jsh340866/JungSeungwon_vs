@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
+using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Forms
 {
@@ -10,12 +10,12 @@ namespace WindowsFormsApp2.Forms
         public DeleteForm(string title, string msg)
         {
             InitializeComponent();
-            this.취소.Click += 취소btn_Click;
-            this.삭제.Click += 삭제btn_Click;
             this.Paint += 테두리_Paint;
+            this.취소btn.Click += 취소btn_Click;
+            this.삭제btn.Click += 삭제btn_Click;
 
-            제목.Text = title;
-            메시지.Text = msg;
+            제목label.Text = title;
+            메시지label.Text = msg;
         }
 
         // 취소
@@ -27,10 +27,7 @@ namespace WindowsFormsApp2.Forms
         // 폼 테두리
         private void 테두리_Paint(object sender, PaintEventArgs e)
         {
-            using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
-            {
-                e.Graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1); 
-            }
+            FormDesign.Line(e, Width, Height);
         }
 
         // 삭제

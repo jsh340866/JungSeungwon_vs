@@ -28,19 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.StackedBarSeriesLabel stackedBarSeriesLabel1 = new DevExpress.XtraCharts.StackedBarSeriesLabel();
             DevExpress.XtraCharts.StackedBarSeriesView stackedBarSeriesView1 = new DevExpress.XtraCharts.StackedBarSeriesView();
             DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.닫기 = new System.Windows.Forms.ToolStripButton();
+            this.닫기btn = new System.Windows.Forms.ToolStripButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(stackedBarSeriesLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(stackedBarSeriesView1)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +50,7 @@
             this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.닫기});
+            this.닫기btn});
             this.toolStrip1.Location = new System.Drawing.Point(1, 1);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
@@ -60,16 +58,16 @@
             this.toolStrip1.TabIndex = 56;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // 닫기
+            // 닫기btn
             // 
-            this.닫기.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.닫기.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.닫기.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.닫기.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.닫기.Name = "닫기";
-            this.닫기.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.닫기.Size = new System.Drawing.Size(65, 32);
-            this.닫기.Text = "닫기";
+            this.닫기btn.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.닫기btn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.닫기btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.닫기btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.닫기btn.Name = "닫기btn";
+            this.닫기btn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.닫기btn.Size = new System.Drawing.Size(65, 32);
+            this.닫기btn.Text = "닫기";
             // 
             // label1
             // 
@@ -98,27 +96,14 @@
             // 
             // chartControl1
             // 
-            xyDiagram1.AxisX.Label.Font = new System.Drawing.Font("Segoe UI", 8F);
-            xyDiagram1.AxisX.Title.Font = new System.Drawing.Font("Segoe UI", 12F);
-            xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram1.AxisY.Label.Font = new System.Drawing.Font("Segoe UI", 8F);
-            xyDiagram1.AxisY.Title.Font = new System.Drawing.Font("Segoe UI", 12F);
-            xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram1.DefaultPane.StackedBarTotalLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
-            xyDiagram1.DefaultPane.Title.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.chartControl1.Diagram = xyDiagram1;
             this.chartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartControl1.EmptyChartText.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.chartControl1.Legend.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.chartControl1.Location = new System.Drawing.Point(20, 20);
             this.chartControl1.Name = "chartControl1";
-            this.chartControl1.SeriesDataMember = "DeptName_S";
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.chartControl1.SeriesTemplate.ArgumentDataMember = "ParentDeptName_X";
             stackedBarSeriesLabel1.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.chartControl1.SeriesTemplate.Label = stackedBarSeriesLabel1;
-            this.chartControl1.SeriesTemplate.SeriesDataMember = "DeptName_S";
-            this.chartControl1.SeriesTemplate.ValueDataMembersSerializable = "Count_Y";
             this.chartControl1.SeriesTemplate.View = stackedBarSeriesView1;
             this.chartControl1.Size = new System.Drawing.Size(558, 373);
             this.chartControl1.SmallChartText.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -148,7 +133,6 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(stackedBarSeriesLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(stackedBarSeriesView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
@@ -160,7 +144,7 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton 닫기;
+        private System.Windows.Forms.ToolStripButton 닫기btn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraCharts.ChartControl chartControl1;

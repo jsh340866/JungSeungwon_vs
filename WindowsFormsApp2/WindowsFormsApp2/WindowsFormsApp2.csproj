@@ -202,6 +202,7 @@
     </Compile>
     <Compile Include="Utils\ExcelTransfer.cs" />
     <Compile Include="Utils\BusinessException.cs" />
+    <Compile Include="Utils\FormDesign.cs" />
     <Compile Include="Utils\ImageHelper.cs" />
     <Compile Include="Utils\Logger.cs" />
     <Compile Include="Utils\Program.cs" />

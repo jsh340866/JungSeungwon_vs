@@ -31,19 +31,19 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmpForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.닫기 = new System.Windows.Forms.ToolStripButton();
-            this.자료변환 = new System.Windows.Forms.ToolStripButton();
-            this.삭제 = new System.Windows.Forms.ToolStripButton();
-            this.로그인정보 = new System.Windows.Forms.ToolStripButton();
-            this.수정 = new System.Windows.Forms.ToolStripButton();
-            this.추가 = new System.Windows.Forms.ToolStripButton();
-            this.다중추가 = new System.Windows.Forms.ToolStripButton();
-            this.조회 = new System.Windows.Forms.ToolStripButton();
-            this.부서 = new System.Windows.Forms.ToolStripButton();
+            this.닫기btn = new System.Windows.Forms.ToolStripButton();
+            this.자료변환btn = new System.Windows.Forms.ToolStripButton();
+            this.삭제btn = new System.Windows.Forms.ToolStripButton();
+            this.로그인정보btn = new System.Windows.Forms.ToolStripButton();
+            this.수정btn = new System.Windows.Forms.ToolStripButton();
+            this.추가btn = new System.Windows.Forms.ToolStripButton();
+            this.다중추가btn = new System.Windows.Forms.ToolStripButton();
+            this.조회btn = new System.Windows.Forms.ToolStripButton();
+            this.부서btn = new System.Windows.Forms.ToolStripButton();
             this.IblTitle = new System.Windows.Forms.ToolStripLabel();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.그리드컨트롤 = new DevExpress.XtraGrid.GridControl();
-            this.그리드뷰 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridControl = new DevExpress.XtraGrid.GridControl();
+            this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.부서코드 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.부서명 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.사원코드 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -61,8 +61,8 @@
             this.판넬그리드 = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.그리드컨트롤)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.그리드뷰)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repoPassword)).BeginInit();
             this.판넬그리드.SuspendLayout();
             this.SuspendLayout();
@@ -73,15 +73,15 @@
             this.toolStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.닫기,
-            this.자료변환,
-            this.삭제,
-            this.로그인정보,
-            this.수정,
-            this.추가,
-            this.다중추가,
-            this.조회,
-            this.부서,
+            this.닫기btn,
+            this.자료변환btn,
+            this.삭제btn,
+            this.로그인정보btn,
+            this.수정btn,
+            this.추가btn,
+            this.다중추가btn,
+            this.조회btn,
+            this.부서btn,
             this.IblTitle});
             this.toolStrip1.Location = new System.Drawing.Point(1, 1);
             this.toolStrip1.Name = "toolStrip1";
@@ -89,97 +89,97 @@
             this.toolStrip1.Size = new System.Drawing.Size(1104, 35);
             this.toolStrip1.TabIndex = 0;
             // 
-            // 닫기
+            // 닫기btn
             // 
-            this.닫기.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.닫기.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.닫기.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.닫기.Name = "닫기";
-            this.닫기.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.닫기.Size = new System.Drawing.Size(65, 28);
-            this.닫기.Text = "닫기";
+            this.닫기btn.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.닫기btn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.닫기btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.닫기btn.Name = "닫기btn";
+            this.닫기btn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.닫기btn.Size = new System.Drawing.Size(65, 28);
+            this.닫기btn.Text = "닫기";
             // 
-            // 자료변환
+            // 자료변환btn
             // 
-            this.자료변환.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.자료변환.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.자료변환.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.자료변환.Name = "자료변환";
-            this.자료변환.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.자료변환.Size = new System.Drawing.Size(89, 28);
-            this.자료변환.Text = "자료변환";
+            this.자료변환btn.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.자료변환btn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.자료변환btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.자료변환btn.Name = "자료변환btn";
+            this.자료변환btn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.자료변환btn.Size = new System.Drawing.Size(89, 28);
+            this.자료변환btn.Text = "자료변환";
             // 
-            // 삭제
+            // 삭제btn
             // 
-            this.삭제.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.삭제.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.삭제.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.삭제.Name = "삭제";
-            this.삭제.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.삭제.Size = new System.Drawing.Size(65, 28);
-            this.삭제.Text = "삭제";
+            this.삭제btn.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.삭제btn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.삭제btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.삭제btn.Name = "삭제btn";
+            this.삭제btn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.삭제btn.Size = new System.Drawing.Size(65, 28);
+            this.삭제btn.Text = "삭제";
             // 
-            // 로그인정보
+            // 로그인정보btn
             // 
-            this.로그인정보.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.로그인정보.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.로그인정보.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.로그인정보.Name = "로그인정보";
-            this.로그인정보.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.로그인정보.Size = new System.Drawing.Size(101, 28);
-            this.로그인정보.Text = "로그인정보";
+            this.로그인정보btn.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.로그인정보btn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.로그인정보btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.로그인정보btn.Name = "로그인정보btn";
+            this.로그인정보btn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.로그인정보btn.Size = new System.Drawing.Size(101, 28);
+            this.로그인정보btn.Text = "로그인정보";
             // 
-            // 수정
+            // 수정btn
             // 
-            this.수정.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.수정.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.수정.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.수정.Name = "수정";
-            this.수정.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.수정.Size = new System.Drawing.Size(65, 28);
-            this.수정.Text = "수정";
+            this.수정btn.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.수정btn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.수정btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.수정btn.Name = "수정btn";
+            this.수정btn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.수정btn.Size = new System.Drawing.Size(65, 28);
+            this.수정btn.Text = "수정";
             // 
-            // 추가
+            // 추가btn
             // 
-            this.추가.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.추가.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.추가.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.추가.Name = "추가";
-            this.추가.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.추가.Size = new System.Drawing.Size(65, 28);
-            this.추가.Text = "추가";
+            this.추가btn.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.추가btn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.추가btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.추가btn.Name = "추가btn";
+            this.추가btn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.추가btn.Size = new System.Drawing.Size(65, 28);
+            this.추가btn.Text = "추가";
             // 
-            // 다중추가
+            // 다중추가btn
             // 
-            this.다중추가.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.다중추가.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.다중추가.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.다중추가.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.다중추가.Name = "다중추가";
-            this.다중추가.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.다중추가.Size = new System.Drawing.Size(89, 28);
-            this.다중추가.Text = "다중추가";
-            this.다중추가.ToolTipText = "다중추가";
+            this.다중추가btn.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.다중추가btn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.다중추가btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.다중추가btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.다중추가btn.Name = "다중추가btn";
+            this.다중추가btn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.다중추가btn.Size = new System.Drawing.Size(89, 28);
+            this.다중추가btn.Text = "다중추가";
+            this.다중추가btn.ToolTipText = "다중추가";
             // 
-            // 조회
+            // 조회btn
             // 
-            this.조회.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.조회.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.조회.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.조회.Name = "조회";
-            this.조회.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.조회.Size = new System.Drawing.Size(65, 28);
-            this.조회.Text = "조회";
+            this.조회btn.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.조회btn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.조회btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.조회btn.Name = "조회btn";
+            this.조회btn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.조회btn.Size = new System.Drawing.Size(65, 28);
+            this.조회btn.Text = "조회";
             // 
-            // 부서
+            // 부서btn
             // 
-            this.부서.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.부서.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.부서.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.부서.Name = "부서";
-            this.부서.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.부서.Size = new System.Drawing.Size(65, 28);
-            this.부서.Text = "부서";
+            this.부서btn.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.부서btn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.부서btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.부서btn.Name = "부서btn";
+            this.부서btn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.부서btn.Size = new System.Drawing.Size(65, 28);
+            this.부서btn.Text = "부서";
             // 
             // IblTitle
             // 
@@ -191,27 +191,27 @@
             this.IblTitle.Size = new System.Drawing.Size(76, 28);
             this.IblTitle.Text = "부서사원";
             // 
-            // 그리드컨트롤
+            // gridControl
             // 
-            this.그리드컨트롤.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.그리드컨트롤.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.그리드컨트롤.Location = new System.Drawing.Point(1, 20);
-            this.그리드컨트롤.MainView = this.그리드뷰;
-            this.그리드컨트롤.Name = "그리드컨트롤";
-            this.그리드컨트롤.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gridControl.Location = new System.Drawing.Point(1, 20);
+            this.gridControl.MainView = this.gridView;
+            this.gridControl.Name = "gridControl";
+            this.gridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repoPassword});
-            this.그리드컨트롤.Size = new System.Drawing.Size(1102, 245);
-            this.그리드컨트롤.TabIndex = 1;
-            this.그리드컨트롤.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.그리드뷰});
+            this.gridControl.Size = new System.Drawing.Size(1102, 245);
+            this.gridControl.TabIndex = 1;
+            this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView});
             // 
-            // 그리드뷰
+            // gridView
             // 
-            this.그리드뷰.AppearancePrint.HeaderPanel.Font = new System.Drawing.Font("맑은 고딕", 8.25F);
-            this.그리드뷰.AppearancePrint.HeaderPanel.Options.UseFont = true;
-            this.그리드뷰.AppearancePrint.Row.Font = new System.Drawing.Font("맑은 고딕", 8.25F);
-            this.그리드뷰.AppearancePrint.Row.Options.UseFont = true;
-            this.그리드뷰.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridView.AppearancePrint.HeaderPanel.Font = new System.Drawing.Font("맑은 고딕", 8.25F);
+            this.gridView.AppearancePrint.HeaderPanel.Options.UseFont = true;
+            this.gridView.AppearancePrint.Row.Font = new System.Drawing.Font("맑은 고딕", 8.25F);
+            this.gridView.AppearancePrint.Row.Options.UseFont = true;
+            this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.부서코드,
             this.부서명,
             this.사원코드,
@@ -225,10 +225,10 @@
             this.이메일,
             this.메신저ID,
             this.메모});
-            this.그리드뷰.GridControl = this.그리드컨트롤;
-            this.그리드뷰.Name = "그리드뷰";
-            this.그리드뷰.OptionsBehavior.Editable = false;
-            this.그리드뷰.OptionsView.ShowGroupPanel = false;
+            this.gridView.GridControl = this.gridControl;
+            this.gridView.Name = "gridView";
+            this.gridView.OptionsBehavior.Editable = false;
+            this.gridView.OptionsView.ShowGroupPanel = false;
             // 
             // 부서코드
             // 
@@ -343,7 +343,7 @@
             // 
             // 판넬그리드
             // 
-            this.판넬그리드.Controls.Add(this.그리드컨트롤);
+            this.판넬그리드.Controls.Add(this.gridControl);
             this.판넬그리드.Dock = System.Windows.Forms.DockStyle.Fill;
             this.판넬그리드.Location = new System.Drawing.Point(1, 36);
             this.판넬그리드.Name = "판넬그리드";
@@ -369,8 +369,8 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.그리드컨트롤)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.그리드뷰)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repoPassword)).EndInit();
             this.판넬그리드.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -380,18 +380,18 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton 부서;
-        private System.Windows.Forms.ToolStripButton 조회;
-        private System.Windows.Forms.ToolStripButton 추가;
-        private System.Windows.Forms.ToolStripButton 수정;
-        private System.Windows.Forms.ToolStripButton 로그인정보;
-        private System.Windows.Forms.ToolStripButton 삭제;
-        private System.Windows.Forms.ToolStripButton 자료변환;
-        private System.Windows.Forms.ToolStripButton 닫기;
+        private System.Windows.Forms.ToolStripButton 부서btn;
+        private System.Windows.Forms.ToolStripButton 조회btn;
+        private System.Windows.Forms.ToolStripButton 추가btn;
+        private System.Windows.Forms.ToolStripButton 수정btn;
+        private System.Windows.Forms.ToolStripButton 로그인정보btn;
+        private System.Windows.Forms.ToolStripButton 삭제btn;
+        private System.Windows.Forms.ToolStripButton 자료변환btn;
+        private System.Windows.Forms.ToolStripButton 닫기btn;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.ToolStripLabel IblTitle;
-        private DevExpress.XtraGrid.GridControl 그리드컨트롤;
-        private DevExpress.XtraGrid.Views.Grid.GridView 그리드뷰;
+        private DevExpress.XtraGrid.GridControl gridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView;
         private DevExpress.XtraGrid.Columns.GridColumn 부서코드;
         private DevExpress.XtraGrid.Columns.GridColumn 부서명;
         private DevExpress.XtraGrid.Columns.GridColumn 사원코드;
@@ -405,7 +405,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn 이메일;
         private DevExpress.XtraGrid.Columns.GridColumn 메신저ID;
         private DevExpress.XtraGrid.Columns.GridColumn 메모;
-        private System.Windows.Forms.ToolStripButton 다중추가;
+        private System.Windows.Forms.ToolStripButton 다중추가btn;
         private System.Windows.Forms.Panel 판넬그리드;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repoPassword;
     }

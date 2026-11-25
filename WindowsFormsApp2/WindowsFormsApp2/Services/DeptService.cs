@@ -119,7 +119,7 @@ namespace WindowsFormsApp2.Services
         {
             try
             {
-                await new DepartmentRepository().DeleteAsync(deptId);
+                await deptRepo.DeleteAsync(deptId);
             }
             // 소속 사원이 있는 부서를 삭제하면 외래키 제약조건 위반이 발생
             catch (SqlException ex) when (ex.Number == 547)

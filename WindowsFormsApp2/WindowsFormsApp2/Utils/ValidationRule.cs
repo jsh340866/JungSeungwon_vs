@@ -31,7 +31,7 @@ namespace WindowsFormsApp2.Utils
         public static string PhoneRule(string phone) 
         {
             string digits = new string(phone.Where(char.IsDigit).ToArray());
-            if (digits.Length >= 11)
+            if (digits.Length >= 7)
             {
                 phone = digits.Insert(7, "-").Insert(3, "-");
 

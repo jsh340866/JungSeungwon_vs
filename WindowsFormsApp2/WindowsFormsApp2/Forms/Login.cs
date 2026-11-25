@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 using WindowsFormsApp2.Services;
 using WindowsFormsApp2.Utils;
@@ -13,27 +12,24 @@ namespace WindowsFormsApp2.Forms
             InitializeComponent();
             this.Load += 로그인_Load;
             this.Paint += 테두리_Paint;
-            this.저장.Click += 저장btn_Click;
-            this.닫기.Click += 닫기btn_Click;
+            this.저장btn.Click += 저장btn_Click;
+            this.닫기btn.Click += 닫기btn_Click;
         }
 
         // 저장된 로그인ID를 불러와 박스에 담기
         private void 로그인_Load(object sender, EventArgs e)
         {
-            로그인ID.Text = Properties.Settings.Default.SavedLoginId;
-            아이디기억.Checked = !string.IsNullOrWhiteSpace(로그인ID.Text);
+            로그인IDtxt.Text = Properties.Settings.Default.SavedLoginId;
+            아이디기억.Checked = !string.IsNullOrWhiteSpace(로그인IDtxt.Text);
 
             // 체크박스 체크되있으면 비밀번호, 아니라면 로그인ID에 커서 위치       
-            ActiveControl = 아이디기억.Checked ? 비밀번호 : 로그인ID;
+            ActiveControl = 아이디기억.Checked ? 비밀번호txt : 로그인IDtxt;
         }
 
         // 폼 테두리
         private void 테두리_Paint(object sender, PaintEventArgs e)
         {
-            using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
-            {
-                e.Graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1);
-            }
+            FormDesign.Line(e, Width, Height);
         }
 
         // 닫기
@@ -46,13 +42,13 @@ namespace WindowsFormsApp2.Forms
         private async void 저장btn_Click(object sender, EventArgs e)
         {
             
-            저장.Enabled = false;
+            저장btn.Enabled = false;
             try
             {
-                await new EmpService().LoginAsync(로그인ID.Text, 비밀번호.Text);
+                await new EmpService().LoginAsync(로그인IDtxt.Text, 비밀번호txt.Text);
 
                 // 아이디기억.체크박스 체크시 입력한 로그인ID 저장
-                Properties.Settings.Default.SavedLoginId = 아이디기억.Checked ? 로그인ID.Text : "";
+                Properties.Settings.Default.SavedLoginId = 아이디기억.Checked ? 로그인IDtxt.Text : "";
                 Properties.Settings.Default.Save();
 
                 this.DialogResult = DialogResult.OK;
@@ -65,7 +61,7 @@ namespace WindowsFormsApp2.Forms
             {
                 MessageBox.Show("로그인 중 오류가 발생했습니다.");
             }
-            finally { 저장.Enabled = true; }
+            finally { 저장btn.Enabled = true; }
 
         }
 

@@ -1,5 +1,5 @@
-﻿using System;
-using System.Drawing;
+﻿using DevExpress.XtraGrid.Views.Base;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
@@ -10,21 +10,22 @@ namespace WindowsFormsApp2.Forms
 {
     public partial class EmpForm : Form
     {
-        private EmployeeDto Row => 그리드뷰.GetFocusedRow() as EmployeeDto;
+        private EmployeeDto Row => gridView.GetFocusedRow() as EmployeeDto;
         public EmpForm()
         {
             InitializeComponent();
             this.Load += 사원폼_Load;
             this.Paint += 테두리_Paint;
-            this.조회.Click += 조회btn_Click;
-            this.닫기.Click += 닫기btn_Click;
-            this.로그인정보.Click += 로그인정보btn_Click;
-            this.추가.Click += 추가btn_Click;
-            this.부서.Click += 부서btn_Click;
-            this.삭제.Click += 삭제btn_Click;
-            this.수정.Click += 수정btn_Click;
-            this.자료변환.Click += 자료변환btn_Click;
-            this.다중추가.Click += 다중추가btn_Click;
+            this.조회btn.Click += 조회btn_Click;
+            this.닫기btn.Click += 닫기btn_Click;
+            this.로그인정보btn.Click += 로그인정보btn_Click;
+            this.추가btn.Click += 추가btn_Click;
+            this.부서btn.Click += 부서btn_Click;
+            this.삭제btn.Click += 삭제btn_Click;
+            this.수정btn.Click += 수정btn_Click;
+            this.자료변환btn.Click += 자료변환btn_Click;
+            this.다중추가btn.Click += 다중추가btn_Click;
+            this.gridView.CustomColumnDisplayText += gridView_CustomColumnDisplayText;
         }
         
         // 사원폼 Load
@@ -37,9 +38,15 @@ namespace WindowsFormsApp2.Forms
         // 폼 테두리
         private void 테두리_Paint(object sender, PaintEventArgs e)
         {
-            using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
+            FormDesign.Line(e, Width, Height);
+        }
+
+        // 비밀번호 컬럼은 실제 길이와 상관없이 별 8개로 고정 표시
+        private void gridView_CustomColumnDisplayText(object sender, CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column == 비밀번호)
             {
-                e.Graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1);
+                e.DisplayText = new string('*', 8);
             }
         }
 
@@ -48,7 +55,7 @@ namespace WindowsFormsApp2.Forms
         {
             try
             {
-                그리드컨트롤.DataSource = await new EmpService().GetAllAsync();
+                gridControl.DataSource = await new EmpService().GetAllAsync();
             }
             catch
             {
@@ -174,7 +181,7 @@ namespace WindowsFormsApp2.Forms
         // GridView -> 엑셀파일로 자료변환
         private void 자료변환btn_Click(object sender, EventArgs e)
         {
-            new ExcelTransfer().ExportExcel("사원 정보", 그리드뷰);
+            new ExcelTransfer().ExportExcel("사원 정보", gridView);
         }
 
         // 다중추가

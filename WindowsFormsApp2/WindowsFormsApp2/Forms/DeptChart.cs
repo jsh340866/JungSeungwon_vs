@@ -1,8 +1,9 @@
-﻿using System;
-using System.Drawing;
+﻿using DevExpress.XtraCharts;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Services;
+using WindowsFormsApp2.Utils;
 
 namespace WindowsFormsApp2.Forms
 {
@@ -13,7 +14,7 @@ namespace WindowsFormsApp2.Forms
             InitializeComponent();
             this.Load += 부서차트폼_Load;
             this.Paint += 테두리_Paint;
-            this.닫기.Click += 닫기btn_Click;
+            this.닫기btn.Click += 닫기btn_Click;
         }
 
         // 부서차트폼 Load
@@ -22,7 +23,11 @@ namespace WindowsFormsApp2.Forms
             // 서비스 호출해 차트 데이터소스에 데이터 담기
             try
             {
+                chartControl1.SeriesTemplate.ArgumentDataMember = "ParentDeptName_X";   // X축
+                chartControl1.SeriesTemplate.ValueDataMembers.AddRange("Count_Y");      // Y축
+                chartControl1.SeriesTemplate.SeriesDataMember = "DeptName_S";           // 시리즈
                 chartControl1.DataSource = await new DeptService().ChartAsync();
+
             }
             catch
             {
@@ -34,10 +39,7 @@ namespace WindowsFormsApp2.Forms
         // 폼 테두리
         private void 테두리_Paint(object sender, PaintEventArgs e)
         {
-            using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
-            {
-                e.Graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1);
-            }
+            FormDesign.Line(e, Width, Height);
         }
 
         // 닫기

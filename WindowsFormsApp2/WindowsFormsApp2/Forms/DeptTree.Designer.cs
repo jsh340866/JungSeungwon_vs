@@ -57,14 +57,14 @@
             this.treeList1.ChildListFieldName = "사원";
             this.treeList1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeList1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.treeList1.KeyFieldName = "NodeId";
+            this.treeList1.KeyFieldName = "";
             this.treeList1.Location = new System.Drawing.Point(20, 25);
             this.treeList1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.treeList1.Name = "treeList1";
             this.treeList1.OptionsBehavior.Editable = false;
             this.treeList1.OptionsView.ShowButtons = false;
             this.treeList1.OptionsView.ShowColumns = false;
-            this.treeList1.ParentFieldName = "ParentId";
+            this.treeList1.ParentFieldName = "";
             this.treeList1.Size = new System.Drawing.Size(494, 520);
             this.treeList1.TabIndex = 53;
             // 

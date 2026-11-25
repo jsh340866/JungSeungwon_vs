@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Dtos;
@@ -16,11 +15,11 @@ namespace WindowsFormsApp2.Forms
             InitializeComponent();
             this.Load += 상위부서폼_Load;
             this.Paint += 테두리_Paint;
-            this.닫기.Click += 닫기btn_Click;
-            this.삭제.Click += 삭제btn_Click;
-            this.수정.Click += 수정btn_Click;
-            this.추가.Click += 추가btn_Click;
-            this.자료변환.Click += 자료변환btn_Click;
+            this.닫기btn.Click += 닫기btn_Click;
+            this.삭제btn.Click += 삭제btn_Click;
+            this.수정btn.Click += 수정btn_Click;
+            this.추가btn.Click += 추가btn_Click;
+            this.자료변환btn.Click += 자료변환btn_Click;
         }
 
         private async void 상위부서폼_Load(object sender, EventArgs e)
@@ -44,10 +43,7 @@ namespace WindowsFormsApp2.Forms
         // 폼 테두리
         private void 테두리_Paint(object sender, PaintEventArgs e)
         {
-            using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
-            {
-                e.Graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1);
-            }
+            FormDesign.Line(e, Width, Height);
         }
 
         // 닫기
@@ -76,7 +72,7 @@ namespace WindowsFormsApp2.Forms
             if (D.DialogResult == DialogResult.OK)
             {
                 // 소속된 부서가 없으면 삭제 후 그리드갱신
-                삭제.Enabled = false;
+                삭제btn.Enabled = false;
                 try
                 {
                     await new ParentService().DeleteAsync(Row.ParentDeptId);
@@ -92,7 +88,7 @@ namespace WindowsFormsApp2.Forms
                 {
                     MessageBox.Show("상위부서 삭제 중 오류가 발생하였습니다.");
                 }
-                finally { 삭제.Enabled = true; }
+                finally { 삭제btn.Enabled = true; }
             }
         }
 
