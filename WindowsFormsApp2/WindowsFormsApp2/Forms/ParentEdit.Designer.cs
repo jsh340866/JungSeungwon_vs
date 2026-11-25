@@ -289,7 +289,7 @@
             this.Name = "ParentEditForm";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ParentEditForm";
+            this.Text = "상위 부서 수정";
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);

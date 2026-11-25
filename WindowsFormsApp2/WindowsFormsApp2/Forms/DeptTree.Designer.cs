@@ -121,7 +121,7 @@
             this.Name = "DeptTree";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "DeptTree";
+            this.Text = "트리";
             this.트리판넬.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();

@@ -29,69 +29,69 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem56 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem57 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem58 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem59 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem60 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem61 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem62 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem63 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem64 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem65 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem66 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup spreadsheetCommandGalleryItemGroup8 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem67 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem68 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem69 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem70 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem71 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem72 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup spreadsheetCommandGalleryItemGroup9 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem73 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem74 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem75 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem76 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem77 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem78 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup spreadsheetCommandGalleryItemGroup10 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem79 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem80 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem81 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem82 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem83 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem84 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem85 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem86 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem87 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem88 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem89 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem90 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup spreadsheetCommandGalleryItemGroup11 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem91 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem92 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem93 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem94 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem95 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem96 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem97 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup spreadsheetCommandGalleryItemGroup12 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem98 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem99 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem100 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem101 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem102 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup spreadsheetCommandGalleryItemGroup13 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem103 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem104 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem105 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup spreadsheetCommandGalleryItemGroup14 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem106 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem107 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem108 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem109 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
-            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem110 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem1 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem2 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem3 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem4 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem5 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem6 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem7 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem8 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem9 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem10 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem11 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup spreadsheetCommandGalleryItemGroup1 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem12 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem13 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem14 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem15 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem16 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem17 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup spreadsheetCommandGalleryItemGroup2 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem18 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem19 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem20 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem21 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem22 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem23 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup spreadsheetCommandGalleryItemGroup3 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem24 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem25 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem26 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem27 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem28 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem29 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem30 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem31 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem32 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem33 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem34 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem35 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup spreadsheetCommandGalleryItemGroup4 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem36 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem37 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem38 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem39 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem40 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem41 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem42 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup spreadsheetCommandGalleryItemGroup5 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem43 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem44 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem45 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem46 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem47 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup spreadsheetCommandGalleryItemGroup6 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem48 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem49 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem50 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup spreadsheetCommandGalleryItemGroup7 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItemGroup();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem51 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem52 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem53 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem54 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
+            DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem spreadsheetCommandGalleryItem55 = new DevExpress.XtraSpreadsheet.UI.SpreadsheetCommandGalleryItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.저장 = new System.Windows.Forms.Button();
@@ -892,65 +892,65 @@
             this.repositoryItemPopupGalleryEdit1.Gallery.AutoFitColumns = false;
             this.repositoryItemPopupGalleryEdit1.Gallery.ColumnCount = 1;
             this.repositoryItemPopupGalleryEdit1.Gallery.FixedImageSize = false;
-            spreadsheetCommandGalleryItem56.AlwaysUpdateDescription = true;
-            spreadsheetCommandGalleryItem56.CaptionAsValue = true;
-            spreadsheetCommandGalleryItem56.Checked = true;
-            spreadsheetCommandGalleryItem56.CommandName = "FormatNumberGeneral";
-            spreadsheetCommandGalleryItem56.IsEmptyHint = true;
-            spreadsheetCommandGalleryItem57.AlwaysUpdateDescription = true;
-            spreadsheetCommandGalleryItem57.CaptionAsValue = true;
-            spreadsheetCommandGalleryItem57.CommandName = "FormatNumberDecimal";
-            spreadsheetCommandGalleryItem57.IsEmptyHint = true;
-            spreadsheetCommandGalleryItem58.AlwaysUpdateDescription = true;
-            spreadsheetCommandGalleryItem58.CaptionAsValue = true;
-            spreadsheetCommandGalleryItem58.CommandName = "FormatNumberAccountingCurrency";
-            spreadsheetCommandGalleryItem58.IsEmptyHint = true;
-            spreadsheetCommandGalleryItem59.AlwaysUpdateDescription = true;
-            spreadsheetCommandGalleryItem59.CaptionAsValue = true;
-            spreadsheetCommandGalleryItem59.CommandName = "FormatNumberAccountingRegular";
-            spreadsheetCommandGalleryItem59.IsEmptyHint = true;
-            spreadsheetCommandGalleryItem60.AlwaysUpdateDescription = true;
-            spreadsheetCommandGalleryItem60.CaptionAsValue = true;
-            spreadsheetCommandGalleryItem60.CommandName = "FormatNumberShortDate";
-            spreadsheetCommandGalleryItem60.IsEmptyHint = true;
-            spreadsheetCommandGalleryItem61.AlwaysUpdateDescription = true;
-            spreadsheetCommandGalleryItem61.CaptionAsValue = true;
-            spreadsheetCommandGalleryItem61.CommandName = "FormatNumberLongDate";
-            spreadsheetCommandGalleryItem61.IsEmptyHint = true;
-            spreadsheetCommandGalleryItem62.AlwaysUpdateDescription = true;
-            spreadsheetCommandGalleryItem62.CaptionAsValue = true;
-            spreadsheetCommandGalleryItem62.CommandName = "FormatNumberTime";
-            spreadsheetCommandGalleryItem62.IsEmptyHint = true;
-            spreadsheetCommandGalleryItem63.AlwaysUpdateDescription = true;
-            spreadsheetCommandGalleryItem63.CaptionAsValue = true;
-            spreadsheetCommandGalleryItem63.CommandName = "FormatNumberPercentage";
-            spreadsheetCommandGalleryItem63.IsEmptyHint = true;
-            spreadsheetCommandGalleryItem64.AlwaysUpdateDescription = true;
-            spreadsheetCommandGalleryItem64.CaptionAsValue = true;
-            spreadsheetCommandGalleryItem64.CommandName = "FormatNumberFraction";
-            spreadsheetCommandGalleryItem64.IsEmptyHint = true;
-            spreadsheetCommandGalleryItem65.AlwaysUpdateDescription = true;
-            spreadsheetCommandGalleryItem65.CaptionAsValue = true;
-            spreadsheetCommandGalleryItem65.CommandName = "FormatNumberScientific";
-            spreadsheetCommandGalleryItem65.IsEmptyHint = true;
-            spreadsheetCommandGalleryItem66.AlwaysUpdateDescription = true;
-            spreadsheetCommandGalleryItem66.CaptionAsValue = true;
-            spreadsheetCommandGalleryItem66.CommandName = "FormatNumberText";
-            spreadsheetCommandGalleryItem66.IsEmptyHint = true;
-            galleryItemGroup2.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            spreadsheetCommandGalleryItem56,
-            spreadsheetCommandGalleryItem57,
-            spreadsheetCommandGalleryItem58,
-            spreadsheetCommandGalleryItem59,
-            spreadsheetCommandGalleryItem60,
-            spreadsheetCommandGalleryItem61,
-            spreadsheetCommandGalleryItem62,
-            spreadsheetCommandGalleryItem63,
-            spreadsheetCommandGalleryItem64,
-            spreadsheetCommandGalleryItem65,
-            spreadsheetCommandGalleryItem66});
+            spreadsheetCommandGalleryItem1.AlwaysUpdateDescription = true;
+            spreadsheetCommandGalleryItem1.CaptionAsValue = true;
+            spreadsheetCommandGalleryItem1.Checked = true;
+            spreadsheetCommandGalleryItem1.CommandName = "FormatNumberGeneral";
+            spreadsheetCommandGalleryItem1.IsEmptyHint = true;
+            spreadsheetCommandGalleryItem2.AlwaysUpdateDescription = true;
+            spreadsheetCommandGalleryItem2.CaptionAsValue = true;
+            spreadsheetCommandGalleryItem2.CommandName = "FormatNumberDecimal";
+            spreadsheetCommandGalleryItem2.IsEmptyHint = true;
+            spreadsheetCommandGalleryItem3.AlwaysUpdateDescription = true;
+            spreadsheetCommandGalleryItem3.CaptionAsValue = true;
+            spreadsheetCommandGalleryItem3.CommandName = "FormatNumberAccountingCurrency";
+            spreadsheetCommandGalleryItem3.IsEmptyHint = true;
+            spreadsheetCommandGalleryItem4.AlwaysUpdateDescription = true;
+            spreadsheetCommandGalleryItem4.CaptionAsValue = true;
+            spreadsheetCommandGalleryItem4.CommandName = "FormatNumberAccountingRegular";
+            spreadsheetCommandGalleryItem4.IsEmptyHint = true;
+            spreadsheetCommandGalleryItem5.AlwaysUpdateDescription = true;
+            spreadsheetCommandGalleryItem5.CaptionAsValue = true;
+            spreadsheetCommandGalleryItem5.CommandName = "FormatNumberShortDate";
+            spreadsheetCommandGalleryItem5.IsEmptyHint = true;
+            spreadsheetCommandGalleryItem6.AlwaysUpdateDescription = true;
+            spreadsheetCommandGalleryItem6.CaptionAsValue = true;
+            spreadsheetCommandGalleryItem6.CommandName = "FormatNumberLongDate";
+            spreadsheetCommandGalleryItem6.IsEmptyHint = true;
+            spreadsheetCommandGalleryItem7.AlwaysUpdateDescription = true;
+            spreadsheetCommandGalleryItem7.CaptionAsValue = true;
+            spreadsheetCommandGalleryItem7.CommandName = "FormatNumberTime";
+            spreadsheetCommandGalleryItem7.IsEmptyHint = true;
+            spreadsheetCommandGalleryItem8.AlwaysUpdateDescription = true;
+            spreadsheetCommandGalleryItem8.CaptionAsValue = true;
+            spreadsheetCommandGalleryItem8.CommandName = "FormatNumberPercentage";
+            spreadsheetCommandGalleryItem8.IsEmptyHint = true;
+            spreadsheetCommandGalleryItem9.AlwaysUpdateDescription = true;
+            spreadsheetCommandGalleryItem9.CaptionAsValue = true;
+            spreadsheetCommandGalleryItem9.CommandName = "FormatNumberFraction";
+            spreadsheetCommandGalleryItem9.IsEmptyHint = true;
+            spreadsheetCommandGalleryItem10.AlwaysUpdateDescription = true;
+            spreadsheetCommandGalleryItem10.CaptionAsValue = true;
+            spreadsheetCommandGalleryItem10.CommandName = "FormatNumberScientific";
+            spreadsheetCommandGalleryItem10.IsEmptyHint = true;
+            spreadsheetCommandGalleryItem11.AlwaysUpdateDescription = true;
+            spreadsheetCommandGalleryItem11.CaptionAsValue = true;
+            spreadsheetCommandGalleryItem11.CommandName = "FormatNumberText";
+            spreadsheetCommandGalleryItem11.IsEmptyHint = true;
+            galleryItemGroup1.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            spreadsheetCommandGalleryItem1,
+            spreadsheetCommandGalleryItem2,
+            spreadsheetCommandGalleryItem3,
+            spreadsheetCommandGalleryItem4,
+            spreadsheetCommandGalleryItem5,
+            spreadsheetCommandGalleryItem6,
+            spreadsheetCommandGalleryItem7,
+            spreadsheetCommandGalleryItem8,
+            spreadsheetCommandGalleryItem9,
+            spreadsheetCommandGalleryItem10,
+            spreadsheetCommandGalleryItem11});
             this.repositoryItemPopupGalleryEdit1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup2});
+            galleryItemGroup1});
             this.repositoryItemPopupGalleryEdit1.Gallery.ItemImageLayout = DevExpress.Utils.Drawing.ImageLayoutMode.MiddleLeft;
             this.repositoryItemPopupGalleryEdit1.Gallery.ItemImageLocation = DevExpress.Utils.Locations.Left;
             this.repositoryItemPopupGalleryEdit1.Gallery.RowCount = 11;
@@ -1193,37 +1193,37 @@
             // 
             // 
             this.commandBarGalleryDropDown2.Gallery.AllowFilter = false;
-            spreadsheetCommandGalleryItemGroup8.CommandName = "ConditionalFormattingDataBarsGradientFillCommandGroup";
-            spreadsheetCommandGalleryItem67.CommandName = "ConditionalFormattingDataBarGradientBlue";
-            spreadsheetCommandGalleryItem68.CommandName = "ConditionalFormattingDataBarGradientGreen";
-            spreadsheetCommandGalleryItem69.CommandName = "ConditionalFormattingDataBarGradientRed";
-            spreadsheetCommandGalleryItem70.CommandName = "ConditionalFormattingDataBarGradientOrange";
-            spreadsheetCommandGalleryItem71.CommandName = "ConditionalFormattingDataBarGradientLightBlue";
-            spreadsheetCommandGalleryItem72.CommandName = "ConditionalFormattingDataBarGradientPurple";
-            spreadsheetCommandGalleryItemGroup8.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            spreadsheetCommandGalleryItem67,
-            spreadsheetCommandGalleryItem68,
-            spreadsheetCommandGalleryItem69,
-            spreadsheetCommandGalleryItem70,
-            spreadsheetCommandGalleryItem71,
-            spreadsheetCommandGalleryItem72});
-            spreadsheetCommandGalleryItemGroup9.CommandName = "ConditionalFormattingDataBarsSolidFillCommandGroup";
-            spreadsheetCommandGalleryItem73.CommandName = "ConditionalFormattingDataBarSolidBlue";
-            spreadsheetCommandGalleryItem74.CommandName = "ConditionalFormattingDataBarSolidGreen";
-            spreadsheetCommandGalleryItem75.CommandName = "ConditionalFormattingDataBarSolidRed";
-            spreadsheetCommandGalleryItem76.CommandName = "ConditionalFormattingDataBarSolidOrange";
-            spreadsheetCommandGalleryItem77.CommandName = "ConditionalFormattingDataBarSolidLightBlue";
-            spreadsheetCommandGalleryItem78.CommandName = "ConditionalFormattingDataBarSolidPurple";
-            spreadsheetCommandGalleryItemGroup9.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            spreadsheetCommandGalleryItem73,
-            spreadsheetCommandGalleryItem74,
-            spreadsheetCommandGalleryItem75,
-            spreadsheetCommandGalleryItem76,
-            spreadsheetCommandGalleryItem77,
-            spreadsheetCommandGalleryItem78});
+            spreadsheetCommandGalleryItemGroup1.CommandName = "ConditionalFormattingDataBarsGradientFillCommandGroup";
+            spreadsheetCommandGalleryItem12.CommandName = "ConditionalFormattingDataBarGradientBlue";
+            spreadsheetCommandGalleryItem13.CommandName = "ConditionalFormattingDataBarGradientGreen";
+            spreadsheetCommandGalleryItem14.CommandName = "ConditionalFormattingDataBarGradientRed";
+            spreadsheetCommandGalleryItem15.CommandName = "ConditionalFormattingDataBarGradientOrange";
+            spreadsheetCommandGalleryItem16.CommandName = "ConditionalFormattingDataBarGradientLightBlue";
+            spreadsheetCommandGalleryItem17.CommandName = "ConditionalFormattingDataBarGradientPurple";
+            spreadsheetCommandGalleryItemGroup1.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            spreadsheetCommandGalleryItem12,
+            spreadsheetCommandGalleryItem13,
+            spreadsheetCommandGalleryItem14,
+            spreadsheetCommandGalleryItem15,
+            spreadsheetCommandGalleryItem16,
+            spreadsheetCommandGalleryItem17});
+            spreadsheetCommandGalleryItemGroup2.CommandName = "ConditionalFormattingDataBarsSolidFillCommandGroup";
+            spreadsheetCommandGalleryItem18.CommandName = "ConditionalFormattingDataBarSolidBlue";
+            spreadsheetCommandGalleryItem19.CommandName = "ConditionalFormattingDataBarSolidGreen";
+            spreadsheetCommandGalleryItem20.CommandName = "ConditionalFormattingDataBarSolidRed";
+            spreadsheetCommandGalleryItem21.CommandName = "ConditionalFormattingDataBarSolidOrange";
+            spreadsheetCommandGalleryItem22.CommandName = "ConditionalFormattingDataBarSolidLightBlue";
+            spreadsheetCommandGalleryItem23.CommandName = "ConditionalFormattingDataBarSolidPurple";
+            spreadsheetCommandGalleryItemGroup2.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            spreadsheetCommandGalleryItem18,
+            spreadsheetCommandGalleryItem19,
+            spreadsheetCommandGalleryItem20,
+            spreadsheetCommandGalleryItem21,
+            spreadsheetCommandGalleryItem22,
+            spreadsheetCommandGalleryItem23});
             this.commandBarGalleryDropDown2.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            spreadsheetCommandGalleryItemGroup8,
-            spreadsheetCommandGalleryItemGroup9});
+            spreadsheetCommandGalleryItemGroup1,
+            spreadsheetCommandGalleryItemGroup2});
             this.commandBarGalleryDropDown2.Gallery.ImageSize = new System.Drawing.Size(32, 32);
             this.commandBarGalleryDropDown2.Gallery.ShowScrollBar = DevExpress.XtraBars.Ribbon.Gallery.ShowScrollBar.Auto;
             this.commandBarGalleryDropDown2.Manager = this.barManager1;
@@ -1243,34 +1243,34 @@
             // 
             // 
             this.commandBarGalleryDropDown3.Gallery.AllowFilter = false;
-            spreadsheetCommandGalleryItemGroup10.CommandName = "ConditionalFormattingColorScalesCommandGroup";
-            spreadsheetCommandGalleryItem79.CommandName = "ConditionalFormattingColorScaleGreenYellowRed";
-            spreadsheetCommandGalleryItem80.CommandName = "ConditionalFormattingColorScaleRedYellowGreen";
-            spreadsheetCommandGalleryItem81.CommandName = "ConditionalFormattingColorScaleGreenWhiteRed";
-            spreadsheetCommandGalleryItem82.CommandName = "ConditionalFormattingColorScaleRedWhiteGreen";
-            spreadsheetCommandGalleryItem83.CommandName = "ConditionalFormattingColorScaleBlueWhiteRed";
-            spreadsheetCommandGalleryItem84.CommandName = "ConditionalFormattingColorScaleRedWhiteBlue";
-            spreadsheetCommandGalleryItem85.CommandName = "ConditionalFormattingColorScaleWhiteRed";
-            spreadsheetCommandGalleryItem86.CommandName = "ConditionalFormattingColorScaleRedWhite";
-            spreadsheetCommandGalleryItem87.CommandName = "ConditionalFormattingColorScaleGreenWhite";
-            spreadsheetCommandGalleryItem88.CommandName = "ConditionalFormattingColorScaleWhiteGreen";
-            spreadsheetCommandGalleryItem89.CommandName = "ConditionalFormattingColorScaleGreenYellow";
-            spreadsheetCommandGalleryItem90.CommandName = "ConditionalFormattingColorScaleYellowGreen";
-            spreadsheetCommandGalleryItemGroup10.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            spreadsheetCommandGalleryItem79,
-            spreadsheetCommandGalleryItem80,
-            spreadsheetCommandGalleryItem81,
-            spreadsheetCommandGalleryItem82,
-            spreadsheetCommandGalleryItem83,
-            spreadsheetCommandGalleryItem84,
-            spreadsheetCommandGalleryItem85,
-            spreadsheetCommandGalleryItem86,
-            spreadsheetCommandGalleryItem87,
-            spreadsheetCommandGalleryItem88,
-            spreadsheetCommandGalleryItem89,
-            spreadsheetCommandGalleryItem90});
+            spreadsheetCommandGalleryItemGroup3.CommandName = "ConditionalFormattingColorScalesCommandGroup";
+            spreadsheetCommandGalleryItem24.CommandName = "ConditionalFormattingColorScaleGreenYellowRed";
+            spreadsheetCommandGalleryItem25.CommandName = "ConditionalFormattingColorScaleRedYellowGreen";
+            spreadsheetCommandGalleryItem26.CommandName = "ConditionalFormattingColorScaleGreenWhiteRed";
+            spreadsheetCommandGalleryItem27.CommandName = "ConditionalFormattingColorScaleRedWhiteGreen";
+            spreadsheetCommandGalleryItem28.CommandName = "ConditionalFormattingColorScaleBlueWhiteRed";
+            spreadsheetCommandGalleryItem29.CommandName = "ConditionalFormattingColorScaleRedWhiteBlue";
+            spreadsheetCommandGalleryItem30.CommandName = "ConditionalFormattingColorScaleWhiteRed";
+            spreadsheetCommandGalleryItem31.CommandName = "ConditionalFormattingColorScaleRedWhite";
+            spreadsheetCommandGalleryItem32.CommandName = "ConditionalFormattingColorScaleGreenWhite";
+            spreadsheetCommandGalleryItem33.CommandName = "ConditionalFormattingColorScaleWhiteGreen";
+            spreadsheetCommandGalleryItem34.CommandName = "ConditionalFormattingColorScaleGreenYellow";
+            spreadsheetCommandGalleryItem35.CommandName = "ConditionalFormattingColorScaleYellowGreen";
+            spreadsheetCommandGalleryItemGroup3.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            spreadsheetCommandGalleryItem24,
+            spreadsheetCommandGalleryItem25,
+            spreadsheetCommandGalleryItem26,
+            spreadsheetCommandGalleryItem27,
+            spreadsheetCommandGalleryItem28,
+            spreadsheetCommandGalleryItem29,
+            spreadsheetCommandGalleryItem30,
+            spreadsheetCommandGalleryItem31,
+            spreadsheetCommandGalleryItem32,
+            spreadsheetCommandGalleryItem33,
+            spreadsheetCommandGalleryItem34,
+            spreadsheetCommandGalleryItem35});
             this.commandBarGalleryDropDown3.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            spreadsheetCommandGalleryItemGroup10});
+            spreadsheetCommandGalleryItemGroup3});
             this.commandBarGalleryDropDown3.Gallery.ImageSize = new System.Drawing.Size(32, 32);
             this.commandBarGalleryDropDown3.Gallery.ShowScrollBar = DevExpress.XtraBars.Ribbon.Gallery.ShowScrollBar.Auto;
             this.commandBarGalleryDropDown3.Manager = this.barManager1;
@@ -1290,59 +1290,59 @@
             // 
             // 
             this.commandBarGalleryDropDown4.Gallery.AllowFilter = false;
-            spreadsheetCommandGalleryItemGroup11.CommandName = "ConditionalFormattingIconSetsDirectionalCommandGroup";
-            spreadsheetCommandGalleryItem91.CommandName = "ConditionalFormattingIconSetArrows3Colored";
-            spreadsheetCommandGalleryItem92.CommandName = "ConditionalFormattingIconSetArrows3Grayed";
-            spreadsheetCommandGalleryItem93.CommandName = "ConditionalFormattingIconSetArrows4Colored";
-            spreadsheetCommandGalleryItem94.CommandName = "ConditionalFormattingIconSetArrows4Grayed";
-            spreadsheetCommandGalleryItem95.CommandName = "ConditionalFormattingIconSetArrows5Colored";
-            spreadsheetCommandGalleryItem96.CommandName = "ConditionalFormattingIconSetArrows5Grayed";
-            spreadsheetCommandGalleryItem97.CommandName = "ConditionalFormattingIconSetTriangles3";
-            spreadsheetCommandGalleryItemGroup11.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            spreadsheetCommandGalleryItem91,
-            spreadsheetCommandGalleryItem92,
-            spreadsheetCommandGalleryItem93,
-            spreadsheetCommandGalleryItem94,
-            spreadsheetCommandGalleryItem95,
-            spreadsheetCommandGalleryItem96,
-            spreadsheetCommandGalleryItem97});
-            spreadsheetCommandGalleryItemGroup12.CommandName = "ConditionalFormattingIconSetsShapesCommandGroup";
-            spreadsheetCommandGalleryItem98.CommandName = "ConditionalFormattingIconSetTrafficLights3";
-            spreadsheetCommandGalleryItem99.CommandName = "ConditionalFormattingIconSetTrafficLights3Rimmed";
-            spreadsheetCommandGalleryItem100.CommandName = "ConditionalFormattingIconSetTrafficLights4";
-            spreadsheetCommandGalleryItem101.CommandName = "ConditionalFormattingIconSetSigns3";
-            spreadsheetCommandGalleryItem102.CommandName = "ConditionalFormattingIconSetRedToBlack";
-            spreadsheetCommandGalleryItemGroup12.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            spreadsheetCommandGalleryItem98,
-            spreadsheetCommandGalleryItem99,
-            spreadsheetCommandGalleryItem100,
-            spreadsheetCommandGalleryItem101,
-            spreadsheetCommandGalleryItem102});
-            spreadsheetCommandGalleryItemGroup13.CommandName = "ConditionalFormattingIconSetsIndicatorsCommandGroup";
-            spreadsheetCommandGalleryItem103.CommandName = "ConditionalFormattingIconSetSymbols3Circled";
-            spreadsheetCommandGalleryItem104.CommandName = "ConditionalFormattingIconSetSymbols3";
-            spreadsheetCommandGalleryItem105.CommandName = "ConditionalFormattingIconSetFlags3";
-            spreadsheetCommandGalleryItemGroup13.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            spreadsheetCommandGalleryItem103,
-            spreadsheetCommandGalleryItem104,
-            spreadsheetCommandGalleryItem105});
-            spreadsheetCommandGalleryItemGroup14.CommandName = "ConditionalFormattingIconSetsRatingsCommandGroup";
-            spreadsheetCommandGalleryItem106.CommandName = "ConditionalFormattingIconSetStars3";
-            spreadsheetCommandGalleryItem107.CommandName = "ConditionalFormattingIconSetRatings4";
-            spreadsheetCommandGalleryItem108.CommandName = "ConditionalFormattingIconSetRatings5";
-            spreadsheetCommandGalleryItem109.CommandName = "ConditionalFormattingIconSetQuarters5";
-            spreadsheetCommandGalleryItem110.CommandName = "ConditionalFormattingIconSetBoxes5";
-            spreadsheetCommandGalleryItemGroup14.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            spreadsheetCommandGalleryItem106,
-            spreadsheetCommandGalleryItem107,
-            spreadsheetCommandGalleryItem108,
-            spreadsheetCommandGalleryItem109,
-            spreadsheetCommandGalleryItem110});
+            spreadsheetCommandGalleryItemGroup4.CommandName = "ConditionalFormattingIconSetsDirectionalCommandGroup";
+            spreadsheetCommandGalleryItem36.CommandName = "ConditionalFormattingIconSetArrows3Colored";
+            spreadsheetCommandGalleryItem37.CommandName = "ConditionalFormattingIconSetArrows3Grayed";
+            spreadsheetCommandGalleryItem38.CommandName = "ConditionalFormattingIconSetArrows4Colored";
+            spreadsheetCommandGalleryItem39.CommandName = "ConditionalFormattingIconSetArrows4Grayed";
+            spreadsheetCommandGalleryItem40.CommandName = "ConditionalFormattingIconSetArrows5Colored";
+            spreadsheetCommandGalleryItem41.CommandName = "ConditionalFormattingIconSetArrows5Grayed";
+            spreadsheetCommandGalleryItem42.CommandName = "ConditionalFormattingIconSetTriangles3";
+            spreadsheetCommandGalleryItemGroup4.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            spreadsheetCommandGalleryItem36,
+            spreadsheetCommandGalleryItem37,
+            spreadsheetCommandGalleryItem38,
+            spreadsheetCommandGalleryItem39,
+            spreadsheetCommandGalleryItem40,
+            spreadsheetCommandGalleryItem41,
+            spreadsheetCommandGalleryItem42});
+            spreadsheetCommandGalleryItemGroup5.CommandName = "ConditionalFormattingIconSetsShapesCommandGroup";
+            spreadsheetCommandGalleryItem43.CommandName = "ConditionalFormattingIconSetTrafficLights3";
+            spreadsheetCommandGalleryItem44.CommandName = "ConditionalFormattingIconSetTrafficLights3Rimmed";
+            spreadsheetCommandGalleryItem45.CommandName = "ConditionalFormattingIconSetTrafficLights4";
+            spreadsheetCommandGalleryItem46.CommandName = "ConditionalFormattingIconSetSigns3";
+            spreadsheetCommandGalleryItem47.CommandName = "ConditionalFormattingIconSetRedToBlack";
+            spreadsheetCommandGalleryItemGroup5.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            spreadsheetCommandGalleryItem43,
+            spreadsheetCommandGalleryItem44,
+            spreadsheetCommandGalleryItem45,
+            spreadsheetCommandGalleryItem46,
+            spreadsheetCommandGalleryItem47});
+            spreadsheetCommandGalleryItemGroup6.CommandName = "ConditionalFormattingIconSetsIndicatorsCommandGroup";
+            spreadsheetCommandGalleryItem48.CommandName = "ConditionalFormattingIconSetSymbols3Circled";
+            spreadsheetCommandGalleryItem49.CommandName = "ConditionalFormattingIconSetSymbols3";
+            spreadsheetCommandGalleryItem50.CommandName = "ConditionalFormattingIconSetFlags3";
+            spreadsheetCommandGalleryItemGroup6.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            spreadsheetCommandGalleryItem48,
+            spreadsheetCommandGalleryItem49,
+            spreadsheetCommandGalleryItem50});
+            spreadsheetCommandGalleryItemGroup7.CommandName = "ConditionalFormattingIconSetsRatingsCommandGroup";
+            spreadsheetCommandGalleryItem51.CommandName = "ConditionalFormattingIconSetStars3";
+            spreadsheetCommandGalleryItem52.CommandName = "ConditionalFormattingIconSetRatings4";
+            spreadsheetCommandGalleryItem53.CommandName = "ConditionalFormattingIconSetRatings5";
+            spreadsheetCommandGalleryItem54.CommandName = "ConditionalFormattingIconSetQuarters5";
+            spreadsheetCommandGalleryItem55.CommandName = "ConditionalFormattingIconSetBoxes5";
+            spreadsheetCommandGalleryItemGroup7.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            spreadsheetCommandGalleryItem51,
+            spreadsheetCommandGalleryItem52,
+            spreadsheetCommandGalleryItem53,
+            spreadsheetCommandGalleryItem54,
+            spreadsheetCommandGalleryItem55});
             this.commandBarGalleryDropDown4.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            spreadsheetCommandGalleryItemGroup11,
-            spreadsheetCommandGalleryItemGroup12,
-            spreadsheetCommandGalleryItemGroup13,
-            spreadsheetCommandGalleryItemGroup14});
+            spreadsheetCommandGalleryItemGroup4,
+            spreadsheetCommandGalleryItemGroup5,
+            spreadsheetCommandGalleryItemGroup6,
+            spreadsheetCommandGalleryItemGroup7});
             this.commandBarGalleryDropDown4.Gallery.ImageSize = new System.Drawing.Size(32, 32);
             this.commandBarGalleryDropDown4.Gallery.ShowScrollBar = DevExpress.XtraBars.Ribbon.Gallery.ShowScrollBar.Auto;
             this.commandBarGalleryDropDown4.Manager = this.barManager1;
@@ -2118,7 +2118,7 @@
             this.Name = "EmpMultiAdd";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "EmpMutiAdd";
+            this.Text = "다중 추가";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();

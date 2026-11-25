@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace WindowsFormsApp2.Utils
 {
-    internal class ValidationRule
+    internal static class ValidationRule
     {
         // 비밀번호 규칙(영문,숫자 포함 8자리 이상)
         public static bool PasswordCheck(string pass)
@@ -27,7 +27,7 @@ namespace WindowsFormsApp2.Utils
 
         }
 
-        // 휴대전화 번호 하이폰 규칙 ( 000-0000-0000..)
+        // 휴대전화 번호 하이픈 규칙 ( 000-0000-0000..)
         public static string PhoneRule(string phone) 
         {
             string digits = new string(phone.Where(char.IsDigit).ToArray());

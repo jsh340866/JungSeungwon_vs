@@ -66,7 +66,7 @@ namespace WindowsFormsApp2.Forms
             저장.Enabled = false;
             try
             {
-                await new EmpService().MutiAddAsync(Sheet);
+                await new EmpService().MultiAddAsync(Sheet);
                 MessageBox.Show("사원 정보가 저장되었습니다.");
                 this.DialogResult = DialogResult.OK;
             }

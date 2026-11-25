@@ -186,9 +186,9 @@
             this.label1.Location = new System.Drawing.Point(9, 8);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 17);
+            this.label1.Size = new System.Drawing.Size(47, 17);
             this.label1.TabIndex = 1;
-            this.label1.Text = "로그인정보";
+            this.label1.Text = "로그인";
             // 
             // 아이디기억
             // 
@@ -220,7 +220,7 @@
             this.Name = "Login";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "로그인폼";
+            this.Text = "로그인";
             this.bdrPassword.ResumeLayout(false);
             this.inPassword.ResumeLayout(false);
             this.inPassword.PerformLayout();

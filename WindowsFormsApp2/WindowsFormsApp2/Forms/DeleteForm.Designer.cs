@@ -127,7 +127,7 @@
             this.Padding = new System.Windows.Forms.Padding(1);
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "EmployeeDeleteForm";
+            this.Text = "삭제";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

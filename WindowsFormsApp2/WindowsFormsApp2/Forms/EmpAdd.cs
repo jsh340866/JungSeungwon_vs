@@ -23,7 +23,7 @@ namespace WindowsFormsApp2.Forms
             this.저장.Click += 저장btn_Click;
             this.남.Click += 남자체크_Check;
             this.여.Click += 여자체크_Check;
-            this.휴대전화.Leave += 휴대전화_하이폰규칙_Leave;
+            this.휴대전화.Leave += 휴대전화_하이픈규칙_Leave;
             this.cbo상위부서코드.SelectedIndexChanged += 상위부서코드_SelectedIndexChanged;
             this.cbo부서코드.SelectedIndexChanged += 부서코드_SelectedIndexChanged;
         }
@@ -141,8 +141,8 @@ namespace WindowsFormsApp2.Forms
             if (여.Checked == true){ 남.Checked = false; }
         }
 
-        // 휴대폰번호 하이폰 규칙
-        private void 휴대전화_하이폰규칙_Leave(object sender, EventArgs e)
+        // 휴대폰번호 하이픈 규칙
+        private void 휴대전화_하이픈규칙_Leave(object sender, EventArgs e)
         {
             휴대전화.Text = ValidationRule.PhoneRule(휴대전화.Text);
         }

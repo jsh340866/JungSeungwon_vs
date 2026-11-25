@@ -1,5 +1,4 @@
 ﻿
-using DevExpress.XtraLayout.Customization;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -122,7 +121,7 @@ namespace WindowsFormsApp2.Services
             {
                 await new DepartmentRepository().DeleteAsync(deptId);
             }
-            // 소속 사원이 있는 부서를 삭제하면 외래키 졔약조건 위반이 발생
+            // 소속 사원이 있는 부서를 삭제하면 외래키 제약조건 위반이 발생
             catch (SqlException ex) when (ex.Number == 547)
             {
                 // 사원이 참조 중인 부서이면 메시지 담아 예외처리

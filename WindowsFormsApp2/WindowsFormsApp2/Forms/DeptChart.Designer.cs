@@ -144,7 +144,7 @@
             this.Name = "DeptChart";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "DeptChart";
+            this.Text = "차트";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);

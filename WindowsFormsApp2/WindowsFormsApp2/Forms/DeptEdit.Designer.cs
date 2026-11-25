@@ -387,7 +387,7 @@
             this.Name = "DeptEdit";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "DeptEditForm";
+            this.Text = "부서 수정";
             this.panel8.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel10.ResumeLayout(false);

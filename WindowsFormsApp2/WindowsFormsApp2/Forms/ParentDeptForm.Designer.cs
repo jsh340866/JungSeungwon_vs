@@ -210,7 +210,7 @@
             this.Name = "ParentDeptForm";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ParentForm";
+            this.Text = "상위부서";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.pnlGrid.ResumeLayout(false);

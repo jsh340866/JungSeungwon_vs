@@ -1,10 +1,13 @@
-﻿namespace WindowsFormsApp2.Utils
+﻿
+using System.Configuration;
+
+namespace WindowsFormsApp2.Utils
 {
     // DB 연결 설정
     internal static class Config
     {
-        public const string Connstr =
-            "Server=(localdb)\\MSSQLLocalDB;Database=testdb;Trusted_Connection=True;";
+        public static readonly string Connstr =
+            ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
     }
 }
     

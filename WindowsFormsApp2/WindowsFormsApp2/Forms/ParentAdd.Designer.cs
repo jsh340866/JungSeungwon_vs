@@ -288,7 +288,7 @@
             this.Name = "ParentAdd";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ParentAddForm";
+            this.Text = "상위 부서 추가";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnlPhone.ResumeLayout(false);

@@ -216,14 +216,13 @@ namespace WindowsFormsApp2.Services
             if (string.IsNullOrWhiteSpace(loginId)) { throw new BusinessException("ID를 입력해주세요."); }
             if (string.IsNullOrWhiteSpace(password)) { throw new BusinessException("비밀번호를 입력해주세요."); }
 
-            // 입력한 로그인ID의 사원dto를 가져와 로그인ID와 비밀번호 확인 후 같지 않으면 메시지 담아 예외처리
-            var Emp = await new EmployeeRepository().LoginInfoAsync(loginId);
-            var user = Emp.FirstOrDefault(u => u.LoginId == loginId) ?? throw new BusinessException("존재하지않는 ID입니다.");
+            // 입력한 로그인ID를 db에서 확인해 없으면 예외처리 메시지 담기, 비밀번호 확인 후 없으면 예외처리 메시지 담기
+            var user = await new EmployeeRepository().LoginInfoAsync(loginId) ?? throw new BusinessException("존재하지않는 ID입니다.");
             if (user.Password != password) { throw new BusinessException("비밀번호가 정확하지 않습니다, 다시 시도해주세요"); }
         }
 
         // 사원 다중 추가
-        public async Task MutiAddAsync(Worksheet sheet)
+        public async Task MultiAddAsync(Worksheet sheet)
         {
             // 데이터입력 범위지정, 처음부터 입력한 행까지
             CellRange range = sheet.GetDataRange();
@@ -243,7 +242,6 @@ namespace WindowsFormsApp2.Services
                 DataRow dr = dt.Rows[i];
                 int row = i + 2;
                 
-
                 // 필수값 지정
                 if (string.IsNullOrWhiteSpace(dr["부서코드"].ToString())) { throw new BusinessException(row + "행의 부서코드를 입력해주세요."); }
                 if (string.IsNullOrWhiteSpace(dr["사원코드"].ToString())) { throw new BusinessException(row + "행의 사원코드를 입력해주세요."); }

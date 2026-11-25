@@ -171,9 +171,8 @@ namespace WindowsFormsApp2.Repository
         }
 
         // 로그인
-        public async Task<List<Employee>> LoginInfoAsync(string LoginId)
+        public async Task<Employee> LoginInfoAsync(string LoginId)
         {
-            var list = new List<Employee>();
             using (var conn = new SqlConnection(Config.Connstr))
             {
                 await conn.OpenAsync();
@@ -183,19 +182,20 @@ namespace WindowsFormsApp2.Repository
                     cmd.Parameters.AddWithValue("@LoginId", LoginId ?? (object)DBNull.Value);
                     using (var r = await cmd.ExecuteReaderAsync())
                     {
-                        while (await r.ReadAsync())
+                        // 행이 있으면 읽어서 리턴, 없으면 null로 리턴
+                        if (await r.ReadAsync())
                         {
-                            list.Add(new Employee
+                            return new Employee
                             {
                                 EmpId = r.GetInt32(0),
                                 LoginId = r.GetString(1),
                                 Password = r.GetString(2),
-                            });
+                            };
                         }
                     }
                 }
             }
-            return list;
+            return null;
         }
 
         // spreadsheetcontrol 데이터테이블 받아 DB에 저장

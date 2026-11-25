@@ -205,7 +205,7 @@
             this.Name = "LoginInfo";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "LoginInfoForm";
+            this.Text = "로그인정보";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.bdrLogin.ResumeLayout(false);

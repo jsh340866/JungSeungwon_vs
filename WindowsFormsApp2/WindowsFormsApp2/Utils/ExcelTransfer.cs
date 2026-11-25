@@ -12,7 +12,7 @@ namespace WindowsFormsApp2.Utils
             using (var dlg = new SaveFileDialog())
             {
                 dlg.Filter = "Excel 파일 (*.xlsx)|*.xlsx|PDF 파일 (*.pdf)|*.pdf|CSV 파일 (*.csv)|*.csv";
-                dlg.FileName = $"{filename}_{DateTime.Now:yyyy/MM/dd}"; // 파일명 + 저장날짜
+                dlg.FileName = $"{filename}_{DateTime.Now:yyyy-MM-dd}"; // 파일명 + 저장날짜
 
                 // 파일저장 취소시 엑셀 변환 x
                 if (dlg.ShowDialog() != DialogResult.OK) { return; }

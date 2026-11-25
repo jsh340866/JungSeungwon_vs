@@ -876,7 +876,7 @@
             this.Name = "EmpEdit";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "EmployeeEditForm";
+            this.Text = "사원 수정";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnlMemo.ResumeLayout(false);

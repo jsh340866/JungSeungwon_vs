@@ -27,7 +27,7 @@ namespace WindowsFormsApp2.Forms
             this.cbo부서코드.SelectedIndexChanged += 부서코드_SelectedIndexChanged;
             this.남.Click += 남자체크_Check;
             this.여.Click += 여자체크_Check;
-            this.휴대전화.Leave += 휴대전화_하이폰규칙_Leave;
+            this.휴대전화.Leave += 휴대전화_하이픈규칙_Leave;
 
             // 수정 전 기존 값 박스에 담기
             사원코드.Text = emp.EmpCode;
@@ -187,8 +187,8 @@ namespace WindowsFormsApp2.Forms
 
         }
 
-        // 휴대전화 번호 하이폰 규칙
-        private void 휴대전화_하이폰규칙_Leave(object sender, EventArgs e)
+        // 휴대전화 번호 하이픈 규칙
+        private void 휴대전화_하이픈규칙_Leave(object sender, EventArgs e)
         {
             휴대전화.Text = ValidationRule.PhoneRule(휴대전화.Text);
         }

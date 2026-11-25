@@ -299,7 +299,7 @@
             this.Name = "DeptForm";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "DepartmentForm";
+            this.Text = "부서";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3.Panel1)).EndInit();

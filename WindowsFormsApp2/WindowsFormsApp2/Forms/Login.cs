@@ -28,7 +28,7 @@ namespace WindowsFormsApp2.Forms
         }
 
         // 폼 테두리
-        private void 테두리_Paint(object sensor, PaintEventArgs e)
+        private void 테두리_Paint(object sender, PaintEventArgs e)
         {
             using (var pen = new Pen(Color.FromArgb(171, 171, 171), 1))
             {
@@ -37,13 +37,13 @@ namespace WindowsFormsApp2.Forms
         }
 
         // 닫기
-        private void 닫기btn_Click(object sensor, EventArgs e)
+        private void 닫기btn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         // 저장(로그인)
-        private async void 저장btn_Click(object sensor, EventArgs e)
+        private async void 저장btn_Click(object sender, EventArgs e)
         {
             
             저장.Enabled = false;
