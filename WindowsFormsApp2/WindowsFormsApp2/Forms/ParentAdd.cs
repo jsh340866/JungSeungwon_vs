@@ -58,7 +58,7 @@ namespace WindowsFormsApp2.Forms
             }
             finally { 저장.Enabled = true; }
         }
-
+        
         // 취소
         private void 취소btn_Click(object sender, EventArgs e)
         {

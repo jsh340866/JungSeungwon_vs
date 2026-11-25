@@ -58,7 +58,6 @@ namespace WindowsFormsApp2.Repository
                     cmd.Parameters.AddWithValue("@ParentDeptId", pdeptId);
                     await cmd.ExecuteNonQueryAsync();
                 }
-
             }
         }
 

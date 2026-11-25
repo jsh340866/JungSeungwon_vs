@@ -148,8 +148,8 @@ namespace WindowsFormsApp2.Services
                 {
                     throw new BusinessException("이미 존재하는 로그인ID입니다.");
                 }
-                throw new BusinessException("중복된 값이 존재합니다");
                 // 그 외 중복 에러시 메세지 담아 예외처리
+                throw new BusinessException("중복된 값이 존재합니다");
             }
             // 나머지 에러 발생시 로그 기록
             catch (Exception ex)
