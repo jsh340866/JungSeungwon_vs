@@ -109,7 +109,7 @@
             this.취소.Text = "취소";
             this.취소.UseVisualStyleBackColor = false;
             // 
-            // Delete
+            // DeleteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -120,10 +120,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.메시지);
             this.Controls.Add(this.EmployeeDelete);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Delete";
+            this.Name = "DeleteForm";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

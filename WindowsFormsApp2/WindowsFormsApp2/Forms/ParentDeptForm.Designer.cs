@@ -205,7 +205,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.pnlGrid);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ParentDeptForm";
             this.Padding = new System.Windows.Forms.Padding(1);

@@ -42,6 +42,7 @@ namespace WindowsFormsApp2.Forms
                 e.Graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1);
             }
         }
+
         // 그리드 갱신
         private async Task GridUpdateAsync()
         {
@@ -80,6 +81,7 @@ namespace WindowsFormsApp2.Forms
 
             if (D.DialogResult == DialogResult.OK)
             {
+                // 서비스 호출후 삭제, 두 번 연속으로 클릭 방지
                 삭제.Enabled = false;
                 try
                 {
@@ -87,15 +89,17 @@ namespace WindowsFormsApp2.Forms
                     MessageBox.Show("삭제되었습니다.");
                     await GridUpdateAsync();
                 }
+                // 서비스에 예외처리한 BusinessException에 걸리면 메시지 출력
                 catch (BusinessException ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-                // 나머지 제약조건 위반시 예외처리 및 로그
+                // 나머지 제약조건 위반시 메시지 출력
                 catch 
                 {
                     MessageBox.Show("삭제 중 오류가 발생했습니다.");
                 }
+                // 클릭 다시 허용
                 finally { 삭제.Enabled = true; }
 
             }

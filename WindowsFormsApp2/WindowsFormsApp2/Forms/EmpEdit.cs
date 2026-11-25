@@ -63,7 +63,7 @@ namespace WindowsFormsApp2.Forms
         {
             try
             {
-                // 상위부서코드 데이터소스를 넣으면 SelectedIndexChanged가 바로 실행되므로 그 전에 dept를 미리 담아둠
+                // 상위부서코드 데이터소스를 넣으면 SelectedIndexChanged가 바로 실행되므로 그 전에 dept를 미리 담기
                 dept = await new DeptService().GetAllAsync();
 
                 // 상위부서코드 -> 부서코드 콤보박스 드랍다운리스트 연동
@@ -97,7 +97,6 @@ namespace WindowsFormsApp2.Forms
                 MessageBox.Show("부서 정보를 불러오지 못했습니다.");
             }
         }
-
 
         // 상위부서코드 콤보박스 변경시 상위부서명 자동변경
         private void 상위부서코드_SelectedIndexChanged(object sender, EventArgs e)
@@ -165,7 +164,7 @@ namespace WindowsFormsApp2.Forms
                 EmpId = this.EmpId
             };
 
-            // 수정값 서비스에 요청
+            // 서비스 호출해 수정값 저장, 연속클릭방지로 Enabled = false
             저장.Enabled = false;
             try
             {
@@ -183,6 +182,7 @@ namespace WindowsFormsApp2.Forms
             {
                 MessageBox.Show("사원 정보 저장 중 오류가 발생했습니다.");
             }
+            // 마지막에 클릭 다시 true
             finally { 저장.Enabled = true; }
 
         }

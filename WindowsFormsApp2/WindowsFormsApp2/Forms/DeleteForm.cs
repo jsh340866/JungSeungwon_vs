@@ -16,7 +16,6 @@ namespace WindowsFormsApp2.Forms
 
             제목.Text = title;
             메시지.Text = msg;
-
         }
 
         // 취소

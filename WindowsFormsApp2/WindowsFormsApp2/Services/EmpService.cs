@@ -217,7 +217,7 @@ namespace WindowsFormsApp2.Services
             if (string.IsNullOrWhiteSpace(password)) { throw new BusinessException("비밀번호를 입력해주세요."); }
 
             // 입력한 로그인ID의 사원dto를 가져와 로그인ID와 비밀번호 확인 후 같지 않으면 메시지 담아 예외처리
-            var Emp = await new EmployeeRepository().LoginInfoAsync();
+            var Emp = await new EmployeeRepository().LoginInfoAsync(loginId);
             var user = Emp.FirstOrDefault(u => u.LoginId == loginId) ?? throw new BusinessException("존재하지않는 ID입니다.");
             if (user.Password != password) { throw new BusinessException("비밀번호가 정확하지 않습니다, 다시 시도해주세요"); }
         }
@@ -260,10 +260,9 @@ namespace WindowsFormsApp2.Services
                     throw new BusinessException(row + "행의 이메일을 다시 입력해주세요. \n"); 
                 }
                 // 휴대전화 하이폰 규칙
-                string phone = dr["휴대전화"].ToString();
                 if (!string.IsNullOrWhiteSpace(dr["휴대전화"].ToString()))
                 {
-                    dr["휴대전화"] = ValidationRule.PhoneRule(phone);
+                    dr["휴대전화"] = ValidationRule.PhoneRule(dr["휴대전화"].ToString());
                 }
             }
 

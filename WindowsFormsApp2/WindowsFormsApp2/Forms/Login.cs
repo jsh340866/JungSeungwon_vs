@@ -27,7 +27,6 @@ namespace WindowsFormsApp2.Forms
             ActiveControl = 아이디기억.Checked ? 비밀번호 : 로그인ID;
         }
 
-
         // 폼 테두리
         private void 테두리_Paint(object sensor, PaintEventArgs e)
         {

@@ -55,7 +55,6 @@ namespace WindowsFormsApp2.Forms
             {
                 MessageBox.Show("부서 정보를 불러오지 못했습니다.");
             }
-            
         }
         
         // 폼 테두리
@@ -92,7 +91,8 @@ namespace WindowsFormsApp2.Forms
                 ParentDeptId = (int?)cbo상위부서코드.SelectedValue,
                 Memo = string.IsNullOrWhiteSpace(메모.Text) ? null : 메모.Text
             };
-            // 수정 값 DB에 저장
+
+            // 수정 값 DB에 저장, 연속 클릭방지 Enabled = false;
             저장.Enabled = false;
             try
             {
@@ -110,6 +110,7 @@ namespace WindowsFormsApp2.Forms
             {
                 MessageBox.Show("부서 수정 중 오류가 발생했습니다.");
             }
+            // 마지막에 다시 true로 변경
             finally { 저장.Enabled = true; }
         }
     }

@@ -171,15 +171,16 @@ namespace WindowsFormsApp2.Repository
         }
 
         // 로그인
-        public async Task<List<Employee>> LoginInfoAsync()
+        public async Task<List<Employee>> LoginInfoAsync(string LoginId)
         {
             var list = new List<Employee>();
             using (var conn = new SqlConnection(Config.Connstr))
             {
                 await conn.OpenAsync();
-                string sql = @"SELECT EmpId ,LoginId, Password FROM dbo.Employee";
+                string sql = @"SELECT EmpId ,LoginId, Password FROM dbo.Employee WHERE LoginId = @LoginId";
                 using (var cmd = new SqlCommand(sql, conn))
                 {
+                    cmd.Parameters.AddWithValue("@LoginId", LoginId ?? (object)DBNull.Value);
                     using (var r = await cmd.ExecuteReaderAsync())
                     {
                         while (await r.ReadAsync())

@@ -23,6 +23,7 @@ namespace WindowsFormsApp2.Forms
             {
                 treeList1.DataSource = await new DeptService().TreeDataTableAsync();
             }
+            // 문제 생기면 메시지 출력
             catch
             {
                 MessageBox.Show("부서 정보를 불러오지 못했습니다.");
@@ -37,6 +38,7 @@ namespace WindowsFormsApp2.Forms
                 e.Graphics.DrawRectangle(pen,0,0,Width-1,Height-1);
             }
         }
+
         // 닫기
         private void 닫기btn_Click(object sender, EventArgs e)
         {

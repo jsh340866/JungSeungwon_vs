@@ -73,7 +73,7 @@ namespace WindowsFormsApp2.Forms
             dept.ParentDeptId = (int?)cbo상위부서코드.SelectedValue;
             dept.Memo = string.IsNullOrWhiteSpace(메모.Text) ? null : 메모.Text;
 
-            // 서비스 호출
+            // 서비스 호출, 비동기처리로 버튼 두번 눌리는 것 방지
             저장.Enabled = false;
             try
             {
@@ -81,7 +81,7 @@ namespace WindowsFormsApp2.Forms
                 MessageBox.Show("부서 정보가 저장되었습니다.");
                 this.DialogResult = DialogResult.OK;
             }
-            // 유니크키 중복으로 Sql에러 발생시 예외처리
+            // 서비스에 예외처리한 BusinessException 걸리면 메시지 출력
             catch (BusinessException ex)
             {
                 MessageBox.Show(ex.Message);
@@ -91,6 +91,7 @@ namespace WindowsFormsApp2.Forms
             {
                 MessageBox.Show("부서 추가 중 오류가 발생하였습니다.");
             }
+            // 마지막에 저장버튼 다시 허용
             finally { 저장.Enabled = true; }
         }
 

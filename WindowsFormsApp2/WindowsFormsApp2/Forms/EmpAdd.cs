@@ -33,7 +33,7 @@ namespace WindowsFormsApp2.Forms
         {
             try
             {
-                // 상위부서코드 데이터소스를 넣으면 SelecteIndexChanged가 바로 실행되므로 그 전에 dept를 먼저 담아둠
+                // 상위부서코드 데이터소스를 넣으면 SelecteIndexChanged가 바로 실행되므로 그 전에 dept를 먼저 담기
                 dept = await new DeptService().GetAllAsync();
 
                 // 상위부서코드 -> 부서코드 콤보박스 드롭박스리스트 연동
@@ -60,7 +60,7 @@ namespace WindowsFormsApp2.Forms
             상위부서명.Text = p?.ParentDeptName;
 
             // 부서코드 콤보박스 리스트 상위부서코드에 따라 변경
-            cbo부서코드.DataSource = dept.Where(d => d.ParentDeptId == p.ParentDeptId && p != null).ToList();
+            cbo부서코드.DataSource = dept.Where(d => p != null && d.ParentDeptId == p.ParentDeptId ).ToList();
         }
 
         // 부서코드 콤보박스에 따라 부서명 변경
@@ -88,7 +88,6 @@ namespace WindowsFormsApp2.Forms
         // 사원 추가 저장
         private async void 저장btn_Click(object sender, EventArgs e)
         {
-
             // 사원정보 메모리에 담기
             EmployeeDto emp = new EmployeeDto
             {
@@ -108,7 +107,7 @@ namespace WindowsFormsApp2.Forms
                 Memo = string.IsNullOrWhiteSpace(메모.Text) ? null : 메모.Text
             };
 
-            // 사원정보 db에 저장
+            // 사원정보 db에 저장, 연속클릭방지 Enabled = false;
             저장.Enabled = false;
             try
             {
@@ -126,6 +125,7 @@ namespace WindowsFormsApp2.Forms
             {
                 MessageBox.Show("사원 추가 중 오류가 발생했습니다.");
             }
+            // 마지막 true로 다시 허용
             finally{ 저장.Enabled = true; }
         }
 
