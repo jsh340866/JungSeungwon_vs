@@ -9,6 +9,7 @@ using WindowsFormsApp2.Dtos;
 using WindowsFormsApp2.Repository;
 using WindowsFormsApp2.Utils;
 using WindowsFormsApp2.Entity;
+using DevExpress.XtraRichEdit.Model;
 
 namespace WindowsFormsApp2.Services
 {
@@ -36,6 +37,11 @@ namespace WindowsFormsApp2.Services
             return parent.Where(p => p.ParentDeptId == null).ToList();
         }
 
+        public async Task<List<DepartmentDto>> GetChildAsync(int deptId)
+        {
+            var child = await deptRepo.GetAllAsync();
+            return child.Where(c => c.ParentDeptId == deptId).ToList();
+        }
 
         // 부서 추가
         public async Task AddAsync(DepartmentDto dto)
@@ -124,6 +130,16 @@ namespace WindowsFormsApp2.Services
         // 부서 삭제
         public async Task DeleteAsync(int deptId)
         {
+            // 부서정보 전체조회
+            var dept = await deptRepo.GetAllAsync();
+
+            // 부서가 존재하는 상위부서를 삭제하는지 검사
+            if(dept.Any(d => d.ParentDeptId == deptId))
+            {
+                throw new BusinessException("소속 부서가 존재하는 부서는 삭제할 수 없습니다.");
+            }
+            
+            // 레파지토리 호출후 db에서 삭제
             try
             {
                 await deptRepo.DeleteAsync(deptId);
@@ -136,6 +152,7 @@ namespace WindowsFormsApp2.Services
                 {
                     throw new BusinessException("소속 사원이 존재하는 부서는 삭제할 수 없습니다.");
                 }
+                // 그 외 제약조건 위반시 메시지 담아 예외처리
                 throw new BusinessException("삭제할 수 없는 상태입니다.");
             }
             // 나머지 에러시 로그 기록
@@ -149,7 +166,7 @@ namespace WindowsFormsApp2.Services
         // 부서 트리 메서드
         public async Task<DataTable> TreeDataTableAsync()
         {
-            var pdept = await new ParentDepartmentRepository().GetAllAsync();
+            var pdept = await GetParentAsync();
             var dept = await deptRepo.GetAllAsync();
             var emp = await new EmployeeRepository().GetAllAsync();
 
@@ -166,7 +183,7 @@ namespace WindowsFormsApp2.Services
             foreach (var p in pdept)
             {
                 // P+Id, null(상위부서라 더 상위가 없음), 상위부서코드, 상위부서명
-                dt.Rows.Add("P" + p.ParentDeptId, DBNull.Value, p.ParentDeptCode, p.ParentDeptName);
+                dt.Rows.Add("P" + p.DeptId, DBNull.Value, p.DeptCode, p.DeptName);
             }
             foreach (var d in dept)
             {
@@ -193,7 +210,7 @@ namespace WindowsFormsApp2.Services
             return dept.Select(d => new DeptChartDto
             {
                 // 차트 x축, 상위부서의 ParentDeptId 와 부서의 ParentDeptId가 같은 pdept의 ParentDeptName을 표시, 상위부서가 없으면 null
-                ParentDeptName_X = pdept.FirstOrDefault(p => p.ParentDeptId == d.ParentDeptId)?.ParentDeptName,
+                ParentDeptName_X = pdept.FirstOrDefault(p => p.DeptId == d.DeptId)?.DeptName,
                 // 차트의 시리즈 기준, 부서명으로 표시
                 DeptName_S = d.DeptName,
                 // 차트 y축, 부서의 사원수, 같은 상위부서끼리 쌓임

@@ -15,7 +15,7 @@ namespace WindowsFormsApp2.Services
         private readonly ParentDepartmentRepository pdeptRepo = new ParentDepartmentRepository();
 
         // 상위부서 전체 조회
-        public async Task<List<ParentDepartmentDto>> GetAllAsync()
+        public async Task<List<DepartmentDto>> GetAllAsync()
         {
             try
             {
@@ -29,14 +29,14 @@ namespace WindowsFormsApp2.Services
         }
 
         // 상위부서 추가
-        public async Task AddAsync(ParentDepartmentDto dto)
+        public async Task AddAsync(DepartmentDto dto)
         {
             // 필수값 지정
             if (string.IsNullOrWhiteSpace(dto.ParentDeptCode)) { throw new BusinessException("상위부서코드는 필수기재사항입니다.");}
             if (string.IsNullOrWhiteSpace(dto.ParentDeptName)) { throw new BusinessException("상위부서명은 필수기재사항입니다.");}
 
             // Dto -> Entity로 변환
-            var entity = new ParentDepartment
+            var entity = new Department
             {
                 ParentDeptCode = dto.ParentDeptCode,
                 ParentDeptName = dto.ParentDeptName,
@@ -66,19 +66,19 @@ namespace WindowsFormsApp2.Services
         }
         
         // 상위부서 수정 
-        public async Task EditAsync(ParentDepartmentDto dto)
+        public async Task EditAsync(DepartmentDto dto)
         {
             // 필수값 지정
             if (string.IsNullOrWhiteSpace(dto.ParentDeptName)) { throw new BusinessException("상위부서명은 필수기재사항입니다."); }
             if (string.IsNullOrWhiteSpace(dto.ParentDeptCode)) { throw new BusinessException("상위부서코드는 필수기재사항입니다."); }
 
             // dto -> entity 변환
-            var entity = new ParentDepartment
+            var entity = new Department
             {
-                ParentDeptId = dto.ParentDeptId,
-                ParentDeptCode = dto.ParentDeptCode,
-                ParentDeptName = dto.ParentDeptName,
-                ParentMemo = dto.ParentMemo
+                DeptId = dto.DeptId,
+                DeptCode = dto.DeptCode,
+                DeptName = dto.DeptName,
+                Memo = dto.Memo
             };
             
             // 수정값 레파지토리 호출 후 db에 저장 

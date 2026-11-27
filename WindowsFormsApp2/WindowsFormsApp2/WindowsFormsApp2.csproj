@@ -98,10 +98,8 @@
   <ItemGroup>
     <Compile Include="Dtos\DeptChartDto.cs" />
     <Compile Include="Dtos\DepartmentDto.cs" />
-    <Compile Include="Dtos\ParentDepartmentDto.cs" />
     <Compile Include="Entity\Department.cs" />
     <Compile Include="Entity\Employee.cs" />
-    <Compile Include="Entity\ParentDepartment.cs" />
     <Compile Include="Forms\DeptAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,10 +155,8 @@
       <DependentUpon>ParentDeptForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Repository\DepartmentRepository.cs" />
-    <Compile Include="Repository\ParentDepartmentRepository.cs" />
     <Compile Include="Services\DeptService.cs" />
     <Compile Include="Services\EmpService.cs" />
-    <Compile Include="Services\ParentService.cs" />
     <Compile Include="Utils\Config.cs" />
     <Compile Include="Forms\DeptForm.cs">
       <SubType>Form</SubType>

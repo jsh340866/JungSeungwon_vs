@@ -22,7 +22,7 @@ namespace WindowsFormsApp2.Forms
             로그인IDtxt.Text = Properties.Settings.Default.SavedLoginId;
             아이디기억.Checked = !string.IsNullOrWhiteSpace(로그인IDtxt.Text);
 
-            // 체크박스 체크되있으면 비밀번호, 아니라면 로그인ID에 커서 위치       
+               // 체크박스 체크되있으면 비밀번호, 아니라면 로그인ID에 커서 위치       
             ActiveControl = 아이디기억.Checked ? 비밀번호txt : 로그인IDtxt;
         }
 

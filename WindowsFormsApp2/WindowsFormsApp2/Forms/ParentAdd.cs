@@ -26,18 +26,18 @@ namespace WindowsFormsApp2.Forms
         private async void 저장btn_Click(object sender, EventArgs e)
         {
             // 입력한 상위부서 메모리에 담기
-            ParentDepartmentDto pdept = new ParentDepartmentDto
+            DepartmentDto pdept = new DepartmentDto
             {
-                ParentDeptName = 상위부서명txt.Text,
-                ParentDeptCode = 상위부서코드txt.Text,
-                ParentMemo = string.IsNullOrWhiteSpace(메모txt.Text) ? null : 메모txt.Text
+                DeptName = 상위부서명txt.Text,
+                DeptCode = 상위부서코드txt.Text,
+                Memo = string.IsNullOrWhiteSpace(메모txt.Text) ? null : 메모txt.Text
             };
           
             // 입력값 db에 저장
             저장btn.Enabled = false;
             try
             {
-                await new ParentService().AddAsync(pdept);
+                await new DeptService().AddAsync(pdept);
                 MessageBox.Show("상위부서가 추가되었습니다.");
                 this.DialogResult = DialogResult.OK;
             }

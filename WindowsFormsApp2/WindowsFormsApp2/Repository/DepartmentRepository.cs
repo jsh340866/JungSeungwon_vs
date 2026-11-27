@@ -19,8 +19,7 @@ namespace WindowsFormsApp2.Repository
             using (var conn = new SqlConnection(Config.Connstr))
             {
                 await conn.OpenAsync();
-                string sql = @"SELECT d.DeptId, d.DeptCode, d.DeptName, d.Memo, d.ParentDeptId,
-                                      p.DeptCode AS ParentDeptCode, p.DeptName AS ParentDeptName, p.Memo AS ParentMemo
+                string sql = @"SELECT d.DeptId, d.DeptCode, d.DeptName, d.Memo, d.ParentDeptId
                               FROM dbo.Department d
                               LEFT JOIN dbo.Department p ON p.DeptId = d.ParentDeptId
                               ORDER BY d.DeptCode";
@@ -36,10 +35,7 @@ namespace WindowsFormsApp2.Repository
                                 DeptCode = r.GetString(1),
                                 DeptName = r.GetString(2),
                                 Memo = GetStringOrNull(r, 3),
-                                ParentDeptId = GetIntOrNull(r, 4),
-                                ParentDeptCode = GetStringOrNull(r, 5),
-                                ParentDeptName = GetStringOrNull(r, 6),
-                                ParentMemo = GetStringOrNull(r, 7)
+                                ParentDeptId = GetIntOrNull(r, 4)
                             });
                         }
                     }

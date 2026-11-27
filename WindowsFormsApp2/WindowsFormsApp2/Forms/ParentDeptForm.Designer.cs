@@ -41,7 +41,7 @@
             this.그리드뷰 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.상위부서코드 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.상위부서명 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.메모 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.상위메모 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.그리드컨트롤)).BeginInit();
@@ -165,7 +165,7 @@
             this.그리드뷰.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.상위부서코드,
             this.상위부서명,
-            this.메모});
+            this.상위메모});
             this.그리드뷰.GridControl = this.그리드컨트롤;
             this.그리드뷰.Name = "그리드뷰";
             this.그리드뷰.OptionsBehavior.Editable = false;
@@ -176,7 +176,6 @@
             // 상위부서코드
             // 
             this.상위부서코드.Caption = "상위부서코드";
-            this.상위부서코드.FieldName = "ParentDeptCode";
             this.상위부서코드.Name = "상위부서코드";
             this.상위부서코드.Visible = true;
             this.상위부서코드.VisibleIndex = 0;
@@ -184,18 +183,16 @@
             // 상위부서명
             // 
             this.상위부서명.Caption = "상위부서명";
-            this.상위부서명.FieldName = "ParentDeptName";
             this.상위부서명.Name = "상위부서명";
             this.상위부서명.Visible = true;
             this.상위부서명.VisibleIndex = 1;
             // 
-            // 메모
+            // 상위메모
             // 
-            this.메모.Caption = "메모";
-            this.메모.FieldName = "ParentMemo";
-            this.메모.Name = "메모";
-            this.메모.Visible = true;
-            this.메모.VisibleIndex = 2;
+            this.상위메모.Caption = "메모";
+            this.상위메모.Name = "상위메모";
+            this.상위메모.Visible = true;
+            this.상위메모.VisibleIndex = 2;
             // 
             // ParentDeptForm
             // 
@@ -234,6 +231,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView 그리드뷰;
         private DevExpress.XtraGrid.Columns.GridColumn 상위부서코드;
         private DevExpress.XtraGrid.Columns.GridColumn 상위부서명;
-        private DevExpress.XtraGrid.Columns.GridColumn 메모;
+        private DevExpress.XtraGrid.Columns.GridColumn 상위메모;
     }
 }

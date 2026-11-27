@@ -9,7 +9,7 @@ namespace WindowsFormsApp2.Forms
     public partial class ParentEditForm : Form
     {
         private readonly int ParentDeptId;
-        public ParentEditForm(ParentDepartmentDto pdept)
+        public ParentEditForm(DepartmentDto dept)
         {
             InitializeComponent();
             this.Paint += 테두리_Paint;
@@ -17,10 +17,10 @@ namespace WindowsFormsApp2.Forms
             this.취소btn.Click += 취소btn_Click;
 
             // 수정 전 기존 값 텍스트박스에 담기
-            this.ParentDeptId = pdept.ParentDeptId;
-            상위부서코드txt.Text = pdept.ParentDeptCode;
-            상위부서명txt.Text = pdept.ParentDeptName;
-            상위메모txt.Text = pdept.ParentMemo;
+            this.ParentDeptId = dept.DeptId;
+            상위부서코드txt.Text = dept.DeptCode;
+            상위부서명txt.Text = dept.DeptName;
+            상위메모txt.Text = dept.Memo;
         }
 
         // 폼 테두리
@@ -39,18 +39,18 @@ namespace WindowsFormsApp2.Forms
         private async void 저장btn_Click(object sender, EventArgs e)
         {
             // 수정값 메모리에 담기
-            ParentDepartmentDto pdept = new ParentDepartmentDto
+            DepartmentDto dept = new DepartmentDto
             {
-                ParentDeptId = this.ParentDeptId,
-                ParentDeptCode = 상위부서코드txt.Text,
-                ParentDeptName = 상위부서명txt.Text,
-                ParentMemo = string.IsNullOrWhiteSpace(상위메모txt.Text) ? null : 상위메모txt.Text
+                DeptId = this.ParentDeptId,
+                DeptCode = 상위부서코드txt.Text,
+                DeptName = 상위부서명txt.Text,
+                Memo = string.IsNullOrWhiteSpace(상위메모txt.Text) ? null : 상위메모txt.Text
             };
             // 수정값 db에 저장 
             저장btn.Enabled = false;
             try
             {
-                await new ParentService().EditAsync(pdept);
+                await new DeptService().EditAsync(dept);
                 MessageBox.Show("상위부서가 수정되었습니다.");
                 this.DialogResult = DialogResult.OK;
             }

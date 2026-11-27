@@ -72,9 +72,9 @@ namespace WindowsFormsApp2.Forms
                 부서코드cbo.ValueMember = nameof(DepartmentDto.DeptId);
 
                 // 상위부서코드 콤보박스 보일값, 실제값 지정
-                상위부서코드cbo.DisplayMember = nameof(ParentDepartmentDto.ParentDeptCode);
-                상위부서코드cbo.ValueMember = nameof(ParentDepartmentDto.ParentDeptId);
-                상위부서코드cbo.DataSource = await new ParentService().GetAllAsync();
+                상위부서코드cbo.DisplayMember = nameof(DepartmentDto.DeptCode);
+                상위부서코드cbo.ValueMember = nameof(DepartmentDto.DeptId);
+                상위부서코드cbo.DataSource = await new DeptService().GetAllAsync();
 
                 // 수정 선택한 사원Id로 부서dto 값 찾기
                 DepartmentDto dto = dept.FirstOrDefault(d => d.DeptId == this.DeptId);
@@ -82,7 +82,7 @@ namespace WindowsFormsApp2.Forms
                 if (dto?.ParentDeptId != null)
                 {
                     // 찾은 부서dto로 상위부서코드 실제값 표기
-                    상위부서코드cbo.SelectedValue = dto.ParentDeptId.Value;
+                    상위부서코드cbo.SelectedValue = dto.DeptId;
                     // 부서코드 실제값 표기
                     부서코드cbo.SelectedValue = this.DeptId;
                 }
@@ -101,8 +101,8 @@ namespace WindowsFormsApp2.Forms
         // 상위부서코드 콤보박스 변경시 상위부서명 자동변경
         private void 상위부서코드_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ParentDepartmentDto p = 상위부서코드cbo.SelectedItem as ParentDepartmentDto;
-            상위부서명txt.Text = p?.ParentDeptName;
+            DepartmentDto p = 상위부서코드cbo.SelectedItem as DepartmentDto;
+            상위부서명txt.Text = p?.DeptName;
 
             // 부서코드 콤보박스 드랍다운리스트
             // 상위부서코드 콤보박스에 따라 부서코드 콤보박스 리스트를 변경

@@ -194,7 +194,7 @@
             this.상위부서gridcontrol.Location = new System.Drawing.Point(20, 20);
             this.상위부서gridcontrol.MainView = this.상위부서gridview;
             this.상위부서gridcontrol.Name = "상위부서gridcontrol";
-            this.상위부서gridcontrol.Size = new System.Drawing.Size(360, 269);
+            this.상위부서gridcontrol.Size = new System.Drawing.Size(361, 269);
             this.상위부서gridcontrol.TabIndex = 1;
             this.상위부서gridcontrol.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.상위부서gridview});
@@ -216,7 +216,6 @@
             // 상위부서코드
             // 
             this.상위부서코드.Caption = "상위부서코드";
-            this.상위부서코드.FieldName = "ParentDeptCode";
             this.상위부서코드.Name = "상위부서코드";
             this.상위부서코드.Visible = true;
             this.상위부서코드.VisibleIndex = 0;
@@ -224,7 +223,6 @@
             // 상위부서명
             // 
             this.상위부서명.Caption = "상위부서명";
-            this.상위부서명.FieldName = "ParentDeptName";
             this.상위부서명.Name = "상위부서명";
             this.상위부서명.Visible = true;
             this.상위부서명.VisibleIndex = 1;
@@ -232,7 +230,6 @@
             // 상위메모
             // 
             this.상위메모.Caption = "메모";
-            this.상위메모.FieldName = "ParentMemo";
             this.상위메모.Name = "상위메모";
             this.상위메모.Visible = true;
             this.상위메모.VisibleIndex = 2;
@@ -243,7 +240,7 @@
             this.부서gridcontrol.Location = new System.Drawing.Point(20, 20);
             this.부서gridcontrol.MainView = this.부서view;
             this.부서gridcontrol.Name = "부서gridcontrol";
-            this.부서gridcontrol.Size = new System.Drawing.Size(346, 269);
+            this.부서gridcontrol.Size = new System.Drawing.Size(345, 269);
             this.부서gridcontrol.TabIndex = 0;
             this.부서gridcontrol.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.부서view});
@@ -265,7 +262,6 @@
             // 부서코드
             // 
             this.부서코드.Caption = "부서코드";
-            this.부서코드.FieldName = "DeptCode";
             this.부서코드.Name = "부서코드";
             this.부서코드.Visible = true;
             this.부서코드.VisibleIndex = 0;
@@ -273,7 +269,6 @@
             // 부서명
             // 
             this.부서명.Caption = "부서명";
-            this.부서명.FieldName = "DeptName";
             this.부서명.Name = "부서명";
             this.부서명.Visible = true;
             this.부서명.VisibleIndex = 1;
@@ -281,7 +276,6 @@
             // 메모
             // 
             this.메모.Caption = "메모";
-            this.메모.FieldName = "Memo";
             this.메모.Name = "메모";
             this.메모.Visible = true;
             this.메모.VisibleIndex = 2;

@@ -25,6 +25,13 @@ namespace WindowsFormsApp2.Forms
             this.상위부서btn.Click += 상위부서btn_Click;
             this.트리btn.Click += 트리btn_Click;
             this.차트btn.Click += 차트btn_Click;
+            this.상위부서gridview.FocusedColumnChanged += 상위부서gridView_FocusedRowObjectChanged;
+            상위부서코드.FieldName = nameof(DepartmentDto.DeptCode);
+            상위부서명.FieldName = nameof(DepartmentDto.DeptName);
+            상위메모.FieldName = nameof(DepartmentDto.Memo);
+            부서코드.FieldName = nameof(DepartmentDto.DeptCode);
+            부서명.FieldName = nameof(DepartmentDto.DeptName);
+            메모.FieldName = nameof(DepartmentDto.Memo);
         }
 
 
@@ -46,12 +53,24 @@ namespace WindowsFormsApp2.Forms
             try
             {
                 상위부서gridcontrol.DataSource = await new DeptService().GetParentAsync();
-                부서gridcontrol.DataSource = await new DeptService().GetAllAsync();
+                
             }
             catch
             {
                 MessageBox.Show("목록 갱신을 실패하였습니다.");
             }
+        }
+
+        // 상위부서 선택시 하위 부서 조회
+        private async void 상위부서gridView_FocusedRowObjectChanged (object sender, EventArgs e)
+        {
+            DepartmentDto parent = 상위부서gridview.GetFocusedRow() as DepartmentDto;
+            if (parent != null)
+            {
+                부서gridcontrol.Data
+            }
+
+            
         }
 
         // 닫기
@@ -158,5 +177,7 @@ namespace WindowsFormsApp2.Forms
             DeptChart C = new DeptChart();
             C.ShowDialog();
         }
+
+ 
     }
 }

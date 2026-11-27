@@ -9,7 +9,7 @@ namespace WindowsFormsApp2.Forms
 {
     public partial class ParentDeptForm : Form
     {
-        private ParentDepartmentDto Row => 그리드뷰.GetFocusedRow() as ParentDepartmentDto;
+        private DepartmentDto Row => 그리드뷰.GetFocusedRow() as DepartmentDto;
         public ParentDeptForm()
         {
             InitializeComponent();
@@ -20,6 +20,9 @@ namespace WindowsFormsApp2.Forms
             this.수정btn.Click += 수정btn_Click;
             this.추가btn.Click += 추가btn_Click;
             this.자료변환btn.Click += 자료변환btn_Click;
+            상위부서코드.FieldName = nameof(DepartmentDto.DeptCode);
+            상위부서명.FieldName = nameof(DepartmentDto.DeptName);
+            상위메모.FieldName = nameof(DepartmentDto.Memo);
         }
 
         private async void 상위부서폼_Load(object sender, EventArgs e)
@@ -62,8 +65,8 @@ namespace WindowsFormsApp2.Forms
             }
 
             string title = "상위 부서 삭제";
-            string msg = "상위부서코드: " + Row.ParentDeptCode + "\n" +
-                      "상위부서명: " + Row.ParentDeptName + "\n\n" +
+            string msg = "상위부서코드: " + Row.DeptCode + "\n" +
+                      "상위부서명: " + Row.DeptName + "\n\n" +
                       "삭제하시겠습니까?";
 
             DeleteForm D = new DeleteForm(title, msg);
@@ -75,7 +78,7 @@ namespace WindowsFormsApp2.Forms
                 삭제btn.Enabled = false;
                 try
                 {
-                    await new ParentService().DeleteAsync(Row.ParentDeptId);
+                    await new DeptService().DeleteAsync(Row.DeptId);
                     MessageBox.Show("삭제가 완료되었습니다.");
                     await GridUpdateAsync();
                 }
